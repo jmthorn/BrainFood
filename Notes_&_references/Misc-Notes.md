@@ -11,14 +11,14 @@ MVP(Minimum Viable Product) requirements
 Brain Food
 Scrum Master - Jessica
 
-MVP- 
+MVP-
 https://github.com/appacademy-starters/express-project-planning-example/wiki/MVP-Feature-List
 
 Account Creation Login/Log out
 
 Reading Goals
 Does a check based on how many books were read in current timespan
-User sets a status on each book when you set up (Read, Want to Read, Reading, Not interested) 
+User sets a status on each book when you set up (Read, Want to Read, Reading, Not interested)
 
 Show-Books-Bookshelf page
 
@@ -32,5 +32,3 @@ Browse
 Community
 
 Security/Authentication - BCrypt
-
-
