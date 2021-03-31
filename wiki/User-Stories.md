@@ -6,7 +6,7 @@
 
 - As an unregistered and unauthorized user, I want to be able to sign up for the website via a sign-up form.
   - When I'm on the `/signup` page:
-    - I would like to be able to enter my email, username, and preferred password on a clearly laid out form.
+    - I would like to be able to enter my email, username, preferred password, and confirmed password on a clearly laid out form.
     - I would like the website to log me in upon successful completion of the sign-up form.
       - So that I can seamlessly access the site's functionality
   - When I enter invalid data on the sign-up form:
