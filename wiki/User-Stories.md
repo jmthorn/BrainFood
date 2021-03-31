@@ -57,8 +57,7 @@
 - As a logged in _or_ logged out user, I want to be able to view a selection of the most recent FauxTweets.
 
   - When I'm on the `/books` page:
-    - I can view the ten most recently posted FauxTweets.
-      - So that I can read and interact with the thoughts and memes of my friends.
+    - I can view
 
 - As a logged in _or_ logged out user, I want to be able to view a specific book and its associated comments.
   - When I'm on the `/books/:id` page:
