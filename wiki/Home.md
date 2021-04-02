@@ -7,7 +7,7 @@ create a collection of books that they've read, want to read or are currently re
 then publicly share reviews that can be viewed by other
 users.
 
-## [Feature List]
+## [Feature List](https://github.com/jmthorn/BrainFood/blob/main/wiki/MVP-Feature-List.md)
 
 List of features needed for the minimum viable product, MVP
 
@@ -15,7 +15,7 @@ List of features needed for the minimum viable product, MVP
 
 List of user stories for each feature and their respective acceptance criteria
 
-## [Database Schema]
+## [Database Schema](https://github.com/jmthorn/BrainFood/wiki/Database-Schema)
 
 Schema of the PostgresQL database
 
