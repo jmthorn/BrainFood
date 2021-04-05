@@ -10,7 +10,7 @@ const db = require('../db/models');
 
 /* GET users listing. */
 
-router.get('/user/signup', csrfProtection, (req, res) => {
+router.get('/signup', csrfProtection, (req, res) => {
   const user = db.User.build();
   res.render('signup', {
     title: 'Signup',
@@ -63,7 +63,7 @@ const userValidators = [
 
 
 
-router.post('/user/signup', csrfProtection, userValidators, asyncHandler(async (req, res) => {
+router.post('/signup', csrfProtection, userValidators, asyncHandler(async (req, res) => {
   const { username, email, password } = req.body;
   const user = db.User.build({ username, email })
 
@@ -87,9 +87,9 @@ router.post('/user/signup', csrfProtection, userValidators, asyncHandler(async (
 }))
 
 
-router.get('/user/login', csrfProtection, (req, res) =>  {
-  res.render('login', { 
-    title: 'Login', 
+router.get('/login', csrfProtection, (req, res) =>  {
+  res.render('login', {
+    title: 'Login',
     csrfToken: req.csrfToken()
   })
 })
@@ -104,37 +104,42 @@ const loginValidators = [
     .withMessage('Please provide a value for password')
 ]
 
-router.post('/user/login', csrfProtection, loginValidators, asyncHandler(async(req, res) => {
+router.post('/login', csrfProtection, loginValidators, asyncHandler(async(req, res) => {
   const { username, password } = req.body;
 
   let errors = [];
   const validatorErrors = validationResult(req);
 
-  if(validatorErrors.isEmpty()) { 
+  if(validatorErrors.isEmpty()) {
     const user = await db.User.findOne({where: {username}})
 
-    if(user != null) { 
+    if(user != null) {
       const passwordMatch = await bcrypt.compare(password, user.hashedPassword.toString());
 
-      if(passwordMatch) { 
+      if(passwordMatch) {
         loginUser(req, res, user);
         return res.redirect('/')
       }
     }
-    
+
     errors.push('Login failed for the provided username and password');
-  }else { 
+  }else {
     errors = validatorErrors.array().map((error) => error.msg)
   }
-   
-  res.render('login', { 
-    title: 'Login', 
-    username, 
-    errors, 
+
+  res.render('login', {
+    title: 'Login',
+    username,
+    errors,
     csrfToken: req.csrfToken()
   })
 }))
 
+
+router.post('/logout', (req, res) => {
+  logoutUser(req, res);
+  res.redirect('/users/login')                 // pug file that it is referencing
+});
 
 
 
