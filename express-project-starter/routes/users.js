@@ -18,7 +18,7 @@ router.get('/user/signup', csrfProtection, (req, res) => {
     csrfToken: req.csrfToken(),
   });
 });
-
+//banana
 const userValidators = [
   check('username')
    .exists({ checkFalsy: true})
