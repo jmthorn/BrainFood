@@ -13,7 +13,7 @@ const db = require('../db/models');
 router.get('/signup', csrfProtection, (req, res) => {
   const user = db.User.build();
   console.log(user)
-  res.render('signup', {
+  res.render('user-signup', {
     title: 'Signup',
     user,
     csrfToken: req.csrfToken(),
@@ -79,7 +79,7 @@ router.post('/signup', csrfProtection, userValidators, asyncHandler(async (req, 
     res.redirect("/");
   } else {
     const errors = validatorErrors.array().map((err) => err.msg);
-    res.render("signup", {
+    res.render("user-signup", {
       title: 'Signup',
       user,
       errors,
@@ -90,7 +90,7 @@ router.post('/signup', csrfProtection, userValidators, asyncHandler(async (req, 
 
 
 router.get('/login', csrfProtection, (req, res) =>  {
-  res.render('login', {
+  res.render('user-login', {
     title: 'Login',
     csrfToken: req.csrfToken()
   })
