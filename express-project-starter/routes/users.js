@@ -12,7 +12,8 @@ const db = require('../db/models');
 
 router.get('/signup', csrfProtection, (req, res) => {
   const user = db.User.build();
-  res.render('signup', {
+  console.log("USER................",user)
+  res.render('user-signup', {
     title: 'Signup',
     user,
     csrfToken: req.csrfToken(),
@@ -34,7 +35,7 @@ const userValidators = [
     .isEmail()
     .withMessage('Provided email is not a valid email')
     .custom((value) => {
-      return db.User.findOne({ where: { emailAddress: value } })
+      return db.User.findOne({ where: { email: value } })
         .then((user) => {
           if (user) {
             return Promise.reject('The provided email is already in use by another account');
@@ -72,23 +73,24 @@ router.post('/signup', csrfProtection, userValidators, asyncHandler(async (req, 
   if (validatorErrors.isEmpty()) {
     const hashedPassword = await bcrypt.hash(password, 10);
     user.hashedPassword = hashedPassword;
+    console.log("USER",user)
     await user.save();
     loginUser(req, res, user);
     res.redirect("/");
   } else {
     const errors = validatorErrors.array().map((err) => err.msg);
-    res.render("signup", {
+    res.render("user-signup", {
       title: 'Signup',
       user,
       errors,
-      csrfToken: req.csrfToken
+      csrfToken: req.csrfToken()
     })
   }
 }))
 
 
 router.get('/login', csrfProtection, (req, res) =>  {
-  res.render('login', {
+  res.render('user-login', {
     title: 'Login',
     csrfToken: req.csrfToken()
   })
