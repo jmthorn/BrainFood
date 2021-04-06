@@ -12,6 +12,7 @@ const db = require('../db/models');
 
 router.get('/signup', csrfProtection, (req, res) => {
   const user = db.User.build();
+  console.log(user)
   res.render('signup', {
     title: 'Signup',
     user,
@@ -72,6 +73,7 @@ router.post('/signup', csrfProtection, userValidators, asyncHandler(async (req, 
   if (validatorErrors.isEmpty()) {
     const hashedPassword = await bcrypt.hash(password, 10);
     user.hashedPassword = hashedPassword;
+    console.log("USER",user)
     await user.save();
     loginUser(req, res, user);
     res.redirect("/");
@@ -81,7 +83,7 @@ router.post('/signup', csrfProtection, userValidators, asyncHandler(async (req, 
       title: 'Signup',
       user,
       errors,
-      csrfToken: req.csrfToken
+      csrfToken: req.csrfToken()
     })
   }
 }))
