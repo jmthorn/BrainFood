@@ -2,9 +2,11 @@ extends layout.pug
 
 include utils.pug
 
+
 block content
+  div(class="img-container")
+    img(src="./images/logotemp-1.png" alt="No image" width="200px" height="200px")
   +validationErrorSummary(errors)
-  img(src="/images/logotemp-1.png" alt="Image Not Found" )
   div(class="form-container")
     form(action='/users/signup' method='post')
       input(type='hidden' name='_csrf' value=csrfToken)
@@ -13,9 +15,9 @@ block content
       +field('Password', 'password', user.password, 'password')
       +field('Confirm Password', 'confirmPassword', '', 'password')
       div(class='submit-div')
-        button(type='submit' class='btn submit') Sign Up 
-        a(href='/users/signup' class='a clear') Clear 
-    div 
+        button(type='submit' class='btn submit') Sign Up
+        a(href='/users/signup' class='a clear') Clear
+    div
       p: a(href="/user/login") Already have an account?
     div
       button(type='button' id='demo-button') Demo User

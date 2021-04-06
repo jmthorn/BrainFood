@@ -49,3 +49,7 @@ textarea {
   font-family: inherit;
   font-size: inherit;
 }
+
+.img-container{
+  background-color: green;
+}
