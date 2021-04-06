@@ -1,0 +1,27 @@
+doctype html
+html
+  head
+      block head
+        title="Express Starter App"
+        link(rel='stylesheet' href='/stylesheets/reset.css')
+  body
+    nav(class= 'navbar')
+      a(class='navbar-logo' href='/') BrainFood 
+      div(class='navbar-options' id='options')
+        ul(class='navbar-list')
+          li(class='nav-option'): a(class='nav-link' href="/bookshelves") Home
+          li(class='nav-option'): a(class='nav-link'href="/bookshelves") My Books 
+          li(class='nav-option'): input(type="search" name="term" placeholder="Search" required)
+        if locals.authenticated 
+          span(id='welcome-text') Welcome #{user.username}!
+          form(class='logout-form' action='/user/logout' method='post')
+            button(type='submit') Logout
+        else 
+          span
+            a(href="/user/login") Login 
+            a(href="/user/signup") Register 
+
+
+
+
+    block content
