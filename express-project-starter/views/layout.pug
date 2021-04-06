@@ -7,6 +7,7 @@ html
   body
     nav(class= 'navbar')
 <<<<<<< HEAD
+<<<<<<< HEAD
       a(class='navbar-logo' href='/') BrainFood
       div(class='navbar-options' id='options')
         ul(class='navbar-list')
@@ -24,22 +25,31 @@ html
             a(href="/user/signup") Register
 =======
       a(class='navbar-logo' href='/') BrainFood 
+=======
+      a(class='navbar-logo' href='/') BrainFood
+>>>>>>> cc66d6d (Added profile button to navbar)
       div(class='navbar-options' id='options')
         ul(class='navbar-list')
           li(class='nav-option'): a(class='nav-link' href="/bookshelves") Home
-          li(class='nav-option'): a(class='nav-link'href="/bookshelves") My Books 
+          li(class='nav-option'): a(class='nav-link'href="/bookshelves") My Books
           li(class='nav-option'): input(type="search" name="term" placeholder="Search" required)
-        if locals.authenticated 
+        if locals.authenticated
           span(id='welcome-text') Welcome #{user.username}!
           form(class='logout-form' action='/user/logout' method='post')
-            button(type='submit') Logout
-        else 
+            a(class= 'nav-link' id="profile-btn" href='/user/profile' ) Profile
+            button(type='submit' class='nav-link') Logout
+        else
           span
+<<<<<<< HEAD
             a(href="/user/login") Login 
             a(href="/user/signup") Register 
 
 
 
 >>>>>>> 7755bbe (beginning work on navbar)
+=======
+            a(href="/user/login") Login
+            a(href="/user/signup") Register
+>>>>>>> cc66d6d (Added profile button to navbar)
 
     block content
