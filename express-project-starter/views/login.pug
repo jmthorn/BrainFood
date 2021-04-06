@@ -3,7 +3,7 @@ extends layout.pug
 include utils.pug
 
 block content
-  +validationErrorsSummary(errors)
+  +validationErrorSummary(errors)
   form(action="/users/login" method="post")
     input(type="hidden" name="_csurf" value=csrfToken)
     +field("Username", "username", username)
