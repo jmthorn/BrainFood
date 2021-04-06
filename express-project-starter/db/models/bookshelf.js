@@ -6,6 +6,13 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Bookshelf.associate = function(models) {
     // associations can be defined here
+    const columnMapping = { 
+      through:  "Bookshelves-to-Books",
+      otherKey: "bookId",
+      foreignKey: "bookshelfId"
+    }
+    Bookshelf.hasMany(models.Book, columnMapping)
+    Bookshelf.belongsTo(models.User, { foreignKey: "userId"})
   };
   return Bookshelf;
 };
