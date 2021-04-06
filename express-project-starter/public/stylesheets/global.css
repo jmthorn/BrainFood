@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
+
 * {
-  font-family: "San Francisco", Helvetica, Arial, sans-serif;
+  font-family: "Noto Sans JP", "San Francisco", Helvetica, Arial, sans-serif;
   font-weight: 300;
   margin: 0;
   box-sizing: border-box;
