@@ -1,8 +1,0 @@
-.nav {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: space-between;
-  font-size: 16px;
-  color: red;
-}

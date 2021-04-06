@@ -1,0 +1,45 @@
+nav {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  /* flex-direction: row;
+  flex-wrap: nowrap; */
+  /* grid-template-columns: 100% 10% 10% 10% 10% 10% 10% 10%;  
+  grid-template-rows: auto;
+  border: solid black;
+  justify-content: space-around;
+  font-size: 16px;
+  color: red;
+  /* grid-template-areas: 
+  "navbar-brainfood navbar-home navbar-my-books navbar-search navbar-profile navbar-logout navbar-login" */
+  /* "navbar-brainfood navbar-home navbar-my-books navbar-search navbar-search navbar-welcome-text navbar-profile navbar-logout navbar-login navbar-register"; */
+}
+
+#nav-left {
+    /* grid-area: navbar-brainfood; */
+    width: 20%;
+    left: 50px;
+    display: flex;
+    justify-content: space-around;
+}
+
+#nav-middle {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#nav-right {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#navbar-search {
+    height: 30px;
+    width: 300px;
+}
+
+#navbar-home {
+  /* grid-area: navbar-home;    */
+  display: flex;
+  justify-self: start;
+} 
