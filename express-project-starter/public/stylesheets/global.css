@@ -1,0 +1,36 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+.form-container {
+  background-color: lightgray;
+  margin: auto 0;
+  border: solid black 1px;
+  border-radius: 5px;
+  padding: 10px;
+  display: block;
+  text-align: center;
+  width: 500px;
+}
+
+form {
+  display: inline-block;
+  text-align: left;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+label {
+  padding: 10px;
+}
+
+input,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+}
