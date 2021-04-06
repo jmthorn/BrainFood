@@ -4,6 +4,7 @@ body {
 }
 
 a {
+  background-color: yellow;
   color: #00B7FF;
 }
 
@@ -24,4 +25,9 @@ body, header, nav {
 
 h1 {
   font-size: 2rem;
+}
+
+.form {
+  background-color: yellow;
+  margin: auto;
 }
