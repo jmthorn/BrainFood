@@ -3,19 +3,19 @@ html
   head
       block head
         title="Express Starter App"
-        link(rel='stylesheet' href='/stylesheets/reset.css')
+        link(rel='stylesheet' href='./styles/layout.css')
   body
-    nav(class= 'navbar')
+    nav(class='navbar')
       a(class='navbar-logo' href='/') BrainFood
       div(class='navbar-options' id='options')
         ul(class='navbar-list')
           li(class='nav-option'): a(class='nav-link' href="/bookshelves") Home
-          li(class='nav-option'): a(class='nav-link'href="/bookshelves") My Books
+          li(class='nav-option'): a(class='nav-link' href="/bookshelves") My Books
           li(class='nav-option'): input(type="search" name="term" placeholder="Search" required)
+          li(class='nav-option'): a(class= 'nav-link' id="profile-btn" href='/user/profile' ) Profile
         if locals.authenticated
           span(id='welcome-text') Welcome #{user.username}!
           form(class='logout-form' action='/user/logout' method='post')
-            a(class= 'nav-link' id="profile-btn" href='/user/profile' ) Profile
             button(type='submit' class='nav-link') Logout
         else
           span
