@@ -35,7 +35,7 @@ const userValidators = [
     .isEmail()
     .withMessage('Provided email is not a valid email')
     .custom((value) => {
-      return db.User.findOne({ where: { emailAddress: value } })
+      return db.User.findOne({ where: { email: value } })
         .then((user) => {
           if (user) {
             return Promise.reject('The provided email is already in use by another account');
