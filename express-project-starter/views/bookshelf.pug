@@ -11,6 +11,7 @@ block content
     div(id='add-books') Add Books
     div(id='tools') Tools
 
+if books
     div(id='main-table')
       table(class='book_table')
         thead(class='book_thead')
@@ -40,3 +41,5 @@ block content
             tr= book.updatedAt
             //- check for line 35 and determine how to use it properly.
             tr= book.createdAt
+else 
+  div You don't have any bookshelves! Click here to add one.
