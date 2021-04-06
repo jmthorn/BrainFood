@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-  up: async (queryInterface, Sequelize) => {
+  up: (queryInterface, Sequelize) => {
     /*
       Add altering commands here.
       Return a promise to correctly handle asynchronicity.
@@ -11,19 +11,30 @@ module.exports = {
         name: 'John Doe',
         isBetaMember: false
       }], {});
-    */const books = return queryInterface.bulkInsert(
+    */return queryInterface.bulkInsert(
       'Books',
-      [ { cover: "Cover", title: "The Republic", author: "Plato", avg_rating: 3.95, published: -380},
-{ cover:"Cover", title: "Meditations", author: "Marcus Aurelius", avg_rating: 4.22, published: 180},
-{ cover:"Cover", title: "Thus Spoke Zarathustra", author: "Friedrich Nietzsche", avg_rating: 4.05, published: 1883},
-{ cover:"Cover", title: "Beyond Good and Evil", author: "Friedrich Nietzsche", avg_rating: 4.00, published: 1886},
-{ cover:"Cover", title: "The Stranger", author: "Albert Camus", avg_rating: 3.99, published: 1942 },
-{ cover:"Cover", title: "The Art of War", author: "Sun Tzu", avg_rating: 3.97, published: -500 },
-{ cover:"Cover", title: "Siddhartha", author: "Hermann Hesse", avg_rating: 4.04, published: 1922 },
-{ cover:"Cover", title: "Critique of Pure Reason", author: "Immanuel Kant", avg_rating: 3.96 ,published:  1781 },
-{ cover:"Cover", title: "Being and Time", author: "Martin Heidegger", avg_rating: 4.03, published: 1927 },
-{ cover:"Cover", title: "Candide", author: "Voltaire", avg_rating: 3.77, published: 1759 },
-{ cover:"Cover", title: "Being and Nothingness", author: "Soren Kierkegaard", avg_rating: 3.97, published: 1943 }
+[ { cover: "Cover", title: "The Republic", author: "Plato",published: 380, avg_rating: 3.95, createdAt: new Date(),
+        updatedAt: new Date() },
+{ cover:"Cover", title: "Meditations", author: "Marcus Aurelius",published: 180, avg_rating: 4.22, createdAt: new Date(),
+        updatedAt: new Date() },
+{ cover:"Cover", title: "Thus Spoke Zarathustra", author: "Friedrich Nietzsche", published: 1883,avg_rating: 4.05, createdAt: new Date(),
+        updatedAt: new Date() },
+{ cover:"Cover", title: "Beyond Good and Evil", author: "Friedrich Nietzsche", published: 1886, avg_rating: 4.00, createdAt: new Date(),
+        updatedAt: new Date() },
+{ cover:"Cover", title: "The Stranger", author: "Albert Camus",published: 1942, avg_rating: 3.99, createdAt: new Date(),
+        updatedAt: new Date()  },
+{ cover:"Cover", title: "The Art of War", author: "Sun Tzu",published: 500, avg_rating: 3.97, createdAt: new Date(),
+        updatedAt: new Date()  },
+{ cover:"Cover", title: "Siddhartha", author: "Hermann Hesse", published: 1922, avg_rating: 4.04, createdAt: new Date(),
+        updatedAt: new Date()  },
+{ cover:"Cover", title: "Critique of Pure Reason", author: "Immanuel Kant", published: 1781, avg_rating: 3.96, createdAt: new Date(),
+        updatedAt: new Date() },
+{ cover:"Cover", title: "Being and Time", author: "Martin Heidegger", published: 1927, avg_rating: 4.03, createdAt: new Date(),
+        updatedAt: new Date()  },
+{ cover:"Cover", title: "Candide", author: "Voltaire",published: 1759, avg_rating: 3.77, createdAt: new Date(),
+        updatedAt: new Date()  },
+{ cover:"Cover", title: "Being and Nothingness", author: "Soren Kierkegaard",published: 1943, avg_rating: 3.97, createdAt: new Date(),
+        updatedAt: new Date()  }
 ],
       {}
     );

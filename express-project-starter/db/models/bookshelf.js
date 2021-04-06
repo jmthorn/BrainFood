@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
       otherKey: "bookId",
       foreignKey: "bookshelfId"
     }
-    Bookshelf.hasMany(models.Book, columnMapping)
+    Bookshelf.belongsToMany(models.Book, columnMapping)
     Bookshelf.belongsTo(models.User, { foreignKey: "userId"})
   };
   return Bookshelf;

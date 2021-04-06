@@ -20,7 +20,7 @@ module.exports = {
         allowNull: false
       },
       published: {
-        type: Sequelize.DATE,
+        type: Sequelize.INTEGER,
         allowNull: true
       },
       avg_rating: {

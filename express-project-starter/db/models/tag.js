@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
       otherKey: "bookId",
       foreignKey: "tagId"
     }
-    Tag.hasMany(models.Book, columnMapping)
+    Tag.belongsToMany(models.Book, columnMapping)
   };
   return Tag;
 };
