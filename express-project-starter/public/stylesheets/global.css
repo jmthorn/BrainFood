@@ -1,6 +1,5 @@
 * {
-  font-family: -apple-system, BlinkMacSystemFont, "San Francisco", Helvetica,
-    Arial, sans-serif;
+  font-family: "San Francisco", Helvetica, Arial, sans-serif;
   font-weight: 300;
   margin: 0;
   box-sizing: border-box;
@@ -14,11 +13,11 @@ body {
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
-  background-color: rgb(213, 205, 205);
+  background-color: white;
 }
 
 .form-container {
-  background-color: white;
+  background-color: #8e9aaf;
   margin: 20px auto;
   border: solid black 1px;
   border-radius: 5px;
@@ -79,13 +78,13 @@ textarea {
 }
 
 .clear {
-  color: rgb(85, 232, 193);
+  color: white;
   text-decoration: none;
   padding: 5px;
 }
 
 .sub-form a {
-  color: rgb(171, 232, 85);
+  color: white;
   text-decoration: none;
 }
 
@@ -101,6 +100,6 @@ textarea {
 .user-content-container {
   display: flex;
   flex-direction: column;
-  align-content: start;
-  margin: 100px auto;
+  justify-content: start;
+  margin: 100px auto auto;
 }
