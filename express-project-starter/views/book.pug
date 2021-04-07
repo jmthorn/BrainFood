@@ -22,7 +22,7 @@ block content
 
             div(class="form-container hidden-form")
                 h1(class="form-header") Edit Book
-                form(action=`/books/${book.id}` method="put" class="user-form")
+                form(action=`/books/${book.id}` method="post" class="user-form")
                     +field("Cover", "cover", book.cover)
                     +field("Title", "title", book.title)
                     +field("Author", "author", book.author)

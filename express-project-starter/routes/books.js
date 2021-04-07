@@ -22,15 +22,14 @@ router.get("/:id", asyncHandler(async (req, res) => {
 }))
 
 
-router.put("/:id", asyncHandler(async (req, res) => {
+router.post("/:id", asyncHandler(async (req, res) => {
     let bookId = parseInt(req.params.id, 10)
-    // let book = await db.Book.findByPk(bookId)
+    let book = await db.Book.findByPk(bookId)
     const { cover, title, author, published, description } = req.body
+    console.log(req.body)
     // await book.update({ cover, title, author, published, description });
-    let book = await db.Book.update({ cover, title, author, published, description }, {
-        where: { bookId }
-    })
-    res.redirect(`books/${bookId}`)
+    await book.update({ cover, title, author, published, description })
+    res.redirect(`/books/${bookId}`)
 }))
 
 
