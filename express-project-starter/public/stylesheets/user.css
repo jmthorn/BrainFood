@@ -19,12 +19,11 @@ form {
   padding: 20px;
 }
 
-label {
+.user-label {
   padding: 10px;
 }
 
-input,
-textarea {
+.form-control {
   font-family: inherit;
   font-size: inherit;
   align-items: right;
