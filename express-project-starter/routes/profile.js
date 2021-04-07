@@ -8,6 +8,15 @@ const { check, validationResult } = require('express-validator');
 const db = require('../db/models');
 
 
-router.get('/', csrfProtection, asyncHandler(async(req, res) => {
+router.get('/', (req, res) => {
   res.render('profile')
-}))
+})
+
+
+// router.delete('/:id', asyncHandler(async(req, res) => {
+//   // const person =
+
+// }))
+
+
+module.exports = router;

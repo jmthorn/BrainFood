@@ -1,0 +1,19 @@
+.center-info{
+  display:flex;
+  flex-direction: column;
+  font-size: 30px;
+  color:black;
+  width: 40%;
+}
+
+
+#details {
+  font-size: 30px;
+  color:black
+}
+
+
+#Activity {
+  font-size: 30px;
+  color:black
+}
