@@ -1,0 +1,21 @@
+#my-books-div {
+    display: grid;
+    grid-template-areas: 
+    "1 2 3 table table table table table",
+    "1 2 3 table table table table table",
+    "1 2 3 table table table table table",
+    "1 2 3 table table table table table";
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+}
+
+#bookshelves-div {
+    grid-row-start: 3;
+    grid-column-start: 2;
+    justify-self: start;
+}
+
+#main-table {
+    grid-area: table;
+    justify-self: start;
+}
