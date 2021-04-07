@@ -19,7 +19,7 @@ const db = require('../db/models');
 
 /* GET bookshelves. */
 
-router.get('/bookshelves', asyncHandler(async (req, res) => {
+router.get('/', asyncHandler(async (req, res) => {
   const bookshelves = await db.Bookshelf.findAll();
   // const bookshelfId = parseInt(req.params.bookshelfId, 10);
   // const books = await db.Book.findAll({
@@ -29,8 +29,8 @@ router.get('/bookshelves', asyncHandler(async (req, res) => {
   //   include: Bookshelf,
   // });
 
-  
-  
+
+
   res.render('bookshelf', {
    // bookshelves,
     //books

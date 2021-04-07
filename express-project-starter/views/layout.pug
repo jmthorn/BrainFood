@@ -6,14 +6,31 @@ html
         link(rel='stylesheet' href='/stylesheets/navbar.css')
   body
     nav(class='navbar')
-      div(id='nav-left' )
-        a(class='navbar-logo' id='navbar-brainfood' href='/') BrainFood
-        a(class='nav-link' id='navbar-home' href="/bookshelves") Home
-        a(class='nav-link' href="/bookshelves") My Books
-      div(id='nav-middle' ) 
+      div(class='nav-left overlay' )
+        div(class='nav-buttons-div')
+          a(id='navbar-brainfood' href='/') BrainFood
+        //- a(class='navbar-logo' id='navbar-brainfood overylay' href='/') BrainFood
+        div(class='nav-buttons-div')
+          a(class='nav-link' id='navbar-home overylay' href="/") Home
+        div(class='nav-buttons-div')
+          a(class='nav-link' id='navbar-mybooks overylay' href="/bookshelves") My Books
+      div(id='nav-middle' )
         input(type="search" name="term" id='navbar-search' placeholder="Search" required)
       div(id='nav-right' class='navbar-profile')
-        a(class= 'nav-link' id="profile-btn" href='/user/profile' ) Profile
+        div(class='nav-buttons-div')
+          a(class= 'nav-link' id="navbar-profile-btn overylay" href='/user/profile' ) Profile
+
+
+
+
+
+
+
+
+
+
+
+        //- a(class= 'nav-link' id="navbar-login-btn" href='/user/profile' ) Profile
           //-  if locals.authenticated
           //-   span(id='navbar-welcome-text') Welcome #{user.username}!
           //-   form(class='logout-form' action='/user/logout' method='post')

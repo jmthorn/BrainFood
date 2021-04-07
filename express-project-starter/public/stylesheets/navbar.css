@@ -2,25 +2,30 @@ nav {
   display: flex;
   justify-content: space-evenly;
   flex-direction: row;
+  background-color: #EFD3D7;
+  align-items: center;
+  font-family: sans-serif;
+  height: 60px;
+  /* text-decoration: none; */
   /* flex-direction: row;
   flex-wrap: nowrap; */
-  /* grid-template-columns: 100% 10% 10% 10% 10% 10% 10% 10%;  
+  /* grid-template-columns: 100% 10% 10% 10% 10% 10% 10% 10%;
   grid-template-rows: auto;
   border: solid black;
   justify-content: space-around;
   font-size: 16px;
   color: red;
-  /* grid-template-areas: 
+  /* grid-template-areas:
   "navbar-brainfood navbar-home navbar-my-books navbar-search navbar-profile navbar-logout navbar-login" */
   /* "navbar-brainfood navbar-home navbar-my-books navbar-search navbar-search navbar-welcome-text navbar-profile navbar-logout navbar-login navbar-register"; */
 }
 
-#nav-left {
+.nav-left{
     /* grid-area: navbar-brainfood; */
-    width: 20%;
-    left: 50px;
+    width: 40%;
     display: flex;
     justify-content: space-around;
+    font-size: 25px;
 }
 
 #nav-middle {
@@ -35,11 +40,43 @@ nav {
 
 #navbar-search {
     height: 30px;
-    width: 300px;
+    width: 400px;
 }
+
+
+.navbar .nav-buttons-div{
+  height: 60px;
+  padding: 5px;
+  display:flex;
+  align-items: center;
+  /* background-color:gray; */
+
+}
+
+.navbar .nav-buttons-div:hover {
+  text-decoration: none;
+  background-color: rgba(12, 8, 4, 0.7);
+  color: white;
+}
+
+
+#navbar-brainfood{
+  text-decoration: none;
+}
+
 
 #navbar-home {
   /* grid-area: navbar-home;    */
   display: flex;
   justify-self: start;
-} 
+  text-decoration: none;
+}
+
+
+#navbar-mybooks{
+  text-decoration: none;
+}
+
+#navbar-profile-btn{
+  text-decoration: none;
+}
