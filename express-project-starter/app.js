@@ -42,7 +42,7 @@ store.sync();
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/bookshelves', bookshelvesRouter);
-// app.use('/books', booksRouter)
+app.use('/books', booksRouter)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

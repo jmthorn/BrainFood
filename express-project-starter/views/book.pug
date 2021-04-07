@@ -1,0 +1,13 @@
+extends layout.pug
+
+append head
+   link(rel='stylesheet' href='/stylesheets/book.css')
+   link(rel="preconnect", href="https://fonts.gstatic.com")
+   link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap")
+   script(src='/javascripts/book.js' type='module')
+
+block content
+    div(class="book-container")
+        div(class="book-cover")
+            img(src=book.cover)
+    div(class ="book-sidebar")
