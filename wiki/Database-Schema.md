@@ -11,7 +11,7 @@
 | id             | integer   | not null, primary key |
 | username       | string    | not null,             |
 | email          | string    | not null, unique      |
-| hashedPassword | string    | not null, unique      |
+| hashedpassword | string    | not null, unique      |
 
 ## `Book`
 
