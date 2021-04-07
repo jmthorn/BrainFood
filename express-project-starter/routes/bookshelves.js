@@ -125,11 +125,12 @@ router.delete("/:id", asyncHandler(async (req, res) => {
 router.post("/add-shelf", asyncHandler(async (req, res) => {
   
   const {
-    name
+    name,
+    id,
   } = req.body;
-
-  const bookshelf = await db.Bookshelf.build({
-    name
+  const bookshelf = db.Bookshelf.build({
+    name,
+    id,
   });
 
   await bookshelf.save();
