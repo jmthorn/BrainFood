@@ -24,7 +24,7 @@ router.get('/', asyncHandler(async (req, res) => {
   const bookshelves = await db.Bookshelf.findAll();
   const books = await db.Book.findAll();
   // const bookshelfId = parseInt(req.params.bookshelfId, 10);
-  // const books = await db.Book.findAll({
+  // const books = await db.Bookshelf.findAll({
   //   where: {
   //     bookshelfId,
   //   },
@@ -32,8 +32,8 @@ router.get('/', asyncHandler(async (req, res) => {
   // });
 //console.log(bookshelves);
   res.render('bookshelf', {
-   // bookshelves,
-   books
+  //  bookshelves,
+    books
   })
 })) 
 
@@ -58,11 +58,30 @@ router.delete("/:id", asyncHandler(async (req, res) => {
   })
 );
 
-router.get('/add-book', asyncHandler(async (req, res) => {
+router.get('/add-book', csrfProtection, asyncHandler(async (req, res) => {
   const book = db.Book.build();
-  res.render('add-book-to-bookshelf', {
+  res.render('add-book', {
     book,
+    csrfToken: req.csrfToken(),
   });
+}))
+
+//Add a specific Book
+router.post('/add-book', csrfProtection, asyncHandler(async (req, res) => {
+  const {
+    title,
+    author,
+    published
+  } = req.body;
+
+  const book = db.Book.build({
+    title,
+    author,
+    published
+  })
+
+  await book.save();
+  res.redirect('/bookshelves');
 }))
 
 // Delete specific Book Route
@@ -100,6 +119,24 @@ router.delete("/:id", asyncHandler(async (req, res) => {
 //   })
 
 // }))
+
+
+//Add a Bookshelf
+router.post("/add-shelf", asyncHandler(async (req, res) => {
+  
+  const {
+    name
+  } = req.body;
+
+  const bookshelf = await db.Bookshelf.build({
+    name
+  });
+
+  await bookshelf.save();
+}));
+
+
+
 
 module.exports = router;
 
