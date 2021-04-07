@@ -18,8 +18,8 @@ block content
             //- each bookshelf in bookshelves 
             //- li= bookshelf
         form(id="add-shelf" method='post') Add a Shelf
-          input(type="text")
-          button(id='add-shelf-button') Add
+          input(type="text" name='listname')
+          button(type='submit' id='add-shelf-button') Add
       div(id='reading-activity') Reading Activity
       a(id='add-books' href='bookshelves/add-book') Add Books
       div(id='tools') Tools

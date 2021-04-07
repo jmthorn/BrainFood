@@ -1,22 +1,30 @@
  
 //const db = require("../db/models");
- 
- 
 
+// const { json } = require("sequelize/types");
+
+ 
 const newShelf = document.getElementById("add-shelf-button");
-
+ 
  newShelf.addEventListener('click', event => {
       event.preventDefault();
       const bookshelves = document.getElementById("ul-bookshelves");
       const li = document.createElement("li");
+      const form = document.getElementById("add-shelf");
+      const formData = new FormData(form);
+      const name = formData.get("listname");
 
       fetch("/bookshelves/add-shelf", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type": "application/x-www-form-urlencoded",
         },
+        body: new URLSearchParams(formData),
+        // JSON.stringify({
+        //   name,
+        //}),
       })
-        .then(response => response.text())
+        .then((response) => response.text())
         .then(json => console.log(json));
       bookshelves.appendChild(li);
  });

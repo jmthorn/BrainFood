@@ -123,14 +123,15 @@ router.delete("/:id", asyncHandler(async (req, res) => {
 
 //Add a Bookshelf
 router.post("/add-shelf", asyncHandler(async (req, res) => {
-  
+  console.log(req.session.auth.userId);
+  const userId = req.session.auth.userId;
   const {
-    name,
-    id,
+    listname,
   } = req.body;
+  console.log(listname);
   const bookshelf = db.Bookshelf.build({
-    name,
-    id,
+    name: listname,
+    userId,
   });
 
   await bookshelf.save();
