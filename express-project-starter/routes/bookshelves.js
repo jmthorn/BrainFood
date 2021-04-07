@@ -34,7 +34,7 @@ router.get('/', asyncHandler(async (req, res) => {
    // bookshelves,
    books
   })
-})) 
+}))
 
 // Delete specific Bookshelf Route
 router.delete("/:id", asyncHandler(async (req, res) => {

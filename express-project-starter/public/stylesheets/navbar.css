@@ -5,8 +5,8 @@ nav {
   background-color: #8E9AAF;
   align-items: center;
   font-family: sans-serif;
-  height: 60px;
-  box
+  height: 70px;
+  box-shadow: 0px 0px 1px 2px rgba(0, 0, 0, .25)
   /* text-decoration: none; */
   /* flex-direction: row;
   flex-wrap: nowrap; */
@@ -38,6 +38,7 @@ nav {
     display: flex;
     justify-content: space-evenly;
     font-size:20px;
+    width: 25%;
 }
 
 #navbar-search {
@@ -69,6 +70,10 @@ nav {
   /* font-weight: bold; */
 }
 
+#navLogo{
+  background:transparent;
+}
+
 
 #navbar-home {
   /* grid-area: navbar-home;    */
@@ -85,6 +90,13 @@ nav {
   color: black;
   font-weight: bold;
 
+}
+
+.fa-search {
+  margin-left: -22px;
+  margin-top: 8px;
+  height: 25px;
+  width: 25px;
 }
 
 #navbar-profile-btn{
@@ -116,9 +128,29 @@ nav {
 }
 
 
-.fa-search {
-  margin-left: -22px;
-  margin-top: 8px;
-  height: 25px;
-  width: 25px;
+#navbar-welcome-text{
+  color:white;
+  font-weight: bold;
+}
+
+
+
+#navbar-logout{
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+
+#navbar-login {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+
+#navbar-signup{
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
 }
