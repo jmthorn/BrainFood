@@ -1,0 +1,67 @@
+html {
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+#my-books-div {
+    display: flex;
+    justify-content: center;
+    /* grid-template-areas: 
+    "1 2 3 4 5",
+    "1 2 3 4 5",
+    "1 2 3 4 5",
+    "1 2 3 4 5";
+    grid-template-columns: auto;
+    grid-template-rows: auto; */
+}
+
+#my-books-text {
+    font-size: 35px;
+    padding-bottom: 15px;
+}
+
+#bookshelves-div {
+    /* grid-row-start: 3;
+    grid-column-start: 2;
+    justify-self: start; */
+    display: flex;
+    flex-direction: column;
+    padding-top: 50px;;
+    /* justify-content: a; */
+}
+
+#main-table {
+    /* grid-row-start: 3;
+    grid-column-start: 3; */
+    /* grid-area: table; */
+    /* justify-self: start; */
+    padding-left: 100px;
+    padding-top: 200px;    
+}
+
+th, td {
+  border-bottom: 1px solid grey;
+  width: 150px;
+  height: 100px;
+  text-align:center
+}
+
+.book_table {
+    border: solid grey;
+    padding: 5%;
+
+}
+
+#bookshelves, 
+#reading-activity,
+#add-books,
+#tools {
+    border: solid black;
+    padding: 100px;
+    /* margin: 0; */
+    text-align: start;
+}

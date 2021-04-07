@@ -71,8 +71,8 @@ router.post('/signup', csrfProtection, userValidators, asyncHandler(async (req, 
   const validatorErrors = validationResult(req);
 
   if (validatorErrors.isEmpty()) {
-    const hashedPassword = await bcrypt.hash(password, 10);
-    user.hashedPassword = hashedPassword;
+    const hashedpassword = await bcrypt.hash(password, 10);
+    user.hashedpassword = hashedpassword;
     console.log("USER",user)
     await user.save();
     loginUser(req, res, user);
@@ -116,7 +116,7 @@ router.post('/login', csrfProtection, loginValidators, asyncHandler(async(req, r
     const user = await db.User.findOne({where: {username}})
 
     if(user != null) {
-      const passwordMatch = await bcrypt.compare(password, user.hashedPassword.toString());
+      const passwordMatch = await bcrypt.compare(password, user.hashedpassword.toString());
 
       if(passwordMatch) {
         loginUser(req, res, user);

@@ -3,14 +3,43 @@ html
   head
       block head
         title="Express Starter App"
-        link(rel='stylesheet' href='/stylesheets/global.css')
+        link(rel='stylesheet' href='/stylesheets/navbar.css')
   body
-    nav(class= 'navbar')
+    nav(class='navbar')
+      div(class='nav-left overlay' )
+        div(class='nav-buttons-div')
+          a(id='navbar-brainfood' href='/') BrainFood
+        //- a(class='navbar-logo' id='navbar-brainfood overylay' href='/') BrainFood
+        div(class='nav-buttons-div')
+          a(class='nav-link' id='navbar-home' href="/") Home
+        div(class='nav-buttons-div')
+          a(class='nav-link' id='navbar-mybooks' href="/bookshelves") My Books
+      div(id='nav-middle' )
+        input(type="search" name="term" id='navbar-search' placeholder="Search Books" required)
+        button(type='submit' class='navbar-search-btn') 🔍
+        //- 🔍
+      div(id='nav-right' class='navbar-profile')
+        div(class='nav-buttons-div')
+          a(class= 'nav-link' id="navbar-profile-btn" href='/user/profile' )
 
 
 
 
 
 
+
+
+
+
+
+        //- a(class= 'nav-link' id="navbar-login-btn" href='/user/profile' ) Profile
+          //-  if locals.authenticated
+          //-   span(id='navbar-welcome-text') Welcome #{user.username}!
+          //-   form(class='logout-form' action='/user/logout' method='post')
+          //-    button(type='submit' class='nav-link' id='navbar-logout') Logout
+          //-  else
+          //-     span
+          //-       a(href="/user/login" id='navbar-login') Login
+          //-       a(href="/user/signup" id='navbar-register') Register
 
     block content
