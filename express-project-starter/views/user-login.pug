@@ -9,7 +9,7 @@ block content
     +validationErrorSummary(errors)
     div(class="form-container")
       h1(class="form-header") Log In
-      form(action="/users/login" method="post")
+      form(action="/users/login" method="post" class="user-form")
         input(type="hidden" name="_csurf" value=csrfToken)
         +field("Username", "username", username)
         +field("Password", "password", null, "password")
