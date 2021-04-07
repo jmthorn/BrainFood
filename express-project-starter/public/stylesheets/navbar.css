@@ -2,7 +2,7 @@ nav {
   display: flex;
   justify-content: space-evenly;
   flex-direction: row;
-  background-color: #EFD3D7;
+  background-color: #8E9AAF;
   align-items: center;
   font-family: sans-serif;
   height: 60px;
@@ -25,7 +25,7 @@ nav {
     width: 40%;
     display: flex;
     justify-content: space-around;
-    font-size: 25px;
+    font-size: 20px;
 }
 
 #nav-middle {
@@ -36,6 +36,7 @@ nav {
 #nav-right {
     display: flex;
     justify-content: space-evenly;
+    font-size:20px;
 }
 
 #navbar-search {
@@ -55,13 +56,14 @@ nav {
 
 .navbar .nav-buttons-div:hover {
   text-decoration: none;
-  background-color: rgba(12, 8, 4, 0.7);
-  color: white;
+  background-color: rgba(255, 255, 255, 0.7);
 }
 
 
 #navbar-brainfood{
   text-decoration: none;
+  color: black;
+  font-weight: bold;
 }
 
 
@@ -70,13 +72,38 @@ nav {
   display: flex;
   justify-self: start;
   text-decoration: none;
+  color: black;
+  font-weight: bold;
 }
 
 
 #navbar-mybooks{
   text-decoration: none;
+  color: black;
+  font-weight: bold;
+
 }
 
 #navbar-profile-btn{
-  text-decoration: none;
+  background-image: url(/profile-icon.png);
+  background-size: 55px;
+  height: 45px;
+  width: 55px;
+  font-weight: bold;
+}
+
+
+.navbar-search-btn{
+  /* background-image: url(/search-book.jpg); */
+  /* background-position: center;
+  background-size: 35px;
+  height: 30px;
+  width: 35px;
+  outline: none;
+  padding: 4px; */
+  /* font-size: 1rem;
+  color: #333;
+  top: .75rem;
+  left: .75rem;
+  padding-right: 2.5rem; */
 }
