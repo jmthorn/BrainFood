@@ -21,16 +21,19 @@ block content
               th(scope='col') Title
               th(scope='col') Author
               th(scope='col') Avg Rating
-              th(scope='col') Rating
+              //- th(scope='col') R ating
               th(scope='col') Published
-              th(scope='col') Shelves
-              th(scope='col') Reviews
+              //- th(scope='col') Shelves
+              //- th(scope='col') Reviews
               th(scope='col') Date Read
               th(scope='col') Date Added
           tbody
            each book in books
+            div(id="book-in-books")
             tr
+             div
               td= book.cover
+             
               td= book.title
               td= book.author
               td= book.avgRating
