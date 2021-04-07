@@ -21,16 +21,15 @@ const db = require('../db/models');
 /* GET bookshelves. */
 
 router.get('/', asyncHandler(async (req, res) => {
-  const bookshelves = await db.Bookshelf.findAll();
-  const books = await db.Book.findAll();
-  // const bookshelfId = parseInt(req.params.bookshelfId, 10);
-  // const books = await db.Book.findAll({
-  //   where: {
-  //     bookshelfId,
-  //   },
-  //   include: db.Bookshelf,
-  // });
-//console.log(bookshelves);
+  // const bookshelfId = parseInt(req.params.id, 10);
+  // const bookshelves = await db.Bookshelf.findAll();
+  // const books = await db.Book.findAll();
+  // // const bookshelfId = parseInt(req.params.bookshelfId, 10);
+  // const books = await db.Bookshelf.findbyPk(bookshelfId, {
+  //   include: { model: db.Book,
+  //   through: "Bookshelves-to-books",
+  //   }
+  //   });
   res.render('bookshelf', {
    // bookshelves,
    books
