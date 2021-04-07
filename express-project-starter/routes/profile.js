@@ -8,9 +8,9 @@ const { check, validationResult } = require('express-validator');
 const db = require('../db/models');
 
 
-router.get('/', (req, res) => {
-  res.render('profile')
-})
+router.get('/user', (req, res) => {
+  res.render('profile')       // rendering the profile.pug
+});
 
 
 // router.delete('/:id', asyncHandler(async(req, res) => {

@@ -1,6 +1,6 @@
 .center-info{
   display:flex;
-  flex-direction: column;
+  flex-direction: row;
   font-size: 30px;
   color:black;
   width: 40%;
@@ -8,12 +8,20 @@
 
 
 #details {
+  display: flex;
+  align-content: flex-end;
   font-size: 30px;
   color:black
 }
 
 
-#Activity {
+#activity {
   font-size: 30px;
   color:black
+}
+
+
+#person-image{
+  border-radius: 50%;
+  background: blue;
 }
