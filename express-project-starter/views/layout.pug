@@ -2,15 +2,17 @@ doctype html
 html
   head
       block head
-        title="Express Starter App"
+        title="BrainFood"
         link(rel='stylesheet' href='/stylesheets/navbar.css')
         link(rel='stylesheet' href='/stylesheets/user.css')
         link(rel='stylesheet' href='/stylesheets/global.css')
+        script(src="https://kit.fontawesome.com/a229c5b13d.js" crossorigin="anonymous")
   body
     nav(class='navbar')
       div(class='nav-left overlay' )
         div(class='nav-buttons-div')
-          a(id='navbar-brainfood' href='/') BrainFood
+          a(id='navbar-brainfood' href='/')
+            img(src="/NavLogo.png" width='65' height='50')
         //- a(class='navbar-logo' id='navbar-brainfood overylay' href='/') BrainFood
         div(class='nav-buttons-div')
           a(class='nav-link' id='navbar-home' href="/") Home
@@ -18,7 +20,8 @@ html
           a(class='nav-link' id='navbar-mybooks' href="/bookshelves") My Books
       div(id='nav-middle' )
         input(type="search" name="term" id='navbar-search' placeholder="Search Books" required)
-        button(type='submit' class='navbar-search-btn') 🔍
+        //- button(type='submit' class='navbar-search-btn')
+        i.fas.fa-search
         //- 🔍
       div(id='nav-right' class='navbar-profile')
         div(class='nav-buttons-div')
