@@ -10,8 +10,7 @@ const db = require('../db/models');
 router.get("/:id", asyncHandler(async (req, res) => {
     let bookId = parseInt(req.params.id, 10)
     let book = await db.Book.findByPk(bookId)
-    let reviews = await db.Review.findAll(
-        {
+    let reviews = await db.Review.findAll({
             where: { bookId }
         }
     )
@@ -21,7 +20,7 @@ router.get("/:id", asyncHandler(async (req, res) => {
     })
 }))
 
-
+//UPDATING BOOK
 router.post("/:id", asyncHandler(async (req, res) => {
     let bookId = parseInt(req.params.id, 10)
     let book = await db.Book.findByPk(bookId)
@@ -32,7 +31,10 @@ router.post("/:id", asyncHandler(async (req, res) => {
     res.redirect(`/books/${bookId}`)
 }))
 
-
+router.post("/:id/reviews", asyncHandler(async(req, res) => {
+    // let review = 
+    console.log(req.session.auth)
+}))
 
 
 module.exports = router;

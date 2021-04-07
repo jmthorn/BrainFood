@@ -33,10 +33,13 @@ block content
                         a(href=`/books/${book.id}` class='a clear') Clear
             div(class="reviews-container")
                 h2(class="review-header") Reviews
-                textarea(class="new-review") Write your review here 
+                form(class="review-form")
+                    textarea(class="new-review") Write your review here... 
+                    button(type="submit" class="review-button btn" id="submit-review") Submit
                 each review in reviews
                     div(class="review-container")
                         p=review.review
+                            button(class="btn") Edit
 
 
         div(class="book-sidebar")
