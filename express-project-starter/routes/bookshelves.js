@@ -135,6 +135,7 @@ router.post("/add-shelf", asyncHandler(async (req, res) => {
   });
 
   await bookshelf.save();
+  res.json({bookshelf});
 }));
 
 

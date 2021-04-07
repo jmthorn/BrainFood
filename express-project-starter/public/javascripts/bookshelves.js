@@ -24,8 +24,8 @@ const newShelf = document.getElementById("add-shelf-button");
         //   name,
         //}),
       })
-        .then((response) => response.text())
-        .then(json => console.log(json));
+        .then((response) => response.json())
+        .then(json => li.innerHTML = json.bookshelf.name);
       bookshelves.appendChild(li);
  });
 
