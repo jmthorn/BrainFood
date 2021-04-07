@@ -4,12 +4,12 @@
   border: solid black 1px;
   border-radius: 5px;
   padding: 10px;
-  display: flexbox;
+  /* display: flex; */
   text-align: center;
   width: 500px;
 }
 
-form {
+.user-form {
   display: flex;
   flex-direction: column;
   align-items: center;
