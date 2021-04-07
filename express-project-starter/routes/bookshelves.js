@@ -60,7 +60,7 @@ router.delete("/:id", asyncHandler(async (req, res) => {
 
 router.get('/add-book', asyncHandler(async (req, res) => {
   const book = db.Book.build();
-  res.render('add-book-to-bookshelf', {
+  res.render('add-book', {
     book,
   });
 }))
