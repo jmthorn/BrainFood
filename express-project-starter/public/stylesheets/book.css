@@ -1,0 +1,37 @@
+.page-content {
+  display: flex;
+  flex-direction: row;
+  margin: 100px auto;
+}
+
+.book-content {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.book-container {
+  display: flex;
+  flex-direction: row;
+  padding: 20px;
+}
+
+.book-title {
+  font-size: 30px;
+}
+
+.book-info {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+.sidebar-container {
+  width: 300px;
+  height: 800px;
+  border: solid black 1px;
+  border-radius: 20px;
+}
+
+.review-container {
+  border: solid black 1px;
+}

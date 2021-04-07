@@ -9,31 +9,35 @@ append head
    script(src='/javascripts/book.js' type='module')
 
 block content
-    div(class="book-container")
-        div(class="book-cover")
-            img(src=book.cover)
-        div(class="book-info")
-            span(class="book-title")=book.title
-            span(class="book-author")=book.author
-            span(class="book-published")=book.published
-            p(class="book-description")=book.description
+    div(class="page-content")
+        div(class="book-content")
+            div(class="book-container")
+                div(class="book-cover")
+                    img(src=book.cover alt="No image" width="200px")
+                div(class="book-info")
+                    span(class="book-title")=book.title
+                    span(class="book-author")=book.author
+                    span(class="book-published")=book.published
+                    p(class="book-description")=book.description
 
-    div(class="form-container hidden-form")
-        h1(class="form-header") Edit Book
-        form(action=`/books/${book.id}` method="put" class="user-form")
-            +field("Cover", "cover", book.cover)
-            +field("Title", "title", book.title)
-            +field("Author", "author", book.author)
-            +field("Published", "published", book.published)
-            +field("Description", "description", book.description)
-            div(class='submit-div')
-                button(type='submit' class='btn submit') Submit
-                a(href=`/books/${book.id}` class='a clear') Clear
-    div(class="reviews-container")
-        h2(class="review-header") Reviews
-        each review in reviews
-            div(class="review-container")
-                p=review.review
+            div(class="form-container hidden-form")
+                h1(class="form-header") Edit Book
+                form(action=`/books/${book.id}` method="put" class="user-form")
+                    +field("Cover", "cover", book.cover)
+                    +field("Title", "title", book.title)
+                    +field("Author", "author", book.author)
+                    +field("Published", "published", book.published)
+                    +field("Description", "description", book.description)
+                    div(class='submit-div')
+                        button(type='submit' class='btn submit') Submit
+                        a(href=`/books/${book.id}` class='a clear') Clear
+            div(class="reviews-container")
+                h2(class="review-header") Reviews
+                textarea(class="new-review") Write your review here 
+                each review in reviews
+                    div(class="review-container")
+                        p=review.review
 
 
-    div(class="book-sidebar")
+        div(class="book-sidebar")
+            div(class="sidebar-container")
