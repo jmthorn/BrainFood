@@ -1,3 +1,12 @@
+html {
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
 #my-books-div {
     display: flex;
     justify-content: center;
@@ -16,6 +25,7 @@
     justify-self: start; */
     display: flex;
     flex-direction: column;
+    padding-top: 50px;;
     /* justify-content: a; */
 }
 

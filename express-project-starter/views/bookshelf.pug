@@ -2,16 +2,26 @@ extends layout.pug
 
 append head
    link(rel='stylesheet' href='/stylesheets/bookshelves.css')
+   link(rel="preconnect", href="https://fonts.gstatic.com")
+   link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap")
    script(src='/javascripts/bookshelves.js' type='module')
 
 block content
   div(id="my-books-div")
     div(id="bookshelves-div") My Books
       div(id='bookshelves') Bookshelves
+        ul(class='ul-bookshelves') 
+           li(class='li-bookshelf') Currently Read 
+           li(class='li-bookshelf') Want to Read 
+           li(class='li-bookshelf') Read
+            //- each bookshelf in bookshelves 
+            //- li= bookshelf
+           
       div(id='reading-activity') Reading Activity
       div(id='add-books') Add Books
       div(id='tools') Tools
-
+        ul 
+          li: a(href='/delete') Delete Bookshelf
     if books
       div(id='main-table')
         table(class='book_table')
@@ -33,7 +43,6 @@ block content
             tr
              div
               td= book.cover
-             
               td= book.title
               td= book.author
               td= book.avgRating
