@@ -1,8 +1,8 @@
 extends layout.pug
 
-append head
-  link(rel='stylesheet' href='/stylesheets/bookshelves.css')
-  script(src='/javascripts/bookshelves.js' type='module')
+//- append head
+//-   link(rel='stylesheet' href='/stylesheets/bookshelves.css')
+//-   script(src='/javascripts/bookshelves.js' type='module')
 
 block content
   div My Books
@@ -11,35 +11,35 @@ block content
     div(id='add-books') Add Books
     div(id='tools') Tools
 
-if books
+  if books
     div(id='main-table')
       table(class='book_table')
         thead(class='book_thead')
-          tr
-            th(scope='col') Cover
-            th(scope='col') Title
-            th(scope='col') Author
-            th(scope='col') Avg Rating
-            th(scope='col') Rating
-            th(scope='col') Published
-            th(scope='col') Shelves
-            th(scope='col') Reviews
-            th(scope='col') Date Read
-            th(scope='col') Date Added
+            tr
+              th(scope='col') Cover
+              th(scope='col') Title
+              th(scope='col') Author
+              th(scope='col') Avg Rating
+              th(scope='col') Rating
+              th(scope='col') Published
+              th(scope='col') Shelves
+              th(scope='col') Reviews
+              th(scope='col') Date Read
+              th(scope='col') Date Added
         tbody
           each book in books
             tr= book.cover
             tr= book.title
             tr= book.author
             tr= book.avgRating
-            tr= book.Review.rating
+            //- tr= book.Review.rating
             tr= book.published
-            tr= book.Bookshelves
+            //- tr= book.Bookshelves
             //-  check for line 30 and determine how to use it properly.
-            tr= book.Review
+            //- tr= book.Review
             //- check for line 32 and determine how to use it properly.
             tr= book.updatedAt
             //- check for line 35 and determine how to use it properly.
             tr= book.createdAt
-else 
+  else 
   div You don't have any bookshelves! Click here to add one.

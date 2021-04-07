@@ -6,6 +6,7 @@ const { csrfProtection, asyncHandler } = require('./utils');
 const { loginUser, logoutUser } = require('../auth');
 const { check, validationResult } = require('express-validator');
 const db = require('../db/models');
+//const bookshelf = include('../db/models/bookshelf');
 
 
 // const bookValidators = [
@@ -19,23 +20,22 @@ const db = require('../db/models');
 
 /* GET bookshelves. */
 
-router.get('/bookshelves', asyncHandler(async (req, res) => {
+router.get('/', asyncHandler(async (req, res) => {
   const bookshelves = await db.Bookshelf.findAll();
+  const books = await db.Book.findAll();
   // const bookshelfId = parseInt(req.params.bookshelfId, 10);
   // const books = await db.Book.findAll({
   //   where: {
   //     bookshelfId,
   //   },
-  //   include: Bookshelf,
+  //   include: db.Bookshelf,
   // });
-
-  
-  
+//console.log(bookshelves);
   res.render('bookshelf', {
    // bookshelves,
-    //books
+   books
   })
-}))
+})) 
 
 // router.get('/bookshelves/:id', asyncHandler(async (req, res) => {
 //   const bookshelfId = parseInt(req.params.bookshelfId, 10);
