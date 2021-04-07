@@ -25,15 +25,17 @@ router.post("/:id", asyncHandler(async (req, res) => {
     let bookId = parseInt(req.params.id, 10)
     let book = await db.Book.findByPk(bookId)
     const { cover, title, author, published, description } = req.body
-    console.log(req.body)
-    // await book.update({ cover, title, author, published, description });
     await book.update({ cover, title, author, published, description })
     res.redirect(`/books/${bookId}`)
 }))
 
+
 router.post("/:id/reviews", asyncHandler(async(req, res) => {
-    // let review = 
-    console.log(req.session.auth)
+    const userId = req.session.auth.userId 
+    const user = db.User.findByPk(userId)
+    const { review, bookId, rating } = req.body;
+    const newReview = await db.Review.create({ review, rating, userId, bookId, author: user.username})
+
 }))
 
 

@@ -6,15 +6,17 @@ window.addEventListener("DOMContentLoaded", () => {
             event.preventDefault();
             let bookId = event.target.baseURI.split('/')[4]
             let textarea = document.querySelector(".new-review")
-            console.log(event)
             let review = textarea.value
+            let rating = document.getElementById('book-rating').value
             fetch(`http://localhost:8080/books/${bookId}/reviews`, { 
                 method: "POST",
                 headers: { 
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({
-                review
+                review, 
+                bookId, 
+                rating
                 })
             })
                 .then(function(res) { 

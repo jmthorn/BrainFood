@@ -110,8 +110,8 @@ router.post('/login', csrfProtection, loginValidators, asyncHandler(async(req, r
   const { username, password } = req.body;
 
   let errors = [];
+  console.log("11111111ERRORS.......................",errors)
   const validatorErrors = validationResult(req);
-
   if(validatorErrors.isEmpty()) {
     const user = await db.User.findOne({where: {username}})
 
@@ -128,7 +128,7 @@ router.post('/login', csrfProtection, loginValidators, asyncHandler(async(req, r
   }else {
     errors = validatorErrors.array().map((error) => error.msg)
   }
-
+  console.log("ERRORS.......................",errors)
   res.render('login', {
     title: 'Login',
     username,

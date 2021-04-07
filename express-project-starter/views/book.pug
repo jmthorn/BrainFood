@@ -34,6 +34,8 @@ block content
             div(class="reviews-container")
                 h2(class="review-header") Reviews
                 form(class="review-form")
+                    div(class="rating")
+                        input(id="book-rating")
                     textarea(class="new-review") Write your review here... 
                     button(type="submit" class="review-button btn" id="submit-review") Submit
                 each review in reviews
