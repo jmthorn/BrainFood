@@ -19,6 +19,11 @@ a {
     grid-template-rows: auto; */
 }
 
+#my-books-text {
+    font-size: 35px;
+    padding-bottom: 15px;
+}
+
 #bookshelves-div {
     /* grid-row-start: 3;
     grid-column-start: 2;
@@ -34,18 +39,19 @@ a {
     grid-column-start: 3; */
     /* grid-area: table; */
     /* justify-self: start; */
-    padding: 5%;    
+    padding-left: 100px;
+    padding-top: 200px;    
 }
 
 th, td {
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid grey;
   width: 150px;
   height: 100px;
   text-align:center
 }
 
 .book_table {
-    border: solid black;
+    border: solid grey;
     padding: 5%;
 
 }

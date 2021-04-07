@@ -8,7 +8,8 @@ append head
 
 block content
   div(id="my-books-div")
-    div(id="bookshelves-div") My Books
+    div(id="bookshelves-div")
+      span(id="my-books-text") My Books 
       div(id='bookshelves') Bookshelves
         ul(class='ul-bookshelves') 
            li(class='li-bookshelf') Currently Read 
@@ -18,10 +19,10 @@ block content
             //- li= bookshelf
            
       div(id='reading-activity') Reading Activity
-      div(id='add-books') Add Books
+      a(id='add-books' href='bookshelves/add-book') Add Books
       div(id='tools') Tools
         ul 
-          li: a(href='/delete') Delete Bookshelf
+          li: a(href='delete') Delete Bookshelf
     if books
       div(id='main-table')
         table(class='book_table')

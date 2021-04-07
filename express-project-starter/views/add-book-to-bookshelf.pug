@@ -1,0 +1,13 @@
+extends layout.pug 
+include utils.pug
+
+append head
+   link(rel='stylesheet' href='/stylesheets/add-books-to-bookshelf.css')
+
+block content 
+   div
+    form(id='add-book-div' action="/bookshelves/add-book" method='post') 
+        input(type='hidden' name='_csrf' value=csrfToken)
+        +field('Title', 'bookName', book.title)
+        +field('Author', 'author', book.author)
+        +field('Published', 'published', book.published)
