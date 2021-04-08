@@ -144,5 +144,43 @@ router.post('/logout', (req, res) => {
 });
 
 
+// ------------------------------------------------------------------------------------------
+//  JC adding profile section below :
+
+
+
+//http://localhost:8080/users/profile/:id
+router.get('/profile/:id(\\d+)', asyncHandler(async (req, res)=> {
+  // const {id} = req.params
+  // const user = await db.User.findByPk(id)
+  const personID = parseInt(req.params.id, 10)    // base of 10
+  const user = await db.User.findByPk(personID)
+
+  res.render('profile')
+}))
+
+
+// to edit the different sections of the profile page:
+router.post('/profile/:id(\\d+)', csrfProtection, userValidators, asyncHandler(async (req, res) => {
+
+}))
+
+
+
+// backend route for delete button for front end route
+//http://localhost:8080/users/profile/:id
+router.delete('/profile/:id(\\d+)', asyncHandler(async (req, res)=>{
+  const { id } = req.params;
+  const user = await db.User.findByPk(id);
+
+  await user.destroy();
+
+  res.redirect('/')
+}))
+
+
+
+
+
 
 module.exports = router;

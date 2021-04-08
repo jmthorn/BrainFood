@@ -11,17 +11,46 @@
   display: flex;
   align-content: flex-end;
   font-size: 30px;
-  color:black
+  color:black;
+  text-decoration: none;
 }
 
 
 #activity {
   font-size: 30px;
-  color:black
+  color:black;
+  text-decoration: none;
 }
 
 
 #person-image{
+  /* background-image: url(public/NavLogo.png); */
+  /* padding: ; */
   border-radius: 50%;
-  background: blue;
+  background: gray;
+  width: 100px;
+  height:100px;
+}
+
+
+.test{
+
+}
+
+#picture_details {
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+  border: 5px solid black;
+  height: 200px;
+  width: 400px;
+}
+
+.outer {
+  display: flex;
+  height:100vh;
+  width: 100vh;
+  justify-content: center;
+  /* top:; */
+  /* bottom:;  */
 }
