@@ -6,7 +6,11 @@ html
         link(rel='stylesheet' href='/stylesheets/navbar.css')
         link(rel='stylesheet' href='/stylesheets/user.css')
         link(rel='stylesheet' href='/stylesheets/global.css')
+<<<<<<< HEAD
         script(src="https://kit.fontawesome.com/a229c5b13d.js" crossorigin="anonymous")
+=======
+        script(src="/javascripts/index.js")
+>>>>>>> main
   body
     nav(class='navbar')
       div(class='nav-left overlay' )
@@ -43,6 +47,7 @@ html
     block content
 
 
+<<<<<<< HEAD
 //- if locals.authenticated
 //-             span(id='navbar-welcome-text') Welcome #{user.username}!
 //-             form(class='logout-form' action='/user/logout' method='post')
@@ -53,3 +58,10 @@ html
 //-               div(class='nav-buttons-div')
 //-                 a(href="/user/login" id='navbar-login') Login
 //-                 a(href="/user/signup" id='navbar-signup') Sign Up
+=======
+    block content
+
+    footer
+      div(id="quote")
+      
+>>>>>>> main
