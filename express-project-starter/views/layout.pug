@@ -27,13 +27,14 @@ html
         span(id='navbar-welcome-text') Welcome #{user.username}!
         div(class='nav-buttons-div')
           a(class= 'nav-link' id="navbar-profile-btn" href='/user/profile' )
-        a(type='submit' href='/users/logout' class='nav-link' id='navbar-logout') Logout
+        form(action='/users/logout' method='post')
+            button(type='submit') Logout
       else
         div(id='nav-right' class='navbar-profile')
         div(class='nav-buttons-div')
-          a(href="/user/login" id='navbar-login') Login
+          a(href="/users/login" id='navbar-login') Login
         div(class='nav-buttons-div')
-          a(href="/user/signup" id='navbar-signup') Sign Up
+          a(href="/users/signup" id='navbar-signup') Sign Up
 
           //-  if locals.authenticated
           //-   span(id='navbar-welcome-text') Welcome #{user.username}!
