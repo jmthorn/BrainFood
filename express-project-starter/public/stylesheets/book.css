@@ -54,6 +54,8 @@
 
 .review-edit-btn {
   float: right;
+}
+
 .book-button-container {
   display: flex;
   flex-direction: row;
