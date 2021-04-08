@@ -7,11 +7,7 @@ window.addEventListener("DOMContentLoaded", () => {
         let h4 = document.createElement('h4');
         h4.classList.add("review-author");
         div.appendChild(h4);
-        let userSpan = document.createElement("span");
-        userSpan.classList.add("review-user-silhouette")
-        userSpan.innerHTML = '👤'
-        h4.appendChild(userSpan)
-        h4.innerText=review.author;
+        h4.innerText=`👤 ${review.author}`;
         let ratingSpan = document.createElement("span")
         ratingSpan.classList.add("review-rating");
         for(let i = 1; i <= review.rating; i++) { 
@@ -23,8 +19,15 @@ window.addEventListener("DOMContentLoaded", () => {
             button.innerText= "Edit";
             button.classList.add("review-edit-btn")
             button.classList.add("btn")
-            h4.appendChild(button)
+            div.appendChild(button)
         }
+        console.log(review)
+        let p = document.createElement('p')
+        p.innerHTML=review.review
+        div.appendChild(p)
+        let existingReviews = document.querySelector(".existing-reviews")
+        let reviewsContainer = document.querySelector(".reviews-container")
+        existingReviews.insertBefore(div, existingReviews.childNodes[0])
 
     }
 
@@ -47,10 +50,21 @@ window.addEventListener("DOMContentLoaded", () => {
                 })
             })
             let data = await res.json()
-            // console.log("INFORMATIONNNN", review, data.newReview.userId)
-            addReview(review, data.newReview.userId)
+            addReview(data.newReview, data.newReview.userId)
         })
 
+        //ADD TO BOOKSHELF==========================
+
+        let addToBookshelfBtn = document.querySelector(".add-book-bookshelf")
+        addToBookshelfBtn.addEventListener('click', (event) => {
+            event.preventDefault()
+            let bookshelfId = event.target.value
+            console.log(event.target.id)
+        })
+
+
+
+        //MODAL=====================================
         let modal = document.getElementById("modal")
         let editBtn = document.querySelector(".book-edit")
         
