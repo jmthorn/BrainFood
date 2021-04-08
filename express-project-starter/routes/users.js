@@ -156,9 +156,11 @@ router.get('/profile/:id(\\d+)', asyncHandler(async (req, res)=> {
   // const user = await db.User.findByPk(id)
   const userId = parseInt(req.params.id, 10)    // base of 10
   const user = await db.User.findByPk(userId)             // getting the usersId
-  console.log(userId)
 
-  res.render('profile')
+
+  res.render('profile', {
+    user,
+  })
 }))
 
 

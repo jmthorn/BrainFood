@@ -1,41 +1,74 @@
 .body-container{
-  display: grid;
-  grid-template-columns:15% 25% 25% 35% ;
+  display: flex;
+  /* grid-template-columns:5% 20% 5% 60% 10% ;
   grid-template-rows:25% 25% 25% 25% ;
   grid-template-areas:
-  '. image userName .'
-  '.   .   details  .'
-  '.  bookshelf   activity .'
-  '.    .     .     .'
-  ;
+  '. image      .     .     .'
+  '. userName   . favBooks  .'
+  '. details    .     .     .'
+  '. favGenre   .     .     .'
+  ; */
+  width: 100vh;
+  height: 100vh;
+}
+
+#left-div{
+  width: 100px;
+  height: 100%;
+}
+
+#middle-div{
+  width: 100px;
+  height: 100%;
+}
+
+
+#right-div{
+  width: 100px;
+  height: 100%;
 }
 
 #person-image {
-  display: flex;
-  align-self: center;
   grid-area: image;
-  border-radius: 50%;
+  display: flex;
+  justify-self: center;
+  align-self: center;
+  border-radius: 25px;
   background: gray;
-  width: 250px;
-  height: 250px;
+  width: 300px;
+  height: 350px;
+}
+
+#favorite-books{
+  grid-area: favBooks;
+  font-weight: bold;
+  font-size: 35px;
+}
+
+#favorite-genre{
+  grid-area: favGenre;
+  font-weight: bold;
+  font-size: 35px;
 }
 
 #user-name{
+  display: flex;
   grid-area: userName;
   font-weight: bold;
-  font-size: 50px;
+  font-size: 40px;
+  justify-self:center;
 }
 
 #Activity {
   grid-area: activity;
 }
 
-#Details {
+/* #Details {
   grid-area: details;
-}
+} */
 
-#persons-bookshelf {
-  grid-area: bookshelf;
+#person-details {
+  grid-area: details;
   font-weight: bold;
   font-size: 20px;
 }
