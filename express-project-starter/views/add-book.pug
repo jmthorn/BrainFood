@@ -5,9 +5,14 @@ append head
    link(rel='stylesheet' href='/stylesheets/add-books.css')
 
 block content 
-   div
-    form(id='add-book-div' action="/bookshelves/add-book" method='post') 
-        input(type='hidden' name='_csrf' value=csrfToken)
-        +field('Title', 'bookName', book.title)
+   div(id='add-book-div')
+
+    h1(class="form-header") Add Book
+    form(action="/bookshelves/add-book" method='post')
+        +field('Cover', 'cover', book.cover)
+        +field('Title', 'title', book.title)
         +field('Author', 'author', book.author)
         +field('Published', 'published', book.published)
+        div(class='submit-div')
+          button(type='submit' class='btn submit') Add
+          a(href='/bookshelves/add-book' class='a clear') Clear
