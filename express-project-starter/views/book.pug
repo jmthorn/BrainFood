@@ -26,6 +26,12 @@ block content
             div(class="book-container")
                 div(class="book-cover")
                     img(src=book.cover alt="No image" width="300px")
+                    form
+                        select(class="bookshelves-dropdown")
+                            each bookshelf in bookshelves 
+                                option(value=bookshelf.id)=bookshelf.name
+                        button(class="btn add-book-bookshelf") Add to Bookshelf
+
                 div(class="book-info")
                     span(class="book-title")=book.title
                     span(class="book-author")=book.author
@@ -48,26 +54,27 @@ block content
 
                     textarea(class="new-review" placeholder="Write your review here...")
                     button(type="submit" class="review-button btn" id="submit-review") Submit
-                each review in reviews
-                    div(class="review-container")
-                        h4(class="review-author")
-                            span(class="review-user-silhouette") 👤
-                            =review.User.username
-                            span(class="review-rating")
-                                if review.rating===1
-                                    | 🧠
-                                if review.rating===2
-                                    | 🧠🧠
-                                if review.rating===3
-                                    | 🧠🧠🧠
-                                if review.rating===4
-                                    | 🧠🧠🧠🧠
-                                if review.rating===5
-                                    | 🧠🧠🧠🧠🧠
+                div(class="existing-reviews")  
+                    each review in reviews
+                        div(class="review-container")
+                            h4(class="review-author")
+                                span(class="review-user-silhouette") 👤
+                                =review.User.username
+                                span(class="review-rating")
+                                    if review.rating===1
+                                        | 🧠
+                                    if review.rating===2
+                                        | 🧠🧠
+                                    if review.rating===3
+                                        | 🧠🧠🧠
+                                    if review.rating===4
+                                        | 🧠🧠🧠🧠
+                                    if review.rating===5
+                                        | 🧠🧠🧠🧠🧠
 
-                        if review.userId===userId
-                            button(class="review-edit-btn btn") Edit
-                        p=review.review
+                            if review.userId===userId
+                                button(class="review-edit-btn btn") Edit
+                            p=review.review
 
         div(class="book-sidebar")
             div(class="sidebar-container")

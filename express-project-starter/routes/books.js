@@ -11,6 +11,7 @@ router.get("/:id", asyncHandler(async (req, res) => {
     let bookId = parseInt(req.params.id, 10)
     const userId = req.session.auth.userId
     let book = await db.Book.findByPk(bookId)
+    let bookshelves = await db.Bookshelf.findAll({where: {userId}})
     let reviews = await db.Review.findAll({
         where: { bookId },
         include: db.User
@@ -19,7 +20,8 @@ router.get("/:id", asyncHandler(async (req, res) => {
     res.render('book', {
         book,
         reviews,
-        userId
+        userId, 
+        bookshelves
     })
 }))
 
@@ -32,7 +34,7 @@ router.post("/:id", asyncHandler(async (req, res) => {
     res.redirect(`/books/${bookId}`)
 }))
 
-
+//ADDING REVIEW
 router.post("/:id/reviews", asyncHandler(async (req, res) => {
     const userId = req.session.auth.userId
     const user = await db.User.findByPk(userId)
@@ -40,6 +42,16 @@ router.post("/:id/reviews", asyncHandler(async (req, res) => {
     const newReview = await db.Review.create({ review, rating, userId, bookId, author: user.username })
     res.json({ newReview })
 }))
+
+
+//ADD BOOK TO BOOKSHELF
+router.post("/:id/:id", asyncHandler(async (req, res) => {
+    const userId = req.session.auth.userId
+    const user = await db.User.findByPk(userId)
+    const { bookshelfId, bookId } = req.body;
+    let bookshelf = db.Bookshelf.findByPk(bookshelfId) 
+    await bookshelf.update({userId, bookId})
+}));
 
 
 module.exports = router;
