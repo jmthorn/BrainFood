@@ -34,7 +34,7 @@ router.post("/:id", asyncHandler(async (req, res) => {
     res.redirect(`/books/${bookId}`)
 }))
 
-
+//ADDING REVIEW
 router.post("/:id/reviews", asyncHandler(async (req, res) => {
     const userId = req.session.auth.userId
     const user = await db.User.findByPk(userId)
@@ -42,6 +42,16 @@ router.post("/:id/reviews", asyncHandler(async (req, res) => {
     const newReview = await db.Review.create({ review, rating, userId, bookId, author: user.username })
     res.json({ newReview })
 }))
+
+
+//ADD BOOK TO BOOKSHELF
+router.post("/:id/:id", asyncHandler(async (req, res) => {
+    const userId = req.session.auth.userId
+    const user = await db.User.findByPk(userId)
+    const { bookshelfId, bookId } = req.body;
+    let bookshelf = db.Bookshelf.findByPk(bookshelfId) 
+    await bookshelf.update({userId, bookId})
+}));
 
 
 module.exports = router;
