@@ -9,6 +9,18 @@ append head
    script(src='/javascripts/book.js' type='module')
 
 block content
+    div(class="hidden" id="modal")
+        div(class="form-container modal-content")
+            h1(class="form-header") Edit Book
+            form(action=`/books/${book.id}` method="post" class="user-form")
+                +field("Cover", "cover", book.cover)
+                +field("Title", "title", book.title)
+                +field("Author", "author", book.author)
+                +field("Published", "published", book.published)
+                +field("Description", "description", book.description, textarea, "Description")
+                div(class='submit-div')
+                    button(type='submit' class='btn submit edit-book-btn') Submit
+                    a(href=`/books/${book.id}` class='a clear') Clear
     div(class="page-content")
         div(class="book-content")
             div(class="book-container")
@@ -19,20 +31,9 @@ block content
                     span(class="book-author")=book.author
                     span(class="book-published")=book.published
                     p(class="book-description")=book.description
-                    div(class="book-button-contatiner")
+                    div(class="book-button-container")
                         button(class="book-edit") Edit
                         button(class="book-delete") Delete
-            div(class="form-container hidden-form")
-                h1(class="form-header") Edit Book
-                form(action=`/books/${book.id}` method="post" class="user-form")
-                    +field("Cover", "cover", book.cover)
-                    +field("Title", "title", book.title)
-                    +field("Author", "author", book.author)
-                    +field("Published", "published", book.published)
-                    +field("Description", "description", book.description)
-                    div(class='submit-div')
-                        button(type='submit' class='btn submit') Submit
-                        a(href=`/books/${book.id}` class='a clear') Clear
             div(class="reviews-container")
                 h2(class="review-header") Reviews
                 form(class="review-form")
