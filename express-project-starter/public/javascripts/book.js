@@ -56,11 +56,11 @@ window.addEventListener("DOMContentLoaded", () => {
         //ADD TO BOOKSHELF==========================
 
         let addToBookshelfBtn = document.querySelector(".add-book-bookshelf")
-        addToBookshelfBtn.addEventListener('click', (event) => {
+        addToBookshelfBtn.addEventListener('click', async(event) => {
             event.preventDefault()
             let bookshelfId = document.querySelector(".bookshelves-dropdown").value
             let bookId = event.target.baseURI.split('/')[4]
-            let res = await fetch(`http://localhost:8080/books/${bookId}/${bookshelfId}`, { 
+            let res = await fetch(`http://localhost:8080/books/${bookId}/bookshelves`, { 
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -71,12 +71,12 @@ window.addEventListener("DOMContentLoaded", () => {
                 })
             })
             let data = await res.json()
-
         })
 
 
 
         //MODAL=====================================
+
         let modal = document.getElementById("modal")
         let editBtn = document.querySelector(".book-edit")
         
