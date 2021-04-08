@@ -2,16 +2,21 @@ doctype html
 html
   head
       block head
-        title="Express Starter App"
+        title="BrainFood"
         link(rel='stylesheet' href='/stylesheets/navbar.css')
         link(rel='stylesheet' href='/stylesheets/user.css')
         link(rel='stylesheet' href='/stylesheets/global.css')
+<<<<<<< HEAD
+        script(src="https://kit.fontawesome.com/a229c5b13d.js" crossorigin="anonymous")
+=======
         script(src="/javascripts/index.js")
+>>>>>>> main
   body
     nav(class='navbar')
       div(class='nav-left overlay' )
         div(class='nav-buttons-div')
-          a(id='navbar-brainfood' href='/') BrainFood
+          a(id='navbar-brainfood' href='/')
+            img(src="/NavLogo.png" id='navLogo' width='65' height='50')
         //- a(class='navbar-logo' id='navbar-brainfood overylay' href='/') BrainFood
         div(class='nav-buttons-div')
           a(class='nav-link' id='navbar-home' href="/") Home
@@ -19,34 +24,44 @@ html
           a(class='nav-link' id='navbar-mybooks' href="/bookshelves") My Books
       div(id='nav-middle' )
         input(type="search" name="term" id='navbar-search' placeholder="Search Books" required)
-        button(type='submit' class='navbar-search-btn') 🔍
+        //- button(type='submit' class='navbar-search-btn')
+        i.fas.fa-search
         //- 🔍
       div(id='nav-right' class='navbar-profile')
         div(class='nav-buttons-div')
-          a(class= 'nav-link' id="navbar-profile-btn" href='/user/profile' )
-
-
-
-
-
-
-
-
-
-
-
-        //- a(class= 'nav-link' id="navbar-login-btn" href='/user/profile' ) Profile
+          a(class= 'nav-link' id="navbar-profile-btn" href='/users/profile' )
+        div(class='nav-buttons-div')
+          a(href="/users/login" id='navbar-login') Login
+        div(class='nav-buttons-div')
+          a(href="/users/signup" id='navbar-signup') Sign Up
           //-  if locals.authenticated
           //-   span(id='navbar-welcome-text') Welcome #{user.username}!
-          //-   form(class='logout-form' action='/user/logout' method='post')
-          //-    button(type='submit' class='nav-link' id='navbar-logout') Logout
+          //-     div(class='nav-buttons-div')
+          //-       a(class='nav-link' id='navbar-logout') Logout
           //-  else
           //-     span
+          //-     div(class='nav-buttons-div')
           //-       a(href="/user/login" id='navbar-login') Login
-          //-       a(href="/user/signup" id='navbar-register') Register
+          //-       a(href="/user/signup" id='navbar-signup') Sign Up
 
+    block content
+
+
+<<<<<<< HEAD
+//- if locals.authenticated
+//-             span(id='navbar-welcome-text') Welcome #{user.username}!
+//-             form(class='logout-form' action='/user/logout' method='post')
+//-               div(class='nav-buttons-div')
+//-                 button(type='submit' class='nav-link' id='navbar-logout') Logout
+//-            else
+//-               span
+//-               div(class='nav-buttons-div')
+//-                 a(href="/user/login" id='navbar-login') Login
+//-                 a(href="/user/signup" id='navbar-signup') Sign Up
+=======
     block content
 
     footer
       div(id="quote")
       
+>>>>>>> main

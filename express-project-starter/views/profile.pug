@@ -1,0 +1,20 @@
+extends layout.pug
+append head
+  link(rel='stylesheet' href='/stylesheets/navbar.css')
+  link(rel='stylesheet' href='/stylesheets/profile.css')
+  link(rel='stylesheet' href='/stylesheets/global.css')
+block content
+  div(class='body-container')
+    div(class='outer')
+      div(id='picture_details')
+        div(id='person-image')
+          //- img(src="public/NavLogo.png" class='test')
+        div(class='undername-div')
+          div(id='user-name') User Name
+          ul(id='Activity') Activity:
+          ul(id='Details') Details
+
+        div(id='persons-bookshelf') Person's bookshelf
+
+
+//- will need to use grid out the whole page and will need to use it like this :
