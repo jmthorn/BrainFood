@@ -129,7 +129,7 @@ router.post('/login', csrfProtection, loginValidators, asyncHandler(async(req, r
     errors = validatorErrors.array().map((error) => error.msg)
   }
   // console.log("ERRORS.......................",errors)
-  res.render('login', {
+  res.render('user-login', {
     title: 'Login',
     username,
     errors,
