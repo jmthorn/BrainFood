@@ -129,7 +129,7 @@ router.post('/login', csrfProtection, loginValidators, asyncHandler(async(req, r
     errors = validatorErrors.array().map((error) => error.msg)
   }
   // console.log("ERRORS.......................",errors)
-  res.render('login', {
+  res.render('user-login', {
     title: 'Login',
     username,
     errors,
@@ -139,8 +139,9 @@ router.post('/login', csrfProtection, loginValidators, asyncHandler(async(req, r
 
 
 router.post('/logout', (req, res) => {
+  console.log(req.auth);
   logoutUser(req, res);
-  res.redirect('/users/login')                 // pug file that it is referencing
+  res.redirect('/')                 // pug file that it is referencing
 });
 
 
