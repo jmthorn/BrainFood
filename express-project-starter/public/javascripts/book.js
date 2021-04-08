@@ -58,8 +58,9 @@ window.addEventListener("DOMContentLoaded", () => {
         let addToBookshelfBtn = document.querySelector(".add-book-bookshelf")
         addToBookshelfBtn.addEventListener('click', (event) => {
             event.preventDefault()
-            let bookshelfId = event.target.value
-            console.log(event.target.id)
+            // let bookshelfId = event.target.value
+            let bookshelfId = document.querySelector(".bookshelves-dropdown").value
+            console.log(bookshelfId)
         })
 
 

@@ -27,7 +27,7 @@ block content
                 div(class="book-cover")
                     img(src=book.cover alt="No image" width="300px")
                     form
-                        select(id="bookshelves-dropdown")
+                        select(class="bookshelves-dropdown")
                             each bookshelf in bookshelves 
                                 option(value=bookshelf.id)=bookshelf.name
                         button(class="btn add-book-bookshelf") Add to Bookshelf
