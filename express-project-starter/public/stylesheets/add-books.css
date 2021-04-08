@@ -1,8 +1,10 @@
 #add-book-div {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-content: center;
-    align-items: center;
-    height: 600px;
+  background-color: #8e9aaf;
+  margin: 20px auto;
+  border: solid black 1px;
+  border-radius: 20px;
+  padding: 10px;
+  /* display: flex; */
+  text-align: center;
+  width: 500px;
 }
