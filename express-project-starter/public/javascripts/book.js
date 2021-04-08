@@ -1,5 +1,4 @@
 
-
 window.addEventListener("DOMContentLoaded", () => {
 
     const addReview = (review, userId) => {
@@ -13,7 +12,7 @@ window.addEventListener("DOMContentLoaded", () => {
         userSpan.innerHTML = '👤'
         h4.appendChild(userSpan)
         h4.innerText=review.author;
-        let ratingSpan = document.createElement(span)
+        let ratingSpan = document.createElement("span")
         ratingSpan.classList.add("review-rating");
         for(let i = 1; i <= review.rating; i++) { 
             ratingSpan.innerHTML += '🧠';
@@ -48,7 +47,8 @@ window.addEventListener("DOMContentLoaded", () => {
                 })
             })
             let data = await res.json()
-            addReview(review, data.userId)
+            // console.log("INFORMATIONNNN", review, data.newReview.userId)
+            addReview(review, data.newReview.userId)
         })
 
         let modal = document.getElementById("modal")
