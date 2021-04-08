@@ -44,14 +44,15 @@ a {
 }
 
 th, td {
-  border-bottom: 1px solid grey;
+  border-bottom: 1px solid black;
   width: 150px;
   height: 100px;
-  text-align:center
+  text-align: center;
 }
 
 .book_table {
-    border: solid grey;
+    background-color: #EFD3D7;
+    border: solid black;
     padding: 5%;
 
 }
@@ -60,8 +61,18 @@ th, td {
 #reading-activity,
 #add-books,
 #tools {
+    background-color: #8E9AAF;
     border: solid black;
     padding: 100px;
     /* margin: 0; */
     text-align: start;
+}   
+
+#add-books-link {
+    padding-top: 20px;
+    border: solid black;
+}
+
+.ul-bookshelves {
+    padding-bottom: 30px;
 }

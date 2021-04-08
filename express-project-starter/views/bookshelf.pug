@@ -11,13 +11,15 @@ block content
     div(id="bookshelves-div")
       span(id="my-books-text") My Books 
       div(id='bookshelves') Bookshelves
-        ul(class='ul-bookshelves') 
+        ul(id='ul-bookshelves') 
            li(class='li-bookshelf') Currently Read 
            li(class='li-bookshelf') Want to Read 
            li(class='li-bookshelf') Read
             //- each bookshelf in bookshelves 
             //- li= bookshelf
-           
+        form(id="add-shelf" method='post') Add a Shelf
+          input(type="text" name='listname')
+          button(type='submit' id='add-shelf-button') Add
       div(id='reading-activity') Reading Activity
       a(id='add-books' href='bookshelves/add-book') Add Books
       div(id='tools') Tools
