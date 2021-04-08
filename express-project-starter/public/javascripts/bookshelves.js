@@ -8,7 +8,9 @@ const newShelf = document.getElementById("add-shelf-button");
  
  newShelf.addEventListener('click', event => {
       event.preventDefault();
-      const bookshelves = document.getElementById("ul-bookshelves");
+      const bookshelvesList = document.getElementById("ul-bookshelves");
+      const bookshelves = document.querySelectorAll("li");
+      const a = document.createElement("a");
       const li = document.createElement("li");
       const form = document.getElementById("add-shelf");
       const formData = new FormData(form);
@@ -25,8 +27,16 @@ const newShelf = document.getElementById("add-shelf-button");
         //}),
       })
         .then((response) => response.json())
-        .then(json => li.innerHTML = json.bookshelf.name);
-      bookshelves.appendChild(li);
+        .then(json => {
+          if (json) {
+          a.innerHTML = json.bookshelf.name
+          a.setAttribute("href", `/users/:id/bookshelves/${bookshelves.length}`);
+          li.appendChild(a);
+          bookshelvesList.appendChild(li);
+          console.log(bookshelves.length);
+          } else return;
+          }
+        );
  });
 
 //fetch call to route on my db
