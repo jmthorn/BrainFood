@@ -45,12 +45,12 @@ block content
             div(id="book-in-books")
             tr
              div
-              td= book.cover
-              a(href='')= book.title
-              td= book.author
-              td= book.avgRating
+              td: img(height='120' width='80' src=`${book.cover}`)
+              td: a(href=`/books/${book.id}`)= book.title
+              td: a(href=`/books/${book.id}`)= book.author
+              td: a(href=`/books/${book.id}`)= book.avgRating
               //- tr= book.Review.rating
-              td= book.published
+              td: a(href=`/books/${book.id}`)= book.published
               //- tr= book.Bookshelves
               //-  check for line 30 and determine how to use it properly.
               //- tr= book.Review
