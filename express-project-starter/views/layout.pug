@@ -5,6 +5,7 @@ html
         title="Express Starter App"
         link(rel='stylesheet' href='/stylesheets/reset.css')
   body
+<<<<<<< HEAD
     nav(class= 'navbar')
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -44,6 +45,36 @@ html
             a(href="/user/login") Login 
             a(href="/user/signup") Register 
 
+=======
+  
+    nav(class='navbar')
+      div(class='nav-left overlay' )
+        div(class='nav-buttons-div')
+          a(id='navbar-brainfood' href='/')
+            img(src="/logo.png" id='navLogo' width='65' height='45') 
+          a(id='logo-sig' href='/') BrainFood 
+        div(class='nav-buttons-div')
+          a(class='nav-link' id='navbar-home' href="/") Home
+        div(class='nav-buttons-div')
+          a(class='nav-link' id='navbar-mybooks' href="/bookshelves") My Books
+      div(id='nav-middle' )
+        input(type="search" name="term" id='navbar-search' placeholder="Search Books" required)
+        //- button(type='submit' class='navbar-search-btn')
+        i.fas.fa-search
+        //- 🔍
+      if user
+        span(id='navbar-welcome-text') Welcome #{user.username}!
+        div(class='nav-buttons-div')
+          a(class= 'nav-link' id="navbar-profile-btn" href='/user/profile' )
+        form(action='/users/logout' method='post')
+            button(id='nav-logout' type='submit') Logout
+      else
+        div(id='nav-right' class='navbar-profile')
+        div(class='nav-buttons-div')
+          a(href="/users/login" id='navbar-login') Login
+        div(class='nav-buttons-div')
+          a(href="/users/signup" id='navbar-signup') Sign Up
+>>>>>>> 60cd774 (working on homepage)
 
 
 >>>>>>> 7755bbe (beginning work on navbar)

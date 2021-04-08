@@ -1,4 +1,36 @@
-h1 {
+h1,
+h2 {
+    padding-top: 70px;
+    display: flex;
+    justify-content: center;
+    font-family: 'Tangerine', cursive;
+    font-size: 100px;
     color: #555555;
 }
 
+h2 {
+    padding-top: 10px;
+    font-family: initial;
+    font-size: 40px;
+}
+
+#genre-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 1000px;
+    width: 60%;
+    padding-left: 8%;
+}
+
+#spacer-div {
+    border: solid grey;
+    width: 70%;
+    height: 300px!important;
+}
+
+.genre-list {
+    border: solid black;
+    height: 200px;
+    padding: -40px;
+}
