@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Parisienne&display=swap');
 .page-content {
   display: flex;
   flex-direction: row;
@@ -56,6 +57,7 @@
   float: right;
 }
 
+<<<<<<< HEAD
 .book-button-container {
   display: flex;
   flex-direction: row;
@@ -84,4 +86,17 @@
   padding: 20px;
   border: 1px solid #888;
   width: 80%; /* Could be more or less, depending on screen size */
+=======
+
+.sidebar-container{
+  padding: 50px;
+  display:flex;
+  flex-grow: 2;
+}
+
+#quote{
+  font-size: 40px;
+  font-weight: bold;
+  font-family: 'Parisienne', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+>>>>>>> footer
 }

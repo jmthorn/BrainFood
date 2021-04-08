@@ -1,0 +1,14 @@
+.footer{
+  background-color: #8E9AAF;
+  font-family: sans-serif;
+  height: 60px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.contributors{
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 20px;
+  padding: 5px
+}
