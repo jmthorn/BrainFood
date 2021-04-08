@@ -70,7 +70,7 @@ router.post('/add-book', asyncHandler(async (req, res) => {
 router.post('/bookshelf/delete/:id(\\d+)', asyncHandler(async (req, res) => {
     // How do we do this?
     const bookId = parseInt(req.params.id, 10);
-    const book = await db.Bookshelf.findByPk(bookId);
+    const bookshelf = await db.Bookshelf.findByPk(bookId);
     //const books = await db.Book.findAll();
     // const bookshelfId = parseInt(req.params.bookshelfId, 10);
     // const books = await db.Book.findAll({
@@ -79,7 +79,7 @@ router.post('/bookshelf/delete/:id(\\d+)', asyncHandler(async (req, res) => {
     //   },
     //   include: db.Bookshelf,
     // });
-    await book.destroy();
+    await bookshelf.destroy();
   res.redirect('/bookshelves');
   })
 );
