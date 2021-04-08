@@ -9,14 +9,17 @@ const db = require('../db/models');
 
 router.get("/:id", asyncHandler(async (req, res) => {
     let bookId = parseInt(req.params.id, 10)
+    const userId = req.session.auth.userId
     let book = await db.Book.findByPk(bookId)
     let reviews = await db.Review.findAll({
-            where: { bookId }
-        }
+        where: { bookId },
+        include: db.User
+    }
     )
     res.render('book', {
         book,
-        reviews
+        reviews,
+        userId
     })
 }))
 
@@ -30,12 +33,12 @@ router.post("/:id", asyncHandler(async (req, res) => {
 }))
 
 
-router.post("/:id/reviews", asyncHandler(async(req, res) => {
-    const userId = req.session.auth.userId 
+router.post("/:id/reviews", asyncHandler(async (req, res) => {
+    const userId = req.session.auth.userId
     const user = await db.User.findByPk(userId)
     const { review, bookId, rating } = req.body;
-    const newReview = await db.Review.create({ review, rating, userId, bookId, author: user.username})
-    res.json({newReview})
+    const newReview = await db.Review.create({ review, rating, userId, bookId, author: user.username })
+    res.json({ newReview })
 }))
 
 

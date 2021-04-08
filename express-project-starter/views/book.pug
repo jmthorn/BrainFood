@@ -35,13 +35,36 @@ block content
                 h2(class="review-header") Reviews
                 form(class="review-form")
                     div(class="rating")
-                        input(id="book-rating")
-                    textarea(class="new-review") Write your review here... 
+                        select(id="book-rating")
+                            option(value="null") Rate the book!
+                            option(value="1") 🧠
+                            option(value="2") 🧠🧠
+                            option(value="3") 🧠🧠🧠
+                            option(value="4") 🧠🧠🧠🧠
+                            option(value="5") 🧠🧠🧠🧠🧠
+
+                    textarea(class="new-review" placeholder="Write your review here...")
                     button(type="submit" class="review-button btn" id="submit-review") Submit
                 each review in reviews
                     div(class="review-container")
+                        h4(class="review-author")
+                            span(class="review-user-silhouette") 👤
+                            =review.User.username
+                            span(class="review-rating")
+                                if review.rating===1
+                                    | 🧠
+                                if review.rating===2
+                                    | 🧠🧠
+                                if review.rating===3
+                                    | 🧠🧠🧠
+                                if review.rating===4
+                                    | 🧠🧠🧠🧠
+                                if review.rating===5
+                                    | 🧠🧠🧠🧠🧠
+
+                        if review.userId===userId
+                            button(class="review-edit-btn btn") Edit
                         p=review.review
-                            button(class="btn") Edit
 
 
         div(class="book-sidebar")

@@ -47,3 +47,15 @@
 .new-review {
   width: 300px;
 }
+
+.review-user-silhouette{
+  font-size:25px;
+}
+
+.review-rating{
+  font-size:20px;
+}
+
+.review-edit-btn{
+  float: right;
+}
