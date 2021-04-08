@@ -23,6 +23,10 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: true
       },
+      description: {
+        type: Sequelize.TEXT(1000),
+        allowNull: true
+      },
       avg_rating: {
         type: Sequelize.DECIMAL(10, 2)
       },

@@ -13,7 +13,7 @@ module.exports = {
       }], {});
     */return queryInterface.bulkInsert(
       'Books',
-[ { cover: "Cover", title: "The Republic", author: "Plato",published: 380, avg_rating: 3.95, createdAt: new Date(),
+[ { cover: "/images/books/republic.jpg", title: "The Republic", author: "Plato",published: 380, avg_rating: 3.95, createdAt: new Date(),
         updatedAt: new Date() },
 { cover:"Cover", title: "Meditations", author: "Marcus Aurelius",published: 180, avg_rating: 4.22, createdAt: new Date(),
         updatedAt: new Date() },
