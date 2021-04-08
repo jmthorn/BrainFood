@@ -11,6 +11,7 @@ router.get("/:id", asyncHandler(async (req, res) => {
     let bookId = parseInt(req.params.id, 10)
     const userId = req.session.auth.userId
     let book = await db.Book.findByPk(bookId)
+    let bookshelves = await db.Bookshelf.findAll({where: {userId}})
     let reviews = await db.Review.findAll({
         where: { bookId },
         include: db.User
@@ -19,7 +20,8 @@ router.get("/:id", asyncHandler(async (req, res) => {
     res.render('book', {
         book,
         reviews,
-        userId
+        userId, 
+        bookshelves
     })
 }))
 
