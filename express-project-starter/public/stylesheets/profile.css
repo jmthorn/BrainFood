@@ -1,3 +1,51 @@
+.body-container{
+  display: grid;
+  grid-template-columns:15% 25% 25% 35% ;
+  grid-template-rows:25% 25% 25% 25% ;
+  grid-template-areas:
+  '. image userName .'
+  '.   .   details  .'
+  '.  bookshelf   activity .'
+  '.    .     .     .'
+  ;
+}
+
+#person-image {
+  display: flex;
+  align-self: center;
+  grid-area: image;
+  border-radius: 50%;
+  background: gray;
+  width: 250px;
+  height: 250px;
+}
+
+#user-name{
+  grid-area: userName;
+  font-weight: bold;
+  font-size: 50px;
+}
+
+#Activity {
+  grid-area: activity;
+}
+
+#Details {
+  grid-area: details;
+}
+
+#persons-bookshelf {
+  grid-area: bookshelf;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.books{
+  text-decoration: none;
+}
+
+
+
 .center-info{
   display:flex;
   flex-direction: row;
@@ -23,14 +71,12 @@
 }
 
 
-#person-image{
-  /* background-image: url(public/NavLogo.png); */
-  /* padding: ; */
+/* #person-image{
   border-radius: 50%;
   background: gray;
   width: 100px;
   height:100px;
-}
+}  */
 
 
 .test{

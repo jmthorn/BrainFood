@@ -154,8 +154,9 @@ router.post('/logout', (req, res) => {
 router.get('/profile/:id(\\d+)', asyncHandler(async (req, res)=> {
   // const {id} = req.params
   // const user = await db.User.findByPk(id)
-  const personID = parseInt(req.params.id, 10)    // base of 10
-  const user = await db.User.findByPk(personID)
+  const userId = parseInt(req.params.id, 10)    // base of 10
+  const user = await db.User.findByPk(userId)             // getting the usersId
+  console.log(userId)
 
   res.render('profile')
 }))
@@ -163,7 +164,7 @@ router.get('/profile/:id(\\d+)', asyncHandler(async (req, res)=> {
 
 // to edit the different sections of the profile page:
 router.post('/profile/:id(\\d+)', csrfProtection, userValidators, asyncHandler(async (req, res) => {
-
+  const { id } = req.params;
 }))
 
 

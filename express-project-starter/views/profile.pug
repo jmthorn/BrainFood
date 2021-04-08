@@ -6,15 +6,22 @@ append head
 block content
   div(class='body-container')
     div(class='outer')
-      div(id='picture_details')
-        div(id='person-image')
-          //- img(src="public/NavLogo.png" class='test')
-        div(class='undername-div')
-          div(id='user-name') User Name
-          ul(id='Activity') Activity:
-          ul(id='Details') Details
+    div(id='person-image')
+    div(id='user-name') User Name
+    div(id='persons-bookshelf') Person's bookshelf
+      ul(id='list-of-bookshelves')
+        ul(class='books') Book1
+        ul(class='books') Book2
+        ul(class='books') Book3
 
-        div(id='persons-bookshelf') Person's bookshelf
+
+      //- div(id='picture_details')
+      //-   //- div(id='person-image')
+      //-     //- img(src="public/NavLogo.png" class='test')
+      //-   div(class='undername-div')
+      //-     ul(id='Activity') Activity:
+      //-     ul(id='Details') Details
+
 
 
 //- will need to use grid out the whole page and will need to use it like this :
