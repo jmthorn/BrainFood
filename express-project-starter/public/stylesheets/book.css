@@ -47,3 +47,8 @@
 .new-review {
   width: 300px;
 }
+
+.book-button-contatiner {
+  display: flex;
+  flex-direction: row;
+}
