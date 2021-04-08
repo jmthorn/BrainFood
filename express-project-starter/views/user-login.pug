@@ -10,7 +10,7 @@ block content
     div(class="form-container")
       h1(class="form-header") Log In
       form(action="/users/login" method="post" class="user-form")
-        input(type="hidden" name="_csurf" value=csrfToken)
+        input(type="hidden" name="_csrf" value=csrfToken)
         +field("Username", "username", username)
         +field("Password", "password", null, "password")
         div(class = "submit-div")

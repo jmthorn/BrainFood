@@ -1,0 +1,87 @@
+.page-content {
+  display: flex;
+  flex-direction: row;
+  margin: 15px auto;
+}
+
+.book-content {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  flex-grow: 1;
+}
+
+.book-container {
+  display: flex;
+  flex-direction: row;
+  padding: 20px;
+  background-color: rgb(229, 226, 226);
+  border-radius: 20px;
+  border: solid black 1px;
+}
+
+.book-title {
+  font-size: 30px;
+}
+
+.book-info {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+.sidebar-container {
+  width: 300px;
+  height: 800px;
+  border: solid black 1px;
+  border-radius: 20px;
+}
+
+.review-container {
+  border: solid black 1px;
+}
+
+.new-review {
+  width: 300px;
+}
+
+.review-user-silhouette {
+  font-size: 25px;
+}
+
+.review-rating {
+  font-size: 20px;
+}
+
+.review-edit-btn {
+  float: right;
+}
+
+.book-button-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.modal-show {
+  display: block; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+.hidden {
+  display: none;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
