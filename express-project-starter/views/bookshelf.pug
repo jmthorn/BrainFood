@@ -5,18 +5,18 @@ append head
    link(rel="preconnect", href="https://fonts.gstatic.com")
    link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap")
    script(src='/javascripts/bookshelves.js' type='module')
-
+//- Need to change user id
 block content
   div(id="my-books-div")
     div(id="bookshelves-div")
-      span(id="my-books-text") My Books 
+      span(id="my-books-text") My Books  
       div(id='bookshelves') Bookshelves
         ul(id='ul-bookshelves') 
-           li(class='li-bookshelf') Currently Read 
-           li(class='li-bookshelf') Want to Read 
-           li(class='li-bookshelf') Read
-            //- each bookshelf in bookshelves 
-            //- li= bookshelf
+          li(class="bookshelf-li"): a(href=`/bookshelves/1`) Currently Reading 
+          li(class="bookshelf-li"): a(href=`/bookshelves/2`) Want to Read 
+          li(class="bookshelf-li"): a(href=`/bookshelves/3`) Read 
+          each bookshelf in bookshelves 
+            li(class="bookshelf-li"): a(href=`/bookshelves/${bookshelf.id}`) #{bookshelf.name}
         form(id="add-shelf" method='post') Add a Shelf
           input(type="text" name='listname')
           button(type='submit' id='add-shelf-button') Add
@@ -24,7 +24,7 @@ block content
       a(id='add-books' href='bookshelves/add-book') Add Books
       div(id='tools') Tools
         ul 
-          li: a(href='delete') Delete Bookshelf
+          li: a(href=`/bookshelf/delete/`) Delete Bookshelf
     if books
       div(id='main-table')
         table(class='book_table')
@@ -38,25 +38,21 @@ block content
               th(scope='col') Published
               //- th(scope='col') Shelves
               //- th(scope='col') Reviews
-              th(scope='col') Date Read
-              th(scope='col') Date Added
           tbody
            each book in books
             div(id="book-in-books")
             tr
              div
-              td= book.cover
-              td= book.title
-              td= book.author
-              td= book.avgRating
+              td: img(height='120' width='80' src=`${book.cover}`)
+              td: a(href=`/books/${book.id}`)= book.title
+              td: a(href=`/books/${book.id}`)= book.author
+              td: a(href=`/books/${book.id}`)= book.avgRating
               //- tr= book.Review.rating
               td= book.published
               //- tr= book.Bookshelves
               //-  check for line 30 and determine how to use it properly.
               //- tr= book.Review
               //- check for line 32 and determine how to use it properly.
-              td= book.updatedAt
-              //- check for line 35 and determine how to use it properly.
-              td= book.createdAt
+              
     else 
       div You don't have any bookshelves! Click here to add one.

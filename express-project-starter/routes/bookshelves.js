@@ -22,7 +22,7 @@ const db = require('../db/models');
 
 router.get('/', asyncHandler(async (req, res) => {
   // const bookshelfId = parseInt(req.params.id, 10);
-  // const bookshelves = await db.Bookshelf.findAll();
+   const bookshelves = await db.Bookshelf.findAll();
   const books = await db.Book.findAll();
   // // const bookshelfId = parseInt(req.params.bookshelfId, 10);
   // const books = await db.Bookshelf.findbyPk(bookshelfId, {
@@ -31,31 +31,10 @@ router.get('/', asyncHandler(async (req, res) => {
   //   }
   //   });
   res.render('bookshelf', {
-  //  bookshelves,
+    bookshelves,
     books
   })
 }))
-
-// Delete specific Bookshelf Route
-router.delete("/:id", asyncHandler(async (req, res) => {
-    const bookshelfId = parseInt(req.params.id, 10);
-    const bookshelf = await db.Bookshelf.findByPk(bookshelfId);
-    const books = await db.Book.findAll();
-    // const bookshelfId = parseInt(req.params.bookshelfId, 10);
-    // const books = await db.Book.findAll({
-    //   where: {
-    //     bookshelfId,
-    //   },
-    //   include: db.Bookshelf,
-    // });
-    await bookshelf.destroy();
-
-    res.redirect(`bookshelf/${bookshelfId - 1}`, {
-      bookshelves,
-      books,
-    });
-  })
-);
 
 router.get('/add-book', csrfProtection, asyncHandler(async (req, res) => {
   const book = db.Book.build();
@@ -66,28 +45,32 @@ router.get('/add-book', csrfProtection, asyncHandler(async (req, res) => {
 }))
 
 //Add a specific Book
-router.post('/add-book', csrfProtection, asyncHandler(async (req, res) => {
+router.post('/add-book', asyncHandler(async (req, res) => {
+  console.log(req.body);
   const {
+    cover,
     title,
     author,
     published
   } = req.body;
 
+  
   const book = db.Book.build({
+    cover,
     title,
     author,
     published
   })
 
   await book.save();
-  res.redirect('/bookshelves');
+  res.redirect('add-book');
 }))
 
-// Delete specific Book Route
-router.delete("/:id", asyncHandler(async (req, res) => {
+// Delete specific Bookshelf Route
+router.post('/bookshelf/delete/:id(\\d+)', asyncHandler(async (req, res) => {
     // How do we do this?
     const bookId = parseInt(req.params.id, 10);
-    const book = await db.Book.findByPk(bookId);
+    const book = await db.Bookshelf.findByPk(bookId);
     //const books = await db.Book.findAll();
     // const bookshelfId = parseInt(req.params.bookshelfId, 10);
     // const books = await db.Book.findAll({
@@ -97,11 +80,7 @@ router.delete("/:id", asyncHandler(async (req, res) => {
     //   include: db.Bookshelf,
     // });
     await book.destroy();
-
-    res.render("bookshelf", {
-      bookshelves,
-      books,
-    });
+  res.redirect('/bookshelves');
   })
 );
 // router.get('/bookshelves/:id', asyncHandler(async (req, res) => {
