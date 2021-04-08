@@ -8,39 +8,67 @@
   '. details    .     .     .'
   '. favGenre   .     .     .'
   ; */
-  width: 100vh;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
 }
 
 #left-div{
-  width: 100px;
+  width: 600px;
   height: 100%;
 }
 
 #middle-div{
-  width: 100px;
+  display: flex;
+  flex-direction: column;
+  width: 500px;
   height: 100%;
+
+}
+
+#space-div{
+  width: 400px;
 }
 
 
 #right-div{
-  width: 100px;
+  width:100%;
   height: 100%;
 }
 
-#person-image {
-  grid-area: image;
-  display: flex;
+.person-image {
   justify-self: center;
   align-self: center;
   border-radius: 25px;
-  background: gray;
-  width: 300px;
-  height: 350px;
+  background-image: url(/dogProfilePic.jpg);
+  background-position: center;
+  object-fit: cover;
+  width: 250px;
+  height: 400px;
+}
+
+.person-image-container{
+  display: flex;
+  justify-content: center;
+  margin-top: 150px;
+  /* top:50px; */
+
+}
+
+.user-name-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+
+#fav-book-container{
+  display: flex;
+  justify-content: start;
+  margin-top: 400px;
 }
 
 #favorite-books{
-  grid-area: favBooks;
   font-weight: bold;
   font-size: 35px;
 }
@@ -53,83 +81,75 @@
 
 #user-name{
   display: flex;
-  grid-area: userName;
+  flex-direction: column;
   font-weight: bold;
   font-size: 40px;
   justify-self:center;
-}
-
-#Activity {
-  grid-area: activity;
 }
 
 /* #Details {
   grid-area: details;
 } */
 
+#person-details-container{
+  display: flex;
+  margin-right: 100px;
+}
+
 #person-details {
   grid-area: details;
   font-weight: bold;
   font-size: 20px;
+  text-decoration: underline;
+  /* border-bottom: 5px solid black; */
 }
 
-.books{
-  text-decoration: none;
-}
-
-
-
-.center-info{
-  display:flex;
-  flex-direction: row;
-  font-size: 30px;
-  color:black;
-  width: 40%;
-}
-
-
-#details {
+#person-details-container1{
   display: flex;
-  align-content: flex-end;
-  font-size: 30px;
-  color:black;
-  text-decoration: none;
+  margin-right: 100px;
 }
 
-
-#activity {
-  font-size: 30px;
-  color:black;
-  text-decoration: none;
+#email {
+  font-weight: bold;
+  font-size: 20px;
 }
 
-
-/* #person-image{
-  border-radius: 50%;
-  background: gray;
-  width: 100px;
-  height:100px;
-}  */
-
-
-.test{
-
-}
-
-#picture_details {
+#person-details-container2 {
   display: flex;
-  flex-direction: row;
-  align-self: center;
-  border: 5px solid black;
-  height: 200px;
-  width: 400px;
+  justify-content: flex-start;
+  margin-top: 150px;
 }
 
-.outer {
+.booksRead{
+  font-weight: bold;
+  font-size: 20px;
+}
+
+
+.favorite-books-top,
+.favorite-books-bottom {
   display: flex;
-  height:100vh;
-  width: 100vh;
-  justify-content: center;
-  /* top:; */
-  /* bottom:;  */
+  width: 100%;
+  height:400px;
+  align-items: center;
+}
+
+/* .favorite-books-bottom {
+  display: flex;
+  width: 100%;
+  height:400px;
+  align-items: center;
+} */
+
+#favorite-books-top1,
+#favorite-books-top2,
+#favorite-books-top3,
+#favorite-books-top4,
+#favorite-books-top5,
+#favorite-books-top6 {
+  border: 5px solid red;
+  width: 250px;
+  height: 250px;
+  margin-right: 100px;
+  border-radius: 25px;
 }
