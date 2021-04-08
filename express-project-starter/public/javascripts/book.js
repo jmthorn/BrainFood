@@ -1,5 +1,32 @@
+
 window.addEventListener("DOMContentLoaded", () => {
 
+    const addReview = (review, userId) => {
+        let div = document.createElement('div')
+        div.classList.add("review-container");
+        let h4 = document.createElement('h4');
+        h4.classList.add("review-author");
+        div.appendChild(h4);
+        let userSpan = document.createElement("span");
+        userSpan.classList.add("review-user-silhouette")
+        userSpan.innerHTML = '👤'
+        h4.appendChild(userSpan)
+        h4.innerText=review.author;
+        let ratingSpan = document.createElement("span")
+        ratingSpan.classList.add("review-rating");
+        for(let i = 1; i <= review.rating; i++) { 
+            ratingSpan.innerHTML += '🧠';
+        }
+        h4.appendChild(ratingSpan)
+        if(review.userId===userId) { 
+            let button = document.createElement('button');
+            button.innerText= "Edit";
+            button.classList.add("review-edit-btn")
+            button.classList.add("btn")
+            h4.appendChild(button)
+        }
+
+    }
 
     document.getElementById("submit-review")
         .addEventListener("click", async(event) => { 
@@ -20,8 +47,8 @@ window.addEventListener("DOMContentLoaded", () => {
                 })
             })
             let data = await res.json()
-            console.log(data)
-            
+            // console.log("INFORMATIONNNN", review, data.newReview.userId)
+            addReview(review, data.newReview.userId)
         })
 
         let modal = document.getElementById("modal")
