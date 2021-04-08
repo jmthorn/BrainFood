@@ -49,6 +49,7 @@
   width: 300px;
 }
 
+<<<<<<< HEAD
 .review-user-silhouette{
   font-size:25px;
 }
@@ -59,4 +60,9 @@
 
 .review-edit-btn{
   float: right;
+=======
+.book-button-contatiner {
+  display: flex;
+  flex-direction: row;
+>>>>>>> 0dd2f9f (add edit book button)
 }
