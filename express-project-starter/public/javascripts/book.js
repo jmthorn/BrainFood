@@ -1,8 +1,4 @@
 
-<<<<<<< HEAD
-
-=======
->>>>>>> book
 window.addEventListener("DOMContentLoaded", () => {
 
     const addReview = (review, userId) => {
@@ -11,17 +7,8 @@ window.addEventListener("DOMContentLoaded", () => {
         let h4 = document.createElement('h4');
         h4.classList.add("review-author");
         div.appendChild(h4);
-<<<<<<< HEAD
-        let userSpan = document.createElement("span");
-        userSpan.classList.add("review-user-silhouette")
-        userSpan.innerHTML = '👤'
-        h4.appendChild(userSpan)
-        h4.innerText=review.author;
-        let ratingSpan = document.createElement(span)
-=======
         h4.innerText=`👤 ${review.author}`;
         let ratingSpan = document.createElement("span")
->>>>>>> book
         ratingSpan.classList.add("review-rating");
         for(let i = 1; i <= review.rating; i++) { 
             ratingSpan.innerHTML += '🧠';
@@ -32,10 +19,6 @@ window.addEventListener("DOMContentLoaded", () => {
             button.innerText= "Edit";
             button.classList.add("review-edit-btn")
             button.classList.add("btn")
-<<<<<<< HEAD
-            h4.appendChild(button)
-        }
-=======
             div.appendChild(button)
         }
         console.log(review)
@@ -45,7 +28,6 @@ window.addEventListener("DOMContentLoaded", () => {
         let existingReviews = document.querySelector(".existing-reviews")
         let reviewsContainer = document.querySelector(".reviews-container")
         existingReviews.insertBefore(div, existingReviews.childNodes[0])
->>>>>>> book
 
     }
 
