@@ -21,6 +21,18 @@ nav {
   /* "navbar-brainfood navbar-home navbar-my-books navbar-search navbar-search navbar-welcome-text navbar-profile navbar-logout navbar-login navbar-register"; */
 }
 
+#navbar-brainfood {
+  text-decoration: none;
+  color: black;
+}
+#logo-sig {
+  font-family: 'Tangerine', cursive;
+  font-weight: 300;
+  font-size: 30px;
+  color: black;
+  text-decoration: none;
+}
+
 .nav-left{
     /* grid-area: navbar-brainfood; */
     width: 40%;
@@ -56,13 +68,13 @@ nav {
 
 }
 
-.navbar .nav-buttons-div:hover {
+/* .navbar .nav-buttons-div:hover {
   text-decoration: none;
   background-color: rgba(255, 255, 255, 0.7);
-}
+} */
 
 
-#navbar-brainfood{
+#navbar-brainfood {
   /* text-decoration: none;*/
   /* background-image: url(public/logotemp-1.png);
   background-size: 50px; */
@@ -107,6 +119,13 @@ nav {
   font-weight: bold;
 }
 
+#nav-logout {
+  background: none!important;
+  border: none;
+  padding: 0!important;
+  cursor: pointer;
+  font-size: 20px;
+}
 
 .navbar-search-btn{
   /* background-image: url(/search-mag.jpg);

@@ -54,7 +54,6 @@ router.post('/add-book', asyncHandler(async (req, res) => {
     published
   } = req.body;
 
-  
   const book = db.Book.build({
     cover,
     title,

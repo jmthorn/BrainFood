@@ -2,6 +2,12 @@ html {
     font-family: 'Noto Sans JP', sans-serif;
 }
 
+.add-shelf {
+    padding-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
 a:hover {
     text-decoration:  underline;
 }
@@ -65,7 +71,7 @@ th, td {
 #reading-activity,
 #add-books,
 #tools {
-    background-color: #8E9AAF;
+    background-color: #DEE2FF;
     border: solid black;
     padding: 100px;
     /* margin: 0; */
@@ -75,6 +81,7 @@ th, td {
 #add-books-link {
     padding-top: 20px;
     border: solid black;
+    color: #4c5460;
 }
 
 .ul-bookshelves {
