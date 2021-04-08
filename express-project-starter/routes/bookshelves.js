@@ -23,7 +23,7 @@ const db = require('../db/models');
 router.get('/', asyncHandler(async (req, res) => {
   // const bookshelfId = parseInt(req.params.id, 10);
   // const bookshelves = await db.Bookshelf.findAll();
-  // const books = await db.Book.findAll();
+  const books = await db.Book.findAll();
   // // const bookshelfId = parseInt(req.params.bookshelfId, 10);
   // const books = await db.Bookshelf.findbyPk(bookshelfId, {
   //   include: { model: db.Book,
