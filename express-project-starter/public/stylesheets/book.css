@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Parisienne&display=swap');
 .page-content {
   display: flex;
   flex-direction: row;
@@ -59,4 +60,17 @@
 
 .review-edit-btn{
   float: right;
+}
+
+
+.sidebar-container{
+  padding: 50px;
+  display:flex;
+  flex-grow: 2;
+}
+
+#quote{
+  font-size: 40px;
+  font-weight: bold;
+  font-family: 'Parisienne', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
