@@ -18,7 +18,7 @@ block content
           each bookshelf in bookshelves 
             li(class="bookshelf-li"): a(href=`/bookshelves/${bookshelf.id}`) #{bookshelf.name}
         span Add Shelf 
-        form(class='add-shelf' method='post')
+        form(id='add-shelf' method='post')
           input(type="text" name='listname')
           button(type='submit' id='add-shelf-button') Add
       div(id='reading-activity') Reading Activity

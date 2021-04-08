@@ -29,13 +29,15 @@ router.get('/', asyncHandler(async (req, res) => {
     }
   });
   // const bookshelves = await db.Bookshelf.findAll();
-  const books = await db.Book.findAll();
-  // // const bookshelfId = parseInt(req.params.bookshelfId, 10);
-  // const books = await db.Bookshelf.findbyPk(bookshelfId, {
-  //   include: { model: db.Book,
-  //   through: "Bookshelves-to-books",
-  //   }
-  //   });
+//  const books = await db.Book.findAll();
+  const bookshelfId = parseInt(req.params.bookshelfId, 10);
+  const books = await db.Book.findAll( {
+    include:  db.Bookshelf,
+      where: {
+         bookshelfId
+      },
+    through: "BookshelfToBooks",
+    });
   res.render('bookshelf', {
     bookshelves,
     books
