@@ -1,13 +1,14 @@
 .page-content {
   display: flex;
   flex-direction: row;
-  margin: 100px auto;
+  margin: 15px auto;
 }
 
 .book-content {
   display: flex;
   flex-direction: column;
   padding: 20px;
+  flex-grow: 1;
 }
 
 .book-container {
