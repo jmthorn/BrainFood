@@ -155,19 +155,27 @@ router.get('/profile/:id(\\d+)', asyncHandler(async (req, res)=> {
   // const {id} = req.params
   // const user = await db.User.findByPk(id)
   const userId = parseInt(req.params.id, 10)    // base of 10
-  const user = await db.User.findByPk(userId)             // getting the usersId
+  const user = await db.User.findByPk(userId, {
+    where: db.Review.rating,
+    include: db.Review
+  })             // getting the usersId
 
 
   res.render('profile', {
     user,
+    review,
   })
 }))
 
 
-// to edit the different sections of the profile page:
-router.post('/profile/:id(\\d+)', csrfProtection, userValidators, asyncHandler(async (req, res) => {
-  const { id } = req.params;
-}))
+// // to edit the different sections of the profile page:
+// router.post('/profile/:id(\\d+)', csrfProtection, userValidators, asyncHandler(async (req, res) => {
+//   const { id } = req.params;
+
+//   await user.update{}
+
+//   res.redirect('/profile')
+// }))
 
 
 
