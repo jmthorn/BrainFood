@@ -1,4 +1,4 @@
-const { HttpError } = require("http-errors");
+
 
 window.addEventListener("DOMContentLoaded", () => {
 
