@@ -1,0 +1,48 @@
+extends layout.pug
+
+include utils.pug
+
+append head
+   link(rel='stylesheet' href='/stylesheets/book.css')
+   link(rel="preconnect", href="https://fonts.gstatic.com")
+   link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap")
+   script(src='/javascripts/book.js' type='module')
+
+block content
+    div(class="page-content")
+        div(class="book-content")
+            div(class="book-container")
+                div(class="book-cover")
+                    img(src=book.cover alt="No image" width="200px")
+                div(class="book-info")
+                    span(class="book-title")=book.title
+                    span(class="book-author")=book.author
+                    span(class="book-published")=book.published
+                    p(class="book-description")=book.description
+
+            div(class="form-container hidden-form")
+                h1(class="form-header") Edit Book
+                form(action=`/books/${book.id}` method="post" class="user-form")
+                    +field("Cover", "cover", book.cover)
+                    +field("Title", "title", book.title)
+                    +field("Author", "author", book.author)
+                    +field("Published", "published", book.published)
+                    +field("Description", "description", book.description)
+                    div(class='submit-div')
+                        button(type='submit' class='btn submit') Submit
+                        a(href=`/books/${book.id}` class='a clear') Clear
+            div(class="reviews-container")
+                h2(class="review-header") Reviews
+                form(class="review-form")
+                    div(class="rating")
+                        input(id="book-rating")
+                    textarea(class="new-review") Write your review here... 
+                    button(type="submit" class="review-button btn" id="submit-review") Submit
+                each review in reviews
+                    div(class="review-container")
+                        p=review.review
+                            button(class="btn") Edit
+
+
+        div(class="book-sidebar")
+            div(class="sidebar-container")

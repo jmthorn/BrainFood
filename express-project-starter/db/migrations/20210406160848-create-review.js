@@ -16,6 +16,10 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false
       },
+      review: {
+        type: Sequelize.TEXT,
+        allowNull: true
+      },
       userId: {
         type: Sequelize.INTEGER,
         references: { model: "Users" }
