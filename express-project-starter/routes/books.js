@@ -8,15 +8,15 @@ const { check, validationResult } = require('express-validator');
 const db = require('../db/models');
 
 router.get("/:id", asyncHandler(async (req, res) => {
-    let bookId = parseInt(req.params.id, 10)
     const userId = req.session.auth.userId
+    if(!userId) res.redirect("/users/login");
+    let bookId = parseInt(req.params.id, 10)
     let book = await db.Book.findByPk(bookId)
     let bookshelves = await db.Bookshelf.findAll({where: {userId}})
     let reviews = await db.Review.findAll({
         where: { bookId },
         include: db.User
-    }
-    )
+    })
     res.render('book', {
         book,
         reviews,
@@ -25,7 +25,8 @@ router.get("/:id", asyncHandler(async (req, res) => {
     })
 }))
 
-//UPDATING BOOK
+//UPDATING BOOK==================================================
+
 router.post("/:id", asyncHandler(async (req, res) => {
     let bookId = parseInt(req.params.id, 10)
     let book = await db.Book.findByPk(bookId)
@@ -34,7 +35,8 @@ router.post("/:id", asyncHandler(async (req, res) => {
     res.redirect(`/books/${bookId}`)
 }))
 
-//ADDING REVIEW
+//ADDING REVIEW====================================================
+
 router.post("/:id/reviews", asyncHandler(async (req, res) => {
     const userId = req.session.auth.userId
     const user = await db.User.findByPk(userId)
@@ -44,13 +46,15 @@ router.post("/:id/reviews", asyncHandler(async (req, res) => {
 }))
 
 
-//ADD BOOK TO BOOKSHELF
-router.post("/:id/:id", asyncHandler(async (req, res) => {
+//ADD BOOK TO BOOKSHELF=============================================
+
+router.post("/:id/bookshelves", asyncHandler(async (req, res) => {
     const userId = req.session.auth.userId
-    const user = await db.User.findByPk(userId)
+    // const user = await db.User.findByPk(userId)
     const { bookshelfId, bookId } = req.body;
-    let bookshelf = db.Bookshelf.findByPk(bookshelfId) 
-    await bookshelf.update({userId, bookId})
+    // let bookshelf = db.Bookshelf.findByPk(bookshelfId) 
+    let bookshelfToBook = await db.BookshelfToBook.create({bookshelfId: parseInt(bookshelfId), bookId: parseInt(bookId)});
+    res.json({ userId , bookshelfToBook })
 }));
 
 
