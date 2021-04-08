@@ -25,7 +25,8 @@ router.get("/:id", asyncHandler(async (req, res) => {
     })
 }))
 
-//UPDATING BOOK
+//UPDATING BOOK==================================================
+
 router.post("/:id", asyncHandler(async (req, res) => {
     let bookId = parseInt(req.params.id, 10)
     let book = await db.Book.findByPk(bookId)
@@ -34,7 +35,8 @@ router.post("/:id", asyncHandler(async (req, res) => {
     res.redirect(`/books/${bookId}`)
 }))
 
-//ADDING REVIEW
+//ADDING REVIEW====================================================
+
 router.post("/:id/reviews", asyncHandler(async (req, res) => {
     const userId = req.session.auth.userId
     const user = await db.User.findByPk(userId)
@@ -44,7 +46,8 @@ router.post("/:id/reviews", asyncHandler(async (req, res) => {
 }))
 
 
-//ADD BOOK TO BOOKSHELF
+//ADD BOOK TO BOOKSHELF=============================================
+
 router.post("/:id/bookshelves", asyncHandler(async (req, res) => {
     const userId = req.session.auth.userId
     // const user = await db.User.findByPk(userId)
