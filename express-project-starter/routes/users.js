@@ -139,8 +139,9 @@ router.post('/login', csrfProtection, loginValidators, asyncHandler(async(req, r
 
 
 router.post('/logout', (req, res) => {
+  console.log(req.auth);
   logoutUser(req, res);
-  res.redirect('/users/login')                 // pug file that it is referencing
+  res.redirect('/')                 // pug file that it is referencing
 });
 
 
