@@ -58,9 +58,20 @@ window.addEventListener("DOMContentLoaded", () => {
         let addToBookshelfBtn = document.querySelector(".add-book-bookshelf")
         addToBookshelfBtn.addEventListener('click', (event) => {
             event.preventDefault()
-            // let bookshelfId = event.target.value
             let bookshelfId = document.querySelector(".bookshelves-dropdown").value
-            console.log(bookshelfId)
+            let bookId = event.target.baseURI.split('/')[4]
+            let res = await fetch(`http://localhost:8080/books/${bookId}/${bookshelfId}`, { 
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    bookshelfId,
+                    bookId
+                })
+            })
+            let data = await res.json()
+
         })
 
 

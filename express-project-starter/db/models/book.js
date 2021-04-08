@@ -11,12 +11,12 @@ module.exports = (sequelize, DataTypes) => {
   Book.associate = function (models) {
     // associations can be defined here
     const columnMapping = {
-      through: "Books-To-Tags",
+      through: "BookToTag",
       otherKey: "tagId",
       foreignKey: "bookId"
     }
     const columnMapping2 = {
-      through: "Bookshelves-to-Books",
+      through: "BookshelfToBook",
       otherKey: "bookshelfId",
       foreignKey: "bookId"
     }
