@@ -31,6 +31,8 @@ window.addEventListener("DOMContentLoaded", () => {
 
     }
 
+    //ADD REVIEW ================================
+
     document.getElementById("submit-review")
         .addEventListener("click", async(event) => { 
             event.preventDefault();
@@ -89,7 +91,6 @@ window.addEventListener("DOMContentLoaded", () => {
                 })
             })
             let data = await res.json()
-            console.log("HELLLOOOOOO")
             window.location = '/bookshelves'
         })
 
@@ -109,6 +110,40 @@ window.addEventListener("DOMContentLoaded", () => {
                 modal.classList.remove("modal-show")
                 modal.classList.add("hidden")
             }
+        })
+
+
+        //ADD TAGS====================================
+
+        const addTag = (tagDescription) => {
+            let tagContainer = document.querySelector(".tag-container")
+
+        }
+
+
+        let tagBtn = document.querySelector(".tag-btn")
+        tagBtn.addEventListener("click", (event) => {
+            event.preventDefault()
+
+            let tagInput = document.querySelector(".tag-input")
+            let category = tagInput.value
+            let bookId = event.target.baseURI.split('/')[4]
+
+            let res = await fetch(`http://localhost:8080/books/${bookId}/tags`, { 
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    category, 
+                    bookId
+                })
+            })
+
+            let data = await res.json()
+            console.log(data.newTag)
+            // addReview(data.newTag, data.newTag.userId)
+            // addTag(data.newTag)
         })
 
 })
