@@ -28,8 +28,7 @@ router.get("/:id", asyncHandler(async (req, res) => {
         book,
         reviews,
         userId, 
-        bookshelves,
-        tags
+        bookshelves
     })
 }))
 
