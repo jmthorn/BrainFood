@@ -75,12 +75,12 @@ window.addEventListener("DOMContentLoaded", () => {
 
         //DELETE BOOK FROM BOOKSHELF==========================
 
-        let deleteFromBookshelfBtn = document.querySelector("book-delete")
+        let deleteFromBookshelfBtn = document.querySelector(".book-delete")
         deleteFromBookshelfBtn.addEventListener('click', async(event) => {
             event.preventDefault()
             let bookId = event.target.baseURI.split('/')[4]
-            let res = await fetch(`http://localhost:8080/books/${bookId}`, { 
-                method: "DELETE",
+            let res = await fetch(`http://localhost:8080/books/${bookId}/delete`, { 
+                method: "POST",
                 headers: {
                     "Content-Type": "application/json"
                 },
@@ -89,7 +89,8 @@ window.addEventListener("DOMContentLoaded", () => {
                 })
             })
             let data = await res.json()
-            res.redirect('/bookshelves')
+            console.log("HELLLOOOOOO")
+            window.location = '/bookshelves'
         })
 
 
