@@ -1,0 +1,31 @@
+#delete-form {
+display: flex;
+justify-content: center;
+background-color: #8e9aaf;
+margin: 20px auto;
+border: solid black 1px;
+border-radius: 20px;
+width: 30%;
+}
+
+#form-div {
+    display: flex;
+    justify-content: center;
+}
+
+/* .form-div {
+ border: solid grey;
+} */
+
+#top-el {
+    padding-top: 100px;
+}
+
+#bottom-el {
+    padding-bottom: 100px;
+
+}
+
+#cancel {
+    padding-left: 20px;
+}

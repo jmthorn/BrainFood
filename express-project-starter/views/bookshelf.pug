@@ -17,14 +17,13 @@ block content
           li(class="bookshelf-li"): a(href=`/bookshelves/3`) Read 
           each bookshelf in bookshelves 
             li(class="bookshelf-li"): a(href=`/bookshelves/${bookshelf.id}`) #{bookshelf.name}
-              a(href=`/bookshelves/delete/${bookshelf.id}` id='delete-button') ⓧ
+              a(href=`/bookshelves/delete/${bookshelf.id}` class="bookshelf-li" id='delete-button') ⓧ
         span(class='add-shelf-span') Add Shelf 
-        form(method='post' class='add-shelf')
+        form(method='post' id='add-shelf')
           input(type="text" name='listname')
           button(type='submit' id='add-shelf-button') Add
-      div(id='reading-activity') Reading Activity
+      //- div(id='reading-activity') Reading Activity
       a(id='add-books' href='/bookshelves/add-book') Add Book
-      div(id='tools') Tools
     if books
       div(id='main-table')
         table(class='book_table')
