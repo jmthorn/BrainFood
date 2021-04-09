@@ -1,4 +1,49 @@
-h1 {
+h1,
+h2 {
+    padding-top: 70px;
+    display: flex;
+    justify-content: center;
+    font-family: 'Tangerine', cursive;
+    font-size: 80px;
     color: #555555;
 }
 
+h2 {
+    padding-top: 10px;
+    font-family: initial;
+    font-size: 40px;
+}
+
+#api-div {
+    position: absolute;
+    left: 75%;
+    top: 40%;
+    width: 600px;
+    height: 1000px;
+    border: solid black;
+}
+
+#genre-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 2500px;
+    width: 60%;
+    padding-left: 8%;
+}
+
+#spacer-div {
+    border: solid grey;
+    width: 70%;
+    height: 300px!important;
+}
+
+.genre-list {
+    border: solid black;
+    height: 300px;
+    padding: -40px;
+}
+
+#img-div {
+    display: inline;
+}
