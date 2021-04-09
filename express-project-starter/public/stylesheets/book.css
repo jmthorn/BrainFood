@@ -90,17 +90,13 @@
 }
 
 .sidebar-container {
-<<<<<<< HEAD
   margin: 20px;
-=======
->>>>>>> 8e5a63e (add seeding data)
   padding: 50px;
   display: flex;
   flex-grow: 2;
 }
 
 #quote {
-<<<<<<< HEAD
   font-size: 20px;
   font-weight: bold;
   font-family: "Parisienne", "Lucida Sans Regular", "Lucida Grande",
@@ -117,13 +113,10 @@
 }
 
 #quote {
-=======
->>>>>>> 8e5a63e (add seeding data)
   font-size: 40px;
   font-weight: bold;
   font-family: "Parisienne", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-<<<<<<< HEAD
   margin: 15px;
 }
 
@@ -156,11 +149,4 @@
 
 .tag-input {
   margin: 10px;
-=======
-}
-
-.tag-container {
-  display: flex;
-  flex-wrap: wrap;
->>>>>>> 8e5a63e (add seeding data)
 }
