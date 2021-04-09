@@ -59,6 +59,7 @@ window.addEventListener("DOMContentLoaded", () => {
     let addToBookshelfBtn = document.querySelector(".add-book-bookshelf")
     addToBookshelfBtn.addEventListener('click', async (event) => {
         event.preventDefault()
+        
         let bookshelfId = document.querySelector(".bookshelves-dropdown").value
         let bookId = event.target.baseURI.split('/')[4]
         let res = await fetch(`http://localhost:8080/books/${bookId}/bookshelves`, {
@@ -73,7 +74,6 @@ window.addEventListener("DOMContentLoaded", () => {
         })
         let data = await res.json()
     })
-    let data = await res.json()
 
     //DELETE BOOK FROM BOOKSHELF==========================
 
@@ -95,15 +95,6 @@ window.addEventListener("DOMContentLoaded", () => {
     })
 
 
-    //MODAL=====================================
-
-    let modal = document.getElementById("modal")
-    let editBtn = document.querySelector(".book-edit")
-
-    editBtn.addEventListener("click", (event) => {
-        modal.classList.remove("hidden")
-        modal.classList.add("modal-show")
-    })
 
     //MODAL=====================================
     let modal = document.getElementById("modal")
@@ -123,24 +114,17 @@ window.addEventListener("DOMContentLoaded", () => {
 
         //ADD TAGS====================================
 
-        const addTag = (tagCategory) => {
-            let tagContainer = document.querySelector(".tag-container")
-            let div = document.createElement("div")
-            div.innerText=tagCategory
-            div.classList.add("book-tag")
-            tagContainer.insertBefore(div, tagContainer.childNodes[0])
-
-        }
-
-
-       
-
-
-    
+    const addTag = (tagCategory) => {
+        let tagContainer = document.querySelector(".tag-container")
+        let div = document.createElement("div")
+        div.innerText=tagCategory
+        div.classList.add("book-tag")
+        tagContainer.insertBefore(div, tagContainer.childNodes[0])
+    }
 
 
     let tagBtn = document.querySelector(".tag-btn")
-    tagBtn.addEventListener("click", (event) => {
+    tagBtn.addEventListener("click", async(event) => {
         event.preventDefault()
 
         let tagInput = document.querySelector(".tag-input")
@@ -159,9 +143,9 @@ window.addEventListener("DOMContentLoaded", () => {
         })
 
         let data = await res.json()
-        console.log(data.newTag)
+        // console.log(data.newTag)
         // addReview(data.newTag, data.newTag.userId)
-        // addTag(data.newTag)
+        addTag(data.newTag.category)
     })
 
 })
