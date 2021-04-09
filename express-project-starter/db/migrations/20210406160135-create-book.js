@@ -9,14 +9,14 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       cover: {
-        type: Sequelize.STRING(255)
+        type: Sequelize.STRING(1000)
       },
       title: {
-        type: Sequelize.STRING(50),
+        type: Sequelize.STRING(255),
         allowNull: false
       },
       author: {
-        type: Sequelize.STRING(50),
+        type: Sequelize.STRING(100),
         allowNull: false
       },
       published: {
@@ -24,7 +24,7 @@ module.exports = {
         allowNull: true
       },
       description: {
-        type: Sequelize.TEXT(1000),
+        type: Sequelize.TEXT(6000),
         allowNull: true
       },
       avg_rating: {

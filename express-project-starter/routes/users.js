@@ -3,9 +3,11 @@ const router = express.Router();
 const bcrypt = require('bcrypt');
 
 const { csrfProtection, asyncHandler } = require('./utils');
-const { loginUser, logoutUser } = require('../auth');
+const { loginUser, logoutUser, requireAuth } = require('../auth');
 const { check, validationResult } = require('express-validator');
+const { Op } = require("sequelize");
 const db = require('../db/models');
+
 
 
 /* GET users listing. */
@@ -150,27 +152,49 @@ router.post('/logout', (req, res) => {
 
 
 
-//http://localhost:8080/users/profile/:id
-router.get('/profile/:id(\\d+)', asyncHandler(async (req, res)=> {
-  // const {id} = req.params
-  // const user = await db.User.findByPk(id)
-  const personID = parseInt(req.params.id, 10)    // base of 10
-  const user = await db.User.findByPk(personID)
+//http://localhost:8080/users/profile/:id - - WORKS
+router.get('/profile/:id(\\d+)', requireAuth, asyncHandler(async(req, res) => {
+  const { id } = req.params;
+  // console.log(id, '===========');
 
-  res.render('profile')
+  const reviews = await db.Review.findAll({
+    where: {
+      [Op.and]: [
+        {userId: id},
+        {rating: 5}
+      ]
+    },
+    include: db.Book
+  });
+
+  res.render('profile',             // know it render correctly
+  reviews,                    // reviews array gives us the the userId and rating data
+  );
+}));
+
+
+
+// // to edit the different sections of the profile page:API ROUTE - comment out csrfprotection & userValidator when testing
+router.patch('/profile/:id(\\d+)', csrfProtection, userValidators, asyncHandler(async (req, res) => {
+const { username, email, image } = req.body;
+  const { id } = req.params;
+  const user = await db.User.findByPk(id);
+
+   const updated = await user.update({
+    username,
+    email,
+    image,
+  });
+
+  res.json({updated})   // returns the data so no need to redirect or no redirect
 }))
 
 
-// to edit the different sections of the profile page:
-router.post('/profile/:id(\\d+)', csrfProtection, userValidators, asyncHandler(async (req, res) => {
 
-}))
-
-
-
-// backend route for delete button for front end route
+// backend route for delete button for front end route - WORKS
 //http://localhost:8080/users/profile/:id
-router.delete('/profile/:id(\\d+)', asyncHandler(async (req, res)=>{
+
+router.delete('/profile/:id(\\d+)', requireAuth, asyncHandler(async (req, res)=>{
   const { id } = req.params;
   const user = await db.User.findByPk(id);
 
@@ -178,10 +202,6 @@ router.delete('/profile/:id(\\d+)', asyncHandler(async (req, res)=>{
 
   res.redirect('/')
 }))
-
-
-
-
 
 
 module.exports = router;

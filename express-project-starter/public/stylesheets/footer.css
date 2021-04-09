@@ -1,0 +1,23 @@
+.footer{
+  background-color: #8E9AAF;
+  font-family: sans-serif;
+  height: 70px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 20px;
+
+}
+
+.github-logo{
+  width: 50px;
+  vertical-align: middle;
+}
+
+.contributors{
+
+}
+
+.github-links{
+
+}

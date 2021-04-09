@@ -17,6 +17,13 @@ a {
     text-decoration: none;
 }
 
+#no-books-div {
+    display: flex;
+    justify-content: center;
+    padding-left: 100px;
+    padding-top: 200px;   
+}
+
 #my-books-div {
     display: flex;
     justify-content: center;

@@ -20,28 +20,24 @@ const db = require('../db/models');
 
 /* GET bookshelves. */
 
-router.get('/', asyncHandler(async (req, res) => {
+router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
   // const bookshelfId = parseInt(req.params.id, 10);
-  const userId = req.session.auth.userId;
   const bookshelves = await db.Bookshelf.findAll({
-    where: {
-      userId,
-    }
+    include: db.Book
   });
   // const bookshelves = await db.Bookshelf.findAll();
-//  const books = await db.Book.findAll();
-  const bookshelfId = parseInt(req.params.bookshelfId, 10);
-  const books = await db.Book.findAll( {
-    include:  db.Bookshelf,
-      where: {
-         bookshelfId
-      },
-    through: "BookshelfToBooks",
-    });
-  res.render('bookshelf', {
+  //const books = await db.Book.findAll();
+  // // const bookshelfId = parseInt(req.params.bookshelfId, 10);
+  // const books = await db.Book.findAll({
+  //   where: {
+  //     bookshelfId,
+  //   },
+  //   include: db.Bookshelf,
+  // });
+  res.render("bookshelf", {
     bookshelves,
-    books
-  })
+    //books,
+  });
 }))
 
 router.get('/add-book', csrfProtection, asyncHandler(async (req, res) => {
@@ -77,7 +73,7 @@ router.post('/add-book', asyncHandler(async (req, res) => {
 router.post('/bookshelf/delete/:id(\\d+)', asyncHandler(async (req, res) => {
     // How do we do this?
     const bookId = parseInt(req.params.id, 10);
-    const book = await db.Bookshelf.findByPk(bookId);
+    const bookshelf = await db.Bookshelf.findByPk(bookId);
     //const books = await db.Book.findAll();
     // const bookshelfId = parseInt(req.params.bookshelfId, 10);
     // const books = await db.Book.findAll({
@@ -86,7 +82,7 @@ router.post('/bookshelf/delete/:id(\\d+)', asyncHandler(async (req, res) => {
     //   },
     //   include: db.Bookshelf,
     // });
-    await book.destroy();
+    await bookshelf.destroy();
   res.redirect('/bookshelves');
   })
 );

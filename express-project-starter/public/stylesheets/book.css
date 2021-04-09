@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Parisienne&display=swap");
 .page-content {
   display: flex;
   flex-direction: row;
@@ -38,6 +39,10 @@
 
 .review-container {
   border: solid black 1px;
+}
+
+.review-timestamp{
+  font-size: 6px;
 }
 
 .new-review {
@@ -84,4 +89,21 @@
   padding: 20px;
   border: 1px solid #888;
   width: 80%; /* Could be more or less, depending on screen size */
+}
+
+.sidebar-container {
+  padding: 50px;
+  display:flex;
+}
+
+#quote {
+  font-size: 40px;
+  font-weight: bold;
+  font-family: "Parisienne", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.tag-container {
+  display: flex;
+  flex-wrap: wrap;
 }
