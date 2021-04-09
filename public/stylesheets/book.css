@@ -43,7 +43,7 @@
   padding: 20px;
 }
 
-.review-timestamp{
+.review-timestamp {
   font-size: 6px;
 }
 
@@ -96,7 +96,20 @@
 .sidebar-container {
   margin: 20px;
   padding: 50px;
-  display:flex;
+  display: flex;
+  flex-grow: 2;
+}
+
+#quote {
+  font-size: 40px;
+  font-weight: bold;
+  font-family: "Parisienne", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.sidebar-container {
+  padding: 50px;
+  display: flex;
 }
 
 #quote {
