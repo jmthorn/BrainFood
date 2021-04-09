@@ -12,9 +12,6 @@ block content
       span(id="my-books-text") My Books  
       div(id='bookshelves') Bookshelves
         ul(id='ul-bookshelves') 
-          li(class="bookshelf-li"): a(href=`/bookshelves/1`) Currently Reading 
-          li(class="bookshelf-li"): a(href=`/bookshelves/2`) Want to Read 
-          li(class="bookshelf-li"): a(href=`/bookshelves/3`) Read 
           each bookshelf in bookshelves 
             li(class="bookshelf-li"): a(href=`/bookshelves/${bookshelf.id}`) #{bookshelf.name}
               a(href=`/bookshelves/delete/${bookshelf.id}` class="bookshelf-li" id='delete-button') ⓧ

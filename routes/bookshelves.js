@@ -21,11 +21,21 @@ const db = require('../db/models');
 /* GET bookshelves. */
 
 router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
-  // const bookshelfId = parseInt(req.params.id, 10);
+  const bookshelfId = parseInt(req.params.id, 10);
+  const userId = req.session.auth.userId;
   const bookshelves = await db.Bookshelf.findAll({
-    include: db.Book
+    where: {
+      userId
+    },
+    //find default bookshelf: findOne({
+      //where: { name: 'Want to Read'
+      //userId
+  //}
+  //},
+    //})
+   // include: db.Book
   });
-  // const bookshelves = await db.Bookshelf.findAll();
+  // const bookshelv`es = await db.Bookshelf.findAll();
   //const books = await db.Book.findAll();
   // // const bookshelfId = parseInt(req.params.bookshelfId, 10);
   // const books = await db.Book.findAll({
@@ -34,6 +44,8 @@ router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
   //   },
   //   include: db.Bookshelf,
   // });
+  //bookshelf.findByPk(bookshelfId, {include: db.Book });
+
   res.render("bookshelf", {
     bookshelves,
     //books,
