@@ -121,13 +121,22 @@ window.addEventListener("DOMContentLoaded", () => {
         }
     })
 
+        //ADD TAGS====================================
 
-    //ADD TAGS====================================
+        const addTag = (tagCategory) => {
+            let tagContainer = document.querySelector(".tag-container")
+            let div = document.createElement("div")
+            div.innerText=tagCategory
+            div.classList.add("book-tag")
+            tagContainer.insertBefore(div, tagContainer.childNodes[0])
 
-    const addTag = (tagDescription) => {
-        let tagContainer = document.querySelector(".tag-container")
+        }
 
-    }
+
+       
+
+
+    
 
 
     let tagBtn = document.querySelector(".tag-btn")
