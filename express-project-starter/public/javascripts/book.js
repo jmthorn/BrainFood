@@ -115,17 +115,27 @@ window.addEventListener("DOMContentLoaded", () => {
 
         //ADD TAGS====================================
 
+<<<<<<< HEAD
         const addTag = (tagCategory) => {
             let tagContainer = document.querySelector(".tag-container")
             let div = document.createElement("div")
             div.innerText=tagCategory
             div.classList.add("book-tag")
             tagContainer.insertBefore(div, tagContainer.childNodes[0])
+=======
+        const addTag = (tagDescription) => {
+            let tagContainer = document.querySelector(".tag-container")
+
+>>>>>>> 8e5a63e (add seeding data)
         }
 
 
         let tagBtn = document.querySelector(".tag-btn")
+<<<<<<< HEAD
         tagBtn.addEventListener("click", async(event) => {
+=======
+        tagBtn.addEventListener("click", (event) => {
+>>>>>>> 8e5a63e (add seeding data)
             event.preventDefault()
 
             let tagInput = document.querySelector(".tag-input")
@@ -146,7 +156,11 @@ window.addEventListener("DOMContentLoaded", () => {
             let data = await res.json()
             console.log(data.newTag)
             // addReview(data.newTag, data.newTag.userId)
+<<<<<<< HEAD
             addTag(data.newTag)
+=======
+            // addTag(data.newTag)
+>>>>>>> 8e5a63e (add seeding data)
         })
 
 })
