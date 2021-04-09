@@ -17,21 +17,12 @@ router.get("/:id", asyncHandler(async (req, res) => {
         where: { bookId },
         include: db.User
     })
-<<<<<<< HEAD
     // let tags = await db.Tag.findAll({
     //     where: { 
     //         tagId
     //     }, 
     //     include: db.Book
     // })
-=======
-    let tags = await db.Tag.findAll({
-        // where: { 
-        //     tagId
-        // }, 
-        include: db.Book
-    })
->>>>>>> 8e5a63e (add seeding data)
 
     res.render('book', {
         book,
