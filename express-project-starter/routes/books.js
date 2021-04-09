@@ -11,18 +11,18 @@ router.get("/:id", asyncHandler(async (req, res) => {
     const userId = req.session.auth.userId
     if(!userId) res.redirect("/users/login");
     let bookId = parseInt(req.params.id, 10)
-    let book = await db.Book.findByPk(bookId)
+    let book = await db.Book.findByPk(bookId, {include: db.Tag})
     let bookshelves = await db.Bookshelf.findAll({where: {userId}})
     let reviews = await db.Review.findAll({
         where: { bookId },
         include: db.User
     })
-    let tags = await db.Tag.findAll({
-        // where: { 
-        //     tagId
-        // }, 
-        include: db.Book
-    })
+    // let tags = await db.Tag.findAll({
+    //     where: { 
+    //         tagId
+    //     }, 
+    //     include: db.Book
+    // })
 
     res.render('book', {
         book,
