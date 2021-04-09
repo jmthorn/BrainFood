@@ -1,10 +1,16 @@
 extends layout.pug
 
+append head
+   link(rel='stylesheet' href='/stylesheets/bookshelf-delete.css')
+   link(rel="preconnect", href="https://fonts.gstatic.com")
+   link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap")
+   script(src='/javascripts/bookshelves.js' type='module')
+
 block content
-  h3= bookshelf.name
-  div
-    p Proceed with deleting this attraction?
-  div
-    form(action=`/bookshelves/delete/${bookshelf.id}` method='post')
-      button( type='submit') Delete Bookshelf
-      a(href=`/bookshelves/${bookshelf.id}` role='button') Cancel
+ div(id='delete-form')
+  h3(id='top-el' class='form-div')= bookshelf.name 
+    p Proceed with deleting this bookshelf?
+     div(id='bottom-el' class='form-div')
+      form(action=`/bookshelves/delete/${bookshelf.id}` class='form-div' id='border-form' method='post')
+        button(class='form-div' type='submit') Delete Bookshelf
+        a(href=`/bookshelves/${bookshelf.id}` id='cancel' class='form-div' role='button') Cancel

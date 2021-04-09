@@ -8,7 +8,7 @@ html {
     justify-content: center;
 }
 
-.add-shelf {
+#add-shelf {
     display: flex;
     justify-content: center;
 }
@@ -53,6 +53,7 @@ a {
     display: flex;
     flex-direction: column;
     padding-top: 50px;;
+    padding-bottom: 100px;
     /* justify-content: a; */
 }
 
