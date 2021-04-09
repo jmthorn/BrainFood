@@ -37,15 +37,17 @@ block content
         div(id='space-div')
         div(id='right-div')
           div(id='fav-book-container')
-            div(id='favorite-books') Favorite Books
+            div(id='favorite-books') Suggested Books
           div(class='favorite-books-top')
-            div(id='favorite-books-top1')
-            div(id='favorite-books-top2')
-            div(id='favorite-books-top3')
-          div(class='favorite-books-bottom')
-            div(id='favorite-books-top4')
-            div(id='favorite-books-top5')
-            div(id='favorite-books-top6')
+          each review in reviews
+            img(src= review.Book.cover)
+          //-   div(id='favorite-books-top1')= book.cover
+          //-   div(id='favorite-books-top2')
+          //-   div(id='favorite-books-top3')
+          //- div(class='favorite-books-bottom')
+          //-   div(id='favorite-books-top4')
+          //-   div(id='favorite-books-top5')
+          //-   div(id='favorite-books-top6')
 
 
 

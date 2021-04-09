@@ -154,7 +154,7 @@ router.post('/logout', (req, res) => {
 
 //http://localhost:8080/users/profile/:id - - WORKS
 router.get('/profile/:id(\\d+)', asyncHandler(async(req, res) => {
-  const { id } = req.params;
+  const  id  = parseInt(req.params.id);
   // console.log(id, '===========');
 
   const reviews = await db.Review.findAll({
@@ -167,8 +167,13 @@ router.get('/profile/:id(\\d+)', asyncHandler(async(req, res) => {
     include: db.Book, limit: 6
   });
 
+  const user = await db.User.findByPk(id);
+
+  // console.log(reviews);
+
   res.render('profile',    //  Server is render from profile.pug        -SERVER side rendering
-  reviews,                    // reviews array gives us the the userId and rating data
+  {reviews, user}           // reviews array gives us the the userId and rating data
+
   );
 }));
 
