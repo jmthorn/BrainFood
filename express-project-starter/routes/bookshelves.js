@@ -69,8 +69,23 @@ router.post('/add-book', asyncHandler(async (req, res) => {
   res.redirect('add-book');
 }))
 
+
+router.get(
+  "/delete/:id", 
+  asyncHandler(async (req, res) => {
+    console.log('test');
+    const bookId = parseInt(req.params.id, 10);
+    const bookshelf = await db.Bookshelf.findByPk(bookId);
+    res.render("bookshelf-delete", {
+      bookshelf,
+    });
+  })
+);
+
 // Delete specific Bookshelf Route
-router.post('/bookshelf/delete/:id(\\d+)', asyncHandler(async (req, res) => {
+router.post(
+  "/delete/:id",
+  asyncHandler(async (req, res) => {
     // How do we do this?
     const bookId = parseInt(req.params.id, 10);
     const bookshelf = await db.Bookshelf.findByPk(bookId);
@@ -83,7 +98,7 @@ router.post('/bookshelf/delete/:id(\\d+)', asyncHandler(async (req, res) => {
     //   include: db.Bookshelf,
     // });
     await bookshelf.destroy();
-  res.redirect('/bookshelves');
+    res.redirect(`/bookshelves/${bookshelf.id - 1}`);
   })
 );
 // router.get('/bookshelves/:id', asyncHandler(async (req, res) => {

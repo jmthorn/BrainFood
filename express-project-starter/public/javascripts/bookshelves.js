@@ -33,7 +33,6 @@ const newShelf = document.getElementById("add-shelf-button");
           a.setAttribute("href", `/users/:id/bookshelves/${bookshelves.length}`);
           li.appendChild(a);
           bookshelvesList.appendChild(li);
-          console.log(bookshelves.length);
           } else return;
           }
         );
