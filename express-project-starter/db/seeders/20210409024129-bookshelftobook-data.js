@@ -18,7 +18,15 @@ module.exports = {
         {bookshelfId:1, bookId:3, createdAt: new Date(), updatedAt: new Date()},
         {bookshelfId:2, bookId:3, createdAt: new Date(), updatedAt: new Date()},
         {bookshelfId:2, bookId:4, createdAt: new Date(), updatedAt: new Date()},
-        {bookshelfId:2, bookId:5, createdAt: new Date(), updatedAt: new Date()}
+        {bookshelfId:2, bookId:5, createdAt: new Date(), updatedAt: new Date()},
+        {bookshelfId:3, bookId:6, createdAt: new Date(), updatedAt: new Date()},
+        {bookshelfId:3, bookId:7, createdAt: new Date(), updatedAt: new Date()},
+        {bookshelfId:3, bookId:8, createdAt: new Date(), updatedAt: new Date()},
+        {bookshelfId:3, bookId:9, createdAt: new Date(), updatedAt: new Date()},
+        {bookshelfId:3, bookId:10, createdAt: new Date(), updatedAt: new Date()},
+        {bookshelfId:4, bookId:11, createdAt: new Date(), updatedAt: new Date()},
+        {bookshelfId:4, bookId:12, createdAt: new Date(), updatedAt: new Date()},
+        {bookshelfId:4, bookId:13, createdAt: new Date(), updatedAt: new Date()},
       ], {});
   },
 
