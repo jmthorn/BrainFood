@@ -57,5 +57,14 @@ router.post("/:id/bookshelves", asyncHandler(async (req, res) => {
     res.json({ userId , bookshelfToBook })
 }));
 
+//DELETE BOOK FROM BOOKSHELF=============================================
+
+router.delete("/:id", asyncHandler(async (req, res) => {
+    const userId = req.session.auth.userId
+    const { bookId } = req.body;
+    await db.Book.destroy({where: { bookId }});
+    res.json({ userId})
+}));
+
 
 module.exports = router;

@@ -73,6 +73,26 @@ window.addEventListener("DOMContentLoaded", () => {
             let data = await res.json()
         })
 
+        //DELETE BOOK FROM BOOKSHELF==========================
+
+        let deleteFromBookshelfBtn = document.querySelector("book-delete")
+        deleteFromBookshelfBtn.addEventListener('click', async(event) => {
+            event.preventDefault()
+            let bookshelfId = document.querySelector(".bookshelves-dropdown").value
+            let bookId = event.target.baseURI.split('/')[4]
+            let res = await fetch(`http://localhost:8080/books/${bookId}`, { 
+                method: "DELETE",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    bookshelfId,
+                    bookId
+                })
+            })
+            let data = await res.json()
+            res.redirect('/bookshelves')
+        })
 
 
         //MODAL=====================================
