@@ -8,7 +8,18 @@ block content
   h1= title
   h2 Sustenance for your soul
   div(id='genre-div')
-   each book in books
+    div(class='genre-list' )
+      each book in books
+       img(src=`${book.cover}` class="img-div" height='120' width='80') 
+    div(class='genre-list' )
+      each book in books
+       img(src=`${book.cover}` class="img-div" height='120' width='80') 
+    div(class='genre-list' )
+      each book in books
+       img(src=`${book.cover}` class="img-div" height='120' width='80') 
+    div(class='genre-list' )
+      each book in books
+       img(src=`${book.cover}` class="img-div" height='120' width='80') 
     div(class='genre-list' )
       each book in books
        img(src=`${book.cover}` class="img-div" height='120' width='80') 
