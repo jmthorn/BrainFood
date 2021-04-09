@@ -1,37 +1,82 @@
+
+
+
 //  one eventlistener on a submit for the edit
 //  one eventlistener on a delete
   // click the logout button and do the fetch to redirect
   // delete
-
+console.log('connect to script file')
 
 // need to edit for me, just copied over;
 
 window.addEventListener("DOMContentLoaded", () => {
 
-  const editProfile = (username, email, image) => {
-
-  }
 
 
 
 
 
-  let modal = document.getElementById("modal")
-  let userEditBtn = document.querySelector('.edit-btn')
 
-  userEditBtn.addEventListener("click", (event) => {
-      modal.classList.remove("hidden")
+
+
+  let modal = document.getElementById("modal");
+  let userEditBtn = document.getElementById('edit-btn');
+  let openModal = document.getElementById('modal-button');
+  let userModalForm = document.getElementById('user-form')
+
+
+
+
+
+  openModal.addEventListener("click", (event) => {
+    console.log('clicked edit button to open modal')
+    modal.classList.remove("hidden")
       modal.classList.add("modal-show")
   })
 
+
   window.addEventListener("click", (event) => {
-      if (event.target == modal) {
+    if (event.target === modal) {
           modal.classList.remove("modal-show")
           modal.classList.add("hidden")
       }
   })
 
 
+  userEditBtn.addEventListener("click", async (event) => {
+    event.preventDefault();     // Don't want a refresh
+    // console.log(userModalForm.children.value)
+    let newUser = document.getElementById('Username').value
+    let newEmail = document.getElementById('Email').value
+    let newPicture = document.getElementById('Profile Picture').value
 
+    let personId = event.target.baseURI.split('/')[5]
 
-}
+    // console.log(personId)
+
+    modal.classList.remove("modal-show")
+    modal.classList.add("hidden")
+
+    let res = await fetch(`http://localhost:8080/users/profile/${personId}`, {
+                method: "PATCH",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    newUser,
+                    newEmail,
+                    newPicture
+                })
+            })
+    let data = await res.json()     // prints out the update
+    let { user } = data;
+    console.log(user);
+
+    let userName = document.getElementById('user-name');
+    let userEmail = document.getElementById('email');
+
+    userName.innerHTML = user.username;
+    userEmail.innerHTML = user.email;
+  })
+
+})

@@ -153,7 +153,7 @@ router.post('/logout', (req, res) => {
 
 
 //http://localhost:8080/users/profile/:id - - WORKS
-router.get('/profile/:id(\\d+)', requireAuth, asyncHandler(async(req, res) => {
+router.get('/profile/:id(\\d+)', asyncHandler(async(req, res) => {
   const { id } = req.params;
   // console.log(id, '===========');
 
@@ -167,28 +167,30 @@ router.get('/profile/:id(\\d+)', requireAuth, asyncHandler(async(req, res) => {
     include: db.Book, limit: 6
   });
 
-  res.render('profile',             // know it render correctly
+  res.render('profile',    //  Server is render from profile.pug        -SERVER side rendering
   reviews,                    // reviews array gives us the the userId and rating data
   );
 }));
 
 
+// requireAuth
 
 // // to edit the different sections of the profile page:API ROUTE - comment out csrfprotection & userValidator when testing
-router.patch('/profile/:id(\\d+)', csrfProtection, userValidators, asyncHandler(async (req, res) => {
-const { username, email, image } = req.body;
+router.patch('/profile/:id(\\d+)',asyncHandler(async (req, res) => {
+  console.log('hit the patch route')
+const { newUser, newEmail, newPicture } = req.body;
   const { id } = req.params;
   const user = await db.User.findByPk(id);
+  user.username = newUser
+  user.email = newEmail
+  user.image = newPicture
 
-   const updated = await user.update({
-    username,
-    email,
-    image,
-  });
+  await user.save();
 
-  res.json({updated})   // returns the data so no need to redirect or no redirect
+  res.json({user})   // returns the data so no need to redirect or no redirect
 }))
 
+// csrfProtection, userValidators,
 
 
 // backend route for delete button for front end route - WORKS

@@ -6,17 +6,18 @@ append head
   link(rel='stylesheet' href='/stylesheets/navbar.css')
   link(rel='stylesheet' href='/stylesheets/profile.css')
   link(rel='stylesheet' href='/stylesheets/global.css')
+  script(src='/javascripts/profile.js' type='module')
 
 block content
   div(class="hidden" id="modal")
         div(class="form-container modal-content")
             h1(class="form-header") Edit User Details
-            form(action=`/users/profile/${user.id}` method="post" class="user-form")
+            form(action=`/users/profile/${user.id}` method="post" class="user-form" id='user-form')
                 +field("Username", "Username", user.username)
                 +field("Email", "Email", user.email)
                 +field("Profile Picture", "Profile Picture", user.image)
                 div(class='submit-div')
-                    button(type='submit' class='btn submit edit-user-btn') Submit
+                    button(type='submit' id='edit-btn' class='btn submit edit-user-btn') Submit
                     a(href=`/users/profile/${user.id}` class='a clear') Clear
   div(class='body-container')
         div(id='left-div')
@@ -30,7 +31,7 @@ block content
           div(id='person-details-container1')
             div(id='email') Email: #{user.email}
           div(id='edit-btn-container')
-            button(class='email-edit-btn') Edit
+            button(class='page-edit-btn' id='modal-button') Edit
           div(id='person-details-container2')
             div(id='booksRead') Books Read:
         div(id='space-div')
