@@ -8,9 +8,10 @@
 }
 
 .book-content {
+  margin: 20px;
   display: flex;
   flex-direction: column;
-  padding: 20px;
+  /* padding: 20px; */
   /* flex-grow: 1; */
   /* width: 800px; */
 }
@@ -86,6 +87,7 @@
 }
 
 .sidebar-container {
+  margin: 20px;
   padding: 50px;
   display: flex;
   flex-grow: 2;
