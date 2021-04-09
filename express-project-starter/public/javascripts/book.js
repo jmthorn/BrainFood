@@ -115,14 +115,17 @@ window.addEventListener("DOMContentLoaded", () => {
 
         //ADD TAGS====================================
 
-        const addTag = (tagDescription) => {
+        const addTag = (tagCategory) => {
             let tagContainer = document.querySelector(".tag-container")
-
+            let div = document.createElement("div")
+            div.innerText=tagCategory
+            div.classList.add("book-tag")
+            tagContainer.insertBefore(div, tagContainer.childNodes[0])
         }
 
 
         let tagBtn = document.querySelector(".tag-btn")
-        tagBtn.addEventListener("click", (event) => {
+        tagBtn.addEventListener("click", async(event) => {
             event.preventDefault()
 
             let tagInput = document.querySelector(".tag-input")
@@ -143,7 +146,7 @@ window.addEventListener("DOMContentLoaded", () => {
             let data = await res.json()
             console.log(data.newTag)
             // addReview(data.newTag, data.newTag.userId)
-            // addTag(data.newTag)
+            addTag(data.newTag)
         })
 
 })
