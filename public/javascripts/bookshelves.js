@@ -29,6 +29,10 @@ const newShelf = document.getElementById("add-shelf-button");
         .then((response) => response.json())
         .then(json => {
           if (json.bookshelf.name) {
+<<<<<<< HEAD:public/javascripts/bookshelves.js
+=======
+            console.log(json);
+>>>>>>> fecca59 (fixed add shelf):express-project-starter/public/javascripts/bookshelves.js
           a.innerHTML = json.bookshelf.name
           a.setAttribute("href", `/users/:id/bookshelves/${bookshelves.length}`);
           li.appendChild(a);
