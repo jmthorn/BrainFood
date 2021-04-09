@@ -28,12 +28,11 @@ const newShelf = document.getElementById("add-shelf-button");
       })
         .then((response) => response.json())
         .then(json => {
-          if (json) {
+          if (json.bookshelf.name) {
           a.innerHTML = json.bookshelf.name
           a.setAttribute("href", `/users/:id/bookshelves/${bookshelves.length}`);
           li.appendChild(a);
           bookshelvesList.appendChild(li);
-          console.log(bookshelves.length);
           } else return;
           }
         );

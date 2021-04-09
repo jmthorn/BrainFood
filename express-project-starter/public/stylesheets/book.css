@@ -43,6 +43,10 @@
   padding: 20px;
 }
 
+.review-timestamp{
+  font-size: 6px;
+}
+
 .new-review {
   width: 300px;
 }
@@ -92,8 +96,7 @@
 .sidebar-container {
   margin: 20px;
   padding: 50px;
-  display: flex;
-  flex-grow: 2;
+  display:flex;
 }
 
 #quote {

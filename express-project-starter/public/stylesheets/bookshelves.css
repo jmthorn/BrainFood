@@ -2,8 +2,13 @@ html {
     font-family: 'Noto Sans JP', sans-serif;
 }
 
+.add-shelf-span {
+    padding-top: 30px;
+    display: flex;
+    justify-content: center;
+}
+
 .add-shelf {
-    padding-top: 20px;
     display: flex;
     justify-content: center;
 }
@@ -15,6 +20,13 @@ a:hover {
 a {
     color: #4c5460;
     text-decoration: none;
+}
+
+#no-books-div {
+    display: flex;
+    justify-content: center;
+    padding-left: 100px;
+    padding-top: 200px;   
 }
 
 #my-books-div {
@@ -86,4 +98,15 @@ th, td {
 
 .ul-bookshelves {
     padding-bottom: 30px;
+}
+
+#delete-button {
+    padding-left: 10px;
+}
+
+#bookshelves {
+    font-size: 30px;
+}
+.bookshelf-li {
+    font-size: 20px;
 }

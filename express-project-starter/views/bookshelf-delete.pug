@@ -1,0 +1,10 @@
+extends layout.pug
+
+block content
+  h3= bookshelf.name
+  div
+    p Proceed with deleting this attraction?
+  div
+    form(action=`/bookshelves/delete/${bookshelf.id}` method='post')
+      button( type='submit') Delete Bookshelf
+      a(href=`/bookshelves/${bookshelf.id}` role='button') Cancel

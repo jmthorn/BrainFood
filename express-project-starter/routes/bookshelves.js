@@ -20,21 +20,24 @@ const db = require('../db/models');
 
 /* GET bookshelves. */
 
-router.get('/', asyncHandler(async (req, res) => {
+router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
   // const bookshelfId = parseInt(req.params.id, 10);
-   const bookshelves = await db.Bookshelf.findAll();
+  const bookshelves = await db.Bookshelf.findAll({
+    include: db.Book
+  });
   // const bookshelves = await db.Bookshelf.findAll();
-  const books = await db.Book.findAll();
+  //const books = await db.Book.findAll();
   // // const bookshelfId = parseInt(req.params.bookshelfId, 10);
-  // const books = await db.Bookshelf.findbyPk(bookshelfId, {
-  //   include: { model: db.Book,
-  //   through: "Bookshelves-to-books",
-  //   }
-  //   });
-  res.render('bookshelf', {
+  // const books = await db.Book.findAll({
+  //   where: {
+  //     bookshelfId,
+  //   },
+  //   include: db.Bookshelf,
+  // });
+  res.render("bookshelf", {
     bookshelves,
-    books
-  })
+    //books,
+  });
 }))
 
 router.get('/add-book', csrfProtection, asyncHandler(async (req, res) => {
@@ -66,8 +69,23 @@ router.post('/add-book', asyncHandler(async (req, res) => {
   res.redirect('add-book');
 }))
 
+
+router.get(
+  "/delete/:id", 
+  asyncHandler(async (req, res) => {
+    console.log('test');
+    const bookId = parseInt(req.params.id, 10);
+    const bookshelf = await db.Bookshelf.findByPk(bookId);
+    res.render("bookshelf-delete", {
+      bookshelf,
+    });
+  })
+);
+
 // Delete specific Bookshelf Route
-router.post('/bookshelf/delete/:id(\\d+)', asyncHandler(async (req, res) => {
+router.post(
+  "/delete/:id",
+  asyncHandler(async (req, res) => {
     // How do we do this?
     const bookId = parseInt(req.params.id, 10);
     const bookshelf = await db.Bookshelf.findByPk(bookId);
@@ -80,7 +98,7 @@ router.post('/bookshelf/delete/:id(\\d+)', asyncHandler(async (req, res) => {
     //   include: db.Bookshelf,
     // });
     await bookshelf.destroy();
-  res.redirect('/bookshelves');
+    res.redirect(`/bookshelves/${bookshelf.id - 1}`);
   })
 );
 // router.get('/bookshelves/:id', asyncHandler(async (req, res) => {
