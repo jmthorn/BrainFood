@@ -19,7 +19,7 @@ html
         div(class='nav-buttons-div')
           a(class='nav-link' id='navbar-home' href="/") Home
         div(class='nav-buttons-div')
-          a(class='nav-link' id='navbar-mybooks' href="/bookshelves") My Books
+          a(class='nav-link' id='navbar-mybooks' href="/bookshelves/1") My Books
       div(id='nav-middle' )
         input(type="search" name="term" id='navbar-search' placeholder="Search Books" required)
         //- button(type='submit' class='navbar-search-btn')
@@ -37,18 +37,6 @@ html
           a(href="/users/login" id='navbar-login') Login
         div(class='nav-buttons-div')
           a(href="/users/signup" id='navbar-signup') Sign Up
-
-          //-  if locals.authenticated
-          //-   span(id='navbar-welcome-text') Welcome #{user.username}!
-          //-     div(class='nav-buttons-div')
-          //-       a(class='nav-link' id='navbar-logout') Logout
-          //-  else
-          //-     span
-          //-     div(class='nav-buttons-div')
-          //-       a(href="/user/login" id='navbar-login') Login
-          //-       a(href="/user/signup" id='navbar-signup') Sign Up
-
-    //- block content
 
     block content
 
