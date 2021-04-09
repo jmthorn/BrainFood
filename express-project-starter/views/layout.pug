@@ -28,7 +28,7 @@ html
       if user
         span(id='navbar-welcome-text') Welcome #{user.username}!
         div(class='nav-buttons-div')
-          a(class= 'nav-link' id="navbar-profile-btn" href='/user/profile' )
+          a(class= 'nav-link' id="navbar-profile-btn" href=`/users/profile/${user.id}`)
         form(action='/users/logout' method='post')
             button(id='nav-logout' type='submit') Logout
       else

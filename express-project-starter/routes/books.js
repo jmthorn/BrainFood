@@ -17,11 +17,19 @@ router.get("/:id", asyncHandler(async (req, res) => {
         where: { bookId },
         include: db.User
     })
+    let tags = await db.Tag.findAll({
+        // where: { 
+        //     tagId
+        // }, 
+        include: db.Book
+    })
+
     res.render('book', {
         book,
         reviews,
         userId, 
-        bookshelves
+        bookshelves,
+        tags
     })
 }))
 
@@ -57,5 +65,26 @@ router.post("/:id/bookshelves", asyncHandler(async (req, res) => {
     res.json({ userId , bookshelfToBook })
 }));
 
+//DELETE BOOK FROM BOOKSHELF=============================================
+
+router.post("/:id/delete", asyncHandler(async (req, res) => {
+    const userId = req.session.auth.userId
+    const { bookId } = req.body;
+    let destroyedBook = await db.Book.destroy({where: { id: parseInt(bookId) }});
+    res.json({ userId})
+}));
+
+
+//ADDING TAGS ===========================================================
+
+
+router.post("/:id/tags", asyncHandler(async (req, res) => {
+    const userId = req.session.auth.userId
+    const user = await db.User.findByPk(userId)
+    const { category, bookId } = req.body;
+    const newTag = await db.Tag.create({ category })
+    let bookToTags = await db.BookToTag.create({tagId: parseInt(newTag.id), bookId: parseInt(bookId)});
+    res.json({ newTag })
+}))
 
 module.exports = router;

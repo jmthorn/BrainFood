@@ -1,56 +1,155 @@
-.center-info{
-  display:flex;
-  flex-direction: row;
-  font-size: 30px;
-  color:black;
-  width: 40%;
-}
-
-
-#details {
+.body-container{
   display: flex;
-  align-content: flex-end;
-  font-size: 30px;
-  color:black;
-  text-decoration: none;
+  /* grid-template-columns:5% 20% 5% 60% 10% ;
+  grid-template-rows:25% 25% 25% 25% ;
+  grid-template-areas:
+  '. image      .     .     .'
+  '. userName   . favBooks  .'
+  '. details    .     .     .'
+  '. favGenre   .     .     .'
+  ; */
+  width: 100%;
+  height: 100%;
 }
 
-
-#activity {
-  font-size: 30px;
-  color:black;
-  text-decoration: none;
+#left-div{
+  width: 600px;
+  height: 100%;
 }
 
-
-#person-image{
-  /* background-image: url(public/NavLogo.png); */
-  /* padding: ; */
-  border-radius: 50%;
-  background: gray;
-  width: 100px;
-  height:100px;
-}
-
-
-.test{
-
-}
-
-#picture_details {
+#middle-div{
   display: flex;
-  flex-direction: row;
-  align-self: center;
-  border: 5px solid black;
-  height: 200px;
+  flex-direction: column;
+  width: 500px;
+  height: 100%;
+
+}
+
+#space-div{
   width: 400px;
 }
 
-.outer {
+
+#right-div{
+  width:100%;
+  height: 100%;
+}
+
+.person-image {
+  justify-self: center;
+  align-self: center;
+  border-radius: 25px;
+  background-image: url(/dogProfilePic.jpg);
+  background-position: center;
+  object-fit: cover;
+  width: 250px;
+  height: 400px;
+}
+
+.person-image-container{
   display: flex;
-  height:100vh;
-  width: 100vh;
   justify-content: center;
-  /* top:; */
-  /* bottom:;  */
+  margin-top: 150px;
+  /* top:50px; */
+
+}
+
+.user-name-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+
+#fav-book-container{
+  display: flex;
+  justify-content: start;
+  margin-top: 400px;
+}
+
+#favorite-books{
+  font-weight: bold;
+  font-size: 35px;
+}
+
+#favorite-genre{
+  grid-area: favGenre;
+  font-weight: bold;
+  font-size: 35px;
+}
+
+#user-name{
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+  font-size: 40px;
+  justify-self:center;
+}
+
+/* #Details {
+  grid-area: details;
+} */
+
+#person-details-container{
+  display: flex;
+  margin-right: 100px;
+}
+
+#person-details {
+  grid-area: details;
+  font-weight: bold;
+  font-size: 20px;
+  text-decoration: underline;
+  /* border-bottom: 5px solid black; */
+}
+
+#person-details-container1{
+  display: flex;
+  margin-right: 100px;
+}
+
+#email {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+#person-details-container2 {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 150px;
+}
+
+.booksRead{
+  font-weight: bold;
+  font-size: 20px;
+}
+
+
+.favorite-books-top,
+.favorite-books-bottom {
+  display: flex;
+  width: 100%;
+  height:400px;
+  align-items: center;
+}
+
+/* .favorite-books-bottom {
+  display: flex;
+  width: 100%;
+  height:400px;
+  align-items: center;
+} */
+
+#favorite-books-top1,
+#favorite-books-top2,
+#favorite-books-top3,
+#favorite-books-top4,
+#favorite-books-top5,
+#favorite-books-top6 {
+  border: 5px solid red;
+  width: 250px;
+  height: 250px;
+  margin-right: 100px;
+  border-radius: 25px;
 }

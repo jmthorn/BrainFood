@@ -79,3 +79,12 @@ block content
         div(class="book-sidebar")
             div(class="sidebar-container")
                 div(id="quote")
+            div(class="tag-container")
+                each tag in tags 
+                    div(class="book-tag")=tag.category
+                form(class="add-tag-form")
+                    input(class="tag-input")
+                    button(class="tag-btn btn")
+
+
+            
