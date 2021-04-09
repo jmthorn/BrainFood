@@ -38,6 +38,9 @@
 
 .review-container {
   border: solid black 1px;
+  border-radius: 20px;
+  width: 800px;
+  padding: 20px;
 }
 
 .new-review {
