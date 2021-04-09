@@ -7,6 +7,15 @@
 // need to edit for me, just copied over;
 
 window.addEventListener("DOMContentLoaded", () => {
+
+  const editProfile = (username, email, image) => {
+
+  }
+
+
+
+
+
   let modal = document.getElementById("modal")
   let userEditBtn = document.querySelector('.edit-btn')
 
