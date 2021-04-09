@@ -152,7 +152,7 @@ router.post('/logout', (req, res) => {
 
 
 
-//http://localhost:8080/users/profile/:id
+//http://localhost:8080/users/profile/:id - - WORKS
 router.get('/profile/:id(\\d+)', requireAuth, asyncHandler(async(req, res) => {
   const { id } = req.params;
   // console.log(id, '===========');
@@ -174,7 +174,7 @@ router.get('/profile/:id(\\d+)', requireAuth, asyncHandler(async(req, res) => {
 
 
 
-// // to edit the different sections of the profile page:API ROUTE
+// // to edit the different sections of the profile page:API ROUTE - comment out csrfprotection & userValidator when testing
 router.patch('/profile/:id(\\d+)', csrfProtection, userValidators, asyncHandler(async (req, res) => {
   const { username, email, image } = req.body;
   const { id } = req.params;
@@ -191,7 +191,7 @@ router.patch('/profile/:id(\\d+)', csrfProtection, userValidators, asyncHandler(
 
 
 
-// backend route for delete button for front end route
+// backend route for delete button for front end route - WORKS
 //http://localhost:8080/users/profile/:id
 
 router.delete('/profile/:id(\\d+)', requireAuth, asyncHandler(async (req, res)=>{
