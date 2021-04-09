@@ -7,11 +7,10 @@
 // need to edit for me, just copied over;
 
 window.addEventListener("DOMContentLoaded", () => {
-
   let modal = document.getElementById("modal")
-  let editBtn = document.querySelector(".book-edit")
+  let userEditBtn = document.querySelector('.edit-btn')
 
-  editBtn.addEventListener("click", (event) => {
+  userEditBtn.addEventListener("click", (event) => {
       modal.classList.remove("hidden")
       modal.classList.add("modal-show")
   })
@@ -22,6 +21,8 @@ window.addEventListener("DOMContentLoaded", () => {
           modal.classList.add("hidden")
       }
   })
+
+
 
 
 }

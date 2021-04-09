@@ -1,62 +1,83 @@
 extends layout.pug
+
+include utils.pug
+
 append head
   link(rel='stylesheet' href='/stylesheets/navbar.css')
   link(rel='stylesheet' href='/stylesheets/profile.css')
   link(rel='stylesheet' href='/stylesheets/global.css')
+
 block content
+  div(class="hidden" id="modal")
+        div(class="form-container modal-content")
+            h1(class="form-header") Edit User Details
+            form(action=`/users/profile/${user.id}` method="post" class="user-form")
+                +field("Username", "Username", user.username)
+                +field("Email", "Email", user.email)
+                +field("Profile Picture", "Profile Picture", user.image)
+                div(class='submit-div')
+                    button(type='submit' class='btn submit edit-user-btn') Submit
+                    a(href=`/users/profile/${user.id}` class='a clear') Clear
   div(class='body-container')
-    div(id='left-div')
-      //- div
-    div(id='middle-div')
-      div(class='person-image-container')
-        div(class='person-image')
-      div(class='user-name-container')
-        div(id='user-name')= user.username
-        button(id='edit-btn') Edit
-      div(id='person-details-container')
-        div(id='person-details') Details
-      div(id='person-details-container1')
-        div(id='email') Email: #{user.email}
-        div(id='edit-btn-container1')
-        button(id='edit-btn') Edit
-      div(id='person-details-container2')
-        div(id='booksRead') Books Read:
-        //- ul(class='books') Book2
-        //- ul(class='books') Book3
-      //- div
-    div(id='space-div')
-    div(id='right-div')
-      div(id='fav-book-container')
-        div(id='favorite-books') Favorite Books
-      div(class='favorite-books-top')
-        div(id='favorite-books-top1')
-        div(id='favorite-books-top2')
-        div(id='favorite-books-top3')
-      div(class='favorite-books-bottom')
-        div(id='favorite-books-top4')
-        div(id='favorite-books-top5')
-        div(id='favorite-books-top6')
+        div(id='left-div')
+        div(id='middle-div')
+          div(class='person-image-container')
+            div(class='person-image')
+          div(class='user-name-container')
+            div(id='user-name')= user.username
+            button(class='user-edit-btn') Edit
+          div(id='person-details-container')
+            div(id='person-details') Details
+          div(id='person-details-container1')
+            div(id='email') Email: #{user.email}
+            button(class='email-edit-btn') Edit
+          div(id='person-details-container2')
+            div(id='booksRead') Books Read:
+        div(id='space-div')
+        div(id='right-div')
+          div(id='fav-book-container')
+            div(id='favorite-books') Favorite Books
+          div(class='favorite-books-top')
+            div(id='favorite-books-top1')
+            div(id='favorite-books-top2')
+            div(id='favorite-books-top3')
+          div(class='favorite-books-bottom')
+            div(id='favorite-books-top4')
+            div(id='favorite-books-top5')
+            div(id='favorite-books-top6')
 
 
 
-    //- div(id='fav-book-container')
-    //-   div(id='favorite-books') Favorite Books
-    //- div(id='person-details-container')
-    //-   div(id='person-details') Details
-    //- div(id='favorite-genre') Favorite Genre
-    //-   ul(id='list-of-bookshelves')
-    //-     ul(class='books') Book1
-    //-     ul(class='books') Book2
-    //-     ul(class='books') Book3
-
-
-      //- div(id='picture_details')
-      //-   //- div(id='person-image')
-      //-     //- img(src="public/NavLogo.png" class='test')
-      //-   div(class='undername-div')
-      //-     ul(id='Activity') Activity:
-      //-     ul(id='Details') Details
 
 
 
-//- will need to use grid out the whole page and will need to use it like this :
+
+
+  //- div(class='body-container')
+  //-   div(id='left-div')
+  //-     //- div
+  //-   div(id='middle-div')
+  //-     div(class='person-image-container')
+  //-       div(class='person-image')
+  //-     div(class='user-name-container')
+  //-       div(id='user-name')= user.username
+  //-       button(class='user-edit-btn') Edit
+  //-     div(id='person-details-container')
+  //-       div(id='person-details') Details
+  //-     div(id='person-details-container1')
+  //-       div(id='email') Email: #{user.email}
+  //-       button(class='email-edit-btn') Edit
+  //-     div(id='person-details-container2')
+  //-       div(id='booksRead') Books Read:
+  //-   div(id='space-div')
+  //-   div(id='right-div')
+  //-     div(id='fav-book-container')
+  //-       div(id='favorite-books') Favorite Books
+  //-     div(class='favorite-books-top')
+  //-       div(id='favorite-books-top1')
+  //-       div(id='favorite-books-top2')
+  //-       div(id='favorite-books-top3')
+  //-     div(class='favorite-books-bottom')
+  //-       div(id='favorite-books-top4')
+  //-       div(id='favorite-books-top5')
+  //-       div(id='favorite-books-top6')
