@@ -176,7 +176,7 @@ router.get('/profile/:id(\\d+)', requireAuth, asyncHandler(async(req, res) => {
 
 // // to edit the different sections of the profile page:API ROUTE - comment out csrfprotection & userValidator when testing
 router.patch('/profile/:id(\\d+)', csrfProtection, userValidators, asyncHandler(async (req, res) => {
-  const { username, email, image } = req.body;
+const { username, email, image } = req.body;
   const { id } = req.params;
   const user = await db.User.findByPk(id);
 
