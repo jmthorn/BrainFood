@@ -110,6 +110,19 @@
 .sidebar-container {
   padding: 50px;
   display: flex;
+  flex-grow: 2;
+}
+
+#quote {
+  font-size: 40px;
+  font-weight: bold;
+  font-family: "Parisienne", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.sidebar-container {
+  padding: 50px;
+  display: flex;
 }
 
 #quote {
