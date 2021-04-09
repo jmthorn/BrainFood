@@ -12,10 +12,13 @@ block content
         div(class='person-image')
       div(class='user-name-container')
         div(id='user-name')= user.username
+        button(id='edit-btn') Edit
       div(id='person-details-container')
         div(id='person-details') Details
       div(id='person-details-container1')
         div(id='email') Email: #{user.email}
+        div(id='edit-btn-container1')
+        button(id='edit-btn') Edit
       div(id='person-details-container2')
         div(id='booksRead') Books Read:
         //- ul(class='books') Book2

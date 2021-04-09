@@ -59,11 +59,12 @@ nav {
 }
 
 
-.navbar .nav-buttons-div{
+.navbar .nav-buttons-div:hover {
   height: 60px;
   padding: 5px;
   display: flex;
   align-items: center;
+  background-color: rgba(255, 255, 255, 0.7);
   /* background-color:gray; */
 
 }

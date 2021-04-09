@@ -164,7 +164,7 @@ router.get('/profile/:id(\\d+)', requireAuth, asyncHandler(async(req, res) => {
         {rating: 5}
       ]
     },
-    include: db.Book
+    include: db.Book, limit: 6
   });
 
   res.render('profile',             // know it render correctly
