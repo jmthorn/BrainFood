@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Parisienne&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Parisienne&display=swap");
 .page-content {
   display: flex;
   flex-direction: row;
@@ -96,4 +96,22 @@
   font-size: 40px;
   font-weight: bold;
   font-family: 'Parisienne', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.sidebar-container {
+  padding: 50px;
+  display: flex;
+  flex-grow: 2;
+}
+
+#quote {
+  font-size: 40px;
+  font-weight: bold;
+  font-family: "Parisienne", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.tag-container {
+  display: flex;
+  flex-wrap: wrap;
 }

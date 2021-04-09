@@ -28,7 +28,7 @@ block content
                     img(src=book.cover alt="No image" width="300px")
                     form
                         select(class="bookshelves-dropdown")
-                            each bookshelf in bookshelves 
+                            each bookshelf in bookshelves
                                 option(value=bookshelf.id)=bookshelf.name
                         button(class="btn add-book-bookshelf") Add to Bookshelf
 
@@ -54,7 +54,7 @@ block content
 
                     textarea(class="new-review" placeholder="Write your review here...")
                     button(type="submit" class="review-button btn" id="submit-review") Submit
-                div(class="existing-reviews")  
+                div(class="existing-reviews")
                     each review in reviews
                         div(class="review-container")
                             h4(class="review-author")
@@ -79,3 +79,12 @@ block content
         div(class="book-sidebar")
             div(class="sidebar-container")
                 div(id="quote")
+            div(class="tag-container")
+                each tag in tags 
+                    div(class="book-tag")=tag.category
+                form(class="add-tag-form")
+                    input(class="tag-input")
+                    button(class="tag-btn btn")
+
+
+            
