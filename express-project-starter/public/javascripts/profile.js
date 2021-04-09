@@ -1,5 +1,6 @@
 //  one eventlistener on a submit for the edit
 //  one eventlistener on a delete
+  // click the logout button and do the fetch to redirect
 
 
 // need to edit for me, just copied over;
