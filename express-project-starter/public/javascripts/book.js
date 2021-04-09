@@ -78,7 +78,6 @@ window.addEventListener("DOMContentLoaded", () => {
         let deleteFromBookshelfBtn = document.querySelector("book-delete")
         deleteFromBookshelfBtn.addEventListener('click', async(event) => {
             event.preventDefault()
-            let bookshelfId = document.querySelector(".bookshelves-dropdown").value
             let bookId = event.target.baseURI.split('/')[4]
             let res = await fetch(`http://localhost:8080/books/${bookId}`, { 
                 method: "DELETE",
@@ -86,7 +85,6 @@ window.addEventListener("DOMContentLoaded", () => {
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({
-                    bookshelfId,
                     bookId
                 })
             })
