@@ -6,7 +6,7 @@ append head
    link(rel='stylesheet' href='/stylesheets/book.css')
    link(rel="preconnect", href="https://fonts.gstatic.com")
    link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap")
-   script(src='/javascripts/book.js' type='module')
+   script(src='/javascripts/book.js')
 
 block content
     div(class="hidden" id="modal")
@@ -71,7 +71,8 @@ block content
                                         | 🧠🧠🧠🧠
                                     if review.rating===5
                                         | 🧠🧠🧠🧠🧠
-
+                                span(class="review-timestamp")
+                                =review.updatedAt
                             if review.userId===userId
                                 button(class="review-edit-btn btn") Edit
                             p=review.review
