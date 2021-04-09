@@ -126,6 +126,7 @@ nav {
   padding: 0!important;
   cursor: pointer;
   font-size: 20px;
+  font-weight: bold;
 }
 
 .navbar-search-btn{
