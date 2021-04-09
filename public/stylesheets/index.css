@@ -4,7 +4,7 @@ h2 {
     display: flex;
     justify-content: center;
     font-family: 'Tangerine', cursive;
-    font-size: 100px;
+    font-size: 80px;
     color: #555555;
 }
 
@@ -14,11 +14,20 @@ h2 {
     font-size: 40px;
 }
 
+#api-div {
+    position: absolute;
+    left: 75%;
+    top: 40%;
+    width: 600px;
+    height: 1000px;
+    border: solid black;
+}
+
 #genre-div {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    height: 1000px;
+    height: 2500px;
     width: 60%;
     padding-left: 8%;
 }
@@ -31,6 +40,6 @@ h2 {
 
 .genre-list {
     border: solid black;
-    height: 200px;
+    height: 300px;
     padding: -40px;
 }
