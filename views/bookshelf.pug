@@ -14,10 +14,9 @@ block content
         ul(id='ul-bookshelves') 
           each bookshelf in bookshelves 
             li(class="bookshelf-li"): a(href=`/bookshelves/${bookshelf.id}`) #{bookshelf.name}
-              a(href=`/bookshelves/delete/${bookshelf.id}` class="bookshelf-li" id='delete-button') ⓧ
-        span(class='add-shelf-span') Add Shelf 
-        form(method='post' id='add-shelf')
-          input(type="text" name='listname')
+              a(href=`/bookshelves/delete/${bookshelf.id}` class="bookshelf-li" id='delete-button') ⓧ 
+        form(method='post'  id='add-shelf')
+          input(type="text" name='listname' placeholder='Add Bookshelf')
           button(type='submit' id='add-shelf-button') Add
       //- div(id='reading-activity') Reading Activity
       a(id='add-books' href='/bookshelves/add-book') Add Book

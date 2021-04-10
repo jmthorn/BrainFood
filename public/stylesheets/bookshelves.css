@@ -3,14 +3,18 @@ html {
 }
 
 .add-shelf-span {
-    padding-top: 30px;
-    display: flex;
-    justify-content: center;
+    padding-top: 100px;
+    position: absolute;
+    bottom: 35px;
+    left: 40px;
 }
 
 #add-shelf {
     display: flex;
     justify-content: center;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
 }
 
 a:hover {
@@ -63,7 +67,8 @@ a {
     /* grid-area: table; */
     /* justify-self: start; */
     padding-left: 100px;
-    padding-top: 200px;    
+    padding-top: 200px;
+    font-size: 30px;    
 }
 
 th, td {
@@ -86,19 +91,25 @@ th, td {
 #tools {
     background-color: #DEE2FF;
     border: solid black;
-    padding: 100px;
+    /* padding: 100px; */
     /* margin: 0; */
     text-align: start;
+    min-height: 500px;
+    height: auto;
+    min-width: 250px;
 }   
 
-#add-books-link {
+#add-books-link {   
     padding-top: 20px;
     border: solid black;
     color: #4c5460;
 }
 
-.ul-bookshelves {
+#ul-bookshelves {
     padding-bottom: 30px;
+    left: 10px;
+    top: 0px; 
+    position: relative;
 }
 
 #delete-button {
@@ -107,7 +118,10 @@ th, td {
 
 #bookshelves {
     font-size: 30px;
+    position: absolute;
+
 }
+
 .bookshelf-li {
     font-size: 20px;
 }
