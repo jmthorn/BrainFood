@@ -92,7 +92,6 @@
   display: flex;
   flex-direction: column;
   justify-content: start;
-  margin: 100px auto auto;
 }
 
 .signup-login-background{
@@ -102,6 +101,6 @@
   min-height: 50vh;
 }
 
-.each-contributor:hover{
-  background-color: ;
+.demo-div {
+  float: right;
 }
