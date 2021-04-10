@@ -19,7 +19,8 @@ body {
 
 .background-image {
   background-image: url("../images/Books-background-rotated.jpeg");
-  background-position-y: -450px;
+  background-position-y: -390px;
   background-position-x: -70px;
   background-repeat: no-repeat;
+  background-size: contain;
 }
