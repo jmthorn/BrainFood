@@ -170,7 +170,7 @@ router.get('/profile/:id(\\d+)', asyncHandler(async(req, res) => {
   const user = await db.User.findByPk(id);
 
   // console.log(reviews);
-
+  console.log(user)
   res.render('profile',    //  Server is render from profile.pug        -SERVER side rendering
   {reviews, user}           // reviews array gives us the the userId and rating data
 

@@ -216,3 +216,18 @@
   display: flex;
   justify-content: space-evenly;
   flex-direction: column; */
+
+
+/* #default-profile-pic {
+ height:100px;
+ width:
+} */
+
+
+#for-profile{
+  background-size: 200px;
+  height: 100x;
+  width: 70px;
+  font-weight: bold;
+  border-radius: 15px;
+}

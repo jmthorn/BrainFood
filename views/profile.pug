@@ -23,7 +23,7 @@ block content
         div(id='left-div')
         div(id='middle-div')
           div(class='person-image-container')
-            div(class='person-image')
+            img(src= user.image)
           div(class='user-name-container')
             div(id='user-name')= user.username
           div(id='person-details-container')
@@ -37,10 +37,10 @@ block content
         div(id='space-div')
         div(id='right-div')
           div(id='fav-book-container')
-            div(id='favorite-books') Suggested Books
+            div(id='favorite-books') Favorite Books
           div(class='favorite-books-top')
-          each review in reviews
-            img(src= review.Book.cover)
+            each review in reviews
+              img(src= review.Book.cover class='books')
           //-   div(id='favorite-books-top1')= book.cover
           //-   div(id='favorite-books-top2')
           //-   div(id='favorite-books-top3')

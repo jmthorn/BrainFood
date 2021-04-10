@@ -29,7 +29,11 @@ html
         if user
             div(id='outer-right-container')
               div(id='logged-in-display')
-                img(src= '/images/hp_dog.jpg' class='nav-link' id="navbar-profile-btn" href=`/users/profile/${user.id}`)
+                a(href=`/users/profile/${user.id}` id='for-profile')
+                  if !user.image
+                    img(src='/profile-icon.png' id='default-profile-pic')
+                  else
+                    img(src= user.image class='nav-link' id="navbar-profile-btn")
                 span(id='navbar-welcome-text') Welcome #{user.username}!
                 form(action='/users/logout' method='post')
                   div(class='nav-buttons-div')

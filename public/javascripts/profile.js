@@ -23,25 +23,25 @@ window.addEventListener("DOMContentLoaded", () => {
   let userModalForm = document.getElementById('user-form')
 
 
-  favBook1.addEventListener('click', async(event) => {
-    let personId = event.target.baseURI.split('/')[5]
-    debugger
+  // favBook1.addEventListener('click', async(event) => {
+  //   let personId = event.target.baseURI.split('/')[5]
+  //   debugger
 
-    let res = await fetch(`http://localhost:8080/users/profile/${personId}`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            // newUser,
-            // newEmail,
-            // newPicture
-        })
-      })
+  //   let res = await fetch(`http://localhost:8080/users/profile/${personId}`, {
+  //     method: "GET",
+  //     headers: {
+  //       "Content-Type": "application/json"
+  //       },
+  //       body: JSON.stringify({
+  //           // newUser,
+  //           // newEmail,
+  //           // newPicture
+  //       })
+  //     })
 
-    // let data = await res.json()     // prints out the update
-    // let { user } = data;
-  })
+  //   // let data = await res.json()     // prints out the update
+  //   // let { user } = data;
+  // })
 
 
 

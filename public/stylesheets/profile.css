@@ -39,7 +39,7 @@
   justify-self: center;
   align-self: center;
   border-radius: 25px;
-  background-image: url(/dogProfilePic.jpg);
+  /* background-image: url(/dogProfilePic.jpg); */
   background-position: center;
   object-fit: cover;
   width: 250px;
@@ -139,11 +139,20 @@
 .favorite-books-top,
 .favorite-books-bottom {
   display: flex;
-  width: 100%;
-  height:400px;
+  /* flex-wrap: wrap; */
+  /* max-width: 50%;
+  max-height: 50%; */
   align-items: center;
+  /* height: 200px;
+  width: 200px; */
+  /* object-fit: cover; */
+  /* overflow: hidden; */
 }
 
+.books{
+  max-height: 25em;
+  max-width: 25em;
+}
 /* .favorite-books-bottom {
   display: flex;
   width: 100%;
