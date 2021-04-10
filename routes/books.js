@@ -47,6 +47,7 @@ router.post("/:id/reviews", asyncHandler(async (req, res) => {
     const userId = req.session.auth.userId
     const user = await db.User.findByPk(userId)
     const { review, bookId, rating } = req.body;
+
     const newReview = await db.Review.create({ review, rating, userId, bookId, author: user.username })
     res.json({ newReview })
 }))
