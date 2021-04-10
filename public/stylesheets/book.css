@@ -49,16 +49,13 @@
   background-color: rgba(142, 154, 175, 0.548);
   margin-top: 220px;
   padding: 40px;
-  /* border:  */
   border-radius: 20px;
-  /* display: flex;
-  justify-content: center;
-  align-content: center;
-  flex-direction: column; */
 }
 
 .review-timestamp {
   font-size: 6px;
+  /* display: block; */
+  float: absolute;
 }
 
 .review-container {

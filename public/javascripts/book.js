@@ -26,14 +26,14 @@ window.addEventListener("DOMContentLoaded", () => {
             deleteButton.setAttribute("review-id", review.id)
             div.appendChild(deleteButton)
         }
-        console.log(review)
         let p = document.createElement('p')
         p.innerHTML = review.review
         div.appendChild(p)
         let existingReviews = document.querySelector(".existing-reviews")
         let reviewsContainer = document.querySelector(".reviews-container")
         existingReviews.insertBefore(div, existingReviews.childNodes[0])
-
+        let textarea = document.querySelector(".new-review-textarea")
+        textarea.value = "";
     }
 
     //ADD REVIEW ================================
@@ -42,7 +42,7 @@ window.addEventListener("DOMContentLoaded", () => {
         .addEventListener("click", async (event) => {
             event.preventDefault();
             let bookId = event.target.baseURI.split('/')[4]
-            let textarea = document.querySelector(".new-review")
+            let textarea = document.querySelector(".new-review-textarea")
             let review = textarea.value
             let rating = document.getElementById('book-rating').value
             let res = await fetch(`http://localhost:8080/books/${bookId}/reviews`, {

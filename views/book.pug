@@ -65,12 +65,12 @@ block content
                                 | 🧠🧠🧠🧠
                             if review.rating===5
                                 | 🧠🧠🧠🧠🧠
-                        span(class="review-timestamp")
+                        div(class="review-timestamp")
                         =date
-                    if review.userId===userId
-                        button(review-id=`${review.id}` class="review-edit-btn btn") Edit
-                        button(review-id=`${review.id}` class="review-delete-btn btn") Delete
-                    p=review.review
+                        if review.userId===userId
+                            button(review-id=`${review.id}` class="review-edit-btn btn") Edit
+                            button(review-id=`${review.id}` class="review-delete-btn btn") Delete
+                        p=review.review
 
             div(class="book-sidebar")
                 form
