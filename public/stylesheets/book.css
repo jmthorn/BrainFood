@@ -57,7 +57,9 @@
   flex-direction: column; */
 }
 
-/* EXISTING REVIEW STYLING =============================================== */
+.review-timestamp {
+  font-size: 6px;
+}
 
 .review-container {
   margin: 30px;

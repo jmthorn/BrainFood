@@ -20,7 +20,7 @@
 #middle-div{
   display: flex;
   flex-direction: column;
-  width: 500px;
+  width: 350px;
   height: 100%;
 
 }
@@ -35,16 +35,22 @@
   height: 100%;
 }
 
-.person-image {
+#profile-img {
+  width: 30em;
+  height: 30em;
+}
+
+
+
+/* .person-image {
   justify-self: center;
   align-self: center;
   border-radius: 25px;
-  background-image: url(/dogProfilePic.jpg);
   background-position: center;
   object-fit: cover;
   width: 250px;
   height: 400px;
-}
+} */
 
 .person-image-container{
   display: flex;
@@ -56,9 +62,15 @@
 
 .user-name-container {
   display: flex;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: space-around;
   margin-top: 50px;
   margin-bottom: 50px;
+}
+
+#user-name{
+  display:flex;
+  flex-direction: row;
 }
 
 
@@ -107,11 +119,15 @@
 #person-details-container1{
   display: flex;
   margin-right: 100px;
+  width: 500px;
 }
 
 #email {
+  display:flex;
+  align-content: center;
   font-weight: bold;
   font-size: 20px;
+  width: 240px;
 }
 
 #person-details-container2 {
@@ -129,18 +145,21 @@
 .favorite-books-top,
 .favorite-books-bottom {
   display: flex;
-  width: 100%;
-  height:400px;
+  /* flex-wrap: wrap; */
+  /* max-width: 50%;
+  max-height: 50%; */
   align-items: center;
+  /* height: 200px;
+  width: 200px; */
+  /* object-fit: cover; */
+  /* overflow: hidden; */
 }
 
-/* .favorite-books-bottom {
-  display: flex;
-  width: 100%;
-  height:400px;
-  align-items: center;
-} */
-
+.books{
+  max-height: 25em;
+  max-width: 25em;
+}
+/*
 #favorite-books-top1,
 #favorite-books-top2,
 #favorite-books-top3,
@@ -152,4 +171,45 @@
   height: 250px;
   margin-right: 100px;
   border-radius: 25px;
+} */
+
+
+#edit-btn-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+
+.edit-btn {
+  border-radius: 25px;
+  margin: 22px;
+  width: 50px;
+}
+
+
+
+.modal-show {
+  display: block; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+.hidden {
+  display: none;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
 }
