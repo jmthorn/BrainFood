@@ -13,51 +13,76 @@
 }
 
 #left-div{
-  width: 600px;
+  width: 500px;
   height: 100%;
+  /* background-color: lightblue; */
 }
 
 #middle-div{
   display: flex;
   flex-direction: column;
-  width: 350px;
+  width: 365px;
   height: 100%;
-
+  /* background-color: gray; */
 }
 
 #space-div{
-  width: 400px;
+  width: 200px;
+  /* background-color: lightcoral; */
 }
 
 
 #right-div{
-  width:100%;
+  width: 115%;
   height: 100%;
+  /* background-color: lightgoldenrodyellow; */
 }
-
-#profile-img {
-  width: 30em;
-  height: 30em;
-}
-
-
-
-/* .person-image {
-  justify-self: center;
-  align-self: center;
-  border-radius: 25px;
-  background-position: center;
-  object-fit: cover;
-  width: 250px;
-  height: 400px;
-} */
 
 .person-image-container{
   display: flex;
   justify-content: center;
-  margin-top: 150px;
-  /* top:50px; */
+  margin-top: 385px;
+  margin-left: 75px;
+  height: 200px;
+  width: 200px;
+}
 
+.profile-img {
+  width: 325px;
+  height: 325px;
+  margin-top: -55px;
+  border-radius: 15px;
+}
+
+#edit-btn-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: -18px;
+}
+
+#modal-button {
+  border-radius: 10px;
+  margin: 15px;
+  width: 65px;
+}
+
+#delete-btn {
+  border-radius: 10px;
+  margin: 15px;
+  width: 65px;
+}
+
+
+
+#favorite-books{
+  font-weight: bold;
+  font-size: 30px;
+  background: rgba(142, 154, 175, 0.548);
+  border-radius: 15px;
+  margin-top: 160px;
+  width: 1695px;
+  height: 510px;
 }
 
 .user-name-container {
@@ -69,21 +94,23 @@
 }
 
 #user-name{
-  display:flex;
-  flex-direction: row;
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+  font-size: 30px;
+  justify-self: center;
+  margin-top: -55px;
 }
 
 
 #fav-book-container{
   display: flex;
   justify-content: start;
+  flex-direction: column;
   margin-top: 400px;
 }
 
-#favorite-books{
-  font-weight: bold;
-  font-size: 35px;
-}
+
 
 #favorite-genre{
   grid-area: favGenre;
@@ -91,13 +118,13 @@
   font-size: 35px;
 }
 
-#user-name{
+/* #user-name{
   display: flex;
   flex-direction: column;
   font-weight: bold;
   font-size: 40px;
   justify-self:center;
-}
+} */
 
 /* #Details {
   grid-area: details;
@@ -123,11 +150,13 @@
 }
 
 #email {
-  display:flex;
+  display: flex;
+  flex-direction: column;
   align-content: center;
-  font-weight: bold;
-  font-size: 20px;
-  width: 240px;
+  /* font-weight: bold; */
+  font-size: 25px;
+  width: 500px;
+  margin-top: 10px;
 }
 
 #person-details-container2 {
@@ -149,6 +178,9 @@
   /* max-width: 50%;
   max-height: 50%; */
   align-items: center;
+  /* flex-wrap: wrap; */
+  max-height: 25em;
+  max-width: 25em;
   /* height: 200px;
   width: 200px; */
   /* object-fit: cover; */
@@ -156,37 +188,13 @@
 }
 
 .books{
-  max-height: 25em;
-  max-width: 25em;
-}
-/*
-#favorite-books-top1,
-#favorite-books-top2,
-#favorite-books-top3,
-#favorite-books-top4,
-#favorite-books-top5,
-#favorite-books-top6 {
-  border: 5px solid red;
-  width: 250px;
-  height: 250px;
-  margin-right: 100px;
-  border-radius: 25px;
-} */
-
-
-#edit-btn-container{
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  max-height: 13em;
+  max-width: 12em;
+  /* margin: 6px; */
+  padding: 16px;
 }
-
-
-.edit-btn {
-  border-radius: 25px;
-  margin: 22px;
-  width: 50px;
-}
-
 
 
 .modal-show {
