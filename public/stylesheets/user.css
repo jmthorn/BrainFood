@@ -4,14 +4,19 @@
 
 .form-container {
   background-color: #8e9aaf;
+  color: white;
   margin: 20px auto;
   border: solid black 1px;
   border-radius: 20px;
   padding: 10px;
-  /* display: flex; */
+  /* display: flex;
+  padding-top: 10vh; */
   text-align: center;
   width: 500px;
   box-shadow: 0px 0px 1px 2px rgba(0, 0, 0, .35);
+  min-height: 30vh;
+  min-width: 30vh;
+  opacity: 0.8;
 }
 
 .user-form {
@@ -54,6 +59,7 @@
   margin-bottom: 10px;
   margin-right: 8px;
   margin-top: 8px;
+  font-size: 1em;
 }
 
 .submit-div {
@@ -87,4 +93,15 @@
   flex-direction: column;
   justify-content: start;
   margin: 100px auto auto;
+}
+
+.signup-login-background{
+  background-image: url("/images/books-background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 50vh;
+}
+
+.each-contributor:hover{
+  background-color: ;
 }
