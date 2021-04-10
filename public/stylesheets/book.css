@@ -1,74 +1,120 @@
-@import url("https://fonts.googleapis.com/css2?family=Parisienne&display=swap");
-.page-content {
+/* @import url("https://fonts.googleapis.com/css2?family=Parisienne&display=swap"); */
+
+/* NEW REVIEW STYLING =============================================== */
+
+.review-header {
+  text-align: center;
+  color: rgb(221, 218, 218);
+  margin-bottom: 20px;
+  font-size: 32px;
+}
+
+.review-form {
+  position: relative;
+}
+
+.new-review-textarea {
+  position: absolute;
+  width: 1300px;
+  height: 150px;
+  right: 8px;
+  margin: 30px;
+  border-radius: 20px;
+  padding: 20px;
+  font-size: 20px;
+  font-style: italic;
+  background-color: rgb(197, 193, 184);
+}
+
+.rating {
+  text-align: center;
+}
+
+#submit-review {
+  margin: 0;
+  position: absolute;
+  bottom: -200px;
+  right: 70px;
+  width: 100px;
+  font-size: 15px;
+  background-color: rgba(113, 125, 146, 0.932);
+  border-radius: 20px;
+  padding: 5px;
+  box-shadow: 0 0 10px white;
+}
+
+.new-review {
+  width: 1400px;
+  height: 300px;
+  background-color: rgba(142, 154, 175, 0.548);
+  margin-top: 220px;
+  padding: 40px;
+  /* border:  */
+  border-radius: 20px;
+  /* display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column; */
+}
+
+/* EXISTING REVIEW STYLING =============================================== */
+
+.review-container {
+  margin: 30px;
+  width: 800px;
+}
+
+/* MAIN GRID AREAS ==================================================== */
+
+.book-sidebar {
+  grid-area: sidebar;
+  justify-self: start;
+  align-self: center;
+}
+
+.book-cover {
+  grid-area: cover;
+  justify-self: end;
+  align-self: center;
+}
+
+.book-info {
+  grid-area: description;
+  justify-self: end;
+  align-self: center;
+}
+
+.new-review-container {
+  grid-area: img;
+  /* background-color: blue; */
+  background-image: url("../images/Book2.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center center;
   display: flex;
-  flex-direction: row;
-  margin: 15px auto;
   justify-content: center;
   align-content: center;
 }
 
-.book-content {
-  margin: 20px;
-  display: flex;
-  flex-direction: column;
-  /* padding: 20px; */
-  /* flex-grow: 1; */
-  /* width: 800px; */
+.existing-reviews {
+  grid-area: reviews;
 }
 
-.book-container {
-  display: flex;
-  flex-direction: row;
-  padding: 20px;
-  background-color: rgb(229, 226, 226);
-  border-radius: 20px;
-  border: solid black 1px;
-  width: 800px;
+.page-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 100px 600px 800px 600px 100px;
+  grid-template-areas:
+    ". . ."
+    "cover description sidebar"
+    "img img img"
+    ". reviews ."
+    ". . .";
+  column-gap: 30px;
+  row-gap: 50px;
 }
 
-.book-title {
-  font-size: 30px;
-}
-
-.book-info {
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
-}
-
-.review-container {
-  border: solid black 1px;
-  border-radius: 20px;
-  width: 800px;
-  padding: 20px;
-}
-
-.review-timestamp{
-  font-size: 6px;
-}
-
-.new-review {
-  width: 300px;
-}
-
-.review-user-silhouette {
-  font-size: 25px;
-}
-
-.review-rating {
-  font-size: 20px;
-}
-
-.review-delete-btn,
-.review-edit-btn {
-  float: right;
-}
-
-
-.book-button-container {
-  display: flex;
-  flex-direction: row;
-}
+/* MODAL ================================================================= */
 
 .modal-show {
   display: block; /* Hidden by default */
@@ -93,65 +139,4 @@
   padding: 20px;
   border: 1px solid #888;
   width: 80%; /* Could be more or less, depending on screen size */
-}
-
-.sidebar-container {
-  margin: 20px;
-  padding: 50px;
-  display:flex;
-}
-
-#quote {
-  font-size: 20px;
-  font-weight: bold;
-  font-family: "Parisienne", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-}
-
-.sidebar-container {
-  width: 300px;
-  height: 500px;
-  border: solid black 1px;
-  border-radius: 20px;
-  padding: 10px;
-  display: flex;
-}
-
-#quote {
-  font-size: 40px;
-  font-weight: bold;
-  font-family: "Parisienne", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-  margin: 15px;
-}
-
-.tag-container {
-  width: 300px;
-  /* height: 400px; */
-  display: flex;
-  flex-wrap: wrap;
-  border: solid black 1px;
-  border-radius: 20px;
-  padding: 10px;
-  align-content: start;
-  margin-top: 20px;
-}
-
-.book-tag {
-  padding: 6px;
-  border: solid black 0px;
-  border-radius: 20px;
-  background-color: rgb(125, 188, 242);
-  margin: 8px;
-  box-shadow: 0px 0px 10px black;
-  transition: background-color 2s;
-  /* height: 25px; */
-}
-
-.book-tag:hover {
-  background-color: rgb(161, 230, 234);
-}
-
-.tag-input {
-  margin: 10px;
 }
