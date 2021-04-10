@@ -98,6 +98,7 @@
   background-image: url("/images/books-background.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  bottom: 70px;
   min-height: 50vh;
 }
 
