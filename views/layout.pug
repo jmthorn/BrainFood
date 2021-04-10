@@ -11,32 +11,39 @@ html
         script(src="/javascripts/index.js")
   body
     nav(class='navbar')
-      div(class='nav-left overlay' )
-        div(class='nav-buttons-div')
-          a(id='navbar-brainfood' href='/')
-            img(src="/logo.png" id='navLogo' width='65' height='45')
-          a(id='logo-sig' href='/') BrainFood
-        div(class='nav-buttons-div')
-          a(class='nav-link' id='navbar-home' href="/") Home
-        div(class='nav-buttons-div')
-          a(class='nav-link' id='navbar-mybooks' href="/bookshelves") My Books
-      div(id='nav-middle' )
-        input(type="search" name="term" id='navbar-search' placeholder="Search Books" required)
-        //- button(type='submit' class='navbar-search-btn')
-        i.fas.fa-search
-        //- 🔍
-      if user
-        span(id='navbar-welcome-text') Welcome #{user.username}!
-        div(class='nav-buttons-div')
-          a(class= 'nav-link' id="navbar-profile-btn" href=`/users/profile/${user.id}`)
-        form(action='/users/logout' method='post')
-            button(id='nav-logout' type='submit') Logout
-      else
-        div(id='nav-right' class='navbar-profile')
-        div(class='nav-buttons-div')
-          a(href="/users/login" id='navbar-login') Login
-        div(class='nav-buttons-div')
-          a(href="/users/signup" id='navbar-signup') Sign Up
+      div(class='main-div-container')
+        div(class='nav-left overlay' )
+          div(class='nav-buttons-div')
+            a(id='navbar-brainfood' href='/')
+              img(src="/images/Temp_Logo.png" id='navLogo' width='200')
+            //- a(id='logo-sig' href='/') BrainFood
+          div(class='nav-buttons-div')
+            a(class='nav-link' id='navbar-home' href="/") Home
+          div(class='nav-buttons-div')
+            a(class='nav-link' id='navbar-mybooks' href="/bookshelves") My Books
+        div(id='nav-middle' )
+          input(type="search" name="term" id='navbar-search' placeholder="Search Books" required)
+          //- button(type='submit' class='navbar-search-btn')
+          i.fas.fa-search
+          //- 🔍
+        if user
+            div(id='outer-right-container')
+              div(id='logged-in-display')
+                a(href=`/users/profile/${user.id}` id='for-profile')
+                  if !user.image
+                    img(src='/profile-icon.png' id='default-profile-pic')
+                  else
+                    img(src= user.image class='nav-link' id="navbar-profile-btn")
+                span(id='navbar-welcome-text') Welcome #{user.username}!
+                form(action='/users/logout' method='post')
+                  div(class='nav-buttons-div')
+                    button(id='nav-logout' type='submit') Logout
+        else
+          div(id='nav-right' class='navbar-profile')
+            div(class='nav-buttons-div')
+              a(href="/users/login" id='navbar-login') Login
+            div(class='nav-buttons-div')
+              a(href="/users/signup" id='navbar-signup') Sign Up
 
     block content
 

@@ -21,7 +21,7 @@ block content
           button(type='submit' id='add-shelf-button') Add
       //- div(id='reading-activity') Reading Activity
       a(id='add-books' href='/bookshelves/add-book') Add Book
-    if books
+    if bookshelf.Books.length
       div(id='main-table')
         table(class='book_table')
           thead(class='book_thead')
@@ -35,7 +35,7 @@ block content
               //- th(scope='col') Shelves
               //- th(scope='col') Reviews
           tbody
-           each book in books
+           each book in bookshelf.Books
             div(id="book-in-books")
             tr
              div

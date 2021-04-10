@@ -38,17 +38,14 @@ router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
   // const bookshelv`es = await db.Bookshelf.findAll();
   //const books = await db.Book.findAll();
   // // const bookshelfId = parseInt(req.params.bookshelfId, 10);
-  // const books = await db.Book.findAll({
-  //   where: {
-  //     bookshelfId,
-  //   },
-  //   include: db.Bookshelf,
-  // });
+  const bookshelf = await db.Bookshelf.findByPk(bookshelfId, {
+    include: db.Book,
+  });
   //bookshelf.findByPk(bookshelfId, {include: db.Book });
 
   res.render("bookshelf", {
+    bookshelf,
     bookshelves,
-    //books,
   });
 }))
 
