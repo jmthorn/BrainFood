@@ -74,7 +74,8 @@ block content
                                 span(class="review-timestamp")
                                 =review.updatedAt
                             if review.userId===userId
-                                button(class="review-edit-btn btn") Edit
+                                button(review-id=`${review.id}` class="review-edit-btn btn") Edit
+                                button(review-id=`${review.id}` class="review-delete-btn btn") Delete
                             p=review.review
 
         div(class="book-sidebar")
@@ -86,6 +87,3 @@ block content
                 form(class="add-tag-form")
                     input(class="tag-input")
                     button(class="tag-btn btn") Add Tag
-
-
-            
