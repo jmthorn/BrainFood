@@ -4,23 +4,28 @@ include utils.pug
 
 
 block content
-  div(class="user-content-container")
-    div(class="img-container")
-      img(src="/images/logotemp-1.png" alt="No image" width="200px")
-    +validationErrorSummary(errors)
-    div(class='around-form-container')
-      div(class="form-container")
-        h1(class="form-header") Sign Up
-        form(action='/users/signup' method='post')
-          input(type='hidden' name='_csrf' value=csrfToken)
-          +field('Username', 'username', user.username)
-          +field('Email', 'email', user.email)
-          +field('Password', 'password', user.password, 'password')
-          +field('Confirm Password', 'confirmPassword', '', 'password')
-          div(class='submit-div')
-            button(type='submit' class='btn submit') Sign Up
-            a(href='/users/signup' class='a clear') Clear
-        div(class="sub-form")
-          p: a(href="/users/login") Already have an account?
+  div(class="signup-login-background")
+      form(action='/users/login' method='post')
+        +fieldHidden('username', 'Demo')
+        +fieldHidden('password', 'jJ123!')
+        input(type="hidden" name="_csrf" value=csrfToken)
         div(class="demo-div")
-          button(type='button' id='demo-button') Demo User
+          button(type='submit' id='demo-button') Demo User
+    div(class="user-content-container")
+      div(class="img-container")
+        img(src="/images/logotemp-1.png" alt="No image" width="200px")
+      +validationErrorSummary(errors)
+      div(class='around-form-container')
+        div(class="form-container")
+          h1(class="form-header") Sign Up
+          form(action='/users/signup' method='post')
+            input(type='hidden' name='_csrf' value=csrfToken)
+            +field('Username', 'username', user.username)
+            +field('Email', 'email', user.email)
+            +field('Password', 'password', user.password, 'password')
+            +field('Confirm Password', 'confirmPassword', '', 'password')
+            div(class='submit-div')
+              button(type='submit' class='btn submit') Sign Up
+              a(href='/users/signup' class='a clear') Clear
+          div(class="sub-form")
+            p: a(href="/users/login") Already have an account?
