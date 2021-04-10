@@ -30,13 +30,6 @@
   text-align: center;
 }
 
-.btn {
-  background-color: rgba(113, 125, 146, 0.932);
-  border-radius: 20px;
-  padding: 5px;
-  box-shadow: 0 0 10px white;
-}
-
 #submit-review {
   margin: 0;
   position: absolute;
@@ -44,6 +37,10 @@
   right: 70px;
   width: 100px;
   font-size: 15px;
+  background-color: rgba(113, 125, 146, 0.932);
+  border-radius: 20px;
+  padding: 5px;
+  box-shadow: 0 0 10px white;
 }
 
 .new-review {
@@ -106,7 +103,7 @@
 .page-content {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 50px 600px 800px 600px 100px;
+  grid-template-rows: 100px 600px 800px 600px 100px;
   grid-template-areas:
     ". . ."
     "cover description sidebar"
