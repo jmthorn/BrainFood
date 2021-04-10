@@ -32,6 +32,13 @@ A live Link to our website can be found here: https://brainfood-app.herokuapp.co
 - Once logged in a user can only edit/delete books, reviews and bookshelves that they have created
 - Used Modals to render editing features
 - Implemented AJAX when creating a comment on a specific book page
+- A user can filter their books by choosing a pre-defined or custom bookshelf
+- Can access the specific books
+
+## Our routes code snippet:
+```
+
+```
 
 ## The BrainFood Contributors
 

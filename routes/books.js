@@ -9,19 +9,20 @@ const db = require('../db/models');
 
 router.get("/:id", asyncHandler(async (req, res) => {
     const userId = req.session.auth.userId
-    if(!userId) res.redirect("/users/login");
+    if (!userId) res.redirect("/users/login");
     let bookId = parseInt(req.params.id, 10)
-    let book = await db.Book.findByPk(bookId, {include: db.Tag})
-    let bookshelves = await db.Bookshelf.findAll({where: {userId}})
+    let book = await db.Book.findByPk(bookId, { include: db.Tag })
+    let bookshelves = await db.Bookshelf.findAll({ where: { userId } })
     let reviews = await db.Review.findAll({
         where: { bookId },
-        include: db.User
+        include: db.User,
+        order: [["createdAt", "DESC"]]
     })
 
     res.render('book', {
         book,
         reviews,
-        userId, 
+        userId,
         bookshelves
     })
 }))
@@ -46,6 +47,23 @@ router.post("/:id/reviews", asyncHandler(async (req, res) => {
     res.json({ newReview })
 }))
 
+//EDIT REVIEW FROM BOOK=============================================
+
+
+//DELETE REVIEW FROM BOOK=============================================
+router.delete("/reviews/:id", asyncHandler(async (req, res) => {
+    const userId = req.session.auth.userId;
+    const reviewId = parseInt(req.params.id);
+    const review = await db.Review.findByPk(reviewId)
+    if (userId === review.userId) {
+        let destroyedReview = await db.Review.destroy({ where: { id: reviewId } });
+        res.json()
+    } else {
+        // TODO: display a 403 response FORBIDDEN
+    }
+
+}));
+
 
 //ADD BOOK TO BOOKSHELF=============================================
 
@@ -53,9 +71,9 @@ router.post("/:id/bookshelves", asyncHandler(async (req, res) => {
     const userId = req.session.auth.userId
     // const user = await db.User.findByPk(userId)
     const { bookshelfId, bookId } = req.body;
-    // let bookshelf = db.Bookshelf.findByPk(bookshelfId) 
-    let bookshelfToBook = await db.BookshelfToBook.create({bookshelfId: parseInt(bookshelfId), bookId: parseInt(bookId)});
-    res.json({ userId , bookshelfToBook })
+    // let bookshelf = db.Bookshelf.findByPk(bookshelfId)
+    let bookshelfToBook = await db.BookshelfToBook.create({ bookshelfId: parseInt(bookshelfId), bookId: parseInt(bookId) });
+    res.json({ userId, bookshelfToBook })
 }));
 
 //DELETE BOOK FROM BOOKSHELF=============================================
@@ -63,8 +81,8 @@ router.post("/:id/bookshelves", asyncHandler(async (req, res) => {
 router.post("/:id/delete", asyncHandler(async (req, res) => {
     const userId = req.session.auth.userId
     const { bookId } = req.body;
-    let destroyedBook = await db.Book.destroy({where: { id: parseInt(bookId) }});
-    res.json({ userId})
+    let destroyedBook = await db.Book.destroy({ where: { id: parseInt(bookId) } });
+    res.json({ userId })
 }));
 
 
@@ -76,7 +94,7 @@ router.post("/:id/tags", asyncHandler(async (req, res) => {
     const user = await db.User.findByPk(userId)
     const { category, bookId } = req.body;
     const newTag = await db.Tag.create({ category })
-    let bookToTags = await db.BookToTag.create({tagId: parseInt(newTag.id), bookId: parseInt(bookId)});
+    let bookToTags = await db.BookToTag.create({ tagId: parseInt(newTag.id), bookId: parseInt(bookId) });
     res.json({ newTag })
 }))
 
