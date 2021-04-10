@@ -139,3 +139,16 @@
   border: 1px solid #888;
   width: 80%; /* Could be more or less, depending on screen size */
 }
+
+/* BOOK CONTENT ======================================================= */
+
+.book-button-container {
+  display: flex;
+  justify-content: space-around;
+  align-content: space-around;
+  padding: 20px;
+}
+
+.book-button-container button {
+  background-color: hotpink;
+}
