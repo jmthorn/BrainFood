@@ -57,13 +57,9 @@
   flex-direction: column; */
 }
 
-<<<<<<< HEAD
 .review-timestamp {
   font-size: 6px;
 }
-=======
-/* EXISTING REVIEW STYLING =============================================== */
->>>>>>> main
 
 .review-container {
   margin: 30px;
@@ -146,93 +142,3 @@
   border: 1px solid #888;
   width: 80%; /* Could be more or less, depending on screen size */
 }
-<<<<<<< HEAD
-
-.sidebar-container {
-  margin: 20px;
-  padding: 50px;
-  display: flex;
-  flex-grow: 2;
-}
-
-#quote {
-  font-size: 40px;
-  font-weight: bold;
-  font-family: "Parisienne", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-}
-
-.sidebar-container {
-  padding: 50px;
-  display: flex;
-  flex-grow: 2;
-}
-
-#quote {
-  font-size: 40px;
-  font-weight: bold;
-  font-family: "Parisienne", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-}
-
-.sidebar-container {
-  padding: 50px;
-  display: flex;
-}
-
-#quote {
-  font-size: 20px;
-  font-weight: bold;
-  font-family: "Parisienne", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-}
-
-.sidebar-container {
-  width: 300px;
-  height: 500px;
-  border: solid black 1px;
-  border-radius: 20px;
-  padding: 10px;
-  display: flex;
-}
-
-#quote {
-  font-size: 40px;
-  font-weight: bold;
-  font-family: "Parisienne", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-  margin: 15px;
-}
-
-.tag-container {
-  width: 300px;
-  /* height: 400px; */
-  display: flex;
-  flex-wrap: wrap;
-  border: solid black 1px;
-  border-radius: 20px;
-  padding: 10px;
-  align-content: start;
-  margin-top: 20px;
-}
-
-.book-tag {
-  padding: 6px;
-  border: solid black 0px;
-  border-radius: 20px;
-  background-color: rgb(125, 188, 242);
-  margin: 8px;
-  box-shadow: 0px 0px 10px black;
-  transition: background-color 2s;
-  /* height: 25px; */
-}
-
-.book-tag:hover {
-  background-color: rgb(161, 230, 234);
-}
-
-.tag-input {
-  margin: 10px;
-}
-=======
->>>>>>> main
