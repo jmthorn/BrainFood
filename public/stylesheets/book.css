@@ -59,9 +59,11 @@
   font-size: 20px;
 }
 
+.review-delete-btn,
 .review-edit-btn {
   float: right;
 }
+
 
 .book-button-container {
   display: flex;
