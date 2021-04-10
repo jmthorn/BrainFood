@@ -1,10 +1,11 @@
-extends layout.pug
+extends footer.pug
 
 include utils.pug
 
 
 block content
-  div(class="signup-login-background")
+  div(class="signup-login-background-image-container")
+    div(class="signup-login-background")
       form(action='/users/login' method='post')
         +fieldHidden('username', 'Demo')
         +fieldHidden('password', 'jJ123!')

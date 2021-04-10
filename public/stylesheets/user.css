@@ -99,12 +99,15 @@
 }
 
 .signup-login-background{
-  background-image: url("/images/books-background.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
   bottom: 70px;
   min-height: 50vh;
   padding-top: 15px;
+}
+
+.signup-login-background-image-container{
+ background-image: url("/images/books-background.jpg");
+ background-repeat: no-repeat;
+ background-size: cover;
 }
 
 .demo-div {
