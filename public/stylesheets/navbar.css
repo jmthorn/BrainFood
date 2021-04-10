@@ -1,11 +1,11 @@
-nav {
+/* nav {
   display: flex;
   justify-content: space-evenly;
   flex-direction: row;
-  background-color: #8E9AAF;
+  background-color: white;
   align-items: center;
   font-family: sans-serif;
-  height: 70px;
+  height: 150px;
   box-shadow: 0px 0px 1px 2px rgba(0, 0, 0, .25)
   /* text-decoration: none; */
   /* flex-direction: row;
@@ -19,12 +19,28 @@ nav {
   /* grid-template-areas:
   "navbar-brainfood navbar-home navbar-my-books navbar-search navbar-profile navbar-logout navbar-login" */
   /* "navbar-brainfood navbar-home navbar-my-books navbar-search navbar-search navbar-welcome-text navbar-profile navbar-logout navbar-login navbar-register"; */
+/* } */
+
+.main-div-container{
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  /* background-color: white; */
+  /* background-image: url(/images/Books-background-rotated.jpeg); */
+
+  align-items: center;
+  font-family: sans-serif;
+  height:350px;
+  position: absolute;
+  width:100%;
+  /* box-shadow: 0px 0px 1px 2px rgba(0, 0, 0, .25) */
 }
 
 #navbar-brainfood {
   text-decoration: none;
   color: black;
 }
+
 #logo-sig {
   font-family: 'Tangerine', cursive;
   font-weight: 300;
@@ -35,9 +51,10 @@ nav {
 
 .nav-left{
     /* grid-area: navbar-brainfood; */
-    width: 40%;
+    width: 50%;
     display: flex;
     justify-content: space-around;
+    height: 36px;
     font-size: 20px;
 }
 
@@ -48,30 +65,50 @@ nav {
 
 #nav-right {
     display: flex;
-    justify-content: space-evenly;
+    flex-direction: row;
+    justify-content: space-around;
     font-size:20px;
     width: 25%;
+    height: 36px;
+}
+
+
+#outer-right-container {
+  display: flex;
+  justify-content: flex-end;
+  width: 350px;
 }
 
 #navbar-search {
     height: 30px;
-    width: 500px;
+    width: 550px;;
 }
 
 
-.navbar .nav-buttons-div{
-  height: 60px;
-  padding: 5px;
+.main-div-container .nav-buttons-div:hover {
+  /* height: 60px; */
+  /* padding: 5px; */
   display: flex;
   align-items: center;
+  color: rgb(142, 154, 175);
+  transform: color 1s linear;
+
+  /* background-color: rgba(255, 255, 255, 0.7); */
   /* background-color:gray; */
 
 }
 
 /* .navbar .nav-buttons-div:hover {
-  text-decoration: none;
-  background-color: rgba(255, 255, 255, 0.7);
-} */
+  height: 60px;
+  /* padding: 5px; */
+  /* display: flex;
+  align-items: center;
+  color: rgb(142, 154, 175); */
+
+  /* background-color: rgba(255, 255, 255, 0.7); */
+  /* background-color:gray; */
+
+/* } */
 
 
 #navbar-brainfood {
@@ -113,11 +150,12 @@ nav {
 }
 
 #navbar-profile-btn{
-  background-image: url(/profile-icon.png);
-  background-size: 55px;
-  height: 45px;
-  width: 55px;
+  /* background-image: url(/images/Temp_Logo.png); */
+  background-size: 200px;
+  height: 100x;
+  width: 70px;
   font-weight: bold;
+  border-radius: 15px;
 }
 
 #nav-logout {
@@ -125,7 +163,7 @@ nav {
   border: none;
   padding: 0!important;
   cursor: pointer;
-  font-size: 20px;
+  font-size: 15px;
   font-weight: bold;
 }
 
@@ -150,11 +188,17 @@ nav {
 
 
 #navbar-welcome-text{
-  color:white;
+  color:black;
   font-weight: bold;
+  font-size: 15px;
 }
 
 
+#logged-in-display{
+  display:flex;
+  flex-direction: column;
+  align-self: flex-end;
+}
 
 #navbar-logout{
   text-decoration: none;
@@ -174,4 +218,29 @@ nav {
   text-decoration: none;
   color: black;
   font-weight: bold;
+}
+
+
+/* div#nav-right {
+  background-color: red;
+  border: 2px solid black;
+  width: 300px;
+  height: 50px;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column; */
+
+
+#default-profile-pic {
+  height: 65px;
+  width: 65px;
+}
+
+
+#for-profile{
+  background-size: 200px;
+  height: 100x;
+  width: 70px;
+  font-weight: bold;
+  border-radius: 15px;
 }
