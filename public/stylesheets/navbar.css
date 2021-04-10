@@ -218,10 +218,10 @@
   flex-direction: column; */
 
 
-/* #default-profile-pic {
- height:100px;
- width:
-} */
+#default-profile-pic {
+  height: 65px;
+  width: 65px;
+}
 
 
 #for-profile{

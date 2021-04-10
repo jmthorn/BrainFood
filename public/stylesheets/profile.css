@@ -35,16 +35,22 @@
   height: 100%;
 }
 
-.person-image {
+#profile-img {
+  width: 30em;
+  height: 30em;
+}
+
+
+
+/* .person-image {
   justify-self: center;
   align-self: center;
   border-radius: 25px;
-  /* background-image: url(/dogProfilePic.jpg); */
   background-position: center;
   object-fit: cover;
   width: 250px;
   height: 400px;
-}
+} */
 
 .person-image-container{
   display: flex;
@@ -153,13 +159,7 @@
   max-height: 25em;
   max-width: 25em;
 }
-/* .favorite-books-bottom {
-  display: flex;
-  width: 100%;
-  height:400px;
-  align-items: center;
-} */
-
+/*
 #favorite-books-top1,
 #favorite-books-top2,
 #favorite-books-top3,
@@ -171,7 +171,7 @@
   height: 250px;
   margin-right: 100px;
   border-radius: 25px;
-}
+} */
 
 
 #edit-btn-container{
@@ -180,12 +180,6 @@
   justify-content: center;
 }
 
-
-/* .email-edit-btn {
-  border-radius: 25px;
-  margin: 22px;
-  width: 50px;
-} */
 
 .edit-btn {
   border-radius: 25px;
