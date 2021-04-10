@@ -53,26 +53,24 @@ block content
             div(class="existing-reviews")
                 each review in reviews
                     div(class="review-container")
-                        h4(class="review-author")
-                            span(class="review-user-silhouette") 👤
-                            =review.User.username
-                            span(class="review-rating")
-                                if review.rating===1
-                                    | 🧠
-                                if review.rating===2
-                                    | 🧠🧠
-                                if review.rating===3
-                                    | 🧠🧠🧠
-                                if review.rating===4
-                                    | 🧠🧠🧠🧠
-                                if review.rating===5
-                                    | 🧠🧠🧠🧠🧠
-                            span(class="review-timestamp")
-                            =date
-                        if review.userId===userId
-                            button(review-id=`${review.id}` class="review-edit-btn btn") Edit
-                            button(review-id=`${review.id}` class="review-delete-btn btn") Delete
-                        p=review.review
+                        h4(class="review-author")=review.User.username
+                        span(class="review-rating")
+                            if review.rating===1
+                                | 🧠
+                            if review.rating===2
+                                | 🧠🧠
+                            if review.rating===3
+                                | 🧠🧠🧠
+                            if review.rating===4
+                                | 🧠🧠🧠🧠
+                            if review.rating===5
+                                | 🧠🧠🧠🧠🧠
+                        span(class="review-timestamp")
+                        =date
+                    if review.userId===userId
+                        button(review-id=`${review.id}` class="review-edit-btn btn") Edit
+                        button(review-id=`${review.id}` class="review-delete-btn btn") Delete
+                    p=review.review
 
             div(class="book-sidebar")
                 form
