@@ -24,3 +24,13 @@ body {
   background-repeat: no-repeat;
   height: 800px;
 }
+
+
+.btn {
+  font-size: 20px;
+  background-color: rgba(113, 125, 146, 0.932);
+  border-radius: 20px;
+  padding: 5px;
+  box-shadow: 0 0 10px white;
+  color: white;
+}
