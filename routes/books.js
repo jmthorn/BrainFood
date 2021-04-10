@@ -13,6 +13,8 @@ router.get("/:id", asyncHandler(async (req, res) => {
     let bookId = parseInt(req.params.id, 10)
     let book = await db.Book.findByPk(bookId, { include: db.Tag })
     let bookshelves = await db.Bookshelf.findAll({ where: { userId } })
+    let splitTime = book.updatedAt.split(" ")
+    let date = splitTime.slice(1,4).join(" ")
     let reviews = await db.Review.findAll({
         where: { bookId },
         include: db.User,
@@ -23,7 +25,8 @@ router.get("/:id", asyncHandler(async (req, res) => {
         book,
         reviews,
         userId,
-        bookshelves
+        bookshelves,
+        date
     })
 }))
 

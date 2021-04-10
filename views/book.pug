@@ -68,7 +68,7 @@ block content
                                 if review.rating===5
                                     | 🧠🧠🧠🧠🧠
                             span(class="review-timestamp")
-                            =review.updatedAt
+                            =date
                         if review.userId===userId
                             button(review-id=`${review.id}` class="review-edit-btn btn") Edit
                             button(review-id=`${review.id}` class="review-delete-btn btn") Delete
