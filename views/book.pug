@@ -26,7 +26,8 @@ block content
             //- div(class="header")
             //- div(class="book-content")
             div(class="book-cover")
-                img(src=book.cover alt="No image" width="300px")
+                .book-img
+                    img(src=book.cover alt="No image" width="300px" class="book-img")
                 div(class="book-button-container")
                     button(class="book-edit") Edit
                     button(class="book-delete") Delete
@@ -73,17 +74,21 @@ block content
                         p=review.review
 
             div(class="book-sidebar")
-                form
-                    select(class="bookshelves-dropdown")
-                        each bookshelf in bookshelves
-                            option(value=bookshelf.id)=bookshelf.name
-                    button(class="btn add-book-bookshelf") Add to Bookshelf
+                form(class="addToBksf")
+                    label(id="addToBookshelf-label") Bookshelf
+                        div(id="addToBkshlf")
+                            select(class="bookshelves-dropdown")
+                                each bookshelf in bookshelves
+                                    option(value=bookshelf.id)=bookshelf.name
+                            button(class="btn add-book-bookshelf") Add
 
                 //- div(class="sidebar-container")
                     //- div(id="quote")
-                div(class="tag-container")
-                    each tag in book.Tags
-                        div(class="book-tag")=tag.category
+                div(class="tag-container") 
+                    label(id="tag-label") Genre
+                    div(class="tags")
+                        each tag in book.Tags
+                            div(class="book-tag")=tag.category
                     form(class="add-tag-form")
                         input(class="tag-input")
                         button(class="tag-btn btn") Add Tag
