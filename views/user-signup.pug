@@ -9,16 +9,16 @@ block content
         +fieldHidden('username', 'Demo')
         +fieldHidden('password', 'jJ123!')
         input(type="hidden" name="_csrf" value=csrfToken)
-        div(class="demo-div")
-          button(type='submit' id='demo-button') Demo User
+        div(class="btn demo-div")
+          button(type='submit' class='btn demo-button') Demo User
       div(class="user-content-container")
         div(class="img-container")
-          img(src="/images/logotemp-1.png" alt="No image" width="200px")
+          img(src="/images/Temp_Logo.png" alt="No image" width="200px")
         +validationErrorSummary(errors)
         div(class='around-form-container')
           div(class="form-container")
             h1(class="form-header") Sign Up
-            form(action='/users/signup' method='post')
+            form(action='/users/signup' method='post' class="user-form")
               input(type='hidden' name='_csrf' value=csrfToken)
               +field('Username', 'username', user.username)
               +field('Email', 'email', user.email)

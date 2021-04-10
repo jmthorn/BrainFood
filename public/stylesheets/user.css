@@ -88,6 +88,10 @@
   display: block;
 }
 
+.img-container img {
+  width: 300px;
+}
+
 .user-content-container {
   display: flex;
   flex-direction: column;
@@ -100,8 +104,19 @@
   background-size: cover;
   bottom: 70px;
   min-height: 50vh;
+  padding-top: 15px;
 }
 
 .demo-div {
   float: right;
+  padding-right: 50px;
+}
+
+.btn.demo-div {
+  background-color: white;
+}
+
+button.btn.demo-button{
+  font-size: 20px;
+  box-shadow: 0 0 10px rgb(211, 140, 140);
 }
