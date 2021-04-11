@@ -186,7 +186,11 @@ window.addEventListener("DOMContentLoaded", () => {
         })
 
         let data = await res.json()
-        addTag(data.newTag.category)
+        if(!data.newTag) {
+            addTag(data.existingTag.category)
+        } else   [
+            addTag(data.newTag.category)
+        ]
     })
 
 })
