@@ -21,6 +21,21 @@ block content
                     div(class='submit-div')
                         button(type='submit' class='btn submit edit-book-btn') Submit
                         a(href=`/books/${book.id}` class='a clear') Clear
+        div(class="hidden" id="review-modal")
+            div(class="form-container modal-content")
+                h1(class="form-header") Edit Review
+                form(action=`/books/reviews/reviewId` method="post" class="user-form" id="edit-review-form")
+                    label("Select a rating for the book")
+                    select(id="edit-book-rating")
+                        option(value="null") Rate the book!
+                        option(value="1") 🧠
+                        option(value="2") 🧠🧠
+                        option(value="3") 🧠🧠🧠
+                        option(value="4") 🧠🧠🧠🧠
+                        option(value="5") 🧠🧠🧠🧠🧠
+                    +field("Review", "review", "review")
+                    div(class='submit-div')
+                        button(type='submit' class='btn submit edit-review-btn') Submit
         div(class="page-content")
             //- div(class="header")
             //- div(class="book-content")

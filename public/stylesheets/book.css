@@ -141,6 +141,10 @@
   width: 80%; /* Could be more or less, depending on screen size */
 }
 
+.form-container.modal-content{
+  color: black;
+}
+
 /* BOOK CONTENT ======================================================= */
 
 .book-button-container {
