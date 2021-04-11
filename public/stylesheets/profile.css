@@ -1,71 +1,47 @@
-.body-container{
-  display: flex;
-  /* grid-template-columns:5% 20% 5% 60% 10% ;
-  grid-template-rows:25% 25% 25% 25% ;
-  grid-template-areas:
-  '. image      .     .     .'
-  '. userName   . favBooks  .'
-  '. details    .     .     .'
-  '. favGenre   .     .     .'
-  ; */
+
+.main-container{
+  display:flex;
+  flex-direction: row;
   width: 100%;
   height: 100%;
-  /* background-color: lightpink; */
 }
 
-#main-container{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: nowrap;
-
-  height: 884px;
-  width: 723px;
-  margin-top: 289px;
-  margin-left: 1095px;
-
-}
-
-
-#left-div{
-  width: 285px;
-  height: 100%;
-  background-color: lightblue;
-}
-
-#middle-div{
+.innerLeft-main{
   display: flex;
   flex-direction: column;
+  align-content: center;
+  /* background-color:lightblue; */
+  width: 35%;
 }
 
-#space-div{
-  width: 200px;
-  background-color: lightcoral;
+.innerRight-main{
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  /* background-color:lightcoral; */
+  width: 65%;
 }
 
-
-#right-div{
-  width: 115%;
-  height: 100%;
-  background-color: lightgoldenrodyellow;
+.profile-img-container{
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  width: 55%;
+  margin-top: 400px;
+  margin-left: 260px;
 }
 
-
-.profile-img {
-  width: 375px;
-  height: 375px;
-  margin-top: -307px;
-  margin-left: -759px;
+#profile-img {
+  width: 100%;
   border-radius: 15px;
 }
 
-
-#edit-btn-container{
+.edit-btn-container{
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  margin-left: -1116px;
+  justify-content: space-evenly;
+  margin-left: 114px;
+  margin-top: 25px;
 }
 
 #modal-button {
@@ -76,113 +52,108 @@
   border-radius: 5px;
   box-shadow: 0 0 10px rgb(163 162 162);
   font-size: 15px;
-  padding: 5px;
   width: 90px;
-  margin: 20px;
+  padding: 5px;
+  /* margin: 20px; */
 }
+
 
 #delete-btn {
   /* border-radius: 20px;
   margin: 15px;
   width: 65px; */
-  background-color:rgba(185, 162, 182, 0.829);
+  background-color: rgba(185, 162, 182, 0.829);
   border-radius: 5px;
   box-shadow: 0 0 10px rgb(163 162 162);
   font-size: 15px;
-  padding: 5px;
   width: 90px;
-  margin: 20px;
+  padding: 5px;
+  margin-left: -207px;
+}
+
+.details-container{
+  display: flex;
+  flex-direction: column;
+  /* background-color: lightgreen; */
+  width: 450px;
+  margin-top: 435px;
 }
 
 .userName{
   display: flex;
   flex-direction: row;
-  font-weight: bold;
-  font-size: 30px;
-  justify-self: center;
-  margin-left: -275px;
-  margin-top: 1695px;
+  align-items: center;
+}
+
+#user-name{
+  font-size: 20px;
 }
 
 #username-value{
-  font-weight: bolder;
-}
-
-/*
-#person-details {
-  grid-area: details;
   font-weight: bold;
-  font-size: 20px;
-  text-decoration: underline;
-} */
-
- .email-block{
-  display: flex;
-  flex-direction: row;
-  font-size: 20px;
-  justify-self: center;
-  margin-left: -275px;
+  font-size: 30px;
+  margin-left: 88px;
 }
 
-
-#email {
+.email-block {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  align-items: center;
 }
 
-
-.booksRead{
-  font-weight: bold;
+#email{
   font-size: 20px;
 }
 
-#favorite-books{
-    /* display: flex; */
-  margin-right: -475px;
-  margin-top: 75px;
+#email-value{
+  font-size: 20px;
+  margin-left: 139px;
 }
 
-.fav-book-items{
+.favorite-books-container{
   display: flex;
-  margin-bottom: -434px;
-  flex-direction: row;
-  margin-left: 58px;
+  flex-direction: column;
+  width: 1550px;
+  background-color: rgba(142, 154, 175, 0.548);
+  border-radius: 35px;
+  margin-top: 140px;
+}
+
+#fav-book-word{
+  display: flex;
+  flex-direction: column;
+  color: white;
   font-size: 32px;
   font-weight: bold;
+  margin-top: 45px;
+  margin-left: 125px;
+
 }
 
-.favorite-books-top {
+
+.favorite-books-covers{
   display: flex;
-  flex-wrap: wrap;
   flex-direction: row;
-  background-color: rgba(142, 154, 175, 0.548);
-  border: 1px solid black;
-  border-radius: 35px;
-  /* margin-top: 352px; */
-  height: 1795px;
+  flex-wrap: wrap;
 }
 
-#fav-book-container {
-  display:flex;
-  flex-direction: column;
-}
-
-#person-details-container2{
-  display:flex;
-  flex-direction: column;
-
-}
 
 .books{
   display: flex;
   flex-direction: column;
-  width: 18em;
-  margin: -16px;
-  padding: 0px;
-  margin-top: 144px;
-  margin-left: 85px;
+  width: 20em;
+  margin-top: 50px;
+  margin-right: 5px;
+  margin-left: 128px;
+  margin-bottom: 50px;
 }
+
+
+
+
+
+
+
 
 .modal-show {
   display: block; /* Hidden by default */

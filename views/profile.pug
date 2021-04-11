@@ -20,33 +20,26 @@ block content
                 div(class='submit-div')
                     button(type='submit' id='edit-btn' class='btn submit edit-user-btn') Submit
                     a(href=`/users/profile/${user.id}` class='a clear') Clear
-  div(class='background-image body-container')
-        div(id='main-container')
-          div(id='middle-div')
-            div(class='person-image-container')
-              img(src= user.image class='profile-img')
-            div(class='user-name-container')
-              //- div(id='user-name')= user.username
-            div(id='person-details-container')
-              //- div(id='person-details') Details
-            div(id='person-details-container1')
-              //- div(id='email') Email: #{user.email}
-            div(id='edit-btn-container')
-              button(class='page-edit-btn' id='modal-button') Edit
-              button(class='page-delete-btn' id='delete-btn') Delete
-          div(id='person-details-container2')
-            div(id='fav-book-container')
-              div(class='userName')
-                div(id='user-name') User Name:
-                div(id='username-value') #{user.username}
-              div(class='email-block')
-                div(id='email') Email:
-                div(id='email-value') #{user.email}
-            div(id='favorite-books')
-                div(class='fav-book-items') Your Favorite Books
-                div(class='favorite-books-top')
-                  each review in reviews
-                    img(src= review.Book.cover class='books')
+  div(class='main-container')
+        div(class='innerLeft-main')
+          div(class='profile-img-container')
+            img(src= user.image id='profile-img')
+          div(class='edit-btn-container')
+            button(class='page-edit-btn' id='modal-button') Edit
+            button(class='page-delete-btn' id='delete-btn') Delete
+        div(class='innerRight-main')
+          div(class='details-container')
+            div(class='userName')
+              div(id='user-name') User Name:
+              div(id='username-value') #{user.username}
+            div(class='email-block')
+              div(id='email') Email:
+              div(id='email-value') #{user.email}
+          div(class='favorite-books-container')
+            div(id='fav-book-word') Your Favorite Books
+            div(class='favorite-books-covers')
+                each review in reviews
+                  img(src= review.Book.cover class='books')
   footer
      hr(class="line-over-contributors")
      div(class="footer")
@@ -121,3 +114,32 @@ block content
                 div(class='favorite-books-top')
                   each review in reviews
                     img(src= review.Book.cover class='books')
+
+
+//- div(class='background-image body-container')
+//-         div(id='main-container')
+//-           div(id='middle-div')
+//-             div(class='person-image-container')
+//-               img(src= user.image class='profile-img')
+//-             div(class='user-name-container')
+//-               //- div(id='user-name')= user.username
+//-             div(id='person-details-container')
+//-               //- div(id='person-details') Details
+//-             div(id='person-details-container1')
+//-               //- div(id='email') Email: #{user.email}
+//-             div(id='edit-btn-container')
+//-               button(class='page-edit-btn' id='modal-button') Edit
+//-               button(class='page-delete-btn' id='delete-btn') Delete
+//-           div(id='person-details-container2')
+//-             div(id='fav-book-container')
+//-               div(class='userName')
+//-                 div(id='user-name') User Name:
+//-                 div(id='username-value') #{user.username}
+//-               div(class='email-block')
+//-                 div(id='email') Email:
+//-                 div(id='email-value') #{user.email}
+//-             div(id='favorite-books')
+//-                 div(class='fav-book-items') Your Favorite Books
+//-                 div(class='favorite-books-top')
+//-                   each review in reviews
+//-                     img(src= review.Book.cover class='books')
