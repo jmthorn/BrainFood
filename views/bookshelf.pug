@@ -7,48 +7,52 @@ append head
    script(src='/javascripts/bookshelves.js' type='module')
 //- Need to change user id
 block content
-  div(id="my-books-div")
-    div(id="bookshelves-div")
-     span(id="my-books-text") My Books
-      div(id='bookshelves') Bookshelves
-        ul(id='ul-bookshelves') 
-          each bookshelf in bookshelves 
-            li(class="bookshelf-li"): a(href=`/bookshelves/${bookshelf.id}`) #{bookshelf.name}
-              a(href=`/bookshelves/delete/${bookshelf.id}` class="bookshelf-li" id='delete-button') ⓧ 
-        form(method='post'  id='add-shelf')
-          input(type="text" name='listname' placeholder='Add Bookshelf')
-          button(type='submit' class='btn' id='add-shelf-button') Add
-      div(id='add-books' ) 
-       a(class='add-book' href='/bookshelves/add-book') Add Book
-    if bookshelf.Books.length
-      div(id='main-table')  #{bookshelf.name}
-        table(class='book_table')
-          thead(id='book_thead')
-            tr
-             span
-              th(scope='col') Cover
-              th(scope='col') Title
-              th(scope='col') Author
-              th(scope='col') Avg Rating
-              //- th(scope='col') R ating
-              th(scope='col') Published
-              //- th(scope='col') Shelves
-              //- th(scope='col') Reviews
-          tbody
-           each book in bookshelf.Books
-            div(id="book-in-books")
-            tr
-             div
-              td: a(href=`/books/${book.id}`): img(height='360' width='240'  src=`${book.cover}`)
-              td: a(href=`/books/${book.id}`)= book.title
-              td: a(href=`/books/${book.id}`)= book.author
-              td: a(href=`/books/${book.id}`)= book.avgRating
-              //- tr= book.Review.rating
-              td= book.published
-              //- tr= book.Bookshelves
-              //-  check for line 30 and determine how to use it properly.
-              //- tr= book.Review
-              //- check for line 32 and determine how to use it properly.
-              
-    else 
-      div(id="no-books-div") You don't have any books in this shelf!
+  .background-image
+    .header
+    .all-content
+      div(id="my-books-div")
+        div(id="bookshelves-div")
+        span(id="my-books-text") 
+          div(id='bookshelves') 
+            label(id="bkslflabel") Bookshelves
+            ul(id='ul-bookshelves') 
+              each bookshelf in bookshelves 
+                li(class="bookshelf-li"): a(href=`/bookshelves/${bookshelf.id}`) #{bookshelf.name}
+                  a(href=`/bookshelves/delete/${bookshelf.id}` class="bookshelf-li" id='delete-button') ⓧ 
+            form(method='post'  id='add-shelf')
+              input(type="text" name='listname' placeholder='Add Bookshelf')
+              button(type='submit' class='btn' id='add-shelf-button') Add
+          div(id='add-books' ) 
+          a(class='add-book' href='/bookshelves/add-book') Add Book
+      if bookshelf.Books.length
+        div(id='main-table')  #{bookshelf.name}
+          table(class='book_table')
+            thead(id='book_thead')
+              tr
+              span
+                th(scope='col') Cover
+                th(scope='col') Title
+                th(scope='col') Author
+                th(scope='col') Avg Rating
+                //- th(scope='col') R ating
+                th(scope='col') Published
+                //- th(scope='col') Shelves
+                //- th(scope='col') Reviews
+            tbody
+            each book in bookshelf.Books
+              div(id="book-in-books")
+              tr
+              div
+                td: a(href=`/books/${book.id}`): img(height='150' src=`${book.cover}`)
+                td: a(href=`/books/${book.id}`)= book.title
+                td: a(href=`/books/${book.id}`)= book.author
+                td: a(href=`/books/${book.id}`)= book.avg_rating
+                //- tr= book.Review.rating
+                td= book.published
+                //- tr= book.Bookshelves
+                //-  check for line 30 and determine how to use it properly.
+                //- tr= book.Review
+                //- check for line 32 and determine how to use it properly.
+                
+      else 
+        div(id="no-books-div") You don't have any books in this shelf!
