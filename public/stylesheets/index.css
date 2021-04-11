@@ -1,7 +1,7 @@
 .genre-list {
   width: 1200px;
   height: 200px;
-  background-color: ;
+  display: inline-block;
 }
 
 #quote {
@@ -13,34 +13,84 @@
   border-radius: 20px;
 }
 
+.scrolls {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  /* height: 80px; */
+  white-space: nowrap;
+}
+
+.img-div {
+  box-shadow: 1px 1px 10px #999;
+  margin: 2px;
+  max-height: 150px;
+  cursor: pointer;
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  vertical-align: top;
+}
+
 /* MAIN GRID AREAS ==================================================== */
 
 #inOrderBooks {
   grid-area: inOrderBooks;
-  justify-self: center;
-  align-self: center;
-  overflow: hidden;
+  background: #efefef;
+  box-shadow: 1px 1px 10px #999;
+  margin: auto;
+  text-align: center;
+  position: relative;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  margin-bottom: 15px !important;
+  width: 1200px;
+  padding-top: 40px;
 }
 
 #orderAuthorBooks {
   grid-area: orderAuthorBooks;
-  justify-self: center;
-  align-self: center;
-  overflow: hidden;
+  background: #efefef;
+  box-shadow: 1px 1px 10px #999;
+  margin: auto;
+  text-align: center;
+  position: relative;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  margin-bottom: 15px !important;
+  width: 1200px;
+  padding-top: 40px;
 }
 
 #orderRatingBooks {
   grid-area: orderRatingBooks;
-  justify-self: center;
-  align-self: center;
-  overflow: hidden;
+  background: #efefef;
+  box-shadow: 1px 1px 10px #999;
+  margin: auto;
+  text-align: center;
+  position: relative;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  margin-bottom: 15px !important;
+  width: 1200px;
+  padding-top: 40px;
 }
 
 #orderTitleBooks {
   grid-area: orderTitleBooks;
-  justify-self: center;
-  align-self: center;
-  overflow: hidden;
+  background: #efefef;
+  box-shadow: 1px 1px 10px #999;
+  margin: auto;
+  text-align: center;
+  position: relative;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  margin-bottom: 15px !important;
+  width: 1200px;
+  padding-top: 40px;
 }
 
 .quote-container {
