@@ -59,6 +59,7 @@ router.get('/add-book', csrfProtection, asyncHandler(async (req, res) => {
   });
 
   const lowestShelf = bookshelves[0];
+  console.log(lowestShelf);
   res.render('add-book', {
     book,
     csrfToken: req.csrfToken(),

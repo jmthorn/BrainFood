@@ -52,6 +52,25 @@ const newShelf = document.getElementById("add-shelf-button");
         );
  });
 
+
+ //Modal -----------------
+ 
+ let modal = document.getElementById("modal");
+ let addBtn = document.querySelector("add-book");
+
+ addBtn.addEventListener("click", (event) => {
+   modal.classList.remove("hidden");
+   modal.classList.add("modal-show");
+ });
+
+ window.addEventListener("click", (event) => {
+   if (event.target == modal) {
+     modal.classList.remove("modal-show");
+     modal.classList.add("hidden");
+   }
+ });
+ 
+
 //fetch call to route on my db
 //fetch plain json -- post route will generate instance on the backend
 //from js - await res.json() 
