@@ -56,7 +56,7 @@
   width: 375px;
   height: 375px;
   margin-top: -307px;
-  margin-left: -1073px;
+  margin-left: -759px;
   border-radius: 15px;
 }
 
@@ -65,7 +65,7 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin-left: -1774px;
+  margin-left: -1116px;
 }
 
 #modal-button {
@@ -94,22 +94,14 @@
   margin: 20px;
 }
 
-
-
-#favorite-books{
-
-}
-
-
-
 .userName{
   display: flex;
   flex-direction: row;
   font-weight: bold;
   font-size: 30px;
   justify-self: center;
-  /* margin-top: -215px;
-  margin-left: -584px; */
+  margin-left: -275px;
+  margin-top: 1695px;
 }
 
 #username-value{
@@ -124,17 +116,20 @@
   text-decoration: underline;
 } */
 
-
-
-/* #email {
+ .email-block{
   display: flex;
-  flex-direction: column;
-  align-content: center;
-  font-size: 25px;
-  width: 500px;
-  margin-top: 10px;
-  margin-left: -584px;
-} */
+  flex-direction: row;
+  font-size: 20px;
+  justify-self: center;
+  margin-left: -275px;
+}
+
+
+#email {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
 
 
 .booksRead{
@@ -142,17 +137,30 @@
   font-size: 20px;
 }
 
+#favorite-books{
+    /* display: flex; */
+  margin-right: -475px;
+  margin-top: 75px;
+}
+
 .fav-book-items{
-  margin-bottom: 100px;
+  display: flex;
+  margin-bottom: -434px;
+  flex-direction: row;
+  margin-left: 58px;
+  font-size: 32px;
+  font-weight: bold;
 }
 
 .favorite-books-top {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    background-color: rgba(142, 154, 175, 0.548);
-    border: 1px solid black;
-    border-radius: 35px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  background-color: rgba(142, 154, 175, 0.548);
+  border: 1px solid black;
+  border-radius: 35px;
+  /* margin-top: 352px; */
+  height: 1795px;
 }
 
 #fav-book-container {
@@ -163,16 +171,17 @@
 #person-details-container2{
   display:flex;
   flex-direction: column;
+
 }
 
 .books{
   display: flex;
   flex-direction: column;
-  width: 200px;
-  /* max-height: 8em;
-  max-width: 6em; */
-  /* margin: 6px; */
-  padding: 16px;
+  width: 18em;
+  margin: -16px;
+  padding: 0px;
+  margin-top: 144px;
+  margin-left: 85px;
 }
 
 .modal-show {
