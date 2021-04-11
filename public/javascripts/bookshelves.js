@@ -29,8 +29,10 @@ const newShelf = document.getElementById("add-shelf-button");
         .then((response) => response.json())
         .then(json => {
           if (json.bookshelf.name) {
+          console.log(json.bookshelf);
           a.innerHTML = json.bookshelf.name
-          a.setAttribute("href", `/users/:id/bookshelves/${bookshelves.length}`);
+          li.setAttribute("class", "bookshelf-li");
+          a.setAttribute("href", `/bookshelves/${json.bookshelf.id}`);
           li.appendChild(a);
           bookshelvesList.appendChild(li);
           } else return;
