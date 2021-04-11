@@ -9,18 +9,22 @@ block content
     div(class='genre-list' id="inOrderBooks")
       .scrolls
         each book in inOrderBooks
-          img(src=`${book.cover}` class="img-div" height='200') 
+          a(href=`/books/${book.id}`)
+            img(src=`${book.cover}` class="img-div" height='200') 
     div(class='genre-list' id="orderAuthorBooks")
       .scrolls
         each book in orderAuthorBooks
-          img(src=`${book.cover}` class="img-div" height='200') 
+          a(href=`/books/${book.id}`)
+            img(src=`${book.cover}` class="img-div" height='200') 
     div(class='genre-list' id="orderRatingBooks")
       .scrolls
         each book in orderRatingBooks
-          img(src=`${book.cover}` class="img-div" height='200') 
+          a(href=`/books/${book.id}`)
+            img(src=`${book.cover}` class="img-div" height='200') 
     div(class='genre-list' id="orderTitleBooks")
       .scrolls
         each book in orderTitleBooks
-          img(src=`${book.cover}` class="img-div" height='200') 
+          a(href=`/books/${book.id}`)
+            img(src=`${book.cover}` class="img-div" height='200') 
     div(class="quote-container")
       div(id="quote")
