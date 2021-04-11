@@ -97,12 +97,8 @@ block content
                                     option(value=bookshelf.id)=bookshelf.name
                             button(class="btn add-book-bookshelf") Add
 
-                //- div(class="sidebar-container")
-                    //- div(id="quote")
-                //- div(class="sidebar-container")
-                    //- div(id="quote")
                 div(class="tag-container")
-                    label(id="tag-label") Genre
+                    label(id="tag-label") Tags
                     div(class="tags")
                         each tag in book.Tags
                             div(class="book-tag")=tag.category

@@ -6,13 +6,13 @@ window.addEventListener("DOMContentLoaded", () => {
         let h4 = document.createElement('h4');
         h4.classList.add("review-author");
         div.appendChild(h4);
-        h4.innerText = `👤 ${review.author}`;
+        h4.innerText =review.author;
         let ratingSpan = document.createElement("span")
         ratingSpan.classList.add("review-rating");
         for (let i = 1; i <= review.rating; i++) {
             ratingSpan.innerHTML += '🧠';
         }
-        h4.appendChild(ratingSpan)
+        div.appendChild(ratingSpan)
         if (review.userId === userId) {
             let editButton = document.createElement('button');
             editButton.innerText = "Edit";
@@ -192,9 +192,11 @@ window.addEventListener("DOMContentLoaded", () => {
         })
 
         let data = await res.json()
-        // console.log(data.newTag)
-        // addReview(data.newTag, data.newTag.userId)
-        addTag(data.newTag.category)
+        if(!data.newTag) {
+            addTag(data.existingTag.category)
+        } else   [
+            addTag(data.newTag.category)
+        ]
     })
 
 })

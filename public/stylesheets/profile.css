@@ -1,191 +1,157 @@
-.body-container{
-  display: flex;
-  /* grid-template-columns:5% 20% 5% 60% 10% ;
-  grid-template-rows:25% 25% 25% 25% ;
-  grid-template-areas:
-  '. image      .     .     .'
-  '. userName   . favBooks  .'
-  '. details    .     .     .'
-  '. favGenre   .     .     .'
-  ; */
+
+.main-container{
+  display:flex;
+  flex-direction: row;
   width: 100%;
   height: 100%;
 }
 
-#left-div{
-  width: 600px;
-  height: 100%;
-}
-
-#middle-div{
+.innerLeft-main{
   display: flex;
   flex-direction: column;
-  width: 350px;
-  height: 100%;
-
+  align-content: center;
+  /* background-color:lightblue; */
+  width: 35%;
 }
 
-#space-div{
-  width: 400px;
+.innerRight-main{
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  /* background-color:lightcoral; */
+  width: 65%;
 }
 
-
-#right-div{
-  width:100%;
-  height: 100%;
+.profile-img-container{
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  width: 55%;
+  margin-top: 400px;
+  margin-left: 260px;
 }
 
 #profile-img {
-  width: 30em;
-  height: 30em;
+  width: 100%;
+  border-radius: 15px;
 }
 
-
-
-/* .person-image {
-  justify-self: center;
-  align-self: center;
-  border-radius: 25px;
-  background-position: center;
-  object-fit: cover;
-  width: 250px;
-  height: 400px;
-} */
-
-.person-image-container{
-  display: flex;
-  justify-content: center;
-  margin-top: 150px;
-  /* top:50px; */
-
-}
-
-.user-name-container {
+.edit-btn-container{
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-evenly;
+  margin-left: 114px;
+  margin-top: 25px;
+}
+
+#modal-button {
+  /* border-radius: 20px;
+  margin: 15px;
+  width: 65px; */
+  background-color:rgba(185, 162, 182, 0.829);
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgb(163 162 162);
+  font-size: 15px;
+  width: 90px;
+  padding: 5px;
+  /* margin: 20px; */
+}
+
+
+#delete-btn {
+  /* border-radius: 20px;
+  margin: 15px;
+  width: 65px; */
+  background-color: rgba(185, 162, 182, 0.829);
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgb(163 162 162);
+  font-size: 15px;
+  width: 90px;
+  padding: 5px;
+  margin-left: -207px;
+}
+
+.details-container{
+  display: flex;
+  flex-direction: column;
+  /* background-color: lightgreen; */
+  width: 450px;
+  margin-top: 435px;
+}
+
+.userName{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#user-name{
+  font-size: 20px;
+}
+
+#username-value{
+  font-weight: bold;
+  font-size: 30px;
+  margin-left: 88px;
+}
+
+.email-block {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#email{
+  font-size: 20px;
+}
+
+#email-value{
+  font-size: 20px;
+  margin-left: 139px;
+}
+
+.favorite-books-container{
+  display: flex;
+  flex-direction: column;
+  width: 1550px;
+  background-color: rgba(142, 154, 175, 0.548);
+  border-radius: 35px;
+  margin-top: 140px;
+}
+
+#fav-book-word{
+  display: flex;
+  flex-direction: column;
+  color: white;
+  font-size: 32px;
+  font-weight: bold;
+  margin-top: 45px;
+  margin-left: 125px;
+
+}
+
+
+.favorite-books-covers{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+
+.books{
+  display: flex;
+  flex-direction: column;
+  width: 20em;
   margin-top: 50px;
+  margin-right: 5px;
+  margin-left: 128px;
   margin-bottom: 50px;
 }
 
-#user-name{
-  display:flex;
-  flex-direction: row;
-}
 
 
-#fav-book-container{
-  display: flex;
-  justify-content: start;
-  margin-top: 400px;
-}
-
-#favorite-books{
-  font-weight: bold;
-  font-size: 35px;
-}
-
-#favorite-genre{
-  grid-area: favGenre;
-  font-weight: bold;
-  font-size: 35px;
-}
-
-#user-name{
-  display: flex;
-  flex-direction: column;
-  font-weight: bold;
-  font-size: 40px;
-  justify-self:center;
-}
-
-/* #Details {
-  grid-area: details;
-} */
-
-#person-details-container{
-  display: flex;
-  margin-right: 100px;
-}
-
-#person-details {
-  grid-area: details;
-  font-weight: bold;
-  font-size: 20px;
-  text-decoration: underline;
-  /* border-bottom: 5px solid black; */
-}
-
-#person-details-container1{
-  display: flex;
-  margin-right: 100px;
-  width: 500px;
-}
-
-#email {
-  display:flex;
-  align-content: center;
-  font-weight: bold;
-  font-size: 20px;
-  width: 240px;
-}
-
-#person-details-container2 {
-  display: flex;
-  justify-content: flex-start;
-  margin-top: 150px;
-}
-
-.booksRead{
-  font-weight: bold;
-  font-size: 20px;
-}
 
 
-.favorite-books-top,
-.favorite-books-bottom {
-  display: flex;
-  /* flex-wrap: wrap; */
-  /* max-width: 50%;
-  max-height: 50%; */
-  align-items: center;
-  /* height: 200px;
-  width: 200px; */
-  /* object-fit: cover; */
-  /* overflow: hidden; */
-}
-
-.books{
-  max-height: 25em;
-  max-width: 25em;
-}
-/*
-#favorite-books-top1,
-#favorite-books-top2,
-#favorite-books-top3,
-#favorite-books-top4,
-#favorite-books-top5,
-#favorite-books-top6 {
-  border: 5px solid red;
-  width: 250px;
-  height: 250px;
-  margin-right: 100px;
-  border-radius: 25px;
-} */
-
-
-#edit-btn-container{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-
-
-.edit-btn {
-  border-radius: 25px;
-  margin: 22px;
-  width: 50px;
-}
 
 
 
@@ -211,5 +177,5 @@
   margin: 15% auto; /* 15% from the top and centered */
   padding: 20px;
   border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
+  width: 65%; /* Could be more or less, depending on screen size */
 }
