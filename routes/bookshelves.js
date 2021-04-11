@@ -28,7 +28,6 @@ router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
       userId
     },
   });
-  console.log(bookshelves);
   // const wantToRead = await db.Bookshelf.findOne({
   //     where: { 
   //     name: 'Want to Read',
@@ -93,7 +92,6 @@ router.get(
 router.post(
   "/delete/:id",
   asyncHandler(async (req, res) => {
-    // How do we do this?
     const bookId = parseInt(req.params.id, 10);
     const bookshelf = await db.Bookshelf.findByPk(bookId);
     //const books = await db.Book.findAll();
