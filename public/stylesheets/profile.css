@@ -19,13 +19,12 @@
   justify-content: center;
   align-items: center;
   flex-wrap: nowrap;
-  background-color: rgba(142, 154, 175, 0.548);
-  border: 1px solid black;
-  height: 829px;
-  width: 2235px;
-  margin-top: 335px;
-  margin-left: 236px;
-  border-radius: 35px;
+
+  height: 884px;
+  width: 723px;
+  margin-top: 289px;
+  margin-left: 1095px;
+
 }
 
 
@@ -98,47 +97,44 @@
 
 
 #favorite-books{
-  font-weight: bold;
-  font-size: 30px;
-  margin-top: 202px;
-  margin-left: -10px;
-  /* width: 1474px; */
-  height: 500px;
+
 }
 
 
 
-#user-name{
+.userName{
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   font-weight: bold;
   font-size: 30px;
   justify-self: center;
-  margin-top: 65px;
-  margin-left: -584px;
+  /* margin-top: -215px;
+  margin-left: -584px; */
 }
 
+#username-value{
+  font-weight: bolder;
+}
 
+/*
 #person-details {
   grid-area: details;
   font-weight: bold;
   font-size: 20px;
   text-decoration: underline;
-  /* border-bottom: 5px solid black; */
-}
+} */
 
 
 
-#email {
+/* #email {
   display: flex;
   flex-direction: column;
   align-content: center;
-  /* font-weight: bold; */
   font-size: 25px;
   width: 500px;
   margin-top: 10px;
   margin-left: -584px;
-}
+} */
 
 
 .booksRead{
@@ -146,21 +142,38 @@
   font-size: 20px;
 }
 
+.fav-book-items{
+  margin-bottom: 100px;
+}
 
 .favorite-books-top {
-  display: flex;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    background-color: rgba(142, 154, 175, 0.548);
+    border: 1px solid black;
+    border-radius: 35px;
+}
 
+#fav-book-container {
+  display:flex;
+  flex-direction: column;
+}
+
+#person-details-container2{
+  display:flex;
+  flex-direction: column;
 }
 
 .books{
   display: flex;
-  flex-direction: row;
-  max-height: 13em;
-  max-width: 12em;
+  flex-direction: column;
+  width: 200px;
+  /* max-height: 8em;
+  max-width: 6em; */
   /* margin: 6px; */
   padding: 16px;
 }
-
 
 .modal-show {
   display: block; /* Hidden by default */
