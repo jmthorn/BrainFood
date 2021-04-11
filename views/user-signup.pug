@@ -1,8 +1,42 @@
-extends footer.pug
-
 include utils.pug
 
+html
+  head
+      block head
+        title="BrainFood"
+        link(rel='stylesheet' href='/stylesheets/user.css')
+        link(rel='stylesheet' href='/stylesheets/global.css')
+        script(src="https://kit.fontawesome.com/a229c5b13d.js" crossorigin="anonymous")
+        link(rel='stylesheet' href='/stylesheets/footer.css')
+  body
+    div(class="signup-login-background-image-container")
+      div(class="signup-login-background")
+        form(action='/users/login' method='post')
+          +fieldHidden('username', 'Demo')
+          +fieldHidden('password', 'jJ123!')
+          input(type="hidden" name="_csrf" value=csrfToken)
+          div(class="btn demo-div")
+            button(type='submit' class='btn demo-button') Demo User
+        div(class="user-content-container")
+          div(class="img-container")
+            img(src="/images/Temp_Logo.png" alt="No image" width="200px")
+          +validationErrorSummary(errors)
+          div(class='around-form-container')
+            div(class="form-container")
+              h1(class="form-header") Sign Up
+              form(action='/users/signup' method='post' class="user-form")
+                input(type='hidden' name='_csrf' value=csrfToken)
+                +field('Username', 'username', user.username)
+                +field('Email', 'email', user.email)
+                +field('Password', 'password', user.password, 'password')
+                +field('Confirm Password', 'confirmPassword', '', 'password')
+                div(class='submit-div')
+                  button(type='submit' class='btn submit') Sign Up
+                  a(href='/users/signup' class='a clear') Clear
+              div(class="sub-form")
+                p: a(href="/users/login") Already have an account? Log in here
 
+<<<<<<< HEAD
 block content
   div(class="signup-login-background-image-container")
     div(class="signup-login-background")
@@ -30,3 +64,6 @@ block content
                 a(href='/users/signup' class='a clear') Clear
             div(class="sub-form")
               p: a(href="/users/login") Already have an account? Log in here
+=======
+    include footer.pug
+>>>>>>> main

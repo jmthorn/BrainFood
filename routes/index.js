@@ -19,6 +19,14 @@ router.get('/', asyncHandler( async (req, res, next) => {
   const orderTitleBooks = await db.Book.findAll({
     order: [['title', 'DESC']]
   });
+  const userId = req.session.auth.userId;
+  const bookshelves = await db.Bookshelf.findAll({
+    where: {
+      userId,
+    },
+  });
+
+  const lowestShelf = bookshelves[0];
   // const books = await db.Book.findAll({
   //     include: db.Tag,
   // });
@@ -27,7 +35,8 @@ router.get('/', asyncHandler( async (req, res, next) => {
     inOrderBooks,
     orderAuthorBooks,
     orderRatingBooks,
-    orderTitleBooks
+    orderTitleBooks,
+    lowestShelf
   });
 }));
 
