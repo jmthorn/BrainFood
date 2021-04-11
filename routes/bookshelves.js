@@ -49,26 +49,26 @@ router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
   });
 }))
 
-router.get('/add-book', csrfProtection, asyncHandler(async (req, res) => {
-  const book = db.Book.build();
-  const userId = req.session.auth.userId;
-  const bookshelves = await db.Bookshelf.findAll({
-    where: {
-      userId,
-    },
-  });
+// router.get('/add-book', csrfProtection, asyncHandler(async (req, res) => {
+//   const book = db.Book.build();
+//   const userId = req.session.auth.userId;
+//   const bookshelves = await db.Bookshelf.findAll({
+//     where: {
+//       userId,
+//     },
+//   });
 
-  const lowestShelf = bookshelves[0];
-  console.log(lowestShelf);
-  res.render('add-book', {
-    book,
-    csrfToken: req.csrfToken(),
-    lowestShelf,
-  });
-}))
+//   const lowestShelf = bookshelves[0];
+//   console.log(lowestShelf);
+//   res.render('add-book', {
+//     book,
+//     csrfToken: req.csrfToken(),
+//     lowestShelf,
+//   });
+// }))
 
 //Add a specific Book
-router.post('/add-book', asyncHandler(async (req, res) => {
+router.post('/:id', asyncHandler(async (req, res) => {
 
   const {
     cover,
@@ -77,15 +77,13 @@ router.post('/add-book', asyncHandler(async (req, res) => {
     published
   } = req.body;
 
-  const book = db.Book.build({
+  const book = await db.Book.create({
     cover,
     title,
     author,
     published
   })
-
-  await book.save();
-  res.redirect('add-book');
+  res.json(({ book }));
 }))
 
 
