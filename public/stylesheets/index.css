@@ -248,10 +248,14 @@
   align-content: center;
 }
 
+#foot {
+  grid-area: footer;
+}
+
 .page-content {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 250px 350px 350px 800px 350px 350px 400px;
+  grid-template-rows: 250px 350px 350px 800px 350px 350px 300px;
   grid-template-areas:
     ". . ."
     "inOrderBooks inOrderBooks inOrderBooks"
@@ -259,7 +263,7 @@
     "quote quote quote"
     "orderRatingBooks orderRatingBooks orderRatingBooks"
     "orderTitleBooks orderTitleBooks orderTitleBooks"
-    ". . .";
+    "footer footer footer";
   column-gap: 30px;
   row-gap: 50px;
 }
