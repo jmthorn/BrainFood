@@ -17,7 +17,7 @@ block content
             label(id="bkslflabel") Bookshelves
             ul(id='ul-bookshelves') 
               each bookshelf in bookshelves 
-                li(class="bookshelf-li"): a(href=`/bookshelves/${bookshelf.id}`) #{bookshelf.name}
+                li(class="bookshelf-li"): a(href=`/bookshelves/${bookshelf.id}` class='bookshelf-links') #{bookshelf.name}
                   a(href=`/bookshelves/delete/${bookshelf.id}` class="bookshelf-li" id='delete-button') ⓧ 
             form(method='post'  id='add-shelf')
               input(type="text" name='listname' placeholder='Add Bookshelf')
