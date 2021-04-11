@@ -7,11 +7,28 @@ const db = require("../db/models");
 /* GET home page. */
 router.get('/', asyncHandler( async (req, res, next) => {
   const tagId = parseInt(req.params.id, 10); 
-  const books = await db.Book.findAll({
-      include: db.Tag,
+  const inOrderBooks = await db.Book.findAll({
+    order: [['id', 'DESC']]
   });
-  res.render('index', { title: 'Brainfood',
-books });
+  const orderAuthorBooks = await db.Book.findAll({
+    order: [['author', 'DESC']]
+  });
+  const orderRatingBooks = await db.Book.findAll({
+    order: [['avg_rating', 'DESC']]
+  });
+  const orderTitleBooks = await db.Book.findAll({
+    order: [['title', 'DESC']]
+  });
+  // const books = await db.Book.findAll({
+  //     include: db.Tag,
+  // });
+  res.render('index', { 
+    title: 'Brainfood',
+    inOrderBooks,
+    orderAuthorBooks,
+    orderRatingBooks,
+    orderTitleBooks
+  });
 }));
 
 
