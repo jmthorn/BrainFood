@@ -33,9 +33,14 @@ a {
     padding-top: 200px;   
 }
 
+#bookshelves-div {
+    padding-top: 100px;
+}
+
 #my-books-div {
     display: flex;
     justify-content: center;
+    padding-top: 100px;
     /* grid-template-areas: 
     "1 2 3 4 5",
     "1 2 3 4 5",
@@ -66,9 +71,10 @@ a {
     grid-column-start: 3; */
     /* grid-area: table; */
     /* justify-self: start; */
-    padding-left: 100px;
+    padding-left: 200px;
     padding-top: 200px;
-    font-size: 30px;    
+    font-size: 30px; 
+    text-align: center;   
 }
 
 th, td {
@@ -79,15 +85,19 @@ th, td {
 }
 
 .book_table {
-    background-color: #EFD3D7;
-    border: solid black;
+    border-top: solid black;
     padding: 5%;
-
 }
 
-#bookshelves, 
-#reading-activity,
-#add-books,
+#add-books {
+    width: auto;
+    height: auto;
+    background-color: #DEE2FF;
+    border: solid black;
+    text-align: center;
+}
+
+#bookshelves,
 #tools {
     background-color: #DEE2FF;
     border: solid black;
@@ -118,10 +128,14 @@ th, td {
 
 #bookshelves {
     font-size: 30px;
-    position: absolute;
+    position: relative;
 
 }
 
 .bookshelf-li {
     font-size: 20px;
+}
+
+.book_thead {
+    text-align: center;
 }
