@@ -26,7 +26,8 @@ block content
             //- div(class="header")
             //- div(class="book-content")
             div(class="book-cover")
-                img(src=book.cover alt="No image" width="300px")
+                .book-img
+                    img(src=book.cover alt="No image" width="300px" class="book-img")
                 div(class="book-button-container")
                     button(class="book-edit") Edit
                     button(class="book-delete") Delete
@@ -53,39 +54,43 @@ block content
             div(class="existing-reviews")
                 each review in reviews
                     div(class="review-container")
-                        h4(class="review-author")
-                            span(class="review-user-silhouette") 👤
-                            =review.User.username
-                            span(class="review-rating")
-                                if review.rating===1
-                                    | 🧠
-                                if review.rating===2
-                                    | 🧠🧠
-                                if review.rating===3
-                                    | 🧠🧠🧠
-                                if review.rating===4
-                                    | 🧠🧠🧠🧠
-                                if review.rating===5
-                                    | 🧠🧠🧠🧠🧠
-                            span(class="review-timestamp")
-                            =review.updatedAt
+                        h4(class="review-author")=review.User.username
+                        span(class="review-rating")
+                            if review.rating===1
+                                | 🧠
+                            if review.rating===2
+                                | 🧠🧠
+                            if review.rating===3
+                                | 🧠🧠🧠
+                            if review.rating===4
+                                | 🧠🧠🧠🧠
+                            if review.rating===5
+                                | 🧠🧠🧠🧠🧠
+                        div(class="review-timestamp")
+                        =date
                         if review.userId===userId
                             button(review-id=`${review.id}` class="review-edit-btn btn") Edit
                             button(review-id=`${review.id}` class="review-delete-btn btn") Delete
                         p=review.review
 
             div(class="book-sidebar")
-                form
-                    select(class="bookshelves-dropdown")
-                        each bookshelf in bookshelves
-                            option(value=bookshelf.id)=bookshelf.name
-                    button(class="btn add-book-bookshelf") Add to Bookshelf
+                form(class="addToBksf")
+                    label(id="addToBookshelf-label") Bookshelf
+                        div(id="addToBkshlf")
+                            select(class="bookshelves-dropdown")
+                                each bookshelf in bookshelves
+                                    option(value=bookshelf.id)=bookshelf.name
+                            button(class="btn add-book-bookshelf") Add
 
                 //- div(class="sidebar-container")
                     //- div(id="quote")
+                //- div(class="sidebar-container")
+                    //- div(id="quote")
                 div(class="tag-container")
-                    each tag in book.Tags
-                        div(class="book-tag")=tag.category
+                    label(id="tag-label") Genre
+                    div(class="tags")
+                        each tag in book.Tags
+                            div(class="book-tag")=tag.category
                     form(class="add-tag-form")
                         input(class="tag-input")
                         button(class="tag-btn btn") Add Tag
