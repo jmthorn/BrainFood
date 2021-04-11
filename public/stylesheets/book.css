@@ -53,9 +53,9 @@
 }
 
 .review-timestamp {
-  font-size: 6px;
+
   /* display: block; */
-  float: absolute;
+  float: right;
 }
 
 .review-container {
@@ -287,4 +287,11 @@
 .tags {
   display: flex;
   flex-wrap: wrap;
+}
+
+.review-edit-btn,
+.review-delete-btn{
+  float: right;
+  margin-right: 5px;
+  /* padding-bottom: 10px; */
 }
