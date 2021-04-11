@@ -1,4 +1,5 @@
 extends layout.pug
+include utils.pug
 
 append head
    link(rel='stylesheet' href='/stylesheets/bookshelves.css')
@@ -18,7 +19,7 @@ block content
             ul(id='ul-bookshelves') 
               each bookshelf in bookshelves 
                 li(class="bookshelf-li"): a(href=`/bookshelves/${bookshelf.id}` class='bookshelf-links') #{bookshelf.name}
-                  a(href=`/bookshelves/delete/${bookshelf.id}` class="bookshelf-li" id='delete-button') ⓧ 
+                  a(bookshelf-id=`${bookshelf.id}` class="bookshelf-li delete-button" ) ⓧ 
             form(method='post'  id='add-shelf')
               input(type="text" name='listname' placeholder='Add Bookshelf')
               button(type='submit' class='btn' id='add-shelf-button') Add
@@ -34,7 +35,7 @@ block content
                     div(class='submit-div')
                       button(type='submit' class="user-form" class='btn submit') Add
                       a(href='/bookshelves/add-book' class='a clear') Clear 
-          a(class='add-book' href='/bookshelves/add-book') Add Book
+          a(class='add-book') Add Book
       if bookshelf.Books.length
         div(id='main-table')  #{bookshelf.name}
           table(class='book_table')

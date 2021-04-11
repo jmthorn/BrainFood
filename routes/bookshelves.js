@@ -21,6 +21,8 @@ const db = require('../db/models');
 /* GET bookshelves. */
 
 router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
+
+  const book = db.Book.build();
   const bookshelfId = parseInt(req.params.id, 10);
   const userId = req.session.auth.userId;
   const bookshelves = await db.Bookshelf.findAll({
@@ -43,32 +45,32 @@ router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
   //bookshelf.findByPk(bookshelfId, {include: db.Book });
 
   res.render("bookshelf", {
+    book,
     lowestShelf,
     bookshelf,
     bookshelves,
   });
 }))
 
-// router.get('/add-book', csrfProtection, asyncHandler(async (req, res) => {
-//   const book = db.Book.build();
-//   const userId = req.session.auth.userId;
-//   const bookshelves = await db.Bookshelf.findAll({
-//     where: {
-//       userId,
-//     },
-//   });
+router.get('/add-book', csrfProtection, asyncHandler(async (req, res) => {
+  const book = db.Book.build();
+  const userId = req.session.auth.userId;
+  const bookshelves = await db.Bookshelf.findAll({
+    where: {
+      userId,
+    },
+  });
 
-//   const lowestShelf = bookshelves[0];
-//   console.log(lowestShelf);
-//   res.render('add-book', {
-//     book,
-//     csrfToken: req.csrfToken(),
-//     lowestShelf,
-//   });
-// }))
+  const lowestShelf = bookshelves[0];
+  res.render('add-book', {
+    book,
+    csrfToken: req.csrfToken(),
+    lowestShelf,
+  });
+}))
 
 //Add a specific Book
-router.post('/:id', asyncHandler(async (req, res) => {
+router.post('/add-book', asyncHandler(async (req, res) => {
 
   const {
     cover,
@@ -77,13 +79,16 @@ router.post('/:id', asyncHandler(async (req, res) => {
     published
   } = req.body;
 
-  const book = await db.Book.create({
+
+  const book = db.Book.build({
     cover,
     title,
     author,
     published
   })
-  res.json(({ book }));
+
+  await book.save();
+  res.redirect(`/books/${book.id}`);
 }))
 
 
