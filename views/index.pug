@@ -7,24 +7,44 @@ append head
 block content  
   div(id='genre-div' class="page-content background-image")
     div(class='genre-list' id="inOrderBooks")
+      div(class="books-label") Recommended for You
+      div(class="arrow-container")
+        img(src="/images/arrow-left.png", alt="no image" class="left-arrow arrow"   height="20px")
       .scrolls
         each book in inOrderBooks
           a(href=`/books/${book.id}`)
             img(src=`${book.cover}` class="img-div" height='200') 
+      div(class="arrow-container")
+        img(src="/images/arrow-right.png", alt="no image" class="right-arrow arrow"   height="20px")
     div(class='genre-list' id="orderAuthorBooks")
+      div(class="books-label") Popular Reads this Year
+      div(class="arrow-container")
+        img(src="/images/arrow-left.png", alt="no image" class="left-arrow arrow"   height="20px")
       .scrolls
         each book in orderAuthorBooks
           a(href=`/books/${book.id}`)
             img(src=`${book.cover}` class="img-div" height='200') 
+      div(class="arrow-container")
+        img(src="/images/arrow-right.png", alt="no image" class="right-arrow arrow"   height="20px")
     div(class='genre-list' id="orderRatingBooks")
+      div(class="books-label") BrainFood Favorites
+      div(class="arrow-container")
+        img(src="/images/arrow-left.png", alt="no image" class="left-arrow arrow"   height="20px")
       .scrolls
         each book in orderRatingBooks
           a(href=`/books/${book.id}`)
-            img(src=`${book.cover}` class="img-div" height='200') 
+            img(src=`${book.cover}` class="img-div" height='200')
+      div(class="arrow-container")
+        img(src="/images/arrow-right.png", alt="no image" class="right-arrow arrow"   height="20px")
     div(class='genre-list' id="orderTitleBooks")
+      div(class="books-label") Classic Reads
+      div(class="arrow-container")
+        img(src="/images/arrow-left.png", alt="no image" class="left-arrow arrow"   height="20px")
       .scrolls
         each book in orderTitleBooks
           a(href=`/books/${book.id}`)
-            img(src=`${book.cover}` class="img-div" height='200') 
+            img(src=`${book.cover}` class="img-div" height='200')
+      div(class="arrow-container")
+        img(src="/images/arrow-right.png", alt="no image" class="right-arrow arrow"   height="30px") 
     div(class="quote-container")
       div(id="quote")

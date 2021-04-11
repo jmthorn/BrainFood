@@ -1,6 +1,27 @@
+.books-label {
+  color: rgba(98, 108, 126, 0.89);
+  font-size: 22px;
+  text-align: start;
+  margin-left: 30px;
+  top: -50px;
+  position: absolute;
+}
+
+.left-arrow {
+  position: absolute;
+  bottom: 130px;
+  left: -50px;
+}
+
+.right-arrow {
+  position: absolute;
+  bottom: 130px;
+  right: -50px;
+}
+
 .genre-list {
   width: 1200px;
-  height: 200px;
+  height: 250px;
   display: inline-block;
 }
 
@@ -9,7 +30,7 @@
   height: 200px;
   background-color: rgba(142, 154, 175, 0.548);
   margin-top: 280px;
-  padding: 40px;
+  padding: 0px;
   border-radius: 20px;
 }
 
@@ -18,17 +39,27 @@
   overflow-y: hidden;
   /* height: 80px; */
   white-space: nowrap;
+  height: 200px;
+  margin-top: 10px;
+  position: relative;
 }
 
 .img-div {
-  box-shadow: 1px 1px 10px #999;
-  margin: 2px;
+  /* box-shadow: 1px 1px 10px #999; */
+  margin: 10px;
   max-height: 150px;
   cursor: pointer;
   display: inline-block;
   *display: inline;
   *zoom: 1;
   vertical-align: top;
+  box-shadow: 10px 10px 10px grey;
+  transition: max-height 1s;
+}
+
+.img-div:hover {
+  max-height: 165px;
+  margin-bottom: 20px;
 }
 
 /* MAIN GRID AREAS ==================================================== */
@@ -107,7 +138,7 @@
 .page-content {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 250px 300px 300px 800px 300px 300px 300px;
+  grid-template-rows: 250px 350px 350px 800px 350px 350px 400px;
   grid-template-areas:
     ". . ."
     "inOrderBooks inOrderBooks inOrderBooks"
