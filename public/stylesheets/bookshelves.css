@@ -3,14 +3,18 @@ html {
 }
 
 .add-shelf-span {
-    padding-top: 30px;
-    display: flex;
-    justify-content: center;
+    padding-top: 100px;
+    position: absolute;
+    bottom: 35px;
+    left: 40px;
 }
 
 #add-shelf {
     display: flex;
     justify-content: center;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
 }
 
 a:hover {
@@ -29,9 +33,14 @@ a {
     padding-top: 200px;   
 }
 
+#bookshelves-div {
+    padding-top: 100px;
+}
+
 #my-books-div {
     display: flex;
     justify-content: center;
+    padding-top: 100px;
     /* grid-template-areas: 
     "1 2 3 4 5",
     "1 2 3 4 5",
@@ -62,8 +71,10 @@ a {
     grid-column-start: 3; */
     /* grid-area: table; */
     /* justify-self: start; */
-    padding-left: 100px;
-    padding-top: 200px;    
+    padding-left: 200px;
+    padding-top: 200px;
+    font-size: 30px; 
+    text-align: center;   
 }
 
 th, td {
@@ -74,31 +85,41 @@ th, td {
 }
 
 .book_table {
-    background-color: #EFD3D7;
-    border: solid black;
+    border-top: solid black;
     padding: 5%;
-
 }
 
-#bookshelves, 
-#reading-activity,
-#add-books,
+#add-books {
+    width: auto;
+    height: auto;
+    background-color: #DEE2FF;
+    border: solid black;
+    text-align: center;
+}
+
+#bookshelves,
 #tools {
     background-color: #DEE2FF;
     border: solid black;
-    padding: 100px;
+    /* padding: 100px; */
     /* margin: 0; */
     text-align: start;
+    min-height: 500px;
+    height: auto;
+    min-width: 250px;
 }   
 
-#add-books-link {
+#add-books-link {   
     padding-top: 20px;
     border: solid black;
     color: #4c5460;
 }
 
-.ul-bookshelves {
+#ul-bookshelves {
     padding-bottom: 30px;
+    left: 10px;
+    top: 0px; 
+    position: relative;
 }
 
 #delete-button {
@@ -107,7 +128,14 @@ th, td {
 
 #bookshelves {
     font-size: 30px;
+    position: relative;
+
 }
+
 .bookshelf-li {
     font-size: 20px;
+}
+
+.book_thead {
+    text-align: center;
 }

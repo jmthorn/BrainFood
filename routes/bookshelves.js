@@ -27,23 +27,22 @@ router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
     where: {
       userId
     },
-    //find default bookshelf: findOne({
-      //where: { name: 'Want to Read'
-      //userId
-  //}
-  //},
-    //})
-   // include: db.Book
   });
-  // const bookshelv`es = await db.Bookshelf.findAll();
-  //const books = await db.Book.findAll();
-  // // const bookshelfId = parseInt(req.params.bookshelfId, 10);
+  console.log(bookshelves);
+  // const wantToRead = await db.Bookshelf.findOne({
+  //     where: { 
+  //     name: 'Want to Read',
+  //     userId
+  // },
+  // })
+
   const bookshelf = await db.Bookshelf.findByPk(bookshelfId, {
     include: db.Book,
   });
   //bookshelf.findByPk(bookshelfId, {include: db.Book });
 
   res.render("bookshelf", {
+    //wantToRead,
     bookshelf,
     bookshelves,
   });
@@ -59,7 +58,7 @@ router.get('/add-book', csrfProtection, asyncHandler(async (req, res) => {
 
 //Add a specific Book
 router.post('/add-book', asyncHandler(async (req, res) => {
-  console.log(req.body);
+
   const {
     cover,
     title,
@@ -82,7 +81,6 @@ router.post('/add-book', asyncHandler(async (req, res) => {
 router.get(
   "/delete/:id", 
   asyncHandler(async (req, res) => {
-    console.log('test');
     const bookId = parseInt(req.params.id, 10);
     const bookshelf = await db.Bookshelf.findByPk(bookId);
     res.render("bookshelf-delete", {
