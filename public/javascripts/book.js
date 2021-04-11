@@ -186,8 +186,6 @@ window.addEventListener("DOMContentLoaded", () => {
         })
 
         let data = await res.json()
-        // console.log(data.newTag)
-        // addReview(data.newTag, data.newTag.userId)
         addTag(data.newTag.category)
     })
 

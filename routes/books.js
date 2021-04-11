@@ -111,9 +111,15 @@ router.post("/:id/tags", asyncHandler(async (req, res) => {
     const userId = req.session.auth.userId
     const user = await db.User.findByPk(userId)
     const { category, bookId } = req.body;
-    const newTag = await db.Tag.create({ category })
-    let bookToTags = await db.BookToTag.create({ tagId: parseInt(newTag.id), bookId: parseInt(bookId) });
-    res.json({ newTag })
+    let existingtag = await db.Tag.findOne({where: { category }})
+    if(!existingtag) {
+        const newTag = await db.Tag.create({ category })
+        let bookToTags = await db.BookToTag.create({ tagId: parseInt(newTag.id), bookId: parseInt(bookId) });
+        res.json({ newTag })
+    } else { 
+        let bookToTags = await db.BookToTag.create({ tagId: parseInt(newTag.id), bookId: parseInt(bookId) });
+        res.json({ existingTag })
+    }
 }))
 
 module.exports = router;
