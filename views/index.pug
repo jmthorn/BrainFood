@@ -4,28 +4,27 @@ append head
     link(rel="stylesheet" href="/stylesheets/index.css")
     script(src="/javascripts/index.js" type="module" defer)
 
-block content
-  h1= title
-  h2 Sustenance for your soul
-  div(id='genre-div')
-    div(class='genre-list' )
-      each book in books
-       img(src=`${book.cover}` class="img-div" height='120' width='80') 
-    div(class='genre-list' )
-      each book in books
-       img(src=`${book.cover}` class="img-div" height='120' width='80') 
-    div(class='genre-list' )
-      each book in books
-       img(src=`${book.cover}` class="img-div" height='120' width='80') 
-    div(class='genre-list' )
-      each book in books
-       img(src=`${book.cover}` class="img-div" height='120' width='80') 
-    div(class='genre-list' )
-      each book in books
-       img(src=`${book.cover}` class="img-div" height='120' width='80') 
-  //-   div(class='genre-list')
-  //-   div(class='genre-list') 
-  //-   div(class='genre-list') 
-  //-   div(class='genre-list') 
-  //-   div(class='genre-list')
-  //-  div(id='api-div')
+block content  
+  div(id='genre-div' class="page-content background-image")
+    div(class='genre-list' id="inOrderBooks")
+      .scrolls
+        each book in inOrderBooks
+          a(href=`/books/${book.id}`)
+            img(src=`${book.cover}` class="img-div" height='200') 
+    div(class='genre-list' id="orderAuthorBooks")
+      .scrolls
+        each book in orderAuthorBooks
+          a(href=`/books/${book.id}`)
+            img(src=`${book.cover}` class="img-div" height='200') 
+    div(class='genre-list' id="orderRatingBooks")
+      .scrolls
+        each book in orderRatingBooks
+          a(href=`/books/${book.id}`)
+            img(src=`${book.cover}` class="img-div" height='200') 
+    div(class='genre-list' id="orderTitleBooks")
+      .scrolls
+        each book in orderTitleBooks
+          a(href=`/books/${book.id}`)
+            img(src=`${book.cover}` class="img-div" height='200') 
+    div(class="quote-container")
+      div(id="quote")

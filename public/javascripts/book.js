@@ -143,7 +143,7 @@ window.addEventListener("DOMContentLoaded", () => {
     //ADD TAGS====================================
 
     const addTag = (tagCategory) => {
-        let tagContainer = document.querySelector(".tag-container")
+        let tagContainer = document.querySelector(".tags")
         let div = document.createElement("div")
         div.innerText = tagCategory
         div.classList.add("book-tag")
@@ -154,7 +154,7 @@ window.addEventListener("DOMContentLoaded", () => {
     let tagBtn = document.querySelector(".tag-btn")
     tagBtn.addEventListener("click", async (event) => {
         event.preventDefault()
-
+        
         let tagInput = document.querySelector(".tag-input")
         let category = tagInput.value
         let bookId = event.target.baseURI.split('/')[4]

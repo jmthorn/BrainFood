@@ -27,23 +27,23 @@ router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
     where: {
       userId
     },
-    //find default bookshelf: findOne({
-      //where: { name: 'Want to Read'
-      //userId
-  //}
-  //},
-    //})
-   // include: db.Book
   });
-  // const bookshelv`es = await db.Bookshelf.findAll();
-  //const books = await db.Book.findAll();
-  // // const bookshelfId = parseInt(req.params.bookshelfId, 10);
+
+  const lowestShelf = bookshelves[0];
+  // const wantToRead = await db.Bookshelf.findOne({
+  //     where: { 
+  //     name: 'Want to Read',
+  //     userId
+  // },
+  // })
+
   const bookshelf = await db.Bookshelf.findByPk(bookshelfId, {
     include: db.Book,
   });
   //bookshelf.findByPk(bookshelfId, {include: db.Book });
 
   res.render("bookshelf", {
+    lowestShelf,
     bookshelf,
     bookshelves,
   });
@@ -51,15 +51,24 @@ router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
 
 router.get('/add-book', csrfProtection, asyncHandler(async (req, res) => {
   const book = db.Book.build();
+  const userId = req.session.auth.userId;
+  const bookshelves = await db.Bookshelf.findAll({
+    where: {
+      userId,
+    },
+  });
+
+  const lowestShelf = bookshelves[0];
   res.render('add-book', {
     book,
     csrfToken: req.csrfToken(),
+    lowestShelf,
   });
 }))
 
 //Add a specific Book
 router.post('/add-book', asyncHandler(async (req, res) => {
-  console.log(req.body);
+
   const {
     cover,
     title,
@@ -82,11 +91,19 @@ router.post('/add-book', asyncHandler(async (req, res) => {
 router.get(
   "/delete/:id", 
   asyncHandler(async (req, res) => {
-    console.log('test');
     const bookId = parseInt(req.params.id, 10);
     const bookshelf = await db.Bookshelf.findByPk(bookId);
+    const userId = req.session.auth.userId;
+    const bookshelves = await db.Bookshelf.findAll({
+      where: {
+        userId,
+      },
+    });
+
+    const lowestShelf = bookshelves[0];
     res.render("bookshelf-delete", {
       bookshelf,
+      lowestShelf,
     });
   })
 );
@@ -95,7 +112,6 @@ router.get(
 router.post(
   "/delete/:id",
   asyncHandler(async (req, res) => {
-    // How do we do this?
     const bookId = parseInt(req.params.id, 10);
     const bookshelf = await db.Bookshelf.findByPk(bookId);
     //const books = await db.Book.findAll();
