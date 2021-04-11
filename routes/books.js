@@ -21,13 +21,15 @@ router.get("/:id", asyncHandler(async (req, res) => {
         include: db.User,
         order: [["createdAt", "DESC"]]
     })
+    const lowestShelf = bookshelves[0];
 
     res.render('book', {
         book,
         reviews,
         userId,
         bookshelves,
-        date
+        date,
+        lowestShelf
     })
 }))
 

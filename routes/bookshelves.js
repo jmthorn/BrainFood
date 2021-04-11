@@ -28,6 +28,8 @@ router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
       userId
     },
   });
+
+  const lowestShelf = bookshelves[0];
   // const wantToRead = await db.Bookshelf.findOne({
   //     where: { 
   //     name: 'Want to Read',
@@ -41,7 +43,7 @@ router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
   //bookshelf.findByPk(bookshelfId, {include: db.Book });
 
   res.render("bookshelf", {
-    //wantToRead,
+    lowestShelf,
     bookshelf,
     bookshelves,
   });
@@ -49,9 +51,18 @@ router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
 
 router.get('/add-book', csrfProtection, asyncHandler(async (req, res) => {
   const book = db.Book.build();
+  const userId = req.session.auth.userId;
+  const bookshelves = await db.Bookshelf.findAll({
+    where: {
+      userId,
+    },
+  });
+
+  const lowestShelf = bookshelves[0];
   res.render('add-book', {
     book,
     csrfToken: req.csrfToken(),
+    lowestShelf,
   });
 }))
 
@@ -82,8 +93,17 @@ router.get(
   asyncHandler(async (req, res) => {
     const bookId = parseInt(req.params.id, 10);
     const bookshelf = await db.Bookshelf.findByPk(bookId);
+    const userId = req.session.auth.userId;
+    const bookshelves = await db.Bookshelf.findAll({
+      where: {
+        userId,
+      },
+    });
+
+    const lowestShelf = bookshelves[0];
     res.render("bookshelf-delete", {
       bookshelf,
+      lowestShelf,
     });
   })
 );

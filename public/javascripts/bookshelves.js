@@ -3,7 +3,19 @@
 
 // const { json } = require("sequelize/types");
 
- 
+// document.addEventListener("DOMContentLoaded", (event) => {
+//   // const lowestShelf = () => {
+//     const bookshelf = document.querySelectorAll(".bookshelf-links");
+//     console.log(bookshelf);
+//     const shelf = bookshelf[0];
+
+//     for (let i = bookshelf.length; i > 0; i--) {
+//      shelf = bookshelf[i];  
+//     }
+
+//     return shelf;
+// })
+
 const newShelf = document.getElementById("add-shelf-button");
  
  newShelf.addEventListener('click', event => {
