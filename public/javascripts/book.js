@@ -62,6 +62,7 @@ window.addEventListener("DOMContentLoaded", () => {
         })
 
     //DELETE AND EDIT REVIEW FROM BOOK==========================
+    let reviewModal = document.getElementById("review-modal")
     let reviewsContainer = document.querySelector(".existing-reviews")
     reviewsContainer.addEventListener("click", async (event) => {
         let reviewId = event.target.getAttribute("review-id");
@@ -85,12 +86,17 @@ window.addEventListener("DOMContentLoaded", () => {
         // check if any of the edit buttons are clicked (including new edit button)
         if (event.target.classList.contains("review-edit-btn")) {
             event.preventDefault();
-            let reviewModal = document.getElementById("review-modal")
             reviewModal.classList.remove("hidden")
             reviewModal.classList.add("modal-show")
             //action when submitting edited review
             let editReviewForm = document.getElementById("edit-review-form")
             editReviewForm.setAttribute("action", `/books/reviews/${reviewId}`)
+        }
+    })
+    window.addEventListener("click", (event) => {
+        if (event.target === reviewModal) {
+            reviewModal.classList.remove("modal-show")
+            reviewModal.classList.add("hidden")
         }
     })
 
