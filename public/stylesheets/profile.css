@@ -66,19 +66,33 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin-left: -1754px;
+  margin-left: -1774px;
 }
 
 #modal-button {
-  border-radius: 10px;
+  /* border-radius: 20px;
   margin: 15px;
-  width: 65px;
+  width: 65px; */
+  background-color:rgba(185, 162, 182, 0.829);
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgb(163 162 162);
+  font-size: 15px;
+  padding: 5px;
+  width: 90px;
+  margin: 20px;
 }
 
 #delete-btn {
-  border-radius: 10px;
+  /* border-radius: 20px;
   margin: 15px;
-  width: 65px;
+  width: 65px; */
+  background-color:rgba(185, 162, 182, 0.829);
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgb(163 162 162);
+  font-size: 15px;
+  padding: 5px;
+  width: 90px;
+  margin: 20px;
 }
 
 
@@ -101,7 +115,7 @@
   font-size: 30px;
   justify-self: center;
   margin-top: 65px;
-  margin-left: -587px;
+  margin-left: -584px;
 }
 
 
