@@ -46,7 +46,7 @@ window.addEventListener("DOMContentLoaded", () => {
             let textarea = document.querySelector(".new-review-textarea")
             let review = textarea.value
             let rating = document.getElementById('book-rating').value
-            let res = await fetch(`http://localhost:8080/books/${bookId}/reviews`, {
+            let res = await fetch(`/books/${bookId}/reviews`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -62,7 +62,6 @@ window.addEventListener("DOMContentLoaded", () => {
         })
 
     //DELETE AND EDIT REVIEW FROM BOOK==========================
-    let reviewModal = document.getElementById("review-modal")
     let reviewsContainer = document.querySelector(".existing-reviews")
     reviewsContainer.addEventListener("click", async (event) => {
         let reviewId = event.target.getAttribute("review-id");
@@ -71,7 +70,7 @@ window.addEventListener("DOMContentLoaded", () => {
             event.preventDefault();
             let deleteConfirm = confirm("Are you sure you would like to delete?")
             if (!deleteConfirm) return
-            let res = await fetch(`http://localhost:8080/books/reviews/${reviewId}`, {
+            let res = await fetch(`/books/reviews/${reviewId}`, {
                 method: "delete",
                 headers: {
                     "Content-Type": "application/json"
@@ -86,17 +85,12 @@ window.addEventListener("DOMContentLoaded", () => {
         // check if any of the edit buttons are clicked (including new edit button)
         if (event.target.classList.contains("review-edit-btn")) {
             event.preventDefault();
+            let reviewModal = document.getElementById("review-modal")
             reviewModal.classList.remove("hidden")
             reviewModal.classList.add("modal-show")
             //action when submitting edited review
             let editReviewForm = document.getElementById("edit-review-form")
             editReviewForm.setAttribute("action", `/books/reviews/${reviewId}`)
-        }
-    })
-    window.addEventListener("click", (event) => {
-        if (event.target === reviewModal) {
-            reviewModal.classList.remove("modal-show")
-            reviewModal.classList.add("hidden")
         }
     })
 
@@ -109,7 +103,7 @@ window.addEventListener("DOMContentLoaded", () => {
         event.preventDefault()
         let bookshelfId = document.querySelector(".bookshelves-dropdown").value
         let bookId = event.target.baseURI.split('/')[4]
-        let res = await fetch(`http://localhost:8080/books/${bookId}/bookshelves`, {
+        let res = await fetch(`/books/${bookId}/bookshelves`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -130,7 +124,7 @@ window.addEventListener("DOMContentLoaded", () => {
         let deleteConfirm = confirm("Are you sure you would like to delete?")
         if (!deleteConfirm) return
         let bookId = event.target.baseURI.split('/')[4]
-        let res = await fetch(`http://localhost:8080/books/${bookId}/delete`, {
+        let res = await fetch(`/books/${bookId}/delete`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -180,7 +174,7 @@ window.addEventListener("DOMContentLoaded", () => {
         let category = tagInput.value
         let bookId = event.target.baseURI.split('/')[4]
 
-        let res = await fetch(`http://localhost:8080/books/${bookId}/tags`, {
+        let res = await fetch(`/books/${bookId}/tags`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
