@@ -1,49 +1,71 @@
-h1,
-h2 {
-    padding-top: 70px;
-    display: flex;
-    justify-content: center;
-    font-family: 'Tangerine', cursive;
-    font-size: 80px;
-    color: #555555;
-}
-
-h2 {
-    padding-top: 10px;
-    font-family: initial;
-    font-size: 40px;
-}
-
-#api-div {
-    position: absolute;
-    left: 75%;
-    top: 40%;
-    width: 600px;
-    height: 1000px;
-    border: solid black;
-}
-
-#genre-div {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    height: 2500px;
-    width: 60%;
-    padding-left: 8%;
-}
-
-#spacer-div {
-    border: solid grey;
-    width: 70%;
-    height: 300px!important;
-}
-
 .genre-list {
-    border: solid black;
-    height: 300px;
-    padding: -40px;
+  width: 1200px;
+  height: 200px;
+  background-color: ;
 }
 
-#img-div {
-    display: inline;
+#quote {
+  width: 1400px;
+  height: 200px;
+  background-color: rgba(142, 154, 175, 0.548);
+  margin-top: 280px;
+  padding: 40px;
+  border-radius: 20px;
+}
+
+/* MAIN GRID AREAS ==================================================== */
+
+#inOrderBooks {
+  grid-area: inOrderBooks;
+  justify-self: center;
+  align-self: center;
+  overflow: hidden;
+}
+
+#orderAuthorBooks {
+  grid-area: orderAuthorBooks;
+  justify-self: center;
+  align-self: center;
+  overflow: hidden;
+}
+
+#orderRatingBooks {
+  grid-area: orderRatingBooks;
+  justify-self: center;
+  align-self: center;
+  overflow: hidden;
+}
+
+#orderTitleBooks {
+  grid-area: orderTitleBooks;
+  justify-self: center;
+  align-self: center;
+  overflow: hidden;
+}
+
+.quote-container {
+  grid-area: quote;
+  background-image: url("../images/Book2.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center center;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.page-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 250px 300px 300px 800px 300px 300px 300px;
+  grid-template-areas:
+    ". . ."
+    "inOrderBooks inOrderBooks inOrderBooks"
+    "orderAuthorBooks orderAuthorBooks orderAuthorBooks"
+    "quote quote quote"
+    "orderRatingBooks orderRatingBooks orderRatingBooks"
+    "orderTitleBooks orderTitleBooks orderTitleBooks"
+    ". . .";
+  column-gap: 30px;
+  row-gap: 50px;
 }

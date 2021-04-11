@@ -4,28 +4,19 @@ append head
     link(rel="stylesheet" href="/stylesheets/index.css")
     script(src="/javascripts/index.js" type="module" defer)
 
-block content
-  h1= title
-  h2 Sustenance for your soul
-  div(id='genre-div')
-    div(class='genre-list' )
-      each book in books
-       img(src=`${book.cover}` class="img-div" height='120' width='80') 
-    div(class='genre-list' )
-      each book in books
-       img(src=`${book.cover}` class="img-div" height='120' width='80') 
-    div(class='genre-list' )
-      each book in books
-       img(src=`${book.cover}` class="img-div" height='120' width='80') 
-    div(class='genre-list' )
-      each book in books
-       img(src=`${book.cover}` class="img-div" height='120' width='80') 
-    div(class='genre-list' )
-      each book in books
-       img(src=`${book.cover}` class="img-div" height='120' width='80') 
-  //-   div(class='genre-list')
-  //-   div(class='genre-list') 
-  //-   div(class='genre-list') 
-  //-   div(class='genre-list') 
-  //-   div(class='genre-list')
-  //-  div(id='api-div')
+block content  
+  div(id='genre-div' class="page-content background-image")
+    div(class='genre-list' id="inOrderBooks")
+      each book in inOrderBooks
+       img(src=`${book.cover}` class="img-div" height='200') 
+    div(class='genre-list' id="orderAuthorBooks")
+      each book in orderAuthorBooks
+       img(src=`${book.cover}` class="img-div" height='200') 
+    div(class='genre-list' id="orderRatingBooks")
+      each book in orderRatingBooks
+       img(src=`${book.cover}` class="img-div" height='200') 
+    div(class='genre-list' id="orderTitleBooks")
+      each book in orderTitleBooks
+       img(src=`${book.cover}` class="img-div" height='200') 
+    div(class="quote-container")
+      div(id="quote")
