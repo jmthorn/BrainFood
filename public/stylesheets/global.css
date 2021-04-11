@@ -19,8 +19,18 @@ body {
 
 .background-image {
   background-image: url("../images/Books-background-rotated.jpeg");
-  background-position-y: -500px;
-  background-position-x: -70px;
+  background-position-y: -380px;
+  background-position-x: center;
   background-repeat: no-repeat;
-  background-size: contain;
+  height: 800px;
+}
+
+
+.btn {
+  font-size: 20px;
+  background-color: rgba(113, 125, 146, 0.932);
+  border-radius: 20px;
+  padding: 5px;
+  box-shadow: 0 0 10px white;
+  color: white;
 }

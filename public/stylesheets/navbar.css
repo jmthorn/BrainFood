@@ -8,9 +8,9 @@
   height: 150px;
   box-shadow: 0px 0px 1px 2px rgba(0, 0, 0, .25)
   /* text-decoration: none; */
-  /* flex-direction: row;
+/* flex-direction: row;
   flex-wrap: nowrap; */
-  /* grid-template-columns: 100% 10% 10% 10% 10% 10% 10% 10%;
+/* grid-template-columns: 100% 10% 10% 10% 10% 10% 10% 10%;
   grid-template-rows: auto;
   border: solid black;
   justify-content: space-around;
@@ -18,10 +18,10 @@
   color: red;
   /* grid-template-areas:
   "navbar-brainfood navbar-home navbar-my-books navbar-search navbar-profile navbar-logout navbar-login" */
-  /* "navbar-brainfood navbar-home navbar-my-books navbar-search navbar-search navbar-welcome-text navbar-profile navbar-logout navbar-login navbar-register"; */
+/* "navbar-brainfood navbar-home navbar-my-books navbar-search navbar-search navbar-welcome-text navbar-profile navbar-logout navbar-login navbar-register"; */
 /* } */
 
-.main-div-container{
+.main-div-container {
   display: flex;
   justify-content: space-evenly;
   flex-direction: row;
@@ -30,9 +30,9 @@
 
   align-items: center;
   font-family: sans-serif;
-  height:350px;
+  height: 350px;
   position: absolute;
-  width:100%;
+  width: 100%;
   /* box-shadow: 0px 0px 1px 2px rgba(0, 0, 0, .25) */
 }
 
@@ -42,74 +42,71 @@
 }
 
 #logo-sig {
-  font-family: 'Tangerine', cursive;
+  font-family: "Tangerine", cursive;
   font-weight: 300;
   font-size: 30px;
   color: black;
   text-decoration: none;
 }
 
-.nav-left{
-    /* grid-area: navbar-brainfood; */
-    width: 50%;
-    display: flex;
-    justify-content: space-around;
-    height: 36px;
-    font-size: 20px;
+.nav-left {
+  /* grid-area: navbar-brainfood; */
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+  height: 36px;
+  font-size: 20px;
 }
 
 #nav-middle {
-    display: flex;
-    justify-content: space-evenly;
+  display: flex;
+  justify-content: space-evenly;
 }
 
 #nav-right {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    font-size:20px;
-    width: 25%;
-    height: 36px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  font-size: 20px;
+  width: 25%;
+  height: 36px;
 }
-
 
 #outer-right-container {
   display: flex;
   justify-content: flex-end;
   width: 350px;
+  margin-right: 50px;
 }
 
 #navbar-search {
-    height: 30px;
-    width: 550px;;
+  height: 30px;
+  width: 550px;
 }
-
 
 .main-div-container .nav-buttons-div:hover {
   /* height: 60px; */
   /* padding: 5px; */
   display: flex;
-  align-items: center;
-  color: rgb(142, 154, 175);
-  transform: color 1s linear;
+  /* align-items: center; */
+  color: rgba(142, 154, 175, 0.8);
+  /* transform: color 1s linear; */
 
   /* background-color: rgba(255, 255, 255, 0.7); */
   /* background-color:gray; */
-
 }
 
 /* .navbar .nav-buttons-div:hover {
   height: 60px;
   /* padding: 5px; */
-  /* display: flex;
+/* display: flex;
   align-items: center;
   color: rgb(142, 154, 175); */
 
-  /* background-color: rgba(255, 255, 255, 0.7); */
-  /* background-color:gray; */
+/* background-color: rgba(255, 255, 255, 0.7); */
+/* background-color:gray; */
 
 /* } */
-
 
 #navbar-brainfood {
   /* text-decoration: none;*/
@@ -119,11 +116,11 @@
   /* font-weight: bold; */
 }
 
-#navLogo{
-  background:transparent;
-  top: 10px;
+#navLogo {
+  background: transparent;
+  position: relative;
+  top: -20px;
 }
-
 
 #navbar-home {
   /* grid-area: navbar-home;    */
@@ -134,12 +131,10 @@
   font-weight: bold;
 }
 
-
-#navbar-mybooks{
+#navbar-mybooks {
   text-decoration: none;
   color: black;
   font-weight: bold;
-
 }
 
 .fa-search {
@@ -149,7 +144,7 @@
   width: 25px;
 }
 
-#navbar-profile-btn{
+#navbar-profile-btn {
   /* background-image: url(/images/Temp_Logo.png); */
   background-size: 200px;
   height: 100x;
@@ -159,15 +154,15 @@
 }
 
 #nav-logout {
-  background: none!important;
+  background: none !important;
   border: none;
-  padding: 0!important;
+  padding: 0 !important;
   cursor: pointer;
   font-size: 15px;
   font-weight: bold;
 }
 
-.navbar-search-btn{
+.navbar-search-btn {
   /* background-image: url(/search-mag.jpg);
   background-position: center;
   background-size: 29px;
@@ -186,26 +181,23 @@
   /* margin-top: px; */
 }
 
-
-#navbar-welcome-text{
-  color:black;
-  font-weight: bold;
+#navbar-welcome-text {
+  color: black;
+  font-weight: 700;
   font-size: 15px;
 }
 
-
-#logged-in-display{
-  display:flex;
+#logged-in-display {
+  display: flex;
   flex-direction: column;
   align-self: flex-end;
 }
 
-#navbar-logout{
+#navbar-logout {
   text-decoration: none;
   color: black;
   font-weight: bold;
 }
-
 
 #navbar-login {
   text-decoration: none;
@@ -213,13 +205,11 @@
   font-weight: bold;
 }
 
-
-#navbar-signup{
+#navbar-signup {
   text-decoration: none;
   color: black;
   font-weight: bold;
 }
-
 
 /* div#nav-right {
   background-color: red;
@@ -230,17 +220,26 @@
   justify-content: space-evenly;
   flex-direction: column; */
 
-
 #default-profile-pic {
   height: 65px;
   width: 65px;
 }
 
-
-#for-profile{
+#for-profile {
   background-size: 200px;
   height: 100x;
   width: 70px;
   font-weight: bold;
   border-radius: 15px;
+}
+
+#navbar-search {
+  background-color: RGB(239, 211, 215);
+  height: 40px;
+  color: grey;
+  border-radius: 5px;
+  width: 600px;
+  padding: 15px;
+  font-style: italic;
+  border: none;
 }

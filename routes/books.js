@@ -13,6 +13,9 @@ router.get("/:id", asyncHandler(async (req, res) => {
     let bookId = parseInt(req.params.id, 10)
     let book = await db.Book.findByPk(bookId, { include: db.Tag })
     let bookshelves = await db.Bookshelf.findAll({ where: { userId } })
+    let stringTime = book.updatedAt.toString()
+    let splitTime = stringTime.split(" ")
+    let date = splitTime.slice(1,4).join(" ")
     let reviews = await db.Review.findAll({
         where: { bookId },
         include: db.User,
@@ -23,7 +26,8 @@ router.get("/:id", asyncHandler(async (req, res) => {
         book,
         reviews,
         userId,
-        bookshelves
+        bookshelves,
+        date
     })
 }))
 
@@ -43,6 +47,7 @@ router.post("/:id/reviews", asyncHandler(async (req, res) => {
     const userId = req.session.auth.userId
     const user = await db.User.findByPk(userId)
     const { review, bookId, rating } = req.body;
+
     const newReview = await db.Review.create({ review, rating, userId, bookId, author: user.username })
     res.json({ newReview })
 }))
