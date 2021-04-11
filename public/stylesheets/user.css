@@ -49,8 +49,12 @@
   display: block;
   width: 200px;
   font-weight: bold;
-  font-size: 1em;
+  font-size: 20px;
   text-align: right;
+}
+
+h1.form-header {
+  font-size: 30px;
 }
 
 .form-group input {
@@ -59,7 +63,7 @@
   margin-bottom: 10px;
   margin-right: 8px;
   margin-top: 8px;
-  font-size: 1em;
+  font-size: 18px;
 }
 
 .submit-div {
@@ -77,6 +81,7 @@
 .sub-form a {
   color: white;
   text-decoration: none;
+  font-size: 18px;
 }
 
 .sub-form {
@@ -89,7 +94,7 @@
 }
 
 .img-container img {
-  width: 300px;
+  width: 450px;
 }
 
 .user-content-container {
@@ -99,12 +104,18 @@
 }
 
 .signup-login-background{
-  background-image: url("/images/books-background.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
   bottom: 70px;
   min-height: 50vh;
   padding-top: 15px;
+}
+
+.signup-login-background-image-container{
+ background-image: url("/images/books-background.jpg");
+ background-repeat: no-repeat;
+ /* background-size: cover; */
+ height: 100%;
+ background-position-x: center;
+ background-position-y: bottom;
 }
 
 .demo-div {

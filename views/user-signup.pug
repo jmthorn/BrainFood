@@ -1,10 +1,11 @@
-extends layout.pug
+extends footer.pug
 
 include utils.pug
 
 
 block content
-  div(class="signup-login-background")
+  div(class="signup-login-background-image-container")
+    div(class="signup-login-background")
       form(action='/users/login' method='post')
         +fieldHidden('username', 'Demo')
         +fieldHidden('password', 'jJ123!')
@@ -28,4 +29,4 @@ block content
                 button(type='submit' class='btn submit') Sign Up
                 a(href='/users/signup' class='a clear') Clear
             div(class="sub-form")
-              p: a(href="/users/login") Already have an account?
+              p: a(href="/users/login") Already have an account? Log in here
