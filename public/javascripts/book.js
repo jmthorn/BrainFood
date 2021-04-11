@@ -18,6 +18,7 @@ window.addEventListener("DOMContentLoaded", () => {
             editButton.innerText = "Edit";
             editButton.classList.add("review-edit-btn")
             editButton.classList.add("btn")
+            editButton.setAttribute("review-id", review.id)
             div.appendChild(editButton)
             let deleteButton = document.createElement('button');
             deleteButton.innerText = "Delete";
@@ -60,27 +61,41 @@ window.addEventListener("DOMContentLoaded", () => {
             addReview(data.newReview, data.newReview.userId)
         })
 
-    //DELETE REVIEW FROM BOOK==========================
+    //DELETE AND EDIT REVIEW FROM BOOK==========================
     let reviewsContainer = document.querySelector(".existing-reviews")
     reviewsContainer.addEventListener("click", async (event) => {
-        // check if any of the delete buttons are clicked (including new delete button)
-        if (!event.target.classList.contains("review-delete-btn")) return
-        event.preventDefault();
-        let deleteConfirm = confirm("Are you sure you would like to delete?")
-        if (!deleteConfirm) return
         let reviewId = event.target.getAttribute("review-id");
-        let res = await fetch(`/books/reviews/${reviewId}`, {
-            method: "delete",
-            headers: {
-                "Content-Type": "application/json"
+        // check if any of the delete buttons are clicked (including new delete button)
+        if (event.target.classList.contains("review-delete-btn")) {
+            event.preventDefault();
+            let deleteConfirm = confirm("Are you sure you would like to delete?")
+            if (!deleteConfirm) return
+            let res = await fetch(`http://localhost:8080/books/reviews/${reviewId}`, {
+                method: "delete",
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            })
+            if (res.ok) {
+                event.target.parentElement.remove();
+            } else {
+                // TODO
             }
-        })
-        if (res.ok) {
-            event.target.parentElement.remove();
-        } else {
-            // TODO
+        }
+        // check if any of the edit buttons are clicked (including new edit button)
+        if (event.target.classList.contains("review-edit-btn")) {
+            event.preventDefault();
+            let reviewModal = document.getElementById("review-modal")
+            reviewModal.classList.remove("hidden")
+            reviewModal.classList.add("modal-show")
+            //action when submitting edited review
+            let editReviewForm = document.getElementById("edit-review-form")
+            editReviewForm.setAttribute("action", `/books/reviews/${reviewId}`)
         }
     })
+
+
+
     //ADD TO BOOKSHELF==========================
 
     let addToBookshelfBtn = document.querySelector(".add-book-bookshelf")
@@ -134,7 +149,7 @@ window.addEventListener("DOMContentLoaded", () => {
     })
 
     window.addEventListener("click", (event) => {
-        if (event.target == modal) {
+        if (event.target === modal) {
             modal.classList.remove("modal-show")
             modal.classList.add("hidden")
         }
@@ -143,7 +158,7 @@ window.addEventListener("DOMContentLoaded", () => {
     //ADD TAGS====================================
 
     const addTag = (tagCategory) => {
-        let tagContainer = document.querySelector(".tag-container")
+        let tagContainer = document.querySelector(".tags")
         let div = document.createElement("div")
         div.innerText = tagCategory
         div.classList.add("book-tag")

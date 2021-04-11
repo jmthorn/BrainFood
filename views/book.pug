@@ -1,5 +1,4 @@
 extends layout.pug
-
 include utils.pug
 
 append head
@@ -22,6 +21,21 @@ block content
                     div(class='submit-div')
                         button(type='submit' class='btn submit edit-book-btn') Submit
                         a(href=`/books/${book.id}` class='a clear') Clear
+        div(class="hidden" id="review-modal")
+            div(class="form-container modal-content")
+                h1(class="form-header") Edit Review
+                form(action=`/books/reviews/reviewId` method="post" class="user-form" id="edit-review-form")
+                    label("Select a rating for the book")
+                    select(id="edit-book-rating")
+                        option(value="null") Rate the book!
+                        option(value="1") 🧠
+                        option(value="2") 🧠🧠
+                        option(value="3") 🧠🧠🧠
+                        option(value="4") 🧠🧠🧠🧠
+                        option(value="5") 🧠🧠🧠🧠🧠
+                    +field("Review", "review", "review")
+                    div(class='submit-div')
+                        button(type='submit' class='btn submit edit-review-btn') Submit
         div(class="page-content")
             //- div(class="header")
             //- div(class="book-content")
@@ -53,6 +67,7 @@ block content
                         button(type="submit" class="review-button btn" id="submit-review") Submit
             div(class="existing-reviews")
                 each review in reviews
+                    hr(class="ine-between-reviews")
                     div(class="review-container")
                         h4(class="review-author")=review.User.username
                         span(class="review-rating")
@@ -66,12 +81,12 @@ block content
                                 | 🧠🧠🧠🧠
                             if review.rating===5
                                 | 🧠🧠🧠🧠🧠
-                        div(class="review-timestamp")
-                        =date
-                        if review.userId===userId
-                            button(review-id=`${review.id}` class="review-edit-btn btn") Edit
-                            button(review-id=`${review.id}` class="review-delete-btn btn") Delete
-                        p=review.review
+                        div(class="review-timestamp")=date
+                        p
+                            if review.userId===userId
+                                button(review-id=`${review.id}` class="review-delete-btn btn") Delete
+                                button(review-id=`${review.id}` class="review-edit-btn btn") Edit
+                            =review.review
 
             div(class="book-sidebar")
                 form(class="addToBksf")
@@ -82,10 +97,6 @@ block content
                                     option(value=bookshelf.id)=bookshelf.name
                             button(class="btn add-book-bookshelf") Add
 
-                //- div(class="sidebar-container")
-                    //- div(id="quote")
-                //- div(class="sidebar-container")
-                    //- div(id="quote")
                 div(class="tag-container")
                     label(id="tag-label") Genre
                     div(class="tags")

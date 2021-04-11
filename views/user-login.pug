@@ -1,8 +1,14 @@
-extends footer.pug
-
 include utils.pug
 
-block content
+html
+  head
+      block head
+        title="BrainFood"
+        link(rel='stylesheet' href='/stylesheets/user.css')
+        link(rel='stylesheet' href='/stylesheets/global.css')
+        script(src="https://kit.fontawesome.com/a229c5b13d.js" crossorigin="anonymous")
+        link(rel='stylesheet' href='/stylesheets/footer.css')
+  body
     div(class="signup-login-background-image-container")
       div(class="signup-login-background")
         form(action='/users/login' method='post')
@@ -13,7 +19,7 @@ block content
             button(type='submit' class='btn demo-button') Demo User
         div(class="user-content-container")
           div(class="img-container")
-            img(src="/images/Temp_Logo.png" alt="No image" width="200px")
+            img(src="/images/Brain_Logo_large.png" alt="No image" width="200px")
           +validationErrorSummary(errors)
           div(class="form-container")
             h1(class="form-header") Log In
@@ -26,3 +32,5 @@ block content
                 a(href="/users/login" class="a clear") Clear
             div(class="sub-form")
               p: a(href="/users/signup") Don't have an account? Sign up here
+
+    include footer.pug

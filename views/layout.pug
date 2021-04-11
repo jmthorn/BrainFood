@@ -8,19 +8,25 @@ html
         link(rel='stylesheet' href='/stylesheets/global.css')
         script(src="https://kit.fontawesome.com/a229c5b13d.js" crossorigin="anonymous")
         link(rel='stylesheet' href='/stylesheets/footer.css')
-        script(src="/javascripts/index.js")
+        //- script(src="/javascripts/index.js")
+        //- favicon
+        //- <link rel="apple-touch-icon" sizes="180x180" href="images/favicon_io/apple-touch-icon.png">
+        //- <link rel="icon" type="image/png" sizes="32x32" href="images/favicon_io/favicon-32x32.png">
+        //- <link rel="icon" type="image/png" sizes="16x16" href="images/favicon_io/favicon-16x16.png">
+        //- <link rel="manifest" href="/site.webmanifest">
   body
     nav(class='navbar')
       div(class='main-div-container')
         div(class='nav-left overlay' )
           div(class='nav-buttons-div')
             a(id='navbar-brainfood' href='/')
-              img(src="/images/Temp_Logo.png" id='navLogo' width='200')
+              img(src="/images/Brain_Logo_large.png" id='navLogo' width='200')
             //- a(id='logo-sig' href='/') BrainFood
           div(class='nav-buttons-div')
             a(class='nav-link' id='navbar-home' href="/") Home
-          div(class='nav-buttons-div')
-            a(class='nav-link' id='navbar-mybooks' href="/bookshelves") My Books
+          if lowestShelf
+            div(class='nav-buttons-div')
+              a(class='nav-link' id='navbar-mybooks' href=`/bookshelves/${lowestShelf.id}`) My Books
         div(id='nav-middle' )
           input(type="search" name="term" id='navbar-search' placeholder="Search Books" required)
           //- button(type='submit' class='navbar-search-btn')
@@ -44,5 +50,5 @@ html
               a(href="/users/login" id='navbar-login') Login
             div(class='nav-buttons-div')
               a(href="/users/signup" id='navbar-signup') Sign Up
-
     block content
+    include footer.pug

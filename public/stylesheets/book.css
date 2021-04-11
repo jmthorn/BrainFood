@@ -53,9 +53,9 @@
 }
 
 .review-timestamp {
-  font-size: 6px;
+
   /* display: block; */
-  float: absolute;
+  float: right;
 }
 
 .review-container {
@@ -139,6 +139,10 @@
   padding: 20px;
   border: 1px solid #888;
   width: 80%; /* Could be more or less, depending on screen size */
+}
+
+.form-container.modal-content{
+  color: black;
 }
 
 /* BOOK CONTENT ======================================================= */
@@ -284,3 +288,19 @@
   display: flex;
   flex-wrap: wrap;
 }
+
+.review-edit-btn,
+.review-delete-btn{
+  float: right;
+  margin-right: 5px;
+  /* padding-bottom: 10px; */
+}
+
+.review-author{
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.line-between-reviews{
+  border-top: 1px solid  #8e9aaf;
+ }

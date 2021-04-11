@@ -15,19 +15,21 @@ router.get("/:id", asyncHandler(async (req, res) => {
     let bookshelves = await db.Bookshelf.findAll({ where: { userId } })
     let stringTime = book.updatedAt.toString()
     let splitTime = stringTime.split(" ")
-    let date = splitTime.slice(1,4).join(" ")
+    let date = splitTime.slice(1, 4).join(" ")
     let reviews = await db.Review.findAll({
         where: { bookId },
         include: db.User,
         order: [["createdAt", "DESC"]]
     })
+    const lowestShelf = bookshelves[0];
 
     res.render('book', {
         book,
         reviews,
         userId,
         bookshelves,
-        date
+        date,
+        lowestShelf
     })
 }))
 
@@ -53,7 +55,18 @@ router.post("/:id/reviews", asyncHandler(async (req, res) => {
 }))
 
 //EDIT REVIEW FROM BOOK=============================================
-
+router.post("/reviews/:id", asyncHandler(async (req, res) => {
+    const userId = req.session.auth.userId
+    let reviewId = parseInt(req.params.id, 10)
+    let reviewObject = await db.Review.findByPk(reviewId)
+    if (userId === reviewObject.userId) {
+        const { rating, review } = req.body;
+        await reviewObject.update({ rating, review })
+        res.redirect(`/books/${reviewObject.bookId}`)
+    } else {
+        // TODO: display a 403 response FORBIDDEN
+    }
+}))
 
 //DELETE REVIEW FROM BOOK=============================================
 router.delete("/reviews/:id", asyncHandler(async (req, res) => {

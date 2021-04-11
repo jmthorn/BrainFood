@@ -1,38 +1,47 @@
 html {
-    font-family: 'Noto Sans JP', sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
 }
 
 .add-shelf-span {
-    padding-top: 30px;
-    display: flex;
-    justify-content: center;
+  padding-top: 100px;
+  position: absolute;
+  bottom: 35px;
+  left: 40px;
 }
 
 #add-shelf {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
 }
 
 a:hover {
-    text-decoration:  underline;
+  text-decoration: underline;
 }
 
 a {
-    color: #4c5460;
-    text-decoration: none;
+  color: #4c5460;
+  text-decoration: none;
 }
 
 #no-books-div {
-    display: flex;
-    justify-content: center;
-    padding-left: 100px;
-    padding-top: 200px;   
+  display: flex;
+  justify-content: center;
+  padding-left: 100px;
+  padding-top: 200px;
+}
+
+#bookshelves-div {
+  padding-top: 100px;
 }
 
 #my-books-div {
-    display: flex;
-    justify-content: center;
-    /* grid-template-areas: 
+  display: flex;
+  justify-content: center;
+  padding-top: 100px;
+  /* grid-template-areas: 
     "1 2 3 4 5",
     "1 2 3 4 5",
     "1 2 3 4 5",
@@ -42,72 +51,104 @@ a {
 }
 
 #my-books-text {
-    font-size: 35px;
-    padding-bottom: 15px;
-}
-
-#bookshelves-div {
-    /* grid-row-start: 3;
-    grid-column-start: 2;
-    justify-self: start; */
-    display: flex;
-    flex-direction: column;
-    padding-top: 50px;;
-    padding-bottom: 100px;
-    /* justify-content: a; */
+  font-size: 35px;
+  padding-bottom: 15px;
 }
 
 #main-table {
-    /* grid-row-start: 3;
+  /* grid-row-start: 3;
     grid-column-start: 3; */
-    /* grid-area: table; */
-    /* justify-self: start; */
-    padding-left: 100px;
-    padding-top: 200px;    
+  /* grid-area: table; */
+  /* justify-self: start; */
+  padding-left: 100px;
+  padding-top: 200px;
+  padding-bottom: 15px;
+  font-size: 30px;
+  text-align: center;
 }
 
-th, td {
-  border-bottom: 1px solid black;
+th,
+td {
+  border-bottom: 1px solid rgb(126, 125, 125);
   width: 200px;
   height: 100px;
   text-align: center;
 }
 
 .book_table {
-    background-color: #EFD3D7;
-    border: solid black;
-    padding: 5%;
-
+  border-top: 1px solid black;
+  padding: 5%;
 }
 
-#bookshelves, 
-#reading-activity,
-#add-books,
+#add-books {
+  width: auto;
+  height: auto;
+  background-color: #dee2ff;
+  text-align: center;
+}
+
+#bookshelves,
 #tools {
-    background-color: #DEE2FF;
-    border: solid black;
-    padding: 100px;
-    /* margin: 0; */
-    text-align: start;
-}   
+  background-color: rgba(142, 154, 175, 0.548);
+  border: none;
+  /* padding: 100px; */
+  /* margin: 0; */
+  text-align: start;
+  min-height: 500px;
+  height: auto;
+  min-width: 250px;
+  text-align: none;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+#bkslflabel {
+  color: white;
+  margin-bottom: 10px;
+}
 
 #add-books-link {
-    padding-top: 20px;
-    border: solid black;
-    color: #4c5460;
+  padding-top: 20px;
+  color: #4c5460;
 }
 
-.ul-bookshelves {
-    padding-bottom: 30px;
+#ul-bookshelves {
+  padding-bottom: 30px;
+  left: 10px;
+  top: 0px;
+  position: relative;
 }
 
 #delete-button {
-    padding-left: 10px;
+  padding-left: 10px;
 }
 
 #bookshelves {
-    font-size: 30px;
+  font-size: 30px;
+  position: relative;
 }
+
 .bookshelf-li {
-    font-size: 20px;
+  font-size: 20px;
+}
+
+.book_thead {
+  text-align: center;
+}
+
+.indivBookContainer {
+  padding: 10px;
+}
+
+.all-content {
+  display: flex;
+  justify-content: center;
+}
+
+.header {
+  height: 200px;
+}
+
+th {
+  padding: 5px;
 }

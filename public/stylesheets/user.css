@@ -1,4 +1,4 @@
-.around-form-container{
+.around-form-container {
   /* box-shadow: 0px 0px 1px 2px rgba(0, 0, 0, .25); */
 }
 
@@ -13,7 +13,7 @@
   padding-top: 10vh; */
   text-align: center;
   width: 500px;
-  box-shadow: 0px 0px 1px 2px rgba(0, 0, 0, .35);
+  box-shadow: 0px 0px 1px 2px rgba(0, 0, 0, 0.35);
   min-height: 30vh;
   min-width: 30vh;
   opacity: 0.8;
@@ -103,31 +103,32 @@ h1.form-header {
   justify-content: start;
 }
 
-.signup-login-background{
+.signup-login-background {
   bottom: 70px;
   min-height: 50vh;
   padding-top: 15px;
 }
 
-.signup-login-background-image-container{
- background-image: url("/images/books-background.jpg");
- background-repeat: no-repeat;
- /* background-size: cover; */
- height: 100%;
- background-position-x: center;
- background-position-y: bottom;
+.signup-login-background-image-container {
+  background-image: url("/images/books-background.jpg");
+  background-repeat: no-repeat;
+  /* background-size: cover; */
+  height: 100%;
+  background-position-x: center;
+  background-position-y: bottom;
 }
 
 .demo-div {
   float: right;
   padding-right: 50px;
+  display: absolute;
 }
 
 .btn.demo-div {
   background-color: white;
 }
 
-button.btn.demo-button{
+button.btn.demo-button {
   font-size: 20px;
   box-shadow: 0 0 10px rgb(211, 140, 140);
 }
