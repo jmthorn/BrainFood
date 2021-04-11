@@ -67,6 +67,7 @@ block content
                         button(type="submit" class="review-button btn" id="submit-review") Submit
             div(class="existing-reviews")
                 each review in reviews
+                    hr(class="ine-between-reviews")
                     div(class="review-container")
                         h4(class="review-author")=review.User.username
                         span(class="review-rating")
