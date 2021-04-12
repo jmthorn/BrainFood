@@ -68,6 +68,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
     userName.innerHTML = user.username;
     userEmail.innerHTML = user.email;
+    newPicture.innerHTML = user.image;
   })
 
   // deleteProfileBtn.addEventListener('click', async(event) => {
