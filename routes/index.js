@@ -8,16 +8,20 @@ const db = require("../db/models");
 router.get('/', asyncHandler( async (req, res, next) => {
   const tagId = parseInt(req.params.id, 10); 
   const inOrderBooks = await db.Book.findAll({
-    order: [['id', 'DESC']]
+    order: [['id', 'DESC']], 
+    limit: 20
   });
   const orderAuthorBooks = await db.Book.findAll({
-    order: [['author', 'DESC']]
+    order: [['published', 'DESC']], 
+    limit: 20
   });
   const orderRatingBooks = await db.Book.findAll({
-    order: [['avg_rating', 'DESC']]
+    order: [['avg_rating', 'DESC']], 
+    limit: 20
   });
   const orderTitleBooks = await db.Book.findAll({
-    order: [['title', 'DESC']]
+    order: [['published', 'ASC']], 
+    limit: 20
   });
   const userId = req.session.auth.userId;
   const bookshelves = await db.Bookshelf.findAll({

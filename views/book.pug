@@ -23,7 +23,7 @@ block content
                         a(href=`/books/${book.id}` class='a clear') Clear
         div(class="hidden" id="readstatus-modal")
             div(class="form-container modal-content")
-                h1(class="form-header") Edit Read Status
+                h1(class="form-header ") Edit Read Status
                 form(action=`/books/${book.id}/readstatus` method="post" class="readstatus-form")
                     +field("Readstatus", "status", status)
                     div(class='submit-div')

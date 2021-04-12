@@ -20,7 +20,8 @@ html
         div(class="user-content-container")
           div(class="img-container")
             img(src="/images/Brain_Logo_large.png" alt="No image" width="200px")
-          +validationErrorSummary(errors)
+          div.errors
+            +validationErrorSummary(errors)
           div(class="form-container")
             h1(class="form-header") Log In
             form(action="/users/login" method="post" class="user-form")

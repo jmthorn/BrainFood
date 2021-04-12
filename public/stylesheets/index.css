@@ -67,6 +67,7 @@
   padding: 0px;
   border-radius: 20px;
   position: relative;
+  color: rgb(255, 251, 251);
 }
 
 @keyframes fadein {

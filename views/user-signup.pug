@@ -19,8 +19,9 @@ html
             button(type='submit' class='btn demo-button') Demo User
         div(class="user-content-container")
           div(class="img-container")
-            img(src="/images/Temp_Logo.png" alt="No image" width="200px")
-          +validationErrorSummary(errors)
+            img(src="/images/Brain_Logo_large.png" alt="No image" width="200px")
+          div.errors
+            +validationErrorSummary(errors)
           div(class='around-form-container')
             div(class="form-container")
               h1(class="form-header") Sign Up

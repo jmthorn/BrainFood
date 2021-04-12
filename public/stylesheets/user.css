@@ -52,6 +52,7 @@
   font-weight: bold;
   font-size: 20px;
   text-align: right;
+  color: black;
 }
 
 h1.form-header {
@@ -111,7 +112,7 @@ h1.form-header {
 }
 
 .signup-login-background-image-container {
-  background-image: url("/images/books-background.jpg");
+  background-image: url("/images/Books-background.jpg");
   background-repeat: no-repeat;
   /* background-size: cover; */
   height: 100%;
@@ -132,4 +133,9 @@ h1.form-header {
 button.btn.demo-button {
   font-size: 20px;
   box-shadow: 0 0 10px rgb(211, 140, 140);
+}
+
+.errors {
+  display: flex;
+  justify-content: center;
 }
