@@ -113,7 +113,7 @@ block content
                         each tag in book.Tags
                             div(class="book-tag")
                                 div(class="tag-cat")=tag.category
-                                    a(href=`/books/delete/${book.id}/tags/${tag.id}` class="tag-li" id='delete-tag') ⓧ 
+                                button(class="delete-tag" value=tag.id id=tag.category) ⓧ 
                     form(class="add-tag-form")
                         input(class="tag-input")
                         button(class="tag-btn btn") Add
