@@ -116,7 +116,7 @@ window.addEventListener("DOMContentLoaded", () => {
         let data = await res.json()
     })
 
-    //DELETE BOOK FROM BOOKSHELF==========================
+    //DELETE BOOK============================================
 
     let deleteFromBookshelfBtn = document.querySelector(".book-delete")
     deleteFromBookshelfBtn.addEventListener('click', async (event) => {
@@ -133,7 +133,9 @@ window.addEventListener("DOMContentLoaded", () => {
                 bookId
             })
         })
+        console.log('DELETEEEEEEEEE', bookId)
         let data = await res.json()
+        console.log(data)
         window.location = '/bookshelves'
     })
 
@@ -216,12 +218,29 @@ window.addEventListener("DOMContentLoaded", () => {
 
     // DELETE TAGS ===================================================
 
-    // let tagdeletebtn = document.getElementById("delete-tag")
-    // tagdeletebtn.addEventListener("click", () => { 
-
-    // })
-
-
+    let tagdeletebtn = document.querySelectorAll(".delete-tag")
+    for (const button of tagdeletebtn) {
+        button.addEventListener("click", async(event) => { 
+            event.preventDefault()
+            let tagId = event.target.value
+            
+            let bookId = event.target.baseURI.split('/')[4]
+            console.log('DELETEEEEEEEEE', bookId, tagId)
+            let res = await fetch(`/books/tags/${tagId}`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    bookId, 
+                    tagId
+                })
+            })
+            console.log('DELETEEEEEEEEE', bookId)
+            let data = await res.json()
+            console.log(data)
+        })
+    }
 
 
 
