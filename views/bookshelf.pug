@@ -6,7 +6,6 @@ append head
    link(rel="preconnect", href="https://fonts.gstatic.com")
    link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap")
    script(src='/javascripts/bookshelves.js' type='module')
-//- Need to change user id
 block content
   .background-image
     .header
@@ -46,10 +45,7 @@ block content
                 th(scope='col') Title
                 th(scope='col') Author
                 th(scope='col') Avg Rating
-                //- th(scope='col') R ating
                 th(scope='col') Published
-                //- th(scope='col') Shelves
-                //- th(scope='col') Reviews
             tbody
             each book in bookshelf.Books
               div(id="book-in-books")
@@ -59,12 +55,7 @@ block content
                 td: a(href=`/books/${book.id}`)= book.title
                 td: a(href=`/books/${book.id}`)= book.author
                 td: a(href=`/books/${book.id}`)= book.avg_rating
-                //- tr= book.Review.rating
                 td= book.published
-                //- tr= book.Bookshelves
-                //-  check for line 30 and determine how to use it properly.
-                //- tr= book.Review
-                //- check for line 32 and determine how to use it properly.
                 
       else 
         div(id="no-books-div") You don't have any books in this shelf!

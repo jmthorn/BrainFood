@@ -6,17 +6,6 @@ const { csrfProtection, asyncHandler } = require('./utils');
 const { loginUser, logoutUser } = require('../auth');
 const { check, validationResult } = require('express-validator');
 const db = require('../db/models');
-//const bookshelf = include('../db/models/bookshelf');
-
-
-// const bookValidators = [
-//   check('title')
-//     .exists({checkFalsy: true})
-//     .withMessage('Please provide a value for title')
-//     .isLength({ max: 255})
-//     .withMessage()
-// ]
-
 
 /* GET bookshelves. */
 
@@ -36,7 +25,6 @@ router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
   const bookshelf = await db.Bookshelf.findByPk(bookshelfId, {
     include: db.Book,
   });
-  //bookshelf.findByPk(bookshelfId, {include: db.Book });
 
   res.render("bookshelf", {
     book,
@@ -85,27 +73,6 @@ router.post('/add-book', asyncHandler(async (req, res) => {
   res.redirect(`/books/${book.id}`);
 }))
 
-
-// router.get(
-//   "/delete/:id", 
-//   asyncHandler(async (req, res) => {
-//     const bookId = parseInt(req.params.id, 10);
-//     const bookshelf = await db.Bookshelf.findByPk(bookId);
-//     const userId = req.session.auth.userId;
-//     const bookshelves = await db.Bookshelf.findAll({
-//       where: {
-//         userId,
-//       },
-//     });
-
-//     const lowestShelf = bookshelves[0];
-//     res.render("bookshelf-delete", {
-//       bookshelf,
-//       lowestShelf,
-//     });
-//   })
-// );
-
 // Delete specific Bookshelf Route
 router.delete(
   "/:id",
@@ -142,4 +109,3 @@ router.post("/add-shelf", asyncHandler(async (req, res) => {
 
 module.exports = router;
 
-// findAll({include: Book},{where: ID})
