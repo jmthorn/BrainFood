@@ -13,7 +13,7 @@ Our website will allow you to browse through books aimed at personal development
 A live Link to our website can be found here: https://brainfood-app.herokuapp.com/users/signup
 
 ## A walkthrough of our website
-![](/images/gifs/2021-04-12 09-46-32.gif)
+![](2021-04-12 09-46-32.gif)
 
 ## Technologies Used to build our awesome website
 
@@ -32,11 +32,16 @@ A live Link to our website can be found here: https://brainfood-app.herokuapp.co
 
 - User authentication is completed by hashing passwords using bcrypt js library (csurf protected as well)
 - Only user/readers who are logged in can access the home page, the bookshelf page and the individual books page
+- Querying for book-specific information, related tags, reviews, ratings, and user-specific read-status and bookshelves as well as writing new reviews with edit and delete functionality
 - Once logged in a user can only edit/delete books, reviews and bookshelves that they have created
 - Used Modals to render editing features
-- Implemented AJAX when creating a comment on a specific book page
+- Implemented AJAX when creating a review on a specific book page
 - A user can filter their books by choosing a pre-defined or custom bookshelf
-- Can access the specific books
+- Logged in user can have user-specific read-status on a book
+- Logged in user can add tags to books
+- Logged in user can edit a book's information
+- Logged in user has a profile page
+- Nav bar includes routes to the home page, bookshelf page, allows user to view their profile and logout.
 
 ## Our routes code snippet:
 ```
@@ -48,10 +53,6 @@ const { csrfProtection, asyncHandler } = require('./utils');
 const { loginUser, logoutUser } = require('../auth');
 const { check, validationResult } = require('express-validator');
 const db = require('../db/models');
-
-
-
-
 
 router.get("/:id", asyncHandler(async (req, res) => {
     const userId = req.session.auth.userId
@@ -214,6 +215,14 @@ router.post("/tags/:id", asyncHandler(async (req, res) => {
 
 module.exports = router;
 ```
+
+## Challenges
+- There were issues with implementing the delete button for the profile page. The page would not redirect to the login page, but hang in current profile page. The button itself would delete the  user from the front end but would stay on the profile page until the browser was closed and reopened.
+
+## Future Implementations
+- Search bar functionality
+- Delete functionality on tags
+- More robust styling
 
 ## The BrainFood Contributors
 
