@@ -17,7 +17,7 @@ block content
                     +field("Title", "title", book.title)
                     +field("Author", "author", book.author)
                     +field("Published", "published", book.published)
-                    +field("Description", "description", book.description, textarea, "Description")
+                    +field("Description", "description", book.description, 'textarea', "Description")
                     div(class='submit-div')
                         button(type='submit' class='btn submit edit-book-btn') Submit
                         a(href=`/books/${book.id}` class='a clear') Clear
