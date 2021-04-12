@@ -158,15 +158,10 @@ router.post("/tags/:id", asyncHandler(async (req, res) => {
 
     let {bookId, tagId} = req.body
     console.log(bookId, tagId)
-<<<<<<< HEAD
-    const tag = await db.Tag.findOne({where: {tagId, bookId}});
-    await tag.destroy();
-=======
     const tag = await db.Tag.findOne({where: {tagId, bookId}, include: db.Book});
     // await tag.destroy();
     console.log('HELOOOOOOOOOOOOO', tag)
 
->>>>>>> main
     res.redirect(`/books/${bookId}`);
   })
 );
