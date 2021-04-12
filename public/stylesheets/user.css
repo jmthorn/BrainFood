@@ -134,3 +134,8 @@ button.btn.demo-button {
   font-size: 20px;
   box-shadow: 0 0 10px rgb(211, 140, 140);
 }
+
+.errors {
+  display: flex;
+  justify-content: center;
+}

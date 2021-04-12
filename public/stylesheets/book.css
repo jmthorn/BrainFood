@@ -197,9 +197,6 @@
   justify-content: flex-start;
 }
 
-.book-cover {
-}
-
 .book-title {
   margin-top: 10px;
   font-size: 36px;
@@ -219,6 +216,18 @@
 .readstatus {
   font-size: 20px;
   margin-bottom: 20px;
+}
+
+/* .read-status-modal-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+
+.submit-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* BOOK SIDEBAR ======================================= ========== */
