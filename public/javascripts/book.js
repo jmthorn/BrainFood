@@ -116,7 +116,7 @@ window.addEventListener("DOMContentLoaded", () => {
         let data = await res.json()
     })
 
-    //DELETE BOOK FROM BOOKSHELF==========================
+    //DELETE BOOK============================================
 
     let deleteFromBookshelfBtn = document.querySelector(".book-delete")
     deleteFromBookshelfBtn.addEventListener('click', async (event) => {
@@ -133,7 +133,9 @@ window.addEventListener("DOMContentLoaded", () => {
                 bookId
             })
         })
+        console.log('DELETEEEEEEEEE', bookId)
         let data = await res.json()
+        console.log(data)
         window.location = '/bookshelves'
     })
 
@@ -192,5 +194,55 @@ window.addEventListener("DOMContentLoaded", () => {
             addTag(data.newTag.category)
         ]
     })
+
+
+
+    //EDIT READSTATUS FROM BOOK==========================
+
+    let readstatusModal = document.getElementById("readstatus-modal")
+    let readeditBtn = document.querySelector(".readstatus-edit")
+
+    readeditBtn.addEventListener("click", (event) => {
+        readstatusModal.classList.remove("hidden")
+        readstatusModal.classList.add("modal-show")
+    })
+
+    window.addEventListener("click", (event) => {
+        if (event.target === readstatusModal) {
+            readstatusModal.classList.remove("modal-show")
+            readstatusModal.classList.add("hidden")
+        }
+    })
+
+
+
+    // DELETE TAGS ===================================================
+
+    let tagdeletebtn = document.querySelectorAll(".delete-tag")
+    for (const button of tagdeletebtn) {
+        button.addEventListener("click", async(event) => { 
+            event.preventDefault()
+            let tagId = event.target.value
+            
+            let bookId = event.target.baseURI.split('/')[4]
+            console.log('DELETEEEEEEEEE', bookId, tagId)
+            let res = await fetch(`/books/tags/${tagId}`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    bookId, 
+                    tagId
+                })
+            })
+            console.log('DELETEEEEEEEEE', bookId)
+            let data = await res.json()
+            console.log(data)
+        })
+    }
+
+
+
 
 })
