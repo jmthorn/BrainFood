@@ -218,11 +218,11 @@
   margin-bottom: 20px;
 }
 
-/* .read-status-modal-content {
+.read-status-modal-content {
   display: flex;
   justify-content: center;
   align-items: center;
-} */
+}
 
 .submit-div {
   display: flex;

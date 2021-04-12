@@ -47,7 +47,7 @@ window.addEventListener("DOMContentLoaded", () => {
     modal.classList.remove("modal-show")
     modal.classList.add("hidden")
 
-    let res = await fetch(`http://localhost:8080/users/profile/${personId}`, {
+    let res = await fetch(`/users/profile/${personId}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json"
@@ -110,7 +110,7 @@ window.addEventListener("DOMContentLoaded", () => {
     // console.log(document.cookie)
     if (deleteConfirmation) {
       let personId = event.target.baseURI.split('/')[5]
-      await fetch(`http://localhost:8080/users/profile/${personId}`, {
+      await fetch(`/users/profile/${personId}`, {
         method: 'DELETE',
         headers: {
           "Content-Type": "application/json"
@@ -122,7 +122,7 @@ window.addEventListener("DOMContentLoaded", () => {
       // console.log(res.ok);
       // let data = await res.json()
       console.log('went past delete confirm')
-      window.location.href = 'http://localhost:8080'
+      window.location.href = '/'
       // logoutUser()
     }
   })
