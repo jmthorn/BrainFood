@@ -21,6 +21,14 @@ block content
                     div(class='submit-div')
                         button(type='submit' class='btn submit edit-book-btn') Submit
                         a(href=`/books/${book.id}` class='a clear') Clear
+        div(class="hidden" id="readstatus-modal")
+            div(class="form-container modal-content")
+                h1(class="form-header") Edit Read Status
+                form(action=`/books/${book.id}/readstatus` method="post" class="readstatus-form")
+                    +field("Readstatus", "status", status)
+                    div(class='submit-div')
+                        button(type='submit' class='btn submit edit-readstatus-btn') Submit
+                        a(href=`/books/${book.id}` class='a clear') Clear
         div(class="hidden" id="review-modal")
             div(class="form-container modal-content")
                 h1(class="form-header") Edit Review
@@ -49,6 +57,8 @@ block content
                 span(class="book-title")=book.title
                 span(class="book-author")=book.author
                 span(class="book-published")=book.published
+                div(class="readstatus")= `Read Status: ${status}`
+                    button(class="readstatus-edit") Edit Status
                 p(class="book-description")=book.description
             div(class="new-review-container")
                 div(class="new-review")

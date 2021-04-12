@@ -193,4 +193,29 @@ window.addEventListener("DOMContentLoaded", () => {
         ]
     })
 
+
+
+    //EDIT READSTATUS FROM BOOK==========================
+
+    let readstatusModal = document.getElementById("readstatus-modal")
+    let readeditBtn = document.querySelector(".readstatus-edit")
+
+    readeditBtn.addEventListener("click", (event) => {
+        readstatusModal.classList.remove("hidden")
+        readstatusModal.classList.add("modal-show")
+    })
+
+    window.addEventListener("click", (event) => {
+        if (event.target === readstatusModal) {
+            readstatusModal.classList.remove("modal-show")
+            readstatusModal.classList.add("hidden")
+        }
+    })
+
+
+
+
+
+
+
 })

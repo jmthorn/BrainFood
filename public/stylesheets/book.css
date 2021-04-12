@@ -153,6 +153,23 @@
   margin-bottom: 30px;
 }
 
+.readstatus {
+  position: relative;
+  padding: 10px;
+}
+
+.readstatus-edit {
+  margin-left: 20px;
+  background-color: rgba(185, 162, 182, 0.829);
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgb(163, 162, 162);
+  font-size: 15px;
+  /* padding: 5px; */
+  width: 100px;
+  /* margin: 20px; */
+  border: none;
+  height: 30px;
+}
 /* BOOK CONTENT ======================================================= */
 
 .book-button-container {
@@ -170,6 +187,7 @@
   padding: 5px;
   width: 90px;
   margin: 20px;
+  border: none;
 }
 
 .book-info {
@@ -183,18 +201,24 @@
 }
 
 .book-title {
+  margin-top: 10px;
   font-size: 36px;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
 }
 
 .book-author {
   font-size: 24px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .book-published {
   font-size: 20px;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
+}
+
+.readstatus {
+  font-size: 20px;
+  margin-bottom: 20px;
 }
 
 /* BOOK SIDEBAR ======================================= ========== */
