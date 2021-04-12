@@ -6,6 +6,7 @@
   // click the logout button and do the fetch to redirect
   // delete
 console.log('connect to script file')
+// const { logoutUser } = require('../auth');
 
 // need to edit for me, just copied over;
 
@@ -60,7 +61,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
     let data = await res.json()     // prints out the update
     let { user } = data;
-    console.log(user);
+    // console.log(user);
 
     let userName = document.getElementById('user-name');
     let userEmail = document.getElementById('email');
@@ -70,21 +71,28 @@ window.addEventListener("DOMContentLoaded", () => {
   })
 
   deleteProfileBtn.addEventListener('click', async(event) => {
-    event.preventDefault();
+    // event.preventDefault();
     let deleteConfirmation = confirm('Are you sure you want to delete your profile?')
     if(!deleteConfirmation) return
+    // console.log(document.cookie)
 
+    if (deleteConfirmation) {
     let personId = event.target.baseURI.split('/')[5]
-    let res = await fetch(`http://localhost:8080/users/profile/${personId}`, {
-      method: 'delete',
+     await fetch(`http://localhost:8080/users/profile/${personId}`, {
+      method: 'DELETE',
       headers: {
         "Content-Type": "application/json"
-      }
+      },
+      body: JSON.stringify({
+        personId
+      })
     })
+    // console.log(res.ok);
 
-    if (res.ok) {
-      let data = await res.json()
-      console.log(data)
+      // let data = await res.json()
+      console.log('went past delete confirm')
+      window.location.href='http://localhost:8080'
+      // logoutUser()
     }
   })
 

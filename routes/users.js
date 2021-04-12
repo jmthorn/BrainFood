@@ -12,7 +12,7 @@ const db = require('../db/models');
 
 /* GET users listing. */
 
-router.get('/signup', csrfProtection, (req, res) => {
+router.get('/signup',(req, res) => {
   const user = db.User.build();
   console.log("USER................",user)
   res.render('user-signup', {
@@ -21,7 +21,7 @@ router.get('/signup', csrfProtection, (req, res) => {
     csrfToken: req.csrfToken(),
   });
 });
-
+//csrfProtection
 
 const userValidators = [
   check('username')
@@ -153,7 +153,7 @@ router.post('/logout', (req, res) => {
 
 
 //http://localhost:8080/users/profile/:id - - WORKS
-router.get('/profile/:id(\\d+)', asyncHandler(async(req, res) => {
+router.get('/profile/:id(\\d+)', requireAuth, asyncHandler(async(req, res) => {
   const  id  = parseInt(req.params.id);
   // console.log(id, '===========');
 
@@ -201,13 +201,22 @@ const { newUser, newEmail, newPicture } = req.body;
 // backend route for delete button for front end route - WORKS
 //http://localhost:8080/users/profile/:id
 
-router.delete('/profile/:id(\\d+)', requireAuth, asyncHandler(async (req, res)=>{
-  const { id } = req.params;
+router.delete('/profile/:id(\\d+)', asyncHandler(async (req, res)=>{
+  // const  id  = parseInt(req.params.id);
+  const id = parseInt(req.body.personId);
+  console.log(req.body);
   const user = await db.User.findByPk(id);
+  console.log(id);
+  console.log(typeof id);
+  // console.log(user);
 
-  await user.destroy();
-
-  res.redirect('/')
+  await user.destroy()
+  // logoutUser()
+  console.log('----hello----')
+  // next();
+  res.redirect('/signup')
+  // res.json({message:'Success!'})
+  // res.render('user-signup')
 }))
 
 
