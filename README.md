@@ -24,10 +24,6 @@ A live Link to our website can be found here: https://brainfood-app.herokuapp.co
 - nodemon (Back-end)
 - postgreSQL, sequelize (Back-end)
 
-## Project on Github
-
-- [BrainFood](https://github.com/jmthorn/BrainFood)
-
 ## Functionalities
 
 - User authentication is completed by hashing passwords using bcrypt js library (csurf protected as well)
