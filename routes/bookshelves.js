@@ -32,12 +32,6 @@ router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
   });
 
   const lowestShelf = bookshelves[0];
-  // const wantToRead = await db.Bookshelf.findOne({
-  //     where: { 
-  //     name: 'Want to Read',
-  //     userId
-  // },
-  // })
 
   const bookshelf = await db.Bookshelf.findByPk(bookshelfId, {
     include: db.Book,
@@ -118,32 +112,12 @@ router.delete(
   asyncHandler(async (req, res) => {
     const bookId = parseInt(req.params.id, 10);
     const bookshelf = await db.Bookshelf.findByPk(bookId);
-    // const bookshelves = await db.Bookshelf.findAll({
-    //   where: {
-    //     userId,
-    //   },
-    // });
+
     console.log(bookshelf);
-    // const lowestShelf = bookshelves[0];
     await bookshelf.destroy();
     res.json();
-    // res.redirect(`/bookshelves/${lowestShelf}`);
   })
 );
-// router.get('/bookshelves/:id', asyncHandler(async (req, res) => {
-//   const bookshelfId = parseInt(req.params.bookshelfId, 10);
-//   // const books = await db.Book.findAll({
-//   //   where: {
-//   //     bookshelfId
-//   //   },
-//   //   include: Bookshelf
-//   // });
-
-//   res.render('bookshelf', {
-//     books
-//   })
-
-// }))
 
 
 //Add a Bookshelf

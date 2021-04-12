@@ -10,7 +10,7 @@ const newShelf = document.getElementById("add-shelf-button");
       const form = document.getElementById("add-shelf");
       const formData = new FormData(form);
       const name = formData.get("listname");
-
+      if (bookshelves.length >= 15) return;
       fetch("/bookshelves/add-shelf", {
         method: "POST",
         headers: {

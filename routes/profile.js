@@ -8,9 +8,19 @@ const { check, validationResult } = require('express-validator');
 const db = require('../db/models');
 
 
-router.get('/', (req, res) => {
-  res.render('profile')       // rendering the profile.pug
-});
+router.get('/', asyncHandler( async (req, res) => { 
+  
+  const userId = req.session.auth.userId;
+  const bookshelves = await db.Bookshelf.findAll({
+    where: {
+      userId
+    },
+  });
+  const lowestShelf = bookshelves[0];
+  res.render('profile', {
+    lowestShelf
+  })       // rendering the profile.pug
+}));
 
 
 // router.delete('/:id', asyncHandler(async(req, res) => {
