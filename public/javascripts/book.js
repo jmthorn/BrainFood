@@ -6,13 +6,13 @@ window.addEventListener("DOMContentLoaded", () => {
         let h4 = document.createElement('h4');
         h4.classList.add("review-author");
         div.appendChild(h4);
-        h4.innerText = `👤 ${review.author}`;
+        h4.innerText =review.author;
         let ratingSpan = document.createElement("span")
         ratingSpan.classList.add("review-rating");
         for (let i = 1; i <= review.rating; i++) {
             ratingSpan.innerHTML += '🧠';
         }
-        h4.appendChild(ratingSpan)
+        div.appendChild(ratingSpan)
         if (review.userId === userId) {
             let editButton = document.createElement('button');
             editButton.innerText = "Edit";
@@ -46,7 +46,7 @@ window.addEventListener("DOMContentLoaded", () => {
             let textarea = document.querySelector(".new-review-textarea")
             let review = textarea.value
             let rating = document.getElementById('book-rating').value
-            let res = await fetch(`http://localhost:8080/books/${bookId}/reviews`, {
+            let res = await fetch(`/books/${bookId}/reviews`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -70,7 +70,7 @@ window.addEventListener("DOMContentLoaded", () => {
             event.preventDefault();
             let deleteConfirm = confirm("Are you sure you would like to delete?")
             if (!deleteConfirm) return
-            let res = await fetch(`http://localhost:8080/books/reviews/${reviewId}`, {
+            let res = await fetch(`/books/reviews/${reviewId}`, {
                 method: "delete",
                 headers: {
                     "Content-Type": "application/json"
@@ -103,7 +103,7 @@ window.addEventListener("DOMContentLoaded", () => {
         event.preventDefault()
         let bookshelfId = document.querySelector(".bookshelves-dropdown").value
         let bookId = event.target.baseURI.split('/')[4]
-        let res = await fetch(`http://localhost:8080/books/${bookId}/bookshelves`, {
+        let res = await fetch(`/books/${bookId}/bookshelves`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -124,7 +124,7 @@ window.addEventListener("DOMContentLoaded", () => {
         let deleteConfirm = confirm("Are you sure you would like to delete?")
         if (!deleteConfirm) return
         let bookId = event.target.baseURI.split('/')[4]
-        let res = await fetch(`http://localhost:8080/books/${bookId}/delete`, {
+        let res = await fetch(`/books/${bookId}/delete`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -174,7 +174,7 @@ window.addEventListener("DOMContentLoaded", () => {
         let category = tagInput.value
         let bookId = event.target.baseURI.split('/')[4]
 
-        let res = await fetch(`http://localhost:8080/books/${bookId}/tags`, {
+        let res = await fetch(`/books/${bookId}/tags`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -186,9 +186,44 @@ window.addEventListener("DOMContentLoaded", () => {
         })
 
         let data = await res.json()
-        // console.log(data.newTag)
-        // addReview(data.newTag, data.newTag.userId)
-        addTag(data.newTag.category)
+        if(!data.newTag) {
+            addTag(data.existingTag.category)
+        } else   [
+            addTag(data.newTag.category)
+        ]
     })
+
+
+
+    //EDIT READSTATUS FROM BOOK==========================
+
+    let readstatusModal = document.getElementById("readstatus-modal")
+    let readeditBtn = document.querySelector(".readstatus-edit")
+
+    readeditBtn.addEventListener("click", (event) => {
+        readstatusModal.classList.remove("hidden")
+        readstatusModal.classList.add("modal-show")
+    })
+
+    window.addEventListener("click", (event) => {
+        if (event.target === readstatusModal) {
+            readstatusModal.classList.remove("modal-show")
+            readstatusModal.classList.add("hidden")
+        }
+    })
+
+
+
+    // DELETE TAGS ===================================================
+
+    // let tagdeletebtn = document.getElementById("delete-tag")
+    // tagdeletebtn.addEventListener("click", () => { 
+
+    // })
+
+
+
+
+
 
 })

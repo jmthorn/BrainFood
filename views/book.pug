@@ -17,9 +17,17 @@ block content
                     +field("Title", "title", book.title)
                     +field("Author", "author", book.author)
                     +field("Published", "published", book.published)
-                    +field("Description", "description", book.description, textarea, "Description")
+                    +field("Description", "description", book.description, 'textarea', "Description")
                     div(class='submit-div')
                         button(type='submit' class='btn submit edit-book-btn') Submit
+                        a(href=`/books/${book.id}` class='a clear') Clear
+        div(class="hidden" id="readstatus-modal")
+            div(class="form-container modal-content")
+                h1(class="form-header") Edit Read Status
+                form(action=`/books/${book.id}/readstatus` method="post" class="readstatus-form")
+                    +field("Readstatus", "status", status)
+                    div(class='submit-div')
+                        button(type='submit' class='btn submit edit-readstatus-btn') Submit
                         a(href=`/books/${book.id}` class='a clear') Clear
         div(class="hidden" id="review-modal")
             div(class="form-container modal-content")
@@ -49,6 +57,8 @@ block content
                 span(class="book-title")=book.title
                 span(class="book-author")=book.author
                 span(class="book-published")=book.published
+                div(class="readstatus")= `Read Status: ${status}`
+                    button(class="readstatus-edit") Edit Status
                 p(class="book-description")=book.description
             div(class="new-review-container")
                 div(class="new-review")
@@ -97,15 +107,13 @@ block content
                                     option(value=bookshelf.id)=bookshelf.name
                             button(class="btn add-book-bookshelf") Add
 
-                //- div(class="sidebar-container")
-                    //- div(id="quote")
-                //- div(class="sidebar-container")
-                    //- div(id="quote")
                 div(class="tag-container")
-                    label(id="tag-label") Genre
+                    label(id="tag-label") Tags
                     div(class="tags")
                         each tag in book.Tags
-                            div(class="book-tag")=tag.category
+                            div(class="book-tag")
+                                div(class="tag-cat")=tag.category
+                                    a(href=`/books/delete/${book.id}/tags/${tag.id}` class="tag-li" id='delete-tag') ⓧ 
                     form(class="add-tag-form")
                         input(class="tag-input")
-                        button(class="tag-btn btn") Add Tag
+                        button(class="tag-btn btn") Add

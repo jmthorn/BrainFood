@@ -164,7 +164,7 @@ router.get('/profile/:id(\\d+)', asyncHandler(async(req, res) => {
         {rating: 5}
       ]
     },
-    include: db.Book, limit: 6
+    include: db.Book, limit: 9
   });
 
   const user = await db.User.findByPk(id);
