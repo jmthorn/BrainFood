@@ -113,21 +113,20 @@ router.post('/add-book', asyncHandler(async (req, res) => {
 // );
 
 // Delete specific Bookshelf Route
-router.post(
-  "/:id(\\d+)/",
+router.delete(
+  "/:id",
   asyncHandler(async (req, res) => {
     const bookId = parseInt(req.params.id, 10);
     const bookshelf = await db.Bookshelf.findByPk(bookId);
-
-    const bookshelves = await db.Bookshelf.findAll({
-      where: {
-        userId,
-      },
-    });
+    // const bookshelves = await db.Bookshelf.findAll({
+    //   where: {
+    //     userId,
+    //   },
+    // });
     console.log(bookshelf);
-    const lowestShelf = bookshelves[0];
+    // const lowestShelf = bookshelves[0];
     await bookshelf.destroy();
-
+    res.json();
     // res.redirect(`/bookshelves/${lowestShelf}`);
   })
 );

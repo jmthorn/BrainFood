@@ -34,6 +34,25 @@ const newShelf = document.getElementById("add-shelf-button");
           li.appendChild(a);
           li.appendChild(deleteButton);
           bookshelvesList.appendChild(li);
+
+          deleteButton.addEventListener("click", async (event) => {
+            event.preventDefault();
+            let bookshelfId = event.target.getAttribute("bookshelf-id");
+            let deleteConfirm = confirm(
+              "Are you sure you would like to delete?"
+            );
+            if (!deleteConfirm) return;
+            let res = await fetch(`/bookshelves/${bookshelfId}`, {
+              method: "DELETE",
+              headers: {
+                "Content-Type": "application/json",
+              },
+            });
+            console.log(res);
+            if (res.ok) {
+              event.target.parentElement.remove();
+            }
+          });
           } else return;
           }
         );
@@ -80,10 +99,9 @@ const newShelf = document.getElementById("add-shelf-button");
 
 //Delete Bookshelf
 
-let deleteBookshelves = document.querySelectorAll(".delete-button") 
+let deleteBookshelves = document.querySelectorAll(".delete-button");
 for (const button of deleteBookshelves) {
   button.addEventListener("click", async (event) => {
-    
     event.preventDefault();
     let bookshelfId = event.target.getAttribute("bookshelf-id");
     let deleteConfirm = confirm("Are you sure you would like to delete?");
