@@ -9,12 +9,17 @@ html {
   left: 40px;
 }
 
+input {
+  padding-top: 10px;
+}
+
 #add-shelf {
   display: flex;
   justify-content: center;
   position: absolute;
   bottom: 10px;
   left: 10px;
+  padding-top: 10px;
 }
 
 a:hover {
@@ -87,6 +92,10 @@ td {
   text-align: center;
 }
 
+.add-book {
+  cursor: pointer;
+}
+
 #bookshelves,
 #tools {
   background-color: rgba(142, 154, 175, 0.548);
@@ -130,6 +139,7 @@ td {
 
 .bookshelf-li {
   font-size: 20px;
+  cursor: pointer;
 }
 
 .book_thead {
@@ -151,6 +161,10 @@ td {
 
 th {
   padding: 5px;
+}
+
+#add-shelf-button {
+  cursor: pointer;
 }
 
 .modal-show {
