@@ -70,30 +70,58 @@ window.addEventListener("DOMContentLoaded", () => {
     userEmail.innerHTML = user.email;
   })
 
-  deleteProfileBtn.addEventListener('click', async(event) => {
+  // deleteProfileBtn.addEventListener('click', async(event) => {
+  //   // event.preventDefault();
+  //   let deleteConfirmation = confirm('Are you sure you want to delete your profile?')
+  //   if(!deleteConfirmation) return
+  //   // console.log(document.cookie)
+
+  //   let personId = event.target.baseURI.split('/')[5]
+  //   await fetch(`/users/profile/${personId}`, {
+  //     method: 'DELETE',
+  //     headers: {
+  //       "Content-Type": "application/json"
+  //     },
+  //     body: JSON.stringify({
+  //       personId
+  //     })
+  //   })
+  //   // console.log(res.ok);
+
+  //   // if (deleteConfirmation) {
+  //   //   // let data = await res.json()
+  //   //   console.log('went past delete confirm')
+  //   //   // window.location.href='http://localhost:8080'
+  //   //   // logoutUser()
+  //   // }
+
+  //   if(res.ok){
+  //     // res.clearCookie('connect.sid',{path:'/',domain:'.awesomedomain.co'});
+  //     window.location.href='/users/login'
+  //   }
+  // })
+
+   deleteProfileBtn.addEventListener('click', async (event) => {
     // event.preventDefault();
     let deleteConfirmation = confirm('Are you sure you want to delete your profile?')
-    if(!deleteConfirmation) return
+    if (!deleteConfirmation) return
     // console.log(document.cookie)
-
     if (deleteConfirmation) {
-    let personId = event.target.baseURI.split('/')[5]
-     await fetch(`http://localhost:8080/users/profile/${personId}`, {
-      method: 'DELETE',
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        personId
+      let personId = event.target.baseURI.split('/')[5]
+      await fetch(`http://localhost:8080/users/profile/${personId}`, {
+        method: 'DELETE',
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          personId
+        })
       })
-    })
-    // console.log(res.ok);
-
+      // console.log(res.ok);
       // let data = await res.json()
       console.log('went past delete confirm')
-      // window.location.href='http://localhost:8080'
+      window.location.href = 'http://localhost:8080'
       // logoutUser()
     }
   })
-
 })

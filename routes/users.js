@@ -201,7 +201,25 @@ const { newUser, newEmail, newPicture } = req.body;
 // backend route for delete button for front end route - WORKS
 //http://localhost:8080/users/profile/:id
 
-router.delete('/profile/:id(\\d+)', asyncHandler(async (req, res)=>{
+// router.delete('/profile/:id(\\d+)', asyncHandler(async (req, res)=>{
+//   // const  id  = parseInt(req.params.id);
+//   const id = parseInt(req.body.personId);
+//   console.log(req.body);
+//   const user = await db.User.findByPk(id);
+//   console.log(id);
+//   console.log(typeof id);
+//   // console.log(user);
+
+//   await user.destroy()
+//   // logoutUser()                    // it stalls at this point
+//   console.log('----hello----')
+//   // next();
+
+//   // res.redirect(303, "/users/signup")
+//   // res.json({message:'Success!'})
+//   // res.render('user-signup')
+// }))
+router.delete('/profile/:id', asyncHandler(async (req, res) => {
   // const  id  = parseInt(req.params.id);
   const id = parseInt(req.body.personId);
   console.log(req.body);
@@ -209,15 +227,17 @@ router.delete('/profile/:id(\\d+)', asyncHandler(async (req, res)=>{
   console.log(id);
   console.log(typeof id);
   // console.log(user);
-
   await user.destroy()
-  // logoutUser()
+  logoutUser(req, res);
+  res.redirect('/users/login')
   console.log('----hello----')
   // next();
   res.redirect(303, "/signup")
   // res.json({message:'Success!'})
   // res.render('user-signup')
 }))
+
+
 
 
 module.exports = router;
