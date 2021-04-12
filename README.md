@@ -13,7 +13,7 @@ Our website will allow you to browse through books aimed at personal development
 A live Link to our website can be found here: https://brainfood-app.herokuapp.com/users/signup
 
 ## A walkthrough of our website
-![](2021-04-12 09-46-32.gif)
+![BrainFood](2021-04-12 09-46-32.gif)
 
 ## Technologies Used to build our awesome website
 
