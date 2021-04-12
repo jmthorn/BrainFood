@@ -75,7 +75,6 @@ router.post('/signup', csrfProtection, userValidators, asyncHandler(async (req, 
   if (validatorErrors.isEmpty()) {
     const hashedpassword = await bcrypt.hash(password, 10);
     user.hashedpassword = hashedpassword;
-    console.log("USER",user)
     await user.save();
     loginUser(req, res, user);
     res.redirect("/");
@@ -170,7 +169,6 @@ router.get('/profile/:id(\\d+)', requireAuth, asyncHandler(async(req, res) => {
   const user = await db.User.findByPk(id);
 
   // console.log(reviews);
-  console.log(user)
   res.render('profile',    //  Server is render from profile.pug        -SERVER side rendering
   {reviews, user}           // reviews array gives us the the userId and rating data
 
