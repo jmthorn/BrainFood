@@ -214,7 +214,7 @@ router.delete('/profile/:id(\\d+)', asyncHandler(async (req, res)=>{
   // logoutUser()
   console.log('----hello----')
   // next();
-  res.redirect('/signup')
+  res.redirect(303, "/signup")
   // res.json({message:'Success!'})
   // res.render('user-signup')
 }))
