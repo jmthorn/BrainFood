@@ -5,6 +5,7 @@ const newShelf = document.getElementById("add-shelf-button");
       const bookshelvesList = document.getElementById("ul-bookshelves");
       const bookshelves = document.querySelectorAll("li");
       const a = document.createElement("a");
+      const deleteButton = document.createElement("a");
       const li = document.createElement("li");
       const form = document.getElementById("add-shelf");
       const formData = new FormData(form);
@@ -24,10 +25,14 @@ const newShelf = document.getElementById("add-shelf-button");
         .then(json => {
           if (json.bookshelf.name) {
           console.log(json.bookshelf);
-          a.innerHTML = json.bookshelf.name
+          a.innerHTML = json.bookshelf.name;
           li.setAttribute("class", "bookshelf-li");
           a.setAttribute("href", `/bookshelves/${json.bookshelf.id}`);
+          deleteButton.setAttribute("bookshelf-id", `${json.bookshelf.id}`)
+          deleteButton.setAttribute("class", "bookshelf-li delete-button");
+          deleteButton.innerHTML = 'ⓧ';
           li.appendChild(a);
+          li.appendChild(deleteButton);
           bookshelvesList.appendChild(li);
           } else return;
           }
@@ -50,7 +55,7 @@ const newShelf = document.getElementById("add-shelf-button");
    let published = document.getElementById("published").value;
 
 
-    let res = await fetch(`http://localhost:8080/bookshelves/${bookshelfId}/add-book`, {
+    let res = await fetch(`/bookshelves/${bookshelfId}/add-book`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -72,26 +77,24 @@ const newShelf = document.getElementById("add-shelf-button");
    }
  });
  
-window.addEventListener("load", event => {
-  console.log(bookshelfId);
-})
 
 //Delete Bookshelf
 
 let deleteBookshelves = document.querySelectorAll(".delete-button") 
 for (const button of deleteBookshelves) {
   button.addEventListener("click", async (event) => {
-    console.log(deleteBookshelves);
+    
     event.preventDefault();
     let bookshelfId = event.target.getAttribute("bookshelf-id");
     let deleteConfirm = confirm("Are you sure you would like to delete?");
     if (!deleteConfirm) return;
-    let res = await fetch(`http://localhost:8080/bookshelves/${bookshelfId}`, {
-      method: "delete",
+    let res = await fetch(`/bookshelves/${bookshelfId}`, {
+      method: "DELETE",
       headers: {
         "Content-Type": "application/json",
       },
     });
+    console.log(res);
     if (res.ok) {
       event.target.parentElement.remove();
     }

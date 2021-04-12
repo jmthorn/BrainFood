@@ -92,42 +92,43 @@ router.post('/add-book', asyncHandler(async (req, res) => {
 }))
 
 
-router.get(
-  "/delete/:id", 
+// router.get(
+//   "/delete/:id", 
+//   asyncHandler(async (req, res) => {
+//     const bookId = parseInt(req.params.id, 10);
+//     const bookshelf = await db.Bookshelf.findByPk(bookId);
+//     const userId = req.session.auth.userId;
+//     const bookshelves = await db.Bookshelf.findAll({
+//       where: {
+//         userId,
+//       },
+//     });
+
+//     const lowestShelf = bookshelves[0];
+//     res.render("bookshelf-delete", {
+//       bookshelf,
+//       lowestShelf,
+//     });
+//   })
+// );
+
+// Delete specific Bookshelf Route
+router.post(
+  "/:id(\\d+)/",
   asyncHandler(async (req, res) => {
     const bookId = parseInt(req.params.id, 10);
     const bookshelf = await db.Bookshelf.findByPk(bookId);
-    const userId = req.session.auth.userId;
+
     const bookshelves = await db.Bookshelf.findAll({
       where: {
         userId,
       },
     });
-
+    console.log(bookshelf);
     const lowestShelf = bookshelves[0];
-    res.render("bookshelf-delete", {
-      bookshelf,
-      lowestShelf,
-    });
-  })
-);
-
-// Delete specific Bookshelf Route
-router.post(
-  "/delete/:id",
-  asyncHandler(async (req, res) => {
-    const bookId = parseInt(req.params.id, 10);
-    const bookshelf = await db.Bookshelf.findByPk(bookId);
-    //const books = await db.Book.findAll();
-    // const bookshelfId = parseInt(req.params.bookshelfId, 10);
-    // const books = await db.Book.findAll({
-    //   where: {
-    //     bookshelfId,
-    //   },
-    //   include: db.Bookshelf,
-    // });
     await bookshelf.destroy();
-    res.redirect(`/bookshelves/${bookshelf.id - 1}`);
+
+    // res.redirect(`/bookshelves/${lowestShelf}`);
   })
 );
 // router.get('/bookshelves/:id', asyncHandler(async (req, res) => {
