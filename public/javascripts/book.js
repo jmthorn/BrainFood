@@ -214,6 +214,14 @@ window.addEventListener("DOMContentLoaded", () => {
 
 
 
+    // DELETE TAGS ===================================================
+
+    // let tagdeletebtn = document.getElementById("delete-tag")
+    // tagdeletebtn.addEventListener("click", () => { 
+
+    // })
+
+
 
 
 

@@ -148,6 +148,20 @@ router.post("/:id/readstatus", asyncHandler(async (req, res) => {
 }))
 
 
+//DELETE TAG============================================================
+
+
+
+router.post("/delete/:id/tags/:id1", asyncHandler(async (req, res) => {
+    // const userId = req.session.auth.userId
+    const bookId = parseInt(req.params.id, 10);
+    const tagId = parseInt(req.params.id1, 10);
+    console.log(bookId, tagId)
+    // const tag = await db.Tag.findOne({where: {tagId, bookId}});
+    // await tag.destroy();
+    // res.redirect(`/books/${bookId}`);
+  })
+);
 
 
 
