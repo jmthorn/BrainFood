@@ -157,9 +157,9 @@ router.post("/delete/:id/tags/:id1", asyncHandler(async (req, res) => {
     const bookId = parseInt(req.params.id, 10);
     const tagId = parseInt(req.params.id1, 10);
     console.log(bookId, tagId)
-    // const tag = await db.Tag.findOne({where: {tagId, bookId}});
-    // await tag.destroy();
-    // res.redirect(`/books/${bookId}`);
+    const tag = await db.Tag.findOne({where: {tagId, bookId}});
+    await tag.destroy();
+    res.redirect(`/books/${bookId}`);
   })
 );
 
