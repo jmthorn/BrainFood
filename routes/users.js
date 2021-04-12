@@ -12,7 +12,7 @@ const db = require('../db/models');
 
 /* GET users listing. */
 
-router.get('/signup',(req, res) => {
+router.get('/signup',csrfProtection,(req, res) => {
   const user = db.User.build();
   console.log("USER................",user)
   res.render('user-signup', {

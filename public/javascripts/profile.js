@@ -91,7 +91,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
       // let data = await res.json()
       console.log('went past delete confirm')
-      window.location.href='http://localhost:8080'
+      // window.location.href='http://localhost:8080'
       // logoutUser()
     }
   })
