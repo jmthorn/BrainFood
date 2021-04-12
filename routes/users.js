@@ -160,7 +160,7 @@ router.get('/profile/:id(\\d+)', requireAuth, asyncHandler(async(req, res) => {
     where: {
       [Op.and]: [
         {userId: id},
-        {rating: 5}
+        {rating: {[Op.between]: [4, 5]}}
       ]
     },
     include: db.Book, limit: 9
