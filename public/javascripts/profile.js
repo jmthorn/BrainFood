@@ -63,8 +63,9 @@ window.addEventListener("DOMContentLoaded", () => {
     let { user } = data;
     // console.log(user);
 
-    let userName = document.getElementById('user-name');
-    let userEmail = document.getElementById('email');
+    let userName = document.getElementById('username-value');
+    let userEmail = document.getElementById('email-value');
+    // let profilePicture = document.getElementById('profile-img')
 
     userName.innerHTML = user.username;
     userEmail.innerHTML = user.email;
