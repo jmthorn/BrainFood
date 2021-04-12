@@ -9,12 +9,17 @@ html {
   left: 40px;
 }
 
+input {
+  padding-top: 10px;
+}
+
 #add-shelf {
   display: flex;
   justify-content: center;
   position: absolute;
   bottom: 10px;
   left: 10px;
+  padding-top: 10px;
 }
 
 a:hover {
@@ -38,8 +43,9 @@ a {
 }
 
 #my-books-div {
-  display: flex;
-  justify-content: center;
+  position: fixed;
+  left: 10%;
+  top: 10%;
   padding-top: 100px;
   /* grid-template-areas: 
     "1 2 3 4 5",
@@ -54,6 +60,8 @@ a {
   font-size: 35px;
   padding-bottom: 15px;
 }
+
+
 
 #main-table {
   /* grid-row-start: 3;
@@ -87,6 +95,10 @@ td {
   text-align: center;
 }
 
+.add-book {
+  cursor: pointer;
+}
+
 #bookshelves,
 #tools {
   background-color: rgba(142, 154, 175, 0.548);
@@ -95,11 +107,13 @@ td {
   /* margin: 0; */
   text-align: start;
   min-height: 500px;
+  max-height: 600px;
   height: auto;
   min-width: 250px;
   text-align: none;
   padding: 20px;
   border-radius: 10px;
+  overflow: hidden;
 }
 
 #bkslflabel {
@@ -130,6 +144,7 @@ td {
 
 .bookshelf-li {
   font-size: 20px;
+  cursor: pointer;
 }
 
 .book_thead {
@@ -151,4 +166,33 @@ td {
 
 th {
   padding: 5px;
+}
+
+#add-shelf-button {
+  cursor: pointer;
+}
+
+.modal-show {
+  display: block; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+.hidden {
+  display: none;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
 }

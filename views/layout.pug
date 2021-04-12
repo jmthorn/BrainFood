@@ -8,12 +8,7 @@ html
         link(rel='stylesheet' href='/stylesheets/global.css')
         script(src="https://kit.fontawesome.com/a229c5b13d.js" crossorigin="anonymous")
         link(rel='stylesheet' href='/stylesheets/footer.css')
-        //- script(src="/javascripts/index.js")
-        //- favicon
-        //- <link rel="apple-touch-icon" sizes="180x180" href="images/favicon_io/apple-touch-icon.png">
-        //- <link rel="icon" type="image/png" sizes="32x32" href="images/favicon_io/favicon-32x32.png">
-        //- <link rel="icon" type="image/png" sizes="16x16" href="images/favicon_io/favicon-16x16.png">
-        //- <link rel="manifest" href="/site.webmanifest">
+        script(src="/javascripts/index.js")
   body
     nav(class='navbar')
       div(class='main-div-container')
@@ -27,6 +22,9 @@ html
           if lowestShelf
             div(class='nav-buttons-div')
               a(class='nav-link' id='navbar-mybooks' href=`/bookshelves/${lowestShelf.id}`) My Books
+          else 
+            div(class='nav-buttons-div')
+              a(class='nav-link' id='navbar-mybooks' href=`/bookshelves/1`) My Books
         div(id='nav-middle' )
           input(type="search" name="term" id='navbar-search' placeholder="Search Books" required)
           //- button(type='submit' class='navbar-search-btn')

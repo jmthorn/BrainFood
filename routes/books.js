@@ -27,9 +27,11 @@ router.get("/:id", asyncHandler(async (req, res) => {
     })
     const lowestShelf = bookshelves[0];
 
-    let readStatus = await db.ReadStatus.findOne({where:{ userId, bookId}})
-    let status = readStatus.status
-    if (!status) status = "None"
+    let readStatus = await db.ReadStatus.findOne({ where: { userId, bookId } })
+    let status;
+    if (!readStatus) status = "None"
+    else status = readStatus.status
+    // if (!status) status = "None"
 
     res.render('book', {
         book,
@@ -37,7 +39,7 @@ router.get("/:id", asyncHandler(async (req, res) => {
         userId,
         bookshelves,
         date,
-        lowestShelf, 
+        lowestShelf,
         status
     })
 }))
@@ -103,13 +105,15 @@ router.post("/:id/bookshelves", asyncHandler(async (req, res) => {
     res.json({ userId, bookshelfToBook })
 }));
 
-//DELETE BOOK FROM BOOKSHELF=============================================
+//DELETE BOOK =========================================================
 
 router.post("/:id/delete", asyncHandler(async (req, res) => {
-    const userId = req.session.auth.userId
+    // const userId = req.session.auth.userId
     const { bookId } = req.body;
-    let destroyedBook = await db.Book.destroy({ where: { id: parseInt(bookId) } });
-    res.json({ userId })
+    let book = await db.Book.findByPk(bookId)
+    let deletedBook = await db.Book.destroy({ where: { id: parseInt(bookId) } });
+    console.log('DELETEEEEEEEEE', deletedBook)
+    res.json({ userId, deletedBook })
 }));
 
 
@@ -120,15 +124,15 @@ router.post("/:id/tags", asyncHandler(async (req, res) => {
     const userId = req.session.auth.userId
     const user = await db.User.findByPk(userId)
     const { category, bookId } = req.body;
-    let existingTag = await db.Tag.findOne({where: { category }})
-    
-    if(!existingTag) {
-        
+    let existingTag = await db.Tag.findOne({ where: { category } })
+
+    if (!existingTag) {
+
         const newTag = await db.Tag.create({ category })
         let bookToTags = await db.BookToTag.create({ tagId: parseInt(newTag.id), bookId: parseInt(bookId) });
-        
+
         res.json({ newTag })
-    } else { 
+    } else {
         let bookToTags = await db.BookToTag.create({ tagId: parseInt(existingTag.id), bookId: parseInt(bookId) });
         console.log(bookToTags)
         res.json({ existingTag })
@@ -142,7 +146,7 @@ router.post("/:id/readstatus", asyncHandler(async (req, res) => {
     const userId = req.session.auth.userId
     let bookId = parseInt(req.params.id, 10)
     const { status } = req.body;
-    let readStatus = await db.ReadStatus.findOne({where: {bookId, userId}})
+    let readStatus = await db.ReadStatus.findOne({ where: { bookId, userId } })
     await readStatus.update({ status });
     res.redirect(`/books/${bookId}`);
 }))
@@ -152,15 +156,16 @@ router.post("/:id/readstatus", asyncHandler(async (req, res) => {
 
 
 
-router.post("/delete/:id/tags/:id1", asyncHandler(async (req, res) => {
-    // const userId = req.session.auth.userId
-    const bookId = parseInt(req.params.id, 10);
-    const tagId = parseInt(req.params.id1, 10);
+router.post("/tags/:id", asyncHandler(async (req, res) => {
+
+    let { bookId, tagId } = req.body
     console.log(bookId, tagId)
-    const tag = await db.Tag.findOne({where: {tagId, bookId}});
-    await tag.destroy();
+    const tag = await db.Tag.findOne({ where: { tagId, bookId }, include: db.Book });
+    // await tag.destroy();
+    console.log('HELOOOOOOOOOOOOO', tag)
+
     res.redirect(`/books/${bookId}`);
-  })
+})
 );
 
 

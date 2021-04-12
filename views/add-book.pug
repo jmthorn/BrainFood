@@ -6,7 +6,6 @@ append head
 
 block content 
    div(id='add-book-div')
-
     h1(class="form-header") Add Book
     form(action="/bookshelves/add-book" method='post')
         +field('Cover', 'cover', book.cover)
