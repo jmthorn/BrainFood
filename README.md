@@ -228,7 +228,7 @@ module.exports = router;
 
 🧠🧠🧠🧠🧠🧠🧠🧠🧠🧠🧠🧠
 
-- ===[@jmthorn](https://github.com/jmthorn)
-- ===[@keithmellea](https://github.com/keithmellea)
-- ===[@Jc-008](https://github.com/Jc-008)
-- ===[@Skulllady](https://github.com/Skulllady)
+- ===[@jmthorn](https://github.com/jmthorn) 🐈
+- ===[@keithmellea](https://github.com/keithmellea) 🐕
+- ===[@Jc-008](https://github.com/Jc-008) ☕
+- ===[@Skulllady](https://github.com/Skulllady) 💀
