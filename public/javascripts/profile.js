@@ -10,47 +10,11 @@ console.log('connect to script file')
 // need to edit for me, just copied over;
 
 window.addEventListener("DOMContentLoaded", () => {
-  let favBook1= document.getElementById('favorite-books-top1');
-  let favBook2= document.getElementById('favorite-books-top2');
-  let favBook3= document.getElementById('favorite-books-top3');
-  let favBook4= document.getElementById('favorite-books-top4');
-  let favBook5= document.getElementById('favorite-books-top5');
-  let favBook6= document.getElementById('favorite-books-top6');
-
   let modal = document.getElementById("modal");
   let userEditBtn = document.getElementById('edit-btn');
   let openModal = document.getElementById('modal-button');
   let userModalForm = document.getElementById('user-form')
-
-
-  // favBook1.addEventListener('click', async(event) => {
-  //   let personId = event.target.baseURI.split('/')[5]
-  //   debugger
-
-  //   let res = await fetch(`http://localhost:8080/users/profile/${personId}`, {
-  //     method: "GET",
-  //     headers: {
-  //       "Content-Type": "application/json"
-  //       },
-  //       body: JSON.stringify({
-  //           // newUser,
-  //           // newEmail,
-  //           // newPicture
-  //       })
-  //     })
-
-  //   // let data = await res.json()     // prints out the update
-  //   // let { user } = data;
-  // })
-
-
-
-
-
-
-
-
-
+  let deleteProfileBtn = document.getElementById('delete-btn')
 
 
   openModal.addEventListener("click", (event) => {
@@ -103,6 +67,25 @@ window.addEventListener("DOMContentLoaded", () => {
 
     userName.innerHTML = user.username;
     userEmail.innerHTML = user.email;
+  })
+
+  deleteProfileBtn.addEventListener('click', async(event) => {
+    event.preventDefault();
+    let deleteConfirmation = confirm('Are you sure you want to delete your profile?')
+    if(!deleteConfirmation) return
+
+    let personId = event.target.baseURI.split('/')[5]
+    let res = await fetch(`http://localhost:8080/users/profile/${personId}`, {
+      method: 'delete',
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+
+    if (res.ok) {
+      let data = await res.json()
+      console.log(data)
+    }
   })
 
 })
