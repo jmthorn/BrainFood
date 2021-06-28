@@ -116,7 +116,7 @@
 
 .fa-search {
   margin-left: -22px;
-  margin-top: 8px;
+  margin-top: 14px;
   height: 25px;
   width: 25px;
 }
@@ -215,8 +215,17 @@
   height: 40px;
   color: grey;
   border-radius: 5px;
-  width: 600px;
+  width: 25em;
   padding: 15px;
   font-style: italic;
   border: none;
+}
+
+@media (max-width: 1200px) {
+  #navbar-search,
+  #navbar-search div,
+  .fa-search:before,
+  .fa-search {
+    display: none;
+  }
 }
