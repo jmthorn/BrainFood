@@ -2,6 +2,10 @@ html {
   font-family: "Noto Sans JP", sans-serif;
 }
 
+.all-content {
+  display: flex;
+}
+
 .add-shelf-span {
   padding-top: 100px;
   position: absolute;
@@ -38,14 +42,11 @@ a {
   padding-top: 200px;
 }
 
-#bookshelves-div {
-  padding-top: 100px;
-}
 
 #my-books-div {
-  position: fixed;
+  position: flex;
   left: 10%;
-  top: 10%;
+  bottom: 20%;
   padding-top: 100px;
   /* grid-template-areas: 
     "1 2 3 4 5",
@@ -98,6 +99,14 @@ td {
 .add-book {
   cursor: pointer;
 }
+/* 
+@media all and (max-width: 800px) {
+  #bookshelves {
+    position: fixed;
+    right: 250px;
+    top: 250px;
+  }
+} */
 
 #bookshelves,
 #tools {
@@ -113,7 +122,6 @@ td {
   text-align: none;
   padding: 20px;
   border-radius: 10px;
-  overflow: hidden;
 }
 
 #bkslflabel {
@@ -130,7 +138,9 @@ td {
   padding-bottom: 30px;
   left: 10px;
   top: 0px;
+  height: 450px;
   position: relative;
+  overflow-y: hidden;
 }
 
 #delete-button {
