@@ -6,6 +6,10 @@ const db = require("../db/models");
 
 /* GET home page. */
 router.get('/', asyncHandler( async (req, res, next) => {
+  if (!req.session.auth) { 
+    res.redirect("/users/login");
+  } 
+  const userId = req.session.auth.userId
   const tagId = parseInt(req.params.id, 10); 
   const inOrderBooks = await db.Book.findAll({
     order: [['id', 'DESC']], 
@@ -23,7 +27,6 @@ router.get('/', asyncHandler( async (req, res, next) => {
     order: [['published', 'ASC']], 
     limit: 20
   });
-  const userId = req.session.auth.userId;
   const bookshelves = await db.Bookshelf.findAll({
     where: {
       userId,
@@ -50,11 +53,9 @@ router.get("/quote", function (req, res) {
   res.json(quotes[randomNumber])
 });
 
-router.get('/', asyncHandler(async (req, res) => {
+// router.get('/', asyncHandler(async (req, res) => {
 
-    
-
-}))
+// }))
 
 
 module.exports = router;
