@@ -5,7 +5,7 @@
   width: 100%;
   /* height: 100%; */
   height:100vh;
-  background-color: burlywood;
+  /* background-color: burlywood; */
 
 }
 
@@ -42,12 +42,20 @@
   border-radius: 15px;
 }
 
+
 .edit-btn-container{
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   margin-left: 114px;
   margin-top: 25px;
+  /* position: static; */
+}
+
+@media screen and (max-width: 1506px) {
+  .edit-btn-container{
+    display:none;
+  }
 }
 
 #modal-button {
@@ -75,7 +83,9 @@
   width: 90px;
   padding: 5px;
   margin-left: -207px;
+  /* position: fixed; */
 }
+
 
 .details-container{
   display: flex;
@@ -119,7 +129,8 @@
 .favorite-books-container{
   display: flex;
   flex-direction: column;
-  background-color: rgba(142, 154, 175, 0.548);
+  /* background-color: rgba(142, 154, 175, 0.548); */
+  background-color: rgba(185, 162, 182, 0.829);
   border-radius: 35px;
   margin-top: 140px;
   overflow: scroll;
@@ -133,7 +144,8 @@ padding-bottom:200px;
 #fav-book-word{
   display: flex;
   flex-direction: column;
-  color: white;
+  /* color: white; */
+  color: black;
   font-size: 32px;
   font-weight: bold;
   margin-top: 45px;
