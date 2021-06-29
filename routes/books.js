@@ -102,7 +102,19 @@ router.post("/:id/bookshelves", asyncHandler(async (req, res) => {
     const { bookshelfId, bookId } = req.body;
     let bookshelf = db.Bookshelf.findByPk(bookshelfId)
     let bookshelfToBook = await db.BookshelfToBook.create({ bookshelfId: parseInt(bookshelfId), bookId: parseInt(bookId) });
+    
+    console.log("-------------------", res.ok, "----------------");
     res.json({ userId, bookshelfToBook })
+    // res.redirect(200, `../../bookshelves/${bookshelfId}`);
+}));
+
+//DELETE BOOK FROM BOOKSHELF=============================================
+
+router.delete("/:id/bookshelves", asyncHandler(async (req, res) => {
+    const userId = req.session.auth.userId
+    const { bookshelfId, bookId } = req.body;
+    let deletedBookfromBookshelf = await db.BookshelfToBook.destroy({ where: { bookshelfId: parseInt(bookshelfId), bookId: parseInt(bookId) }});
+    res.json({ userId, deletedBookfromBookshelf })
 }));
 
 //DELETE BOOK =========================================================

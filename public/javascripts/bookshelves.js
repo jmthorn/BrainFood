@@ -118,3 +118,32 @@ for (const button of deleteBookshelves) {
     }
   });
 }
+
+  //DELETE BOOK FROM BOOKSHELF==========================
+
+  let deleteFromBookshelfBtns = document.querySelectorAll(
+    ".delete-from-bookshelf"
+  );
+  console.log("btns", deleteFromBookshelfBtns);
+  deleteFromBookshelfBtns.forEach((btn) => {
+    btn.addEventListener("click", async (event) => {
+      event.preventDefault();
+      let bookshelfId = event.target.baseURI.split("/")[4];
+      let bookId = event.target.getAttribute("book-id");
+      let res = await fetch(`/books/${bookId}/bookshelves`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          bookshelfId,
+          bookId,
+        }),
+      });
+      let data = await res.json();
+      console.log(data);
+    if (res.ok) {
+      event.target.parentElement.parentElement.remove();
+    }
+    });
+  });
