@@ -14,7 +14,7 @@
   flex-direction: column;
   align-content: center;
   /* background-color:lightblue; */
-  width: 35%;
+  width: 30%;
   height: 100vh;
 }
 
@@ -32,9 +32,9 @@
   align-content: center;
   /* background-color: blueviolet; */
   /* border :rgba(142, 154, 175, 0.548) */
-  width: 55%;
+  width: 42%;
   margin-top: 150px;
-  margin-left: 260px;
+  margin-left: 235px;
 }
 
 #profile-img {
@@ -47,12 +47,12 @@
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  margin-left: 114px;
+  margin-left: 215px;
   margin-top: 25px;
   /* position: static; */
 }
 
-@media screen and (max-width: 1506px) {
+@media screen and (max-width: 1700px) {
   .edit-btn-container{
     display:none;
   }
@@ -68,6 +68,7 @@
   font-size: 15px;
   width: 90px;
   padding: 5px;
+  margin-left: -85px;
   /* margin: 20px; */
 }
 
@@ -82,7 +83,7 @@
   font-size: 15px;
   width: 90px;
   padding: 5px;
-  margin-left: -207px;
+  margin-left: -105px;
   /* position: fixed; */
 }
 
@@ -107,7 +108,7 @@
 
 #username-value{
   font-weight: bold;
-  font-size: 30px;
+  font-size: 26px;
   margin-left: 88px;
 }
 
@@ -134,7 +135,7 @@
   border-radius: 35px;
   margin-top: 140px;
   overflow: scroll;
-  width: 1450px;
+  width: 1050px;
 }
 
 .main-container{
@@ -146,7 +147,7 @@ padding-bottom:200px;
   flex-direction: column;
   /* color: white; */
   color: black;
-  font-size: 32px;
+  font-size: 26px;
   font-weight: bold;
   margin-top: 45px;
   margin-left: 75px;
@@ -164,7 +165,7 @@ padding-bottom:200px;
 .books{
   display: flex;
   flex-direction: column;
-  width: 16em;
+  width: 14em;
   margin-top: 50px;
   margin-right: 5px;
   margin-left: 90px;
