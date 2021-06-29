@@ -41,7 +41,9 @@ block content
             div(id='fav-book-word') Your Favorite Books
             div(class='favorite-books-covers')
                 each review in reviews
-                  img(src= review.Book.cover class='books')
+                  a(href=`/books/${review.Book.id}`): img(src= review.Book.cover class='books')
+                  //- img(src= review.Book.cover class='books')
+                  //- a(href=`/books/${review.book})
   div(id="foot")
 
 
