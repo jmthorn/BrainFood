@@ -236,6 +236,8 @@
   list-style-type: none;
   z-index: 3;
   width: 87%;
+  border-radius: 10px;
+  box-shadow: 0 0 5px lightgray;
 }
 
 #searchResults li {
