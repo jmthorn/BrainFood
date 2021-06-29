@@ -13,7 +13,7 @@ block content
             div(class="form-container modal-content")
                 h1(class="form-header") Edit Book
                 form(action=`/books/${book.id}` method="post" class="user-form")
-                    +field("Cover", "cover", book.cover)
+                    +field("Cover (Image URL)", "cover", book.cover)
                     +field("Title", "title", book.title)
                     +field("Author", "author", book.author)
                     +field("Published", "published", book.published)
@@ -113,7 +113,7 @@ block content
                         each tag in book.Tags
                             div(class="book-tag")
                                 div(class="tag-cat")=tag.category
-                                button(class="delete-tag" value=tag.id id=tag.category) ⓧ 
+                                button(class="delete-tag" value=tag.id id=tag.category) ⓧ
                     form(class="add-tag-form")
                         input(class="tag-input")
                         button(class="tag-btn btn") Add
