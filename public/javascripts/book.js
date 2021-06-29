@@ -215,6 +215,36 @@ window.addEventListener("DOMContentLoaded", () => {
     })
 
 
+    let readStatusForm = document.querySelector(".readstatus-form")
+    readStatusForm.addEventListener("submit", async(e) => { 
+        e.preventDefault()
+        let readStatus = document.getElementById("rstatus")
+        let readStatusInput = readStatus.value
+        let bookId = event.target.baseURI.split('/')[4]
+
+        let res = await fetch(`/books/${bookId}/readstatus`, { 
+            method: "POST", 
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                readStatusInput
+            })
+        })
+        let data = await res.json()
+        let readStatusFeild = document.querySelector(".readstatus")
+        readStatusFeild.innerText = `Read Status: ${readStatusInput}`
+        let statusButton = document.createElement("button")
+        statusButton.classList.add("readstatus-edit")
+        statusButton.innerText = "Edit Status"
+        readStatusFeild.appendChild(statusButton)
+
+        statusButton.addEventListener("click", (event) => {
+            readstatusModal.classList.remove("hidden")
+            readstatusModal.classList.add("modal-show")
+        })
+    })
+
 
     // DELETE TAGS ===================================================
 

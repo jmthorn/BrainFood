@@ -29,7 +29,7 @@ router.get("/:id", asyncHandler(async (req, res) => {
 
     let readStatus = await db.ReadStatus.findOne({ where: { userId, bookId } })
     let status;
-    if (!readStatus) status = "None"
+    if (!readStatus) status = "Want to Read"
     else status = readStatus.status
     // if (!status) status = "None"
 
@@ -145,10 +145,10 @@ router.post("/:id/tags", asyncHandler(async (req, res) => {
 router.post("/:id/readstatus", asyncHandler(async (req, res) => {
     const userId = req.session.auth.userId
     let bookId = parseInt(req.params.id, 10)
-    const { status } = req.body;
+    const { readStatusInput } = req.body;
     let readStatus = await db.ReadStatus.findOne({ where: { bookId, userId } })
-    await readStatus.update({ status });
-    res.redirect(`/books/${bookId}`);
+    await readStatus.update({"status":readStatusInput});
+    res.json({readStatusInput})
 }))
 
 
