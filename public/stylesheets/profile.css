@@ -119,6 +119,10 @@
   margin-top: 140px;
 }
 
+.main-container{
+padding-bottom:200px;
+}
+
 #fav-book-word{
   display: flex;
   flex-direction: column;
