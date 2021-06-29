@@ -24,6 +24,8 @@ footer{
   background-color: #8e9aaf;
   color: white;
   height: 70px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .github-logo {
@@ -36,7 +38,15 @@ footer{
   vertical-align: middle;
 }
 
-.contributors {
+.linkedin-logo:hover{
+  width: 40px;
+}
+
+.github-logo:hover{
+  width: 70px;
+}
+
+.contributors{
   padding: 5px;
 }
 
