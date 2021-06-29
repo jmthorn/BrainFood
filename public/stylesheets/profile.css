@@ -3,7 +3,10 @@
   display:flex;
   flex-direction: row;
   width: 100%;
-  height: 100%;
+  /* height: 100%; */
+  height:100vh;
+  background-color: burlywood;
+
 }
 
 .innerLeft-main{
@@ -12,6 +15,7 @@
   align-content: center;
   /* background-color:lightblue; */
   width: 35%;
+  height: 100vh;
 }
 
 .innerRight-main{
@@ -26,8 +30,10 @@
   display: flex;
   flex-direction: column;
   align-content: center;
+  /* background-color: blueviolet; */
+  /* border :rgba(142, 154, 175, 0.548) */
   width: 55%;
-  margin-top: 400px;
+  margin-top: 150px;
   margin-left: 260px;
 }
 
@@ -76,7 +82,7 @@
   flex-direction: column;
   /* background-color: lightgreen; */
   width: 450px;
-  margin-top: 435px;
+  margin-top: 150px;
 }
 
 .userName{
@@ -113,10 +119,11 @@
 .favorite-books-container{
   display: flex;
   flex-direction: column;
-  width: 1550px;
   background-color: rgba(142, 154, 175, 0.548);
   border-radius: 35px;
   margin-top: 140px;
+  overflow: scroll;
+  width: 1450px;
 }
 
 .main-container{
@@ -130,7 +137,7 @@ padding-bottom:200px;
   font-size: 32px;
   font-weight: bold;
   margin-top: 45px;
-  margin-left: 125px;
+  margin-left: 75px;
 
 }
 
@@ -145,10 +152,10 @@ padding-bottom:200px;
 .books{
   display: flex;
   flex-direction: column;
-  width: 20em;
+  width: 16em;
   margin-top: 50px;
   margin-right: 5px;
-  margin-left: 128px;
+  margin-left: 90px;
   margin-bottom: 50px;
 }
 
