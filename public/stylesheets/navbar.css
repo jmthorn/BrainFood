@@ -37,6 +37,13 @@
 
 #nav-middle {
   display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  flex-direction: column;
+  position: relative;
+}
+#nav-middle div {
+  display: flex;
   justify-content: space-evenly;
 }
 
@@ -116,7 +123,7 @@
 
 .fa-search {
   margin-left: -22px;
-  margin-top: 8px;
+  margin-top: 14px;
   height: 25px;
   width: 25px;
 }
@@ -215,8 +222,43 @@
   height: 40px;
   color: grey;
   border-radius: 5px;
-  width: 600px;
+  width: 25em;
   padding: 15px;
   font-style: italic;
   border: none;
+}
+
+#searchResults {
+  position: absolute;
+  background-color: white;
+  top: 3em;
+  border: 1px solid lightgray;
+  list-style-type: none;
+  z-index: 3;
+  width: 87%;
+}
+
+#searchResults li {
+  padding: 6px 8px 4px;
+  text-align: left;
+  margin-left: 0;
+  color: black;
+}
+
+#searchResults a {
+  text-decoration: none;
+  padding: 2px;
+}
+
+#searchResults li:hover {
+  color: rgb(158, 158, 158);
+}
+
+@media (max-width: 1200px) {
+  #navbar-search,
+  #navbar-search div,
+  .fa-search:before,
+  .fa-search {
+    display: none;
+  }
 }

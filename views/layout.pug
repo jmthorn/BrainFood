@@ -9,6 +9,7 @@ html
         script(src="https://kit.fontawesome.com/a229c5b13d.js" crossorigin="anonymous")
         link(rel='stylesheet' href='/stylesheets/footer.css')
         script(src="/javascripts/index.js")
+        script(src="/javascripts/search.js")
   body
     nav(class='navbar')
       div(class='main-div-container')
@@ -26,10 +27,10 @@ html
             div(class='nav-buttons-div')
               a(class='nav-link' id='navbar-mybooks' href=`/bookshelves/1`) My Books
         div(id='nav-middle' )
-          input(type="search" name="term" id='navbar-search' placeholder="Search Books" required)
-          //- button(type='submit' class='navbar-search-btn')
-          i.fas.fa-search
-          //- 🔍
+          div 
+            input(type="search" name="term" id='navbar-search' placeholder="Search Books" required)
+            i.fas.fa-search
+          ul(id="searchResults" style={'visibility':"hidden"})
         if user
             div(id='outer-right-container')
               div(id='logged-in-display')
