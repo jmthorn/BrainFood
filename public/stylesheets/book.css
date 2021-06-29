@@ -153,6 +153,11 @@
   margin-bottom: 30px;
 }
 
+.readstatus-form {
+  display: flex;
+  flex-direction: column;
+}
+
 .readstatus {
   position: relative;
   padding: 10px;
@@ -220,14 +225,24 @@
 
 .read-status-modal-content {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.submit-div {
+.read-status-modal-content select {
+  margin: 1em;
+}
+
+.status-submit-div {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.status-submit-div a {
+  color: black;
 }
 
 /* BOOK SIDEBAR ======================================= ========== */
