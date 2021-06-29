@@ -37,6 +37,13 @@
 
 #nav-middle {
   display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  flex-direction: column;
+  position: relative;
+}
+#nav-middle div {
+  display: flex;
   justify-content: space-evenly;
 }
 
@@ -219,6 +226,32 @@
   padding: 15px;
   font-style: italic;
   border: none;
+}
+
+#searchResults {
+  position: absolute;
+  background-color: white;
+  top: 3em;
+  border: 1px solid lightgray;
+  list-style-type: none;
+  z-index: 3;
+  width: 87%;
+}
+
+#searchResults li {
+  padding: 6px 8px 4px;
+  text-align: left;
+  margin-left: 0;
+  color: black;
+}
+
+#searchResults a {
+  text-decoration: none;
+  padding: 2px;
+}
+
+#searchResults li:hover {
+  color: rgb(158, 158, 158);
 }
 
 @media (max-width: 1200px) {

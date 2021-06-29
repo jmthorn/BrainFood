@@ -8,10 +8,10 @@ const { Op } = require("sequelize");
 
 
 router.get("/:id", asyncHandler(async (req, res) => {
+    if (!req.params.id === "|") return res.json ({searchBooks:[]})
     let searchParams = req.params.id
-    console.log(searchParams)
     let searchBooks = await db.Book.findAll({ 
-        limit: 10,
+        limit: 8,
         where: {
             title: { 
                 [Op.iLike]: '%' + searchParams + '%'
