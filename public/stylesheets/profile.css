@@ -69,6 +69,7 @@
   width: 90px;
   padding: 5px;
   margin-left: -85px;
+  cursor: pointer;
   /* margin: 20px; */
 }
 
@@ -84,6 +85,7 @@
   width: 90px;
   padding: 5px;
   margin-left: -105px;
+  cursor: pointer;
   /* position: fixed; */
 }
 
@@ -171,12 +173,6 @@ padding-bottom:200px;
   margin-left: 90px;
   margin-bottom: 50px;
 }
-
-
-
-
-
-
 
 
 .modal-show {
