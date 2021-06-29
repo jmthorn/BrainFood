@@ -4,6 +4,7 @@ include utils.pug
 
 append head
   link(rel='stylesheet' href='/stylesheets/navbar.css')
+  link(rel='stylesheet' href='/stylesheets/index.css')
   link(rel='stylesheet' href='/stylesheets/profile.css')
   link(rel='stylesheet' href='/stylesheets/global.css')
   link(rel='stylesheet' href='/stylesheets/footer.css')
@@ -20,7 +21,8 @@ block content
                 div(class='submit-div')
                     button(type='submit' id='edit-btn' class='btn submit edit-user-btn') Submit
                     a(href=`/users/profile/${user.id}` class='a clear') Clear
-  div(class='background-image main-container')
+  div(class='background-image')
+  div(class='main-container')
         div(class='innerLeft-main')
           div(class='profile-img-container')
             img(src= user.image id='profile-img')
@@ -40,6 +42,7 @@ block content
             div(class='favorite-books-covers')
                 each review in reviews
                   img(src= review.Book.cover class='books')
+  div(id="foot")
 
 
 

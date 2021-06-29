@@ -17,6 +17,10 @@ footer{
   opacity: 0.9;
 }
 
+#footer-space{
+  height:100px
+}
+
 .each-contributor:hover{
   display: flex;
   align-items: center;
@@ -43,7 +47,7 @@ footer{
 }
 
 .github-logo:hover{
-  width: 70px;
+  width: 80px;
 }
 
 .contributors{
