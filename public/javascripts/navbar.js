@@ -9,24 +9,26 @@
    modal.classList.remove("hidden");
    modal.classList.add("modal-show");
    let bookshelfId = event.target.baseURI.split("/")[4];
-   let title = document.getElementById("title").value;
-   let author = document.getElementById("author").value;
-   let published = document.getElementById("published").value;
+   let cover = document.getElementById("add-cover").value
+   let title = document.getElementById("add-title").value;
+   let author = document.getElementById("add-author").value;
+   let published = document.getElementById("add-published").value;
 
-
-    let res = await fetch(`/bookshelves/${bookshelfId}/add-book`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                cover,
-                title,
-                author,
-                published
+    if(published.length > 0) { 
+        let res = await fetch(`/bookshelves/${bookshelfId}/add-book`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    cover,
+                    title,
+                    author,
+                    published
+                })
             })
-        })
-      let data = await res.json();
+          let data = await res.json();
+    }
  });
 })
 
