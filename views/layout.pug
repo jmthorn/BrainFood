@@ -6,10 +6,12 @@ html
         link(rel='stylesheet' href='/stylesheets/navbar.css')
         link(rel='stylesheet' href='/stylesheets/user.css')
         link(rel='stylesheet' href='/stylesheets/global.css')
+        link(rel='stylesheet' href='/stylesheets/bookshelves.css')
         script(src="https://kit.fontawesome.com/a229c5b13d.js" crossorigin="anonymous")
         link(rel='stylesheet' href='/stylesheets/footer.css')
         //- script(src="/javascripts/index.js")
         script(src="/javascripts/search.js")
+        script(src="/javascripts/navbar.js")
   body
     nav(class='navbar')
       div(class='main-div-container')
@@ -26,6 +28,26 @@ html
           else
             div(class='nav-buttons-div')
               a(class='nav-link' id='navbar-mybooks' href=`/bookshelves/1`) My Books
+          a(class='add-book-btn') Add Book
+              div(class="hidden" id="add-book-modal")
+                div(id='add-book-div' class="form-container modal-content")
+                  h1(class="form-header") Add Book
+                    form(action="/bookshelves/add-book" method='post' class="user-form")
+                      div(class='add-book-form-group')
+                        label(for='cover' class='user-label') Cover (Image URL)
+                          input(type='text' id='cover' name='cover' placeholder=null class='form-control user-input')
+                      div(class='add-book-form-group')
+                        label(for='title' class='user-label') Title
+                          input(type='text' id='title' name='title' placeholder=null class='form-control user-input')
+                      div(class='add-book-form-group')
+                        label(for='author' class='user-label') Author
+                          input(type='text' id='author' name='author' placeholder=null class='form-control user-input')
+                      div(class='add-book-form-group')
+                        label(for='published' class='user-label') Published
+                          input(type='text' id='published' name='published' placeholder=null class='form-control user-input')
+                      div(class='submit-div')
+                        button(type='submit' class="user-form" class='btn submit') Add
+                        a(href='/bookshelves/add-book' class='a clear') Clear
         div(id='nav-middle' )
           div
             input(type="search" name="term" id='navbar-search' placeholder="Search Books  by  title  or  tag" required)
