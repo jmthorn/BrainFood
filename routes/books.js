@@ -147,8 +147,8 @@ router.post("/:id/readstatus", asyncHandler(async (req, res) => {
     let bookId = parseInt(req.params.id, 10)
     const { readStatusInput } = req.body;
     let readStatus = await db.ReadStatus.findOne({ where: { bookId, userId } })
-    await readStatus.update({"status":readStatusInput});
-    res.json({readStatusInput})
+    await readStatus.update({ "status": readStatusInput });
+    res.json({ readStatusInput })
 }))
 
 
@@ -156,13 +156,13 @@ router.post("/:id/readstatus", asyncHandler(async (req, res) => {
 
 
 
-router.post("/tags/:id", asyncHandler(async (req, res) => {
+router.delete("/tags/:id", asyncHandler(async (req, res) => {
 
     let { bookId, tagId } = req.body
-    console.log(bookId, tagId)
+    console.log("BACKEND", bookId, tagId)
     const tag = await db.Tag.findOne({ where: { tagId, bookId }, include: db.Book });
-    // await tag.destroy();
-    console.log('HELOOOOOOOOOOOOO', tag)
+    await tag.destroy();
+    console.log('HELOOOOOOOOOOOOO TAAG', tag)
 
     res.redirect(`/books/${bookId}`);
 })

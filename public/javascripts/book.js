@@ -6,7 +6,7 @@ window.addEventListener("DOMContentLoaded", () => {
         let h4 = document.createElement('h4');
         h4.classList.add("review-author");
         div.appendChild(h4);
-        h4.innerText =review.author;
+        h4.innerText = review.author;
         let ratingSpan = document.createElement("span")
         ratingSpan.classList.add("review-rating");
         for (let i = 1; i <= review.rating; i++) {
@@ -188,9 +188,9 @@ window.addEventListener("DOMContentLoaded", () => {
         })
 
         let data = await res.json()
-        if(!data.newTag) {
+        if (!data.newTag) {
             addTag(data.existingTag.category)
-        } else   [
+        } else[
             addTag(data.newTag.category)
         ]
     })
@@ -216,14 +216,14 @@ window.addEventListener("DOMContentLoaded", () => {
 
 
     let readStatusForm = document.querySelector(".readstatus-form")
-    readStatusForm.addEventListener("submit", async(e) => { 
+    readStatusForm.addEventListener("submit", async (e) => {
         e.preventDefault()
         let readStatus = document.getElementById("rstatus")
         let readStatusInput = readStatus.value
         let bookId = event.target.baseURI.split('/')[4]
 
-        let res = await fetch(`/books/${bookId}/readstatus`, { 
-            method: "POST", 
+        let res = await fetch(`/books/${bookId}/readstatus`, {
+            method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
@@ -250,25 +250,23 @@ window.addEventListener("DOMContentLoaded", () => {
 
     let tagdeletebtn = document.querySelectorAll(".delete-tag")
     for (const button of tagdeletebtn) {
-        button.addEventListener("click", async(event) => { 
+        button.addEventListener("click", async (event) => {
             event.preventDefault()
             let tagId = event.target.value
-            
             let bookId = event.target.baseURI.split('/')[4]
             console.log('DELETEEEEEEEEE', bookId, tagId)
             let res = await fetch(`/books/tags/${tagId}`, {
-                method: "POST",
+                method: "DELETE",
                 headers: {
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify({
-                    bookId, 
-                    tagId
-                })
             })
-            console.log('DELETEEEEEEEEE', bookId)
-            let data = await res.json()
-            console.log(data)
+            console.log('DELETEEEEEEEEE', bookId, res)
+            if (res.ok) {
+                event.target.parentElement.remove();
+            }
+            // let data = await res.json()
+            // console.log("DATAAAA:", data)
         })
     }
 

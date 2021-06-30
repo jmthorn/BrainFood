@@ -1,5 +1,5 @@
 const newShelf = document.getElementById("add-shelf-button");
- 
+
  newShelf.addEventListener('click', event => {
       event.preventDefault();
       const bookshelvesList = document.getElementById("ul-bookshelves");
@@ -60,7 +60,7 @@ const newShelf = document.getElementById("add-shelf-button");
 
 
  //Modal -----------------
- 
+
  let modal = document.getElementById("modal");
  let addBtn = document.querySelector(".add-book");
 
@@ -95,7 +95,7 @@ const newShelf = document.getElementById("add-shelf-button");
      modal.classList.add("hidden");
    }
  });
- 
+
 
 //Delete Bookshelf
 
