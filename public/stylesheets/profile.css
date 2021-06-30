@@ -3,7 +3,10 @@
   display:flex;
   flex-direction: row;
   width: 100%;
-  height: 100%;
+  /* height: 100%; */
+  height:100vh;
+  /* background-color: burlywood; */
+
 }
 
 .innerLeft-main{
@@ -11,7 +14,8 @@
   flex-direction: column;
   align-content: center;
   /* background-color:lightblue; */
-  width: 35%;
+  width: 30%;
+  height: 100vh;
 }
 
 .innerRight-main{
@@ -26,9 +30,11 @@
   display: flex;
   flex-direction: column;
   align-content: center;
-  width: 55%;
-  margin-top: 400px;
-  margin-left: 260px;
+  /* background-color: blueviolet; */
+  /* border :rgba(142, 154, 175, 0.548) */
+  width: 42%;
+  margin-top: 150px;
+  margin-left: 235px;
 }
 
 #profile-img {
@@ -36,12 +42,20 @@
   border-radius: 15px;
 }
 
+
 .edit-btn-container{
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  margin-left: 114px;
+  margin-left: 215px;
   margin-top: 25px;
+  /* position: static; */
+}
+
+@media screen and (max-width: 1700px) {
+  .edit-btn-container{
+    display:none;
+  }
 }
 
 #modal-button {
@@ -54,6 +68,7 @@
   font-size: 15px;
   width: 90px;
   padding: 5px;
+  margin-left: -85px;
   /* margin: 20px; */
 }
 
@@ -68,15 +83,17 @@
   font-size: 15px;
   width: 90px;
   padding: 5px;
-  margin-left: -207px;
+  margin-left: -105px;
+  /* position: fixed; */
 }
+
 
 .details-container{
   display: flex;
   flex-direction: column;
   /* background-color: lightgreen; */
   width: 450px;
-  margin-top: 435px;
+  margin-top: 150px;
 }
 
 .userName{
@@ -91,7 +108,7 @@
 
 #username-value{
   font-weight: bold;
-  font-size: 30px;
+  font-size: 26px;
   margin-left: 88px;
 }
 
@@ -113,10 +130,12 @@
 .favorite-books-container{
   display: flex;
   flex-direction: column;
-  width: 1550px;
-  background-color: rgba(142, 154, 175, 0.548);
+  /* background-color: rgba(142, 154, 175, 0.548); */
+  background-color: rgba(185, 162, 182, 0.829);
   border-radius: 35px;
   margin-top: 140px;
+  overflow: scroll;
+  width: 1050px;
 }
 
 .main-container{
@@ -126,11 +145,12 @@ padding-bottom:200px;
 #fav-book-word{
   display: flex;
   flex-direction: column;
-  color: white;
-  font-size: 32px;
+  /* color: white; */
+  color: black;
+  font-size: 26px;
   font-weight: bold;
   margin-top: 45px;
-  margin-left: 125px;
+  margin-left: 75px;
 
 }
 
@@ -145,10 +165,10 @@ padding-bottom:200px;
 .books{
   display: flex;
   flex-direction: column;
-  width: 20em;
+  width: 14em;
   margin-top: 50px;
   margin-right: 5px;
-  margin-left: 128px;
+  margin-left: 90px;
   margin-bottom: 50px;
 }
 
