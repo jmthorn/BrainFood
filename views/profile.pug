@@ -21,6 +21,7 @@ block content
                 div(class='submit-div')
                     button(type='submit' id='edit-btn' class='btn submit edit-user-btn') Submit
                     a(href=`/users/profile/${user.id}` class='a clear') Clear
+  //- div(class='background-image main-container')
   div(class='background-image')
   div(class='main-container')
         div(class='innerLeft-main')
@@ -41,7 +42,9 @@ block content
             div(id='fav-book-word') Your Favorite Books
             div(class='favorite-books-covers')
                 each review in reviews
-                  img(src= review.Book.cover class='books')
+                  a(href=`/books/${review.Book.id}`): img(src= review.Book.cover class='books')
+                  //- img(src= review.Book.cover class='books')
+                  //- a(href=`/books/${review.book})
   div(id="foot")
 
 
