@@ -147,11 +147,6 @@ router.post('/logout', (req, res) => {
 });
 
 
-// ------------------------------------------------------------------------------------------
-//  JC adding profile section below :
-
-
-
 //http://localhost:8080/users/profile/:id - - WORKS
 router.get('/profile/:id(\\d+)', requireAuth, asyncHandler(async (req, res) => {
   const id = parseInt(req.params.id);
@@ -201,44 +196,16 @@ router.patch('/profile/:id(\\d+)', asyncHandler(async (req, res) => {
 // backend route for delete button for front end route - WORKS
 //http://localhost:8080/users/profile/:id
 
-// router.delete('/profile/:id(\\d+)', asyncHandler(async (req, res)=>{
-//   // const  id  = parseInt(req.params.id);
-//   const id = parseInt(req.body.personId);
-//   console.log(req.body);
-//   const user = await db.User.findByPk(id);
-//   console.log(id);
-//   console.log(typeof id);
-//   // console.log(user);
-
-//   await user.destroy()
-//   // logoutUser()                    // it stalls at this point
-//   console.log('----hello----')
-//   // next();
-
-//   // res.redirect(303, "/users/signup")
-//   // res.json({message:'Success!'})
-//   // res.render('user-signup')
-// }))
 router.delete('/profile/:id', asyncHandler(async (req, res) => {
-  // const  id  = parseInt(req.params.id);
   const id = parseInt(req.body.personId);
-  console.log(req.body);
   const user = await db.User.findByPk(id);
-  console.log(id);
-  console.log(typeof id);
-  // console.log(user);
+
   await user.destroy()
   logoutUser(req, res);
-  // res.redirect('/users/login')
-  console.log('----hello----')
-  // next();
-  res.location("/users/signup")
-  res.redirect(303, "/users/signup")
-  // res.json({message:'Success!'})
-  res.render('user-signup')
+
+  console.log('----After the GET----')
+  res.redirect(303, "/users/login")
 }))
-
-
 
 
 module.exports = router;
