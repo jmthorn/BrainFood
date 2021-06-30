@@ -8,18 +8,27 @@ const { Op } = require("sequelize");
 
 
 router.get("/:id", asyncHandler(async (req, res) => {
-    if (!req.params.id === "|") return res.json ({searchBooks:[]})
+    if (!req.params.id === "|") return res.json({ searchBooks: [] })
     let searchParams = req.params.id
-    let searchBooks = await db.Book.findAll({ 
+    let searchBooks = await db.Book.findAll({
         limit: 8,
+        include: [{
+            model: db.Tag,
+            duplicating: false
+        }],
         where: {
-            title: { 
-                [Op.iLike]: '%' + searchParams + '%'
-            }
-        }
+            [Op.or]: [
+                { title: { [Op.iLike]: '%' + searchParams + '%' } },
+                { '$Tags.category$': { [Op.iLike]: '%' + searchParams + '%' } }
+            ]
+        },
+        // group: ['Books.id']
     })
     res.json({ searchBooks })
 }))
 
 
 module.exports = router;
+
+
+// notes: hidden feature duplicating: false https://github.com/sequelize/sequelize/issues/4446
