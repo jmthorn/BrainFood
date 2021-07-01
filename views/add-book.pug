@@ -1,14 +1,14 @@
-extends layout.pug 
+extends layout.pug
 include utils.pug
 
 append head
    link(rel='stylesheet' href='/stylesheets/add-books.css')
 
-block content 
+block content
    div(id='add-book-div')
     h1(class="form-header") Add Book
     form(action="/bookshelves/add-book" method='post')
-        +field('Cover', 'cover', book.cover)
+        +field('Cover (Image URL)', 'cover', book.cover)
         +field('Title', 'title', book.title)
         +field('Author', 'author', book.author)
         +field('Published', 'published', book.published)

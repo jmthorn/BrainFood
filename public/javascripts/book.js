@@ -81,6 +81,110 @@ window.addEventListener("DOMContentLoaded", () => {
       } else {
         // TODO
       }
+
+
+    let tagBtn = document.querySelector(".tag-btn")
+    tagBtn.addEventListener("click", async (event) => {
+        event.preventDefault()
+
+        let tagInput = document.querySelector(".tag-input")
+        let category = tagInput.value
+        let bookId = event.target.baseURI.split('/')[4]
+
+        let res = await fetch(`/books/${bookId}/tags`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                category,
+                bookId
+            })
+        })
+
+        let data = await res.json()
+        if(!data.newTag) {
+            addTag(data.existingTag.category)
+        } else   [
+            addTag(data.newTag.category)
+        ]
+    })
+
+
+
+    //EDIT READSTATUS FROM BOOK==========================
+
+    let readstatusModal = document.getElementById("readstatus-modal")
+    let readeditBtn = document.querySelector(".readstatus-edit")
+
+    readeditBtn.addEventListener("click", (event) => {
+        readstatusModal.classList.remove("hidden")
+        readstatusModal.classList.add("modal-show")
+    })
+
+    window.addEventListener("click", (event) => {
+        if (event.target === readstatusModal) {
+            readstatusModal.classList.remove("modal-show")
+            readstatusModal.classList.add("hidden")
+        }
+    })
+
+
+    let readStatusForm = document.querySelector(".readstatus-form")
+    readStatusForm.addEventListener("submit", async(e) => { 
+        e.preventDefault()
+        let readStatus = document.getElementById("rstatus")
+        let readStatusInput = readStatus.value
+        let bookId = event.target.baseURI.split('/')[4]
+
+        let res = await fetch(`/books/${bookId}/readstatus`, { 
+            method: "POST", 
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                readStatusInput
+            })
+        })
+        let data = await res.json()
+        let readStatusFeild = document.querySelector(".readstatus")
+        readStatusFeild.innerText = `Read Status: ${readStatusInput}`
+        let statusButton = document.createElement("button")
+        statusButton.classList.add("readstatus-edit")
+        statusButton.innerText = "Edit Status"
+        readStatusFeild.appendChild(statusButton)
+
+        statusButton.addEventListener("click", (event) => {
+            readstatusModal.classList.remove("hidden")
+            readstatusModal.classList.add("modal-show")
+        })
+    })
+
+
+    // DELETE TAGS ===================================================
+
+    let tagdeletebtn = document.querySelectorAll(".delete-tag")
+    for (const button of tagdeletebtn) {
+        button.addEventListener("click", async(event) => { 
+            event.preventDefault()
+            let tagId = event.target.value
+            
+            let bookId = event.target.baseURI.split('/')[4]
+            console.log('DELETEEEEEEEEE', bookId, tagId)
+            let res = await fetch(`/books/tags/${tagId}`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    bookId, 
+                    tagId
+                })
+            })
+            console.log('DELETEEEEEEEEE', bookId)
+            let data = await res.json()
+            console.log(data)
+        })
     }
     // check if any of the edit buttons are clicked (including new edit button)
     if (event.target.classList.contains("review-edit-btn")) {
