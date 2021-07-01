@@ -12,29 +12,30 @@ block content
     .all-content
       div(id="my-books-div")
         div(id="bookshelves-div")
-        span(id="my-books-text") My Books
+        span(id="my-books-text")
           div(id='bookshelves')
             label(id="bkslflabel") Bookshelves
             ul(id='ul-bookshelves')
               each bookshelf in bookshelves
-                li(class="bookshelf-li"): a(href=`/bookshelves/${bookshelf.id}` class='bookshelf-links') #{bookshelf.name}
+                .bookshelf-name
+                  li(class="bookshelf-li"): a(href=`/bookshelves/${bookshelf.id}` class='bookshelf-links') #{bookshelf.name}
                   a(bookshelf-id=`${bookshelf.id}` class="bookshelf-li delete-button" ) ⓧ
             form(method='post'  id='add-shelf')
               input(type="text" name='listname' placeholder='Add Bookshelf')
-              button(type='submit' id='add-shelf-button') Add
-          div(id='add-books')
-            div(class="hidden" id="modal")
-              div(id='add-book-div' class="form-container modal-content")
-               h1(class="form-header") Add Book
-                form(action="/bookshelves/add-book" method='post' class="user-form")
-                    +field('Cover (Image URL)', 'cover', book.cover)
-                    +field('Title', 'title', book.title)
-                    +field('Author', 'author', book.author)
-                    +field('Published', 'published', book.published)
-                    div(class='submit-div')
-                      button(type='submit' class="user-form" class='btn submit') Add
-                      a(href='/bookshelves/add-book' class='a clear') Clear
-          a(class='add-book') Add Book
+              button(type='submit' class='btn' id='add-shelf-button') Add
+          //- div(id='add-books')
+          //-   div(class="hidden" id="modal")
+          //-     div(id='add-book-div' class="form-container modal-content")
+          //-      h1(class="form-header") Add Book
+          //-       form(action="/bookshelves/add-book" method='post' class="user-form")
+          //-           +field('Cover (Image URL)', 'cover', book.cover)
+          //-           +field('Title', 'title', book.title)
+          //-           +field('Author', 'author', book.author)
+          //-           +field('Published', 'published', book.published)
+          //-           div(class='submit-div')
+          //-             button(type='submit' class="user-form" class='btn submit') Add
+          //-             a(href='/bookshelves/add-book' class='a clear') Clear
+          //- a(class='add-book') Add Book
       if bookshelf.Books.length
         div(id='main-table')  #{bookshelf.name}
           table(class='book_table')

@@ -42,7 +42,6 @@ a {
   padding-top: 200px;
 }
 
-
 #my-books-div {
   position: flex;
   left: 10%;
@@ -62,8 +61,6 @@ a {
   padding-bottom: 15px;
 }
 
-
-
 #main-table {
   /* grid-row-start: 3;
     grid-column-start: 3; */
@@ -80,8 +77,15 @@ th,
 td {
   border-bottom: 1px solid rgb(126, 125, 125);
   width: 200px;
-  height: 100px;
+  height: 50px;
   text-align: center;
+  font-size: 20px;
+}
+
+td img {
+  width: 120px;
+  height: 200px;
+  padding: 10px;
 }
 
 .book_table {
@@ -136,11 +140,25 @@ td {
 
 #ul-bookshelves {
   padding-bottom: 30px;
-  left: 10px;
   top: 0px;
+  left: -12px;
   height: 450px;
   position: relative;
   overflow-y: hidden;
+  margin-top: 10px;
+}
+
+.bookshelf-name {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  font-size: 16px;
+  justify-content: space-between;
+  padding-left: 0;
+}
+
+.bookshelf-name li {
+  list-style-type: none;
 }
 
 #delete-button {
@@ -211,5 +229,25 @@ th {
   margin: 15% auto; /* 15% from the top and centered */
   padding: 20px;
   border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
+  width: 40%;
+}
+
+.add-book-form-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  font-size: 18px;
+}
+
+.add-book-form-group input {
+  margin-left: 10px;
+}
+
+.add-book-form-group label:hover {
+  text-decoration: none !important;
+}
+
+.submit-div a {
+  color: black;
+  font-size: 16px;
 }

@@ -265,3 +265,12 @@
     display: none;
   }
 }
+
+.add-book-btn {
+  color: black;
+  font-weight: 500;
+}
+
+.add-book-btn:hover {
+  text-decoration: none;
+}

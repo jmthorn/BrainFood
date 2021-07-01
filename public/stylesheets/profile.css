@@ -1,15 +1,13 @@
-
-.main-container{
-  display:flex;
+.main-container {
+  display: flex;
   flex-direction: row;
   width: 100%;
   /* height: 100%; */
-  height:100vh;
+  height: 100vh;
   /* background-color: burlywood; */
-
 }
 
-.innerLeft-main{
+.innerLeft-main {
   display: flex;
   flex-direction: column;
   align-content: center;
@@ -18,7 +16,7 @@
   height: 100vh;
 }
 
-.innerRight-main{
+.innerRight-main {
   display: flex;
   flex-direction: column;
   align-content: center;
@@ -26,7 +24,7 @@
   width: 65%;
 }
 
-.profile-img-container{
+.profile-img-container {
   display: flex;
   flex-direction: column;
   align-content: center;
@@ -42,8 +40,7 @@
   border-radius: 15px;
 }
 
-
-.edit-btn-container{
+.edit-btn-container {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -53,8 +50,8 @@
 }
 
 @media screen and (max-width: 1700px) {
-  .edit-btn-container{
-    display:none;
+  .edit-btn-container {
+    display: none;
   }
 }
 
@@ -62,7 +59,7 @@
   /* border-radius: 20px;
   margin: 15px;
   width: 65px; */
-  background-color:rgba(185, 162, 182, 0.829);
+  background-color: rgba(185, 162, 182, 0.829);
   border-radius: 5px;
   box-shadow: 0 0 10px rgb(163 162 162);
   font-size: 15px;
@@ -72,7 +69,6 @@
   cursor: pointer;
   /* margin: 20px; */
 }
-
 
 #delete-btn {
   /* border-radius: 20px;
@@ -89,8 +85,7 @@
   /* position: fixed; */
 }
 
-
-.details-container{
+.details-container {
   display: flex;
   flex-direction: column;
   /* background-color: lightgreen; */
@@ -98,17 +93,17 @@
   margin-top: 150px;
 }
 
-.userName{
+.userName {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
 
-#user-name{
+#user-name {
   font-size: 20px;
 }
 
-#username-value{
+#username-value {
   font-weight: bold;
   font-size: 26px;
   margin-left: 88px;
@@ -120,16 +115,16 @@
   align-items: center;
 }
 
-#email{
+#email {
   font-size: 20px;
 }
 
-#email-value{
+#email-value {
   font-size: 20px;
   margin-left: 139px;
 }
 
-.favorite-books-container{
+.favorite-books-container {
   display: flex;
   flex-direction: column;
   /* background-color: rgba(142, 154, 175, 0.548); */
@@ -140,11 +135,11 @@
   width: 1050px;
 }
 
-.main-container{
-padding-bottom:200px;
+.main-container {
+  padding-bottom: 200px;
 }
 
-#fav-book-word{
+#fav-book-word {
   display: flex;
   flex-direction: column;
   /* color: white; */
@@ -153,18 +148,15 @@ padding-bottom:200px;
   font-weight: bold;
   margin-top: 45px;
   margin-left: 75px;
-
 }
 
-
-.favorite-books-covers{
+.favorite-books-covers {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
 }
 
-
-.books{
+.books {
   display: flex;
   flex-direction: column;
   width: 14em;
@@ -173,7 +165,6 @@ padding-bottom:200px;
   margin-left: 90px;
   margin-bottom: 50px;
 }
-
 
 .modal-show {
   display: block; /* Hidden by default */
@@ -197,5 +188,5 @@ padding-bottom:200px;
   margin: 15% auto; /* 15% from the top and centered */
   padding: 20px;
   border: 1px solid #888;
-  width: 65%; /* Could be more or less, depending on screen size */
+  width: 40%; /* Could be more or less, depending on screen size */
 }
