@@ -255,8 +255,8 @@ window.addEventListener("DOMContentLoaded", () => {
             let tagId = event.target.value
             let bookId = event.target.baseURI.split('/')[4]
             console.log('DELETEEEEEEEEE', bookId, tagId)
-            let res = await fetch(`/books/tags/${tagId}`, {
-                method: "DELETE",
+            let res = await fetch(`/books/${bookId}/tags/${tagId}`, {
+                method: "delete",
                 headers: {
                     "Content-Type": "application/json"
                 },

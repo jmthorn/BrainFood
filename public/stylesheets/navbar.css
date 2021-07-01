@@ -265,3 +265,8 @@
     display: none;
   }
 }
+
+.add-book-btn {
+  color: black;
+  font-weight: 500;
+}

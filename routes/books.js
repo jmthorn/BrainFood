@@ -156,15 +156,14 @@ router.post("/:id/readstatus", asyncHandler(async (req, res) => {
 
 
 
-router.delete("/tags/:id", asyncHandler(async (req, res) => {
+router.delete("/:bookId/tags/:tagId", asyncHandler(async (req, res) => {
 
-    let { bookId, tagId } = req.body
+    let { bookId, tagId } = req.params;
     console.log("BACKEND", bookId, tagId)
-    const tag = await db.Tag.findOne({ where: { tagId, bookId }, include: db.Book });
-    await tag.destroy();
-    console.log('HELOOOOOOOOOOOOO TAAG', tag)
-
-    res.redirect(`/books/${bookId}`);
+    const bookToTag = await db.BookToTag.findOne({ where: { tagId, bookId } });
+    await bookToTag.destroy();
+    console.log('HELOOOOOOOOOOOOO TAAG', bookToTag)
+    res.json({ bookToTag });
 })
 );
 

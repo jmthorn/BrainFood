@@ -59,6 +59,7 @@ const newShelf = document.getElementById("add-shelf-button");
  });
 
 
+<<<<<<< HEAD
  //Modal -----------------
 
  let modal = document.getElementById("modal");
@@ -96,6 +97,10 @@ const newShelf = document.getElementById("add-shelf-button");
    }
  });
 
+=======
+
+ 
+>>>>>>> f23b57fcad33de09d2b184cf5c61eece31da78f8
 
 //Delete Bookshelf
 
