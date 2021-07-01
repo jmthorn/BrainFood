@@ -12,6 +12,12 @@ html
         //- script(src="/javascripts/index.js")
         script(src="/javascripts/search.js")
         script(src="/javascripts/navbar.js")
+        meta(name="description" content="BrainFood App")
+        meta(name="title" property="og:title" content="BrainFood")
+        meta(property="og:type" content="Website")
+        meta(name="image" property="og:image" content="https://www.flickr.com/photos/193359632@N07/51280948592/in/dateposted-public/")
+        meta(name="description" property="og:description" content="BrainFood App")
+        meta(name="author" content="Jessica Thornton, Lisa Noor, Jonathan Chan, Keith Mellea")
   body
     nav(class='navbar')
       div(class='main-div-container')
@@ -35,16 +41,16 @@ html
                     form(action="/bookshelves/add-book" method='post' class="user-form")
                       div(class='add-book-form-group')
                         label(for='cover' class='user-label') Cover (Image URL)
-                          input(type='text' id='cover' name='cover' placeholder=null class='form-control user-input')
+                          input(type='text' id='add-cover' name='cover' placeholder=null class='form-control user-input')
                       div(class='add-book-form-group')
                         label(for='title' class='user-label') Title
-                          input(type='text' id='title' name='title' placeholder=null class='form-control user-input')
+                          input(type='text' id='add-title' name='title' placeholder=null class='form-control user-input')
                       div(class='add-book-form-group')
                         label(for='author' class='user-label') Author
-                          input(type='text' id='author' name='author' placeholder=null class='form-control user-input')
+                          input(type='text' id='add-author' name='author' placeholder=null class='form-control user-input')
                       div(class='add-book-form-group')
                         label(for='published' class='user-label') Published
-                          input(type='text' id='published' name='published' placeholder=null class='form-control user-input')
+                          input(type='text' id='add-published' name='published' placeholder=null class='form-control user-input')
                       div(class='submit-div')
                         button(type='submit' class="user-form" class='btn submit') Add
                         a(href='/bookshelves/add-book' class='a clear') Clear
