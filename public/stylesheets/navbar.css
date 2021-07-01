@@ -2,15 +2,11 @@
   display: flex;
   justify-content: space-evenly;
   flex-direction: row;
-  /* background-color: white; */
-  /* background-image: url(/images/Books-background-rotated.jpeg); */
-
   align-items: center;
   font-family: sans-serif;
   height: 350px;
   position: absolute;
   width: 100%;
-  /* box-shadow: 0px 0px 1px 2px rgba(0, 0, 0, .25) */
 }
 
 #navbar-brainfood {
@@ -27,7 +23,6 @@
 }
 
 .nav-left {
-  /* grid-area: navbar-brainfood; */
   width: 50%;
   display: flex;
   justify-content: space-around;
@@ -68,29 +63,13 @@
   width: 550px;
 }
 
-.main-div-container .nav-buttons-div:hover {
-  /* height: 60px; */
-  /* padding: 5px; */
-  display: flex;
-  /* align-items: center; */
-  color: rgba(142, 154, 175, 0.8);
-  /* transform: color 1s linear; */
-
-  /* background-color: rgba(255, 255, 255, 0.7); */
-  /* background-color:gray; */
+#navbar-home:hover,
+#navbar-mybooks:hover,
+.nav-buttons-div > a:hover,
+#nav-logout:hover {
+  color: rgb(158, 158, 158);
 }
 
-/* .navbar .nav-buttons-div:hover {
-  height: 60px;
-  /* padding: 5px; */
-/* display: flex;
-  align-items: center;
-  color: rgb(142, 154, 175); */
-
-/* background-color: rgba(255, 255, 255, 0.7); */
-/* background-color:gray; */
-
-/* } */
 
 #navbar-brainfood {
   /* text-decoration: none;*/
@@ -107,7 +86,6 @@
 }
 
 #navbar-home {
-  /* grid-area: navbar-home;    */
   display: flex;
   justify-self: start;
   text-decoration: none;
@@ -129,7 +107,6 @@
 }
 
 #navbar-profile-btn {
-  /* background-image: url(/images/Temp_Logo.png); */
   background-size: 200px;
   height: 100x;
   width: 70px;
@@ -146,7 +123,7 @@
   font-weight: bold;
 }
 
-.navbar-search-btn {
+/* .navbar-search-btn { */
   /* background-image: url(/search-mag.jpg);
   background-position: center;
   background-size: 29px;
@@ -163,7 +140,7 @@
   background-color : white;
   outline: none; */
   /* margin-top: px; */
-}
+/* } */
 
 #navbar-welcome-text {
   color: black;
@@ -268,7 +245,8 @@
 
 .add-book-btn {
   color: black;
-  font-weight: 500;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 .add-book-btn:hover {
