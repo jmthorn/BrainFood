@@ -81,7 +81,7 @@ window.addEventListener("DOMContentLoaded", () => {
       } else {
         // TODO
       }
-
+    }
 
     let tagBtn = document.querySelector(".tag-btn")
     tagBtn.addEventListener("click", async (event) => {
