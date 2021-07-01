@@ -155,13 +155,29 @@ router.post("/:id/tags", asyncHandler(async (req, res) => {
 // Edit Read Status ==============================================
 
 router.post("/:id/readstatus", asyncHandler(async (req, res) => {
-    const userId = req.session.auth.userId
-    let bookId = parseInt(req.params.id, 10)
-    const { readStatusInput } = req.body;
-    console.log("status -------------------------------", readStatusInput);
-    let readStatus = await db.ReadStatus.findOne({ where: { bookId, userId } })
-    await readStatus.update({ "status": readStatusInput });
-    res.json({ readStatusInput })
+  const userId = req.session.auth.userId;
+  let bookId = parseInt(req.params.id, 10);
+  const { readStatusInput } = req.body;
+  console.log("status -------------------------------", readStatusInput);
+  const bookshelves = await db.Bookshelf.findAll({
+    where: {
+      userId,
+    },
+  });
+  let selectedBookshelf;
+  bookshelves.forEach((bookshelf) => {
+    if (bookshelf.name === readStatusInput) {
+      selectedBookshelf = bookshelf;
+    }
+  });
+  console.log(selectedBookshelf.id);
+  let bookshelfToBook = await db.BookshelfToBook.create({
+    bookshelfId: parseInt(selectedBookshelf.id),
+    bookId: parseInt(bookId),
+  });
+  let readStatus = await db.ReadStatus.findOne({ where: { bookId, userId } });
+  await readStatus.update({ status: readStatusInput });
+  res.json({ readStatusInput, bookshelfToBook });
 }))
 
 
