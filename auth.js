@@ -8,10 +8,11 @@ const loginUser = (req, res, user) => {
 
 const logoutUser = (req, res) => {
     delete req.session.auth;
+    // res.redirect('/users/signup')           // add this to check for delete feature.
 }
 
 const requireAuth = (req, res, next) => {
-    if(!res.locals.authenticated) {
+    if (!res.locals.authenticated) {
         return res.redirect('/users/login');
     }
     return next();
@@ -20,18 +21,18 @@ const requireAuth = (req, res, next) => {
 const restoreUser = async (req, res, next) => {
     // console.log("SESSION:", req.session);
 
-    if(req.session.auth) {
+    if (req.session.auth) {
         const { userId } = req.session.auth;
 
         try {
             const user = await db.User.findByPk(userId);
 
-            if(user) {
+            if (user) {
                 res.locals.authenticated = true;
                 res.locals.user = user;
                 next()
             }
-        }catch(err) {
+        } catch (err) {
             res.locals.authenticated = false;
             next(err)
         }
@@ -42,7 +43,7 @@ const restoreUser = async (req, res, next) => {
 }
 
 
-module.exports =  {
+module.exports = {
     loginUser,
     logoutUser,
     requireAuth,
