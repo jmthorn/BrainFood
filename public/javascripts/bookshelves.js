@@ -58,10 +58,6 @@ const newShelf = document.getElementById("add-shelf-button");
         );
  });
 
-
-
-
-
 //Delete Bookshelf
 
 let deleteBookshelves = document.querySelectorAll(".delete-button");
