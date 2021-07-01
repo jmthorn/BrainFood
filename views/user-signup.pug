@@ -20,11 +20,11 @@ html
         div(class="user-content-container")
           div(class="img-container")
             img(src="/images/Brain_Logo_large.png" alt="No image" width="200px")
-          div.errors
-            +validationErrorSummary(errors)
           div(class='around-form-container')
             div(class="form-container")
               h1(class="form-header") Sign Up
+                div.errors
+                  +validationErrorSummary(errors)
               form(action='/users/signup' method='post' class="user-form")
                 input(type='hidden' name='_csrf' value=csrfToken)
                 +field('Username', 'username', user.username)
