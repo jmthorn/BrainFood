@@ -1,16 +1,40 @@
 window.addEventListener("DOMContentLoaded", () => {
-  const addReview = (review, userId) => {
-    let div = document.createElement("div");
-    div.classList.add("review-container");
-    let h4 = document.createElement("h4");
-    h4.classList.add("review-author");
-    div.appendChild(h4);
-    h4.innerText = review.author;
-    let ratingSpan = document.createElement("span");
-    ratingSpan.classList.add("review-rating");
-    for (let i = 1; i <= review.rating; i++) {
-      ratingSpan.innerHTML += "🧠";
-    }
+
+    const addReview = (review, userId) => {
+        let div = document.createElement('div')
+        div.classList.add("review-container");
+        let h4 = document.createElement('h4');
+        h4.classList.add("review-author");
+        div.appendChild(h4);
+        h4.innerText = review.author;
+        let ratingSpan = document.createElement("span")
+        ratingSpan.classList.add("review-rating");
+        for (let i = 1; i <= review.rating; i++) {
+            ratingSpan.innerHTML += '🧠';
+        }
+        div.appendChild(ratingSpan)
+        if (review.userId === userId) {
+            let editButton = document.createElement('button');
+            editButton.innerText = "Edit";
+            editButton.classList.add("review-edit-btn")
+            editButton.classList.add("btn")
+            editButton.setAttribute("review-id", review.id)
+            div.appendChild(editButton)
+            let deleteButton = document.createElement('button');
+            deleteButton.innerText = "Delete";
+            deleteButton.classList.add("review-delete-btn")
+            deleteButton.classList.add("btn")
+            deleteButton.setAttribute("review-id", review.id)
+            div.appendChild(deleteButton)
+        }
+        let p = document.createElement('p')
+        p.innerHTML = review.review
+        div.appendChild(p)
+        let existingReviews = document.querySelector(".existing-reviews")
+        let reviewsContainer = document.querySelector(".reviews-container")
+        existingReviews.insertBefore(div, existingReviews.childNodes[0])
+        let textarea = document.querySelector(".new-review-textarea")
+        textarea.value = "";
     div.appendChild(ratingSpan);
     if (review.userId === userId) {
       let editButton = document.createElement("button");
@@ -103,9 +127,9 @@ window.addEventListener("DOMContentLoaded", () => {
         })
 
         let data = await res.json()
-        if(!data.newTag) {
+        if (!data.newTag) {
             addTag(data.existingTag.category)
-        } else   [
+        } else[
             addTag(data.newTag.category)
         ]
     })
@@ -131,14 +155,14 @@ window.addEventListener("DOMContentLoaded", () => {
 
 
     let readStatusForm = document.querySelector(".readstatus-form")
-    readStatusForm.addEventListener("submit", async(e) => { 
+    readStatusForm.addEventListener("submit", async (e) => {
         e.preventDefault()
         let readStatus = document.getElementById("rstatus")
         let readStatusInput = readStatus.value
         let bookId = event.target.baseURI.split('/')[4]
 
-        let res = await fetch(`/books/${bookId}/readstatus`, { 
-            method: "POST", 
+        let res = await fetch(`/books/${bookId}/readstatus`, {
+            method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
@@ -165,25 +189,23 @@ window.addEventListener("DOMContentLoaded", () => {
 
     let tagdeletebtn = document.querySelectorAll(".delete-tag")
     for (const button of tagdeletebtn) {
-        button.addEventListener("click", async(event) => { 
+        button.addEventListener("click", async (event) => {
             event.preventDefault()
             let tagId = event.target.value
-            
             let bookId = event.target.baseURI.split('/')[4]
             console.log('DELETEEEEEEEEE', bookId, tagId)
-            let res = await fetch(`/books/tags/${tagId}`, {
-                method: "POST",
+            let res = await fetch(`/books/${bookId}/tags/${tagId}`, {
+                method: "delete",
                 headers: {
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify({
-                    bookId, 
-                    tagId
-                })
             })
-            console.log('DELETEEEEEEEEE', bookId)
-            let data = await res.json()
-            console.log(data)
+            console.log('DELETEEEEEEEEE', bookId, res)
+            if (res.ok) {
+                event.target.parentElement.remove();
+            }
+            // let data = await res.json()
+            // console.log("DATAAAA:", data)
         })
     }
     // check if any of the edit buttons are clicked (including new edit button)
