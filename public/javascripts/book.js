@@ -50,14 +50,6 @@ window.addEventListener("DOMContentLoaded", () => {
       deleteButton.setAttribute("review-id", review.id);
       div.appendChild(deleteButton);
     }
-    let p = document.createElement("p");
-    p.innerHTML = review.review;
-    div.appendChild(p);
-    let existingReviews = document.querySelector(".existing-reviews");
-    let reviewsContainer = document.querySelector(".reviews-container");
-    existingReviews.insertBefore(div, existingReviews.childNodes[0]);
-    let textarea = document.querySelector(".new-review-textarea");
-    textarea.value = "";
   };
 
   //ADD REVIEW ================================

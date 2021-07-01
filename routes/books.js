@@ -158,6 +158,7 @@ router.post("/:id/readstatus", asyncHandler(async (req, res) => {
     const userId = req.session.auth.userId
     let bookId = parseInt(req.params.id, 10)
     const { readStatusInput } = req.body;
+    console.log("status -------------------------------", readStatusInput);
     let readStatus = await db.ReadStatus.findOne({ where: { bookId, userId } })
     await readStatus.update({ "status": readStatusInput });
     res.json({ readStatusInput })
