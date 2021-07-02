@@ -14,7 +14,8 @@
    let author = document.getElementById("add-author").value;
    let published = document.getElementById("add-published").value;
 
-    if(published.length > 0) { 
+    if(published && cover) { 
+        console.log(cover)
         let res = await fetch(`/bookshelves/${bookshelfId}/add-book`, {
                 method: "POST",
                 headers: {

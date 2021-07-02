@@ -6,6 +6,7 @@ append head
    link(rel="preconnect", href="https://fonts.gstatic.com")
    link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap")
    script(src='/javascripts/bookshelves.js' type='module')
+   script(src='/javascripts/book.js' type='module')
 block content
   .background-image
     .header
@@ -16,10 +17,12 @@ block content
           div(id='bookshelves')
             label(id="bkslflabel") Bookshelves
             ul(id='ul-bookshelves')
+              li(class="bookshelf-li"): a(href=`/bookshelves/${bookshelves[0].id}` class='bookshelf-links') Want to Read
+              li(class="bookshelf-li"): a(href=`/bookshelves/${bookshelves[1].id}` class='bookshelf-links') Currently Reading
+              li(class="bookshelf-li"): a(href=`/bookshelves/${bookshelves[2].id}` class='bookshelf-links') Read 
               each bookshelf in bookshelves
-                .bookshelf-name
-                  li(class="bookshelf-li"): a(href=`/bookshelves/${bookshelf.id}` class='bookshelf-links') #{bookshelf.name}
-                  a(bookshelf-id=`${bookshelf.id}` class="bookshelf-li delete-button" ) ⓧ
+                li(class="bookshelf-li"): a(href=`/bookshelves/${bookshelf.id}` class='bookshelf-links') #{bookshelf.name}
+                  a(bookshelf-id=`${bookshelf.id}` class="bookshelf-li delete-button" ) ⓧ 
             form(method='post'  id='add-shelf')
               input(type="text" class='add-bookshelf-placeholder' name='listname' placeholder='Add Bookshelf')
               button(type='submit' class='btn' id='add-shelf-button') Add
@@ -57,6 +60,7 @@ block content
                 td: a(href=`/books/${book.id}`)= book.author
                 td: a(href=`/books/${book.id}`)= book.avg_rating
                 td= book.published
-
-      else
+                td: a(book-id=`${book.id}` class='delete-from-bookshelf') ⓧ
+                
+      else 
         div(id="no-books-div") You don't have any books in this shelf!

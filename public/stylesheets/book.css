@@ -6,7 +6,7 @@
   text-align: center;
   color: rgb(221, 218, 218);
   margin-bottom: 20px;
-  font-size: 32px;
+  font-size: 24px;
 }
 
 .review-form {
@@ -15,7 +15,7 @@
 
 .new-review-textarea {
   position: absolute;
-  width: 1300px;
+  width: 86%;
   height: 150px;
   right: 8px;
   margin: 30px;
@@ -44,10 +44,10 @@
 }
 
 .new-review {
-  width: 1400px;
+  width: 60%;
   height: 300px;
   background-color: rgba(142, 154, 175, 0.548);
-  margin-top: 220px;
+  margin-top: 100px;
   padding: 40px;
   border-radius: 20px;
 }
@@ -62,7 +62,7 @@
   width: 700px;
 }
 
-.usersPosted-reviews{
+.usersPosted-reviews {
   margin-top: 20px;
 }
 
@@ -106,7 +106,7 @@
 .page-content {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 250px 600px 800px 600px 300px;
+  grid-template-rows: 250px 600px 600px 600px 300px;
   grid-template-areas:
     ". . ."
     "cover description sidebar"
