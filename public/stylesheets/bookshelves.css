@@ -251,3 +251,12 @@ th {
   color: black;
   font-size: 16px;
 }
+
+a.delete-from-bookshelf {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+div#no-books-div {
+  width: 1263px;
+}
