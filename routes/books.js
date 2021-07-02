@@ -115,13 +115,13 @@ router.delete("/:id/bookshelves", asyncHandler(async (req, res) => {
 
 //DELETE BOOK =========================================================
 
-router.post("/:id/delete", asyncHandler(async (req, res) => {
+router.delete("/:id", asyncHandler(async (req, res) => {
     // const userId = req.session.auth.userId
     const { bookId } = req.body;
     let book = await db.Book.findByPk(bookId)
     let deletedBook = await db.Book.destroy({ where: { id: parseInt(bookId) } });
     console.log('DELETEEEEEEEEE', deletedBook)
-    res.json({ userId, deletedBook })
+    res.json(deletedBook);
 }));
 
 
@@ -155,7 +155,6 @@ router.post("/:id/readstatus", asyncHandler(async (req, res) => {
   let bookId = parseInt(req.params.id, 10);
   const { readStatusInput } = req.body;
   let readStatus = await db.ReadStatus.findOne({ where: { bookId, userId } });
-  await readStatus.update({ status: readStatusInput });
   if (!readStatus) {
     let newReadStatus = await db.ReadStatus.create({
       bookId: parseInt(bookId),
@@ -165,20 +164,18 @@ router.post("/:id/readstatus", asyncHandler(async (req, res) => {
   } else {
     await readStatus.update({ status: readStatusInput });
   }
-  console.log("status -------------------------------", readStatusInput);
   const bookshelves = await db.Bookshelf.findAll({
     where: {
       userId,
     },
   });
-  let selectedBookshelf;
-  bookshelves.forEach((bookshelf) => {
-    if (bookshelf.name === readStatusInput) {
-      selectedBookshelf = bookshelf;
-    }
-  });
+  let selectedBookshelf = bookshelves.filter((bookshelf => bookshelf.name === readStatusInput));
+
+  if(!selectedBookshelf) { 
+    selectedBookshelf = await db.Bookshelf.create({ name: readStatusInput, userId: parseInt(userId)})
+  }
   let bookshelfToBook = await db.BookshelfToBook.create({
-    bookshelfId: parseInt(selectedBookshelf.id),
+    bookshelfId: parseInt(selectedBookshelf[0].id),
     bookId: parseInt(bookId),
   });
   res.json({ readStatusInput, bookshelfToBook });
