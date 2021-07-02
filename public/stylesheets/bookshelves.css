@@ -260,3 +260,7 @@ a.delete-from-bookshelf {
 div#no-books-div {
   width: 1263px;
 }
+
+.delete-button {
+ float: right;
+}
