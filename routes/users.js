@@ -199,6 +199,12 @@ router.patch('/profile/:id(\\d+)', asyncHandler(async (req, res) => {
 router.delete('/profile/:id', asyncHandler(async (req, res) => {
   const id = parseInt(req.body.personId);
   const user = await db.User.findByPk(id);
+  console.log(id, 'id--------')
+  console.log(user, 'userID--------')
+
+  if (id === 80) {
+    return console.log('Cannot delete demo user'), 401
+  }
 
   await user.destroy()
   logoutUser(req, res);

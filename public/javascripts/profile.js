@@ -3,8 +3,8 @@
 
 //  one eventlistener on a submit for the edit
 //  one eventlistener on a delete
-  // click the logout button and do the fetch to redirect
-  // delete
+// click the logout button and do the fetch to redirect
+// delete
 console.log('connect to script file')
 // const { logoutUser } = require('../auth');
 
@@ -21,15 +21,15 @@ window.addEventListener("DOMContentLoaded", () => {
   openModal.addEventListener("click", (event) => {
     console.log('clicked edit button to open modal')
     modal.classList.remove("hidden")
-      modal.classList.add("modal-show")
+    modal.classList.add("modal-show")
   })
 
 
   window.addEventListener("click", (event) => {
     if (event.target === modal) {
-          modal.classList.remove("modal-show")
-          modal.classList.add("hidden")
-      }
+      modal.classList.remove("modal-show")
+      modal.classList.add("hidden")
+    }
   })
 
 
@@ -51,13 +51,13 @@ window.addEventListener("DOMContentLoaded", () => {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            newUser,
-            newEmail,
-            newPicture
-        })
+      },
+      body: JSON.stringify({
+        newUser,
+        newEmail,
+        newPicture
       })
+    })
 
     let data = await res.json()     // prints out the update
     let { user } = data;
@@ -103,27 +103,40 @@ window.addEventListener("DOMContentLoaded", () => {
   //   }
   // })
 
-   deleteProfileBtn.addEventListener('click', async (event) => {
+  deleteProfileBtn.addEventListener('click', async (event) => {
+    let personId = event.target.baseURI.split('/')[5]
     // event.preventDefault();
-    let deleteConfirmation = confirm('Are you sure you want to delete your profile?')
-    if (!deleteConfirmation) return
-    // console.log(document.cookie)
-    if (deleteConfirmation) {
-      let personId = event.target.baseURI.split('/')[5]
-      await fetch(`/users/profile/${personId}`, {
-        method: 'DELETE',
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          personId
-        })
-      })
-      // console.log(res.ok);
-      // let data = await res.json()
-      console.log('went past delete confirm')
-      window.location.href = '/'
-      // logoutUser()
+    let deleteConfirmation
+
+    if (!personId === 80) {
+      deleteConfirmation = confirm('Are you sure you want to delete your profile?')
+    } else {
+      deleteConfirmation = confirm('You cannot delete demo user')
     }
+    console.log(deleteConfirmation, '----confirmation')
+
+    // let deleteConfirmation = confirm('Are you sure you want to delete your profile?')
+    // deleteConfirmation = confirm('You cannot delete demo user')
+    // console.log(userId, 'userId-------')
+    if (!deleteConfirmation) return
+
+    // console.log(document.cookie)
+    // if (deleteConfirmation) {
+    //   // let personId = event.target.baseURI.split('/')[5]
+    //   await fetch(`/users/profile/${personId}`, {
+    //     method: 'DELETE',
+    //     headers: {
+    //       "Content-Type": "application/json"
+    //     },
+    //     body: JSON.stringify({
+    //       personId
+    //     })
+    //   })
+    //   // console.log(res.ok);
+    //   // let data = await res.json()
+    //   console.log('went past delete confirm')
+    //   window.location.href = '/'
+    //   // logoutUser()
+    // }
   })
 })
