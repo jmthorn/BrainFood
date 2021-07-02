@@ -1,6 +1,3 @@
-
-
-
 //  one eventlistener on a submit for the edit
 //  one eventlistener on a delete
 // click the logout button and do the fetch to redirect
@@ -32,7 +29,7 @@ window.addEventListener("DOMContentLoaded", () => {
     }
   })
 
-
+  //EDIT USER DETAILS=========================================================
   userEditBtn.addEventListener("click", async (event) => {
     event.preventDefault();     // Don't want a refresh
     // console.log(userModalForm.children.value)
@@ -72,37 +69,8 @@ window.addEventListener("DOMContentLoaded", () => {
     newPicture.innerHTML = user.image;
   })
 
-  // deleteProfileBtn.addEventListener('click', async(event) => {
-  //   // event.preventDefault();
-  //   let deleteConfirmation = confirm('Are you sure you want to delete your profile?')
-  //   if(!deleteConfirmation) return
-  //   // console.log(document.cookie)
 
-  //   let personId = event.target.baseURI.split('/')[5]
-  //   await fetch(`/users/profile/${personId}`, {
-  //     method: 'DELETE',
-  //     headers: {
-  //       "Content-Type": "application/json"
-  //     },
-  //     body: JSON.stringify({
-  //       personId
-  //     })
-  //   })
-  //   // console.log(res.ok);
-
-  //   // if (deleteConfirmation) {
-  //   //   // let data = await res.json()
-  //   //   console.log('went past delete confirm')
-  //   //   // window.location.href='http://localhost:8080'
-  //   //   // logoutUser()
-  //   // }
-
-  //   if(res.ok){
-  //     // res.clearCookie('connect.sid',{path:'/',domain:'.awesomedomain.co'});
-  //     window.location.href='/users/login'
-  //   }
-  // })
-
+  //DELETE USER AS A WHOLE=========================================================
   deleteProfileBtn.addEventListener('click', async (event) => {
     let personId = event.target.baseURI.split('/')[5]
 
