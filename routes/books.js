@@ -7,10 +7,6 @@ const { loginUser, logoutUser } = require('../auth');
 const { check, validationResult } = require('express-validator');
 const db = require('../db/models');
 
-
-
-
-
 router.get("/:id", asyncHandler(async (req, res) => {
     const userId = req.session.auth.userId
     if (!userId) res.redirect("/users/login");
@@ -182,8 +178,6 @@ router.post("/:id/readstatus", asyncHandler(async (req, res) => {
 
 
 //DELETE TAG============================================================
-
-
 
 router.delete("/:bookId/tags/:tagId", asyncHandler(async (req, res) => {
 
