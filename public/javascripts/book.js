@@ -212,7 +212,6 @@ window.addEventListener("DOMContentLoaded", () => {
     let readStatus = document.getElementById("rstatus");
     let readStatusInput = readStatus.value;
     let bookId = e.target.baseURI.split("/")[4];
-    console.log("READSTATUSINPUT", readStatusInput)
     let res = await fetch(`/books/${bookId}/readstatus`, {
       method: "POST",
       headers: {

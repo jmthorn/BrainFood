@@ -163,23 +163,19 @@ router.post("/:id/readstatus", asyncHandler(async (req, res) => {
     });
   } else {
     await readStatus.update({ status: readStatusInput });
-    console.log("+++++++++++",readStatus)
   }
-  console.log("status -------------------------------", readStatusInput);
   const bookshelves = await db.Bookshelf.findAll({
     where: {
       userId,
     },
   });
-  let selectedBookshelf;
-  bookshelves.forEach((bookshelf) => {
-    if (bookshelf.name === readStatusInput) {
-      selectedBookshelf = bookshelf;
-    }
-  });
-  console.log("==============", selectedBookshelf) //undefined
+  let selectedBookshelf = bookshelves.filter((bookshelf => bookshelf.name === readStatusInput));
+
+  if(!selectedBookshelf) { 
+    selectedBookshelf = await db.Bookshelf.create({ name: readStatusInput, userId: parseInt(userId)})
+  }
   let bookshelfToBook = await db.BookshelfToBook.create({
-    bookshelfId: parseInt(selectedBookshelf.id),
+    bookshelfId: parseInt(selectedBookshelf[0].id),
     bookId: parseInt(bookId),
   });
   res.json({ readStatusInput, bookshelfToBook });
