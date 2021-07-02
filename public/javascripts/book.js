@@ -158,12 +158,18 @@ window.addEventListener("DOMContentLoaded", () => {
     })
 
     //ADD TAGS====================================
-
-    const addTag = (tagCategory) => {
+    //button(class="delete-tag" value=tag.id id=tag.category) ⓧ
+    const addTag = (tagCategory, tagId) => {
         let tagContainer = document.querySelector(".tags")
         let div = document.createElement("div")
+        let delButton = document.createElement("button")
         div.innerText = tagCategory
         div.classList.add("book-tag")
+        delButton.innerText = "ⓧ"
+        delButton.classList.add("delete-tag")
+        delButton.setAttribute("value", tagId)
+        delButton.setAttribute("id", tagCategory)
+        div.appendChild(delButton)
         tagContainer.insertBefore(div, tagContainer.childNodes[0])
     }
 
@@ -175,7 +181,6 @@ window.addEventListener("DOMContentLoaded", () => {
         let tagInput = document.querySelector(".tag-input")
         let category = tagInput.value
         let bookId = event.target.baseURI.split('/')[4]
-
         let res = await fetch(`/books/${bookId}/tags`, {
             method: "POST",
             headers: {
@@ -188,11 +193,14 @@ window.addEventListener("DOMContentLoaded", () => {
         })
 
         let data = await res.json()
+
         if (!data.newTag) {
-            addTag(data.existingTag.category)
-        } else[
-            addTag(data.newTag.category)
-        ]
+            addTag(data.existingTag.category, data.existingTag.id)
+            tagInput.value = ""
+        } else {
+            addTag(data.newTag.category, data.newTag.id)
+            tagInput.value = ""
+        }
     })
 
 
@@ -248,27 +256,50 @@ window.addEventListener("DOMContentLoaded", () => {
 
     // DELETE TAGS ===================================================
 
-    let tagdeletebtn = document.querySelectorAll(".delete-tag")
-    for (const button of tagdeletebtn) {
-        button.addEventListener("click", async (event) => {
-            event.preventDefault()
+    let tagContainer = document.querySelector(".tag-container")
+    tagContainer.addEventListener("click", async (event) => {
+        event.preventDefault()
+        if (event.target.classList.contains("delete-tag")) {
             let tagId = event.target.value
             let bookId = event.target.baseURI.split('/')[4]
-            console.log('DELETEEEEEEEEE', bookId, tagId)
+            console.log('DEELEETTEEE MYYYY TAAAGG', bookId, tagId)
             let res = await fetch(`/books/${bookId}/tags/${tagId}`, {
                 method: "delete",
                 headers: {
                     "Content-Type": "application/json"
                 },
             })
-            console.log('DELETEEEEEEEEE', bookId, res)
+            console.log('DEELEETTEEE MYYYY TAAAGG', bookId, res)
             if (res.ok) {
                 event.target.parentElement.remove();
             }
-            // let data = await res.json()
-            // console.log("DATAAAA:", data)
-        })
-    }
+            let data = await res.json()
+            console.log("DATAAAA:", data)
+        }
+    })
+
+
+
+    // for (const button of tagdeletebtn) {
+    //     button.addEventListener("click", async (event) => {
+    //         event.preventDefault()
+    //         let tagId = event.target.value
+    //         let bookId = event.target.baseURI.split('/')[4]
+    //         console.log('DELETEEEEEEEEE', bookId, tagId)
+    //         let res = await fetch(`/books/${bookId}/tags/${tagId}`, {
+    //             method: "delete",
+    //             headers: {
+    //                 "Content-Type": "application/json"
+    //             },
+    //         })
+    //         console.log('DELETEEEEEEEEE', bookId, res)
+    //         if (res.ok) {
+    //             event.target.parentElement.remove();
+    //         }
+    //         // let data = await res.json()
+    //         // console.log("DATAAAA:", data)
+    //     })
+    // }
 
 
 
