@@ -24,7 +24,7 @@ block content
                 li(class="bookshelf-li"): a(href=`/bookshelves/${bookshelf.id}` class='bookshelf-links') #{bookshelf.name}
                   a(bookshelf-id=`${bookshelf.id}` class="bookshelf-li delete-button" ) ⓧ 
             form(method='post'  id='add-shelf')
-              input(type="text" name='listname' placeholder='Add Bookshelf')
+              input(type="text" class='add-bookshelf-placeholder' name='listname' placeholder='Add Bookshelf')
               button(type='submit' class='btn' id='add-shelf-button') Add
           //- div(id='add-books')
           //-   div(class="hidden" id="modal")

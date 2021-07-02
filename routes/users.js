@@ -200,10 +200,14 @@ router.delete('/profile/:id', asyncHandler(async (req, res) => {
   const id = parseInt(req.body.personId);
   const user = await db.User.findByPk(id);
 
+  if (id === 1) {
+    return 401
+  }
+
   await user.destroy()
   logoutUser(req, res);
 
-  console.log('----After the GET----')
+  // console.log('----After the GET----')
   res.redirect(303, "/users/login")
 }))
 
