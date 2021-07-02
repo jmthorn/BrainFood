@@ -154,6 +154,17 @@ router.post("/:id/readstatus", asyncHandler(async (req, res) => {
   const userId = req.session.auth.userId;
   let bookId = parseInt(req.params.id, 10);
   const { readStatusInput } = req.body;
+  let readStatus = await db.ReadStatus.findOne({ where: { bookId, userId } });
+  await readStatus.update({ status: readStatusInput });
+  if (!readStatus) {
+    let newReadStatus = await db.ReadStatus.create({
+      bookId: parseInt(bookId),
+      userId: parseInt(userId),
+      status: readStatusInput,
+    });
+  } else {
+    await readStatus.update({ status: readStatusInput });
+  }
   console.log("status -------------------------------", readStatusInput);
   const bookshelves = await db.Bookshelf.findAll({
     where: {
@@ -170,12 +181,6 @@ router.post("/:id/readstatus", asyncHandler(async (req, res) => {
     bookshelfId: parseInt(selectedBookshelf.id),
     bookId: parseInt(bookId),
   });
-  if (!readStatus) { 
-        let newReadStatus = await db.ReadStatus.create({ bookId: parseInt(bookId), userId: parseInt(userId), status:readStatusInput})
-    } else { 
-        await readStatus.update({ "status": readStatusInput });
-    }
-  await readStatus.update({ status: readStatusInput });
   res.json({ readStatusInput, bookshelfToBook });
 }))
 
