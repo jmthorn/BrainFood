@@ -115,13 +115,13 @@ router.delete("/:id/bookshelves", asyncHandler(async (req, res) => {
 
 //DELETE BOOK =========================================================
 
-router.post("/:id/delete", asyncHandler(async (req, res) => {
+router.delete("/:id", asyncHandler(async (req, res) => {
     // const userId = req.session.auth.userId
     const { bookId } = req.body;
     let book = await db.Book.findByPk(bookId)
     let deletedBook = await db.Book.destroy({ where: { id: parseInt(bookId) } });
     console.log('DELETEEEEEEEEE', deletedBook)
-    res.json({ userId, deletedBook })
+    res.json(deletedBook);
 }));
 
 
