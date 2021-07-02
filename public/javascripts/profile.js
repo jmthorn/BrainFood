@@ -105,38 +105,33 @@ window.addEventListener("DOMContentLoaded", () => {
 
   deleteProfileBtn.addEventListener('click', async (event) => {
     let personId = event.target.baseURI.split('/')[5]
+
     // event.preventDefault();
-    let deleteConfirmation
 
-    if (!personId === 80) {
-      deleteConfirmation = confirm('Are you sure you want to delete your profile?')
-    } else {
-      deleteConfirmation = confirm('You cannot delete demo user')
-    }
-    console.log(deleteConfirmation, '----confirmation')
+    let deleteConfirmation = confirm('Are you sure you want to delete your profile?')
 
-    // let deleteConfirmation = confirm('Are you sure you want to delete your profile?')
-    // deleteConfirmation = confirm('You cannot delete demo user')
-    // console.log(userId, 'userId-------')
     if (!deleteConfirmation) return
-
     // console.log(document.cookie)
-    // if (deleteConfirmation) {
-    //   // let personId = event.target.baseURI.split('/')[5]
-    //   await fetch(`/users/profile/${personId}`, {
-    //     method: 'DELETE',
-    //     headers: {
-    //       "Content-Type": "application/json"
-    //     },
-    //     body: JSON.stringify({
-    //       personId
-    //     })
-    //   })
-    //   // console.log(res.ok);
-    //   // let data = await res.json()
-    //   console.log('went past delete confirm')
-    //   window.location.href = '/'
-    //   // logoutUser()
-    // }
+
+
+    if (deleteConfirmation && personId !== '1') {
+      // let personId = event.target.baseURI.split('/')[5]
+      await fetch(`/users/profile/${personId}`, {
+        method: 'DELETE',
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          personId
+        })
+      })
+      // console.log(res.ok);
+      // let data = await res.json()
+      console.log('went past delete confirm')
+      window.location.href = '/'
+      // logoutUser()
+    } else {
+      alert('Sorry, you cannot delete the demo user!')
+    }
   })
 })
