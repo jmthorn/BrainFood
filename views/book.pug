@@ -97,7 +97,7 @@ block content
                             if review.rating===5
                                 | 🧠🧠🧠🧠🧠
                         div(class="review-timestamp")=date
-                        p
+                        p(class='usersPosted-reviews')
                             if review.userId===userId
                                 button(review-id=`${review.id}` class="review-delete-btn btn") Delete
                                 button(review-id=`${review.id}` class="review-edit-btn btn") Edit

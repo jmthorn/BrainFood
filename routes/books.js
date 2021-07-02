@@ -166,12 +166,15 @@ router.post("/:id/readstatus", asyncHandler(async (req, res) => {
       selectedBookshelf = bookshelf;
     }
   });
-  console.log(selectedBookshelf.id);
   let bookshelfToBook = await db.BookshelfToBook.create({
     bookshelfId: parseInt(selectedBookshelf.id),
     bookId: parseInt(bookId),
   });
-  let readStatus = await db.ReadStatus.findOne({ where: { bookId, userId } });
+  if (!readStatus) { 
+        let newReadStatus = await db.ReadStatus.create({ bookId: parseInt(bookId), userId: parseInt(userId), status:readStatusInput})
+    } else { 
+        await readStatus.update({ "status": readStatusInput });
+    }
   await readStatus.update({ status: readStatusInput });
   res.json({ readStatusInput, bookshelfToBook });
 }))

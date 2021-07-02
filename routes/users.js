@@ -12,9 +12,9 @@ const db = require('../db/models');
 
 /* GET users listing. */
 
-router.get('/signup',csrfProtection,(req, res) => {
+router.get('/signup', csrfProtection, (req, res) => {
   const user = db.User.build();
-  console.log("USER................",user)
+  console.log("USER................", user)
   res.render('user-signup', {
     title: 'Signup',
     user,
@@ -75,7 +75,7 @@ router.post('/signup', csrfProtection, userValidators, asyncHandler(async (req, 
   if (validatorErrors.isEmpty()) {
     const hashedpassword = await bcrypt.hash(password, 10);
     user.hashedpassword = hashedpassword;
-    console.log("USER",user)
+    console.log("USER", user)
     await user.save();
     loginUser(req, res, user);
     res.redirect("/");
@@ -91,7 +91,7 @@ router.post('/signup', csrfProtection, userValidators, asyncHandler(async (req, 
 }))
 
 
-router.get('/login', csrfProtection, (req, res) =>  {
+router.get('/login', csrfProtection, (req, res) => {
   res.render('user-login', {
     title: 'Login',
     csrfToken: req.csrfToken()
@@ -108,26 +108,26 @@ const loginValidators = [
     .withMessage('Please provide a value for password')
 ]
 
-router.post('/login', csrfProtection, loginValidators, asyncHandler(async(req, res) => {
+router.post('/login', csrfProtection, loginValidators, asyncHandler(async (req, res) => {
   const { username, password } = req.body;
 
   let errors = [];
   // console.log("11111111ERRORS.......................",errors)
   const validatorErrors = validationResult(req);
-  if(validatorErrors.isEmpty()) {
-    const user = await db.User.findOne({where: {username}})
+  if (validatorErrors.isEmpty()) {
+    const user = await db.User.findOne({ where: { username } })
 
-    if(user != null) {
+    if (user != null) {
       const passwordMatch = await bcrypt.compare(password, user.hashedpassword.toString());
 
-      if(passwordMatch) {
+      if (passwordMatch) {
         loginUser(req, res, user);
         return res.redirect('/')
       }
     }
 
     errors.push('Login failed for the provided username and password');
-  }else {
+  } else {
     errors = validatorErrors.array().map((error) => error.msg)
   }
   // console.log("ERRORS.......................",errors)
@@ -147,21 +147,16 @@ router.post('/logout', (req, res) => {
 });
 
 
-// ------------------------------------------------------------------------------------------
-//  JC adding profile section below :
-
-
-
 //http://localhost:8080/users/profile/:id - - WORKS
-router.get('/profile/:id(\\d+)', requireAuth, asyncHandler(async(req, res) => {
-  const  id  = parseInt(req.params.id);
+router.get('/profile/:id(\\d+)', requireAuth, asyncHandler(async (req, res) => {
+  const id = parseInt(req.params.id);
   // console.log(id, '===========');
 
   const reviews = await db.Review.findAll({
     where: {
       [Op.and]: [
-        {userId: id},
-        {rating: 5}
+        { userId: id },
+        { rating: 5 }
       ]
     },
     include: db.Book, limit: 9
@@ -172,7 +167,7 @@ router.get('/profile/:id(\\d+)', requireAuth, asyncHandler(async(req, res) => {
   // console.log(reviews);
   console.log(user)
   res.render('profile',    //  Server is render from profile.pug        -SERVER side rendering
-  {reviews, user}           // reviews array gives us the the userId and rating data
+    { reviews, user }           // reviews array gives us the the userId and rating data
 
   );
 }));
@@ -181,9 +176,9 @@ router.get('/profile/:id(\\d+)', requireAuth, asyncHandler(async(req, res) => {
 // requireAuth
 
 // // to edit the different sections of the profile page:API ROUTE - comment out csrfprotection & userValidator when testing
-router.patch('/profile/:id(\\d+)',asyncHandler(async (req, res) => {
+router.patch('/profile/:id(\\d+)', asyncHandler(async (req, res) => {
   console.log('hit the patch route')
-const { newUser, newEmail, newPicture } = req.body;
+  const { newUser, newEmail, newPicture } = req.body;
   const { id } = req.params;
   const user = await db.User.findByPk(id);
   user.username = newUser
@@ -192,7 +187,7 @@ const { newUser, newEmail, newPicture } = req.body;
 
   await user.save();
 
-  res.json({user})   // returns the data so no need to redirect or no redirect
+  res.json({ user })   // returns the data so no need to redirect or no redirect
 }))
 
 // csrfProtection, userValidators,
@@ -201,43 +196,16 @@ const { newUser, newEmail, newPicture } = req.body;
 // backend route for delete button for front end route - WORKS
 //http://localhost:8080/users/profile/:id
 
-// router.delete('/profile/:id(\\d+)', asyncHandler(async (req, res)=>{
-//   // const  id  = parseInt(req.params.id);
-//   const id = parseInt(req.body.personId);
-//   console.log(req.body);
-//   const user = await db.User.findByPk(id);
-//   console.log(id);
-//   console.log(typeof id);
-//   // console.log(user);
-
-//   await user.destroy()
-//   // logoutUser()                    // it stalls at this point
-//   console.log('----hello----')
-//   // next();
-
-//   // res.redirect(303, "/users/signup")
-//   // res.json({message:'Success!'})
-//   // res.render('user-signup')
-// }))
 router.delete('/profile/:id', asyncHandler(async (req, res) => {
-  // const  id  = parseInt(req.params.id);
   const id = parseInt(req.body.personId);
-  console.log(req.body);
   const user = await db.User.findByPk(id);
-  console.log(id);
-  console.log(typeof id);
-  // console.log(user);
+
   await user.destroy()
   logoutUser(req, res);
-  res.redirect('/users/login')
-  console.log('----hello----')
-  // next();
-  res.redirect(303, "/signup")
-  // res.json({message:'Success!'})
-  // res.render('user-signup')
+
+  console.log('----After the GET----')
+  res.redirect(303, "/users/login")
 }))
-
-
 
 
 module.exports = router;

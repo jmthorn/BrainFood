@@ -47,7 +47,7 @@ a {
   left: 10%;
   bottom: 20%;
   padding-top: 100px;
-  /* grid-template-areas: 
+  /* grid-template-areas:
     "1 2 3 4 5",
     "1 2 3 4 5",
     "1 2 3 4 5",
@@ -103,7 +103,7 @@ td img {
 .add-book {
   cursor: pointer;
 }
-/* 
+/*
 @media all and (max-width: 800px) {
   #bookshelves {
     position: fixed;
@@ -198,6 +198,13 @@ th {
 
 #add-shelf-button {
   cursor: pointer;
+  font-size: 20px;
+  background-color: rgba(113, 125, 146, 0.932);
+  border-radius: 20px;
+  padding: 5px;
+  box-shadow: 0 0 10px white;
+  color: white;
+  margin-left: 10px;
 }
 
 .modal-show {
