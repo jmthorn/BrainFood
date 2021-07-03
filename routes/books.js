@@ -115,14 +115,16 @@ router.delete("/:id/bookshelves", asyncHandler(async (req, res) => {
 
 //DELETE BOOK =========================================================
 
-router.delete("/:id", asyncHandler(async (req, res) => {
-    // const userId = req.session.auth.userId
-    const { bookId } = req.body;
-    let book = await db.Book.findByPk(bookId)
-    let deletedBook = await db.Book.destroy({ where: { id: parseInt(bookId) } });
-    console.log('DELETEEEEEEEEE', deletedBook)
-    res.json(deletedBook);
-}));
+router.delete("/:id/delete", asyncHandler(async (req, res) => {
+  const { bookId } = req.body;
+  console.log("DELETEEEEEEEEE", bookId);
+   console.log(req.params.id);
+//   let book = await db.Book.findByPk(bookId);
+  let deletedBook = await db.Book.destroy({ where: { id: req.params.id } });
+//   await book.destroy();
+  console.log("DELETEEEEEEEEE", deletedBook);
+//   res.json();
+})); 
 
 
 //ADDING TAGS ===========================================================

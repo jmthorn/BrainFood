@@ -123,7 +123,7 @@ window.addEventListener("DOMContentLoaded", () => {
     let deleteConfirm = confirm("Are you sure you would like to delete?");
     if (!deleteConfirm) return;
     let bookId = event.target.baseURI.split("/")[4];
-    let res = await fetch(`/books/${bookId}`, {
+    let res = await fetch(`/books/${bookId}/delete`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
