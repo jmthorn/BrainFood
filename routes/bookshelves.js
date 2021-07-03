@@ -84,12 +84,18 @@ router.post('/add-book', asyncHandler(async (req, res) => {
 router.delete(
   "/:id",
   asyncHandler(async (req, res) => {
+    const userId = req.session.auth.userId;
     const bookId = parseInt(req.params.id, 10);
     const bookshelf = await db.Bookshelf.findByPk(bookId);
+    const bookshelves = await db.Bookshelf.findAll({
+      where: {
+        userId,
+      },
+    });
 
     console.log(bookshelf);
     await bookshelf.destroy();
-    res.json();
+    res.json(bookshelves);
   })
 );
 

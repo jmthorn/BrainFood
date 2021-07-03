@@ -150,8 +150,16 @@ router.post('/logout', (req, res) => {
 //http://localhost:8080/users/profile/:id - - WORKS
 router.get('/profile/:id(\\d+)', requireAuth, asyncHandler(async (req, res) => {
   const id = parseInt(req.params.id);
+  const userId = req.session.auth.userId;
   // console.log(id, '===========');
+ 
+  const bookshelves = await db.Bookshelf.findAll({
+    where: {
+      userId,
+    },
+  });
 
+  const lowestShelf = bookshelves[0];
   const reviews = await db.Review.findAll({
     where: {
       [Op.and]: [
@@ -167,8 +175,7 @@ router.get('/profile/:id(\\d+)', requireAuth, asyncHandler(async (req, res) => {
   // console.log(reviews);
   console.log(user)
   res.render('profile',    //  Server is render from profile.pug        -SERVER side rendering
-    { reviews, user }           // reviews array gives us the the userId and rating data
-
+    { reviews, user, lowestShelf }           // reviews array gives us the the userId and rating data
   );
 }));
 
