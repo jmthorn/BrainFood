@@ -186,7 +186,7 @@ window.addEventListener("DOMContentLoaded", () => {
     let data = await res.json();
     if (!data.newTag) {
       addTag(data.existingTag.category);
-    } else [addTag(data.newTag.category)];
+    } else[addTag(data.newTag.category)];
   });
 
   //EDIT READSTATUS FROM BOOK==========================
