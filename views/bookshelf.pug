@@ -17,14 +17,14 @@ block content
           div(id='bookshelves')
             label(id="bkslflabel") Bookshelves
             ul(id='ul-bookshelves')
-              li(class="bookshelf-li"): a(href=`/bookshelves/${bookshelves[0].id}` class='bookshelf-links') Want to Read
-              li(class="bookshelf-li"): a(href=`/bookshelves/${bookshelves[1].id}` class='bookshelf-links') Currently Reading
-              li(class="bookshelf-li"): a(href=`/bookshelves/${bookshelves[2].id}` class='bookshelf-links') Read 
-              each bookshelf in bookshelves
+              li(class="bookshelf-li"): a(href=`/bookshelves/${wantToRead.id}` class='bookshelf-links') Want to Read
+              li(class="bookshelf-li"): a(href=`/bookshelves/${currentlyReading.id}` class='bookshelf-links') Currently Reading
+              li(class="bookshelf-li"): a(href=`/bookshelves/${read.id}` class='bookshelf-links') Read 
+              each bookshelf in bookshelves.slice(0, bookshelves.length - 3)
                 li(class="bookshelf-li"): a(href=`/bookshelves/${bookshelf.id}` class='bookshelf-links') #{bookshelf.name}
                   a(bookshelf-id=`${bookshelf.id}` class="bookshelf-li delete-button" ) ⓧ 
             form(method='post'  id='add-shelf')
-              input(type="text" name='listname' placeholder='Add Bookshelf')
+              input(type="text" class='add-bookshelf-placeholder' name='listname' placeholder='Add Bookshelf')
               button(type='submit' class='btn' id='add-shelf-button') Add
           //- div(id='add-books')
           //-   div(class="hidden" id="modal")

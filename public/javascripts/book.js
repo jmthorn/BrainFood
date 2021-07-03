@@ -123,7 +123,7 @@ window.addEventListener("DOMContentLoaded", () => {
     let deleteConfirm = confirm("Are you sure you would like to delete?");
     if (!deleteConfirm) return;
     let bookId = event.target.baseURI.split("/")[4];
-    let res = await fetch(`/books/${bookId}`, {
+    let res = await fetch(`/books/${bookId}/delete`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -211,8 +211,7 @@ window.addEventListener("DOMContentLoaded", () => {
     e.preventDefault();
     let readStatus = document.getElementById("rstatus");
     let readStatusInput = readStatus.value;
-    let bookId = event.target.baseURI.split("/")[4];
-
+    let bookId = e.target.baseURI.split("/")[4];
     let res = await fetch(`/books/${bookId}/readstatus`, {
       method: "POST",
       headers: {
@@ -229,7 +228,8 @@ window.addEventListener("DOMContentLoaded", () => {
     statusButton.classList.add("readstatus-edit");
     statusButton.innerText = "Edit Status";
     readStatusFeild.appendChild(statusButton);
-
+    readstatusModal.classList.remove("modal-show");
+    readstatusModal.classList.add("hidden");
     statusButton.addEventListener("click", (event) => {
       readstatusModal.classList.remove("hidden");
       readstatusModal.classList.add("modal-show");

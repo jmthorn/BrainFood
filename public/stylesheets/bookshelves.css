@@ -14,7 +14,9 @@ html {
 }
 
 input {
-  padding-top: 10px;
+  /* padding-top: 10px; */
+  padding-left: 10px;
+  border-radius: 5px;
 }
 
 #add-shelf {
@@ -22,8 +24,12 @@ input {
   justify-content: center;
   position: absolute;
   bottom: 10px;
-  left: 10px;
+  /* left: 10px; */
   padding-top: 10px;
+  margin-left: -20px;
+  /* background-color: white; */
+  width: 290px;
+  margin-bottom: 15px;
 }
 
 a:hover {
@@ -34,6 +40,11 @@ a {
   color: #4c5460;
   text-decoration: none;
 }
+
+/* .add-bookshelf-placeholder{
+  display:flex;
+  justify-content: center;
+} */
 
 #no-books-div {
   display: flex;
@@ -124,7 +135,7 @@ td img {
   height: auto;
   min-width: 250px;
   text-align: none;
-  padding: 20px;
+  padding: 27px;
   border-radius: 10px;
 }
 
@@ -259,4 +270,8 @@ a.delete-from-bookshelf {
 
 div#no-books-div {
   width: 1263px;
+}
+
+.delete-button {
+ float: right;
 }

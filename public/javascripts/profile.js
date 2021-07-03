@@ -1,10 +1,7 @@
-
-
-
 //  one eventlistener on a submit for the edit
 //  one eventlistener on a delete
-  // click the logout button and do the fetch to redirect
-  // delete
+// click the logout button and do the fetch to redirect
+// delete
 console.log('connect to script file')
 // const { logoutUser } = require('../auth');
 
@@ -21,18 +18,18 @@ window.addEventListener("DOMContentLoaded", () => {
   openModal.addEventListener("click", (event) => {
     console.log('clicked edit button to open modal')
     modal.classList.remove("hidden")
-      modal.classList.add("modal-show")
+    modal.classList.add("modal-show")
   })
 
 
   window.addEventListener("click", (event) => {
     if (event.target === modal) {
-          modal.classList.remove("modal-show")
-          modal.classList.add("hidden")
-      }
+      modal.classList.remove("modal-show")
+      modal.classList.add("hidden")
+    }
   })
 
-
+  //EDIT USER DETAILS=========================================================
   userEditBtn.addEventListener("click", async (event) => {
     event.preventDefault();     // Don't want a refresh
     // console.log(userModalForm.children.value)
@@ -51,13 +48,13 @@ window.addEventListener("DOMContentLoaded", () => {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            newUser,
-            newEmail,
-            newPicture
-        })
+      },
+      body: JSON.stringify({
+        newUser,
+        newEmail,
+        newPicture
       })
+    })
 
     let data = await res.json()     // prints out the update
     let { user } = data;
@@ -72,44 +69,21 @@ window.addEventListener("DOMContentLoaded", () => {
     newPicture.innerHTML = user.image;
   })
 
-  // deleteProfileBtn.addEventListener('click', async(event) => {
-  //   // event.preventDefault();
-  //   let deleteConfirmation = confirm('Are you sure you want to delete your profile?')
-  //   if(!deleteConfirmation) return
-  //   // console.log(document.cookie)
 
-  //   let personId = event.target.baseURI.split('/')[5]
-  //   await fetch(`/users/profile/${personId}`, {
-  //     method: 'DELETE',
-  //     headers: {
-  //       "Content-Type": "application/json"
-  //     },
-  //     body: JSON.stringify({
-  //       personId
-  //     })
-  //   })
-  //   // console.log(res.ok);
+  //DELETE USER AS A WHOLE=========================================================
+  deleteProfileBtn.addEventListener('click', async (event) => {
+    let personId = event.target.baseURI.split('/')[5]
 
-  //   // if (deleteConfirmation) {
-  //   //   // let data = await res.json()
-  //   //   console.log('went past delete confirm')
-  //   //   // window.location.href='http://localhost:8080'
-  //   //   // logoutUser()
-  //   // }
-
-  //   if(res.ok){
-  //     // res.clearCookie('connect.sid',{path:'/',domain:'.awesomedomain.co'});
-  //     window.location.href='/users/login'
-  //   }
-  // })
-
-   deleteProfileBtn.addEventListener('click', async (event) => {
     // event.preventDefault();
+
     let deleteConfirmation = confirm('Are you sure you want to delete your profile?')
+
     if (!deleteConfirmation) return
     // console.log(document.cookie)
-    if (deleteConfirmation) {
-      let personId = event.target.baseURI.split('/')[5]
+
+
+    if (deleteConfirmation && personId !== '1') {
+      // let personId = event.target.baseURI.split('/')[5]
       await fetch(`/users/profile/${personId}`, {
         method: 'DELETE',
         headers: {
@@ -124,6 +98,8 @@ window.addEventListener("DOMContentLoaded", () => {
       console.log('went past delete confirm')
       window.location.href = '/'
       // logoutUser()
+    } else {
+      alert('Sorry, you cannot delete the demo user!')
     }
   })
 })

@@ -21,6 +21,10 @@ router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
   });
 
   const lowestShelf = bookshelves[0];
+  const wantToRead = bookshelves[bookshelves.length - 3];
+  const currentlyReading = bookshelves[bookshelves.length - 2];
+  const read = bookshelves[bookshelves.length - 1];
+  console.log(bookshelves);
 
   const bookshelf = await db.Bookshelf.findByPk(bookshelfId, {
     include: db.Book,
@@ -30,6 +34,9 @@ router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
     book,
     lowestShelf,
     bookshelf,
+    wantToRead,
+    currentlyReading,
+    read,
     bookshelves,
   });
 }))
