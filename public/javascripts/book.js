@@ -248,25 +248,25 @@ window.addEventListener("DOMContentLoaded", () => {
 
   // DELETE TAGS ===================================================
 
-  let tagdeletebtn = document.querySelectorAll(".delete-tag");
-  for (const button of tagdeletebtn) {
-    button.addEventListener("click", async (event) => {
-      event.preventDefault();
-      let tagId = event.target.value;
-      let bookId = event.target.baseURI.split("/")[4];
-      console.log("DELETEEEEEEEEE", bookId, tagId);
+  let tagContainer = document.querySelector(".tag-container")
+  tagContainer.addEventListener("click", async (event) => {
+    event.preventDefault()
+    if (event.target.classList.contains("delete-tag")) {
+      let tagId = event.target.value
+      let bookId = event.target.baseURI.split('/')[4]
+      console.log('DEELEETTEEE MYYYY TAAAGG', bookId, tagId)
       let res = await fetch(`/books/${bookId}/tags/${tagId}`, {
         method: "delete",
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type": "application/json"
         },
-      });
-      console.log("DELETEEEEEEEEE", bookId, res);
+      })
+      console.log('DEELEETTEEE MYYYY TAAAGG', bookId, res)
       if (res.ok) {
         event.target.parentElement.remove();
       }
-      // let data = await res.json()
-      // console.log("DATAAAA:", data)
-    });
-  }
-});
+      let data = await res.json()
+      console.log("DATAAAA:", data)
+    }
+  })
+})
