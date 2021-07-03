@@ -155,13 +155,19 @@ window.addEventListener("DOMContentLoaded", () => {
   });
 
   //ADD TAGS====================================
-
-  const addTag = (tagCategory) => {
-    let tagContainer = document.querySelector(".tags");
-    let div = document.createElement("div");
-    div.innerText = tagCategory;
-    div.classList.add("book-tag");
-    tagContainer.insertBefore(div, tagContainer.childNodes[0]);
+  //button(class="delete-tag" value=tag.id id=tag.category) ⓧ
+  const addTag = (tagCategory, tagId) => {
+    let tagContainer = document.querySelector(".tags")
+    let div = document.createElement("div")
+    let delButton = document.createElement("button")
+    div.innerText = tagCategory
+    div.classList.add("book-tag")
+    delButton.innerText = "ⓧ"
+    delButton.classList.add("delete-tag")
+    delButton.setAttribute("value", tagId)
+    delButton.setAttribute("id", tagCategory)
+    div.appendChild(delButton)
+    tagContainer.insertBefore(div, tagContainer.childNodes[0])
   };
 
   let tagBtn = document.querySelector(".tag-btn");
@@ -185,8 +191,12 @@ window.addEventListener("DOMContentLoaded", () => {
 
     let data = await res.json();
     if (!data.newTag) {
-      addTag(data.existingTag.category);
-    } else[addTag(data.newTag.category)];
+      addTag(data.existingTag.category, data.existingTag.id)
+      tagInput.value = ""
+    } else {
+      addTag(data.newTag.category, data.newTag.id)
+      tagInput.value = ""
+    }
   });
 
   //EDIT READSTATUS FROM BOOK==========================
