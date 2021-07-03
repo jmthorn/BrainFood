@@ -123,7 +123,7 @@ window.addEventListener("DOMContentLoaded", () => {
     let deleteConfirm = confirm("Are you sure you would like to delete?");
     if (!deleteConfirm) return;
     let bookId = event.target.baseURI.split("/")[4];
-    let res = await fetch(`/books/${bookId}/delete`, {
+    let res = await fetch(`/books/${bookId}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -186,7 +186,7 @@ window.addEventListener("DOMContentLoaded", () => {
     let data = await res.json();
     if (!data.newTag) {
       addTag(data.existingTag.category);
-    } else [addTag(data.newTag.category)];
+    } else[addTag(data.newTag.category)];
   });
 
   //EDIT READSTATUS FROM BOOK==========================
